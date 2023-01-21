@@ -1,0 +1,14 @@
+FarmDefenseGame/.vscode/settings.json
+FarmDefenseGame/Library/*
+FarmDefenseGame/Temp/*
+FarmDefenseGame/Logs/*
+FarmDefenseGame/Packages/*
+FarmDefenseGame/ProjectSettings/*
+FarmDefenseGame/UserSettings/*
+FarmDefenseGame/Assembly-CSharp.csproj
+FarmDefenseGame/FarmDefenseGame.sln
+FarmDefenseGame/Assets/UnityChan/*
+FarmDefenseGame/Assets/README_SD_UnityChan.txt
+FarmDefenseGame/Assets/README_SD_UnityChan.txt.meta
+FarmDefenseGame/Assets/UnityChan.meta
+.DS_Store
