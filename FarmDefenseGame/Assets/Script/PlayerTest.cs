@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
-public class Test : MonoBehaviour
+public class PlayerTest : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
