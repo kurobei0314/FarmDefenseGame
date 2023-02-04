@@ -12,7 +12,7 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKey(KeyCode.UpArrow))
             .Subscribe(_ => {
                 Vector3 pos = this.transform.position;
-                this.transform.position = new Vector3(pos.x, pos.y, pos.z + 0.05f);
+                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
                 GetComponent<Animator>().Play("Running(loop)");
         });
 
@@ -20,14 +20,13 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKey(KeyCode.DownArrow))
             .Subscribe(_ => {
                 Vector3 pos = this.transform.position;
-                this.transform.position = new Vector3(pos.x, pos.y, pos.z - 0.05f);
+                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
                 GetComponent<Animator>().Play("Running(loop)");
         });
 
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.RightArrow))
             .Subscribe(_ => {
-                //Vector3 rot = this.transform.rotation;
                 this.transform.Rotate(0.0f, 0.05f, 0.0f);
                 GetComponent<Animator>().Play("Running(loop)");
         });
@@ -35,7 +34,6 @@ public class PlayerTest : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.LeftArrow))
             .Subscribe(_ => {
-                // Vector3 rot = this.transform.rotation;
                 this.transform.Rotate(0.0f, -0.05f, 0.0f);
                 GetComponent<Animator>().Play("Running(loop)");
         });
