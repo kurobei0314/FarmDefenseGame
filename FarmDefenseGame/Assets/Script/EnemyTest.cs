@@ -4,23 +4,31 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
+
+// TODO：VO的な立ち位置にしたい
 public class EnemyTest : MonoBehaviour
 {
     public enum EnemyStatus
     {
         IDLE,
         NOTICE,
+        DIE,
     }
 
-    private EnemyStatus current_enemy_status;
+    private EnemyStatus current_status;
+    public EnemyStatus current_enemy_status => current_status;
 
     // Start is called before the first frame update
     void Start()
     {
+        SetEnemyStatus(EnemyStatus.IDLE);
+
+        // 気づいた時の挙動
         this.OnTriggerStayAsObservable()
             .Where(_ => _.gameObject.tag == "Player")
             .Subscribe(_ => {
                 SetEnemyStatus(EnemyStatus.NOTICE);
+                Debug.Log("wa----------i");
                 GetComponent<Animator>().Play("Attack01");
             });
     }
@@ -38,8 +46,9 @@ public class EnemyTest : MonoBehaviour
     /// </summary>
     void SetEnemyStatus(EnemyStatus status)
     {
-        current_enemy_status = status;
+        current_status = status;
     }
+
     // Update is called once per frame
     void Update()
     {

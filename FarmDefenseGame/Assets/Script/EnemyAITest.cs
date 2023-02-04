@@ -1,0 +1,108 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using UnityEngine;
+using UniRx;
+using DG.Tweening;
+
+public class EnemyAITest : MonoBehaviour
+{
+
+    public enum EnemyDirectionMovement
+    {
+        FRONT,
+        BACK,
+        RIGHT,
+        LEFT,
+        STAY,
+    }
+
+    private EnemyDirectionMovement current_direction_movement;
+    private float current_amount_distance = 0.0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // 気づいていない時の行動
+        Observable.EveryUpdate()
+            .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
+            .Subscribe(_ => {
+                IdleAI();
+            });
+        
+        // 気づいた時の行動
+        Observable.EveryUpdate()
+            .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.NOTICE)
+            .Subscribe(_ => {
+                NoticeAI();
+            });
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // 気づいてない時の動き 
+    // TODO: 敵によって変化すると思うので、敵の種類によって変化できるように設計を考える
+    // MEMO: 今回はランダムに動くようにする。
+    void IdleAI()
+    {
+        // 移動しきったら初期化する
+        if (current_amount_distance <= 0.0f)
+        {
+            InitializeMovementDistance();
+        }
+
+        Debug.Log("気づいてないー");
+
+        Vector3 pos = this.transform.position;
+        GetComponent<Animator>().Play("WalkFWD");
+        current_amount_distance -= 0.01f;
+        this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.01f));
+    }
+
+    // この移動で動く移動距離を指定する(初期化)
+    void InitializeMovementDistance()
+    {
+        int num = Enum.GetNames(typeof(EnemyDirectionMovement)).Length;
+        current_direction_movement = (EnemyDirectionMovement)UnityEngine.Random.Range(0, num);
+        current_amount_distance = UnityEngine.Random.Range(5.0f, 10.0f);
+        Quaternion deltaRotation = Quaternion.Euler(new Vector3(0.0f, 180.0f, 0.0f));
+        GetComponent<Rigidbody>().MoveRotation(deltaRotation);
+
+        switch ((EnemyDirectionMovement)current_direction_movement)
+        {
+            case EnemyDirectionMovement.FRONT:
+                break;
+            case EnemyDirectionMovement.BACK:
+                deltaRotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
+                GetComponent<Rigidbody>().MoveRotation(deltaRotation);
+                break;
+            case EnemyDirectionMovement.RIGHT:
+                deltaRotation = Quaternion.Euler(new Vector3(0.0f, 90.0f, 0.0f));
+                GetComponent<Rigidbody>().MoveRotation(deltaRotation);
+                break;
+            case EnemyDirectionMovement.LEFT:
+                deltaRotation = Quaternion.Euler(new Vector3(0.0f, -90.0f, 0.0f));
+                GetComponent<Rigidbody>().MoveRotation(deltaRotation);
+                Debug.Log(current_direction_movement);
+                break;
+            case EnemyDirectionMovement.STAY:
+                break;
+            default:
+                Debug.Log(current_direction_movement);
+                break;
+        }
+    }
+
+    // 気づいている時の動き
+    // TODO: 敵によって変化すると思うので、敵の種類によって変化できるように設計を考える
+    // MEMO: 今回は離れてたらプレイヤーに近づいて、ある程度近づいたら攻撃するようにする
+    void NoticeAI()
+    {
+        Debug.Log("気づいたー");
+
+    }
+}
