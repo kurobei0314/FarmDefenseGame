@@ -6,9 +6,13 @@ FarmDefenseGame/Packages/*
 FarmDefenseGame/ProjectSettings/*
 FarmDefenseGame/UserSettings/*
 FarmDefenseGame/Assembly-CSharp.csproj
+FarmDefenseGame/Assembly-CSharp-firstpass.csproj
 FarmDefenseGame/FarmDefenseGame.sln
+FarmDefenseGame/Assets/Plugins/*
 FarmDefenseGame/Assets/UnityChan/*
 FarmDefenseGame/Assets/README_SD_UnityChan.txt
 FarmDefenseGame/Assets/README_SD_UnityChan.txt.meta
 FarmDefenseGame/Assets/UnityChan.meta
+FarmDefenseGame/Assets/RPG\ Monster\ Duo\ PBR\ Polyart/*
+FarmDefenseGame/Assets/RPG\ Monster\ Duo\ PBR\ Polyart.meta
 .DS_Store

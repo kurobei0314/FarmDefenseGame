@@ -7,6 +7,9 @@ using DG.Tweening;
 
 public class EnemyAITest : MonoBehaviour
 {
+    // TODO: ここで変数持たせるのを絶対にやめる
+    [SerializeField]
+    private PlayerTest player;
 
     public enum EnemyDirectionMovement
     {
@@ -23,6 +26,8 @@ public class EnemyAITest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        
         // 気づいていない時の行動
         Observable.EveryUpdate()
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
@@ -38,12 +43,6 @@ public class EnemyAITest : MonoBehaviour
             });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // 気づいてない時の動き 
     // TODO: 敵によって変化すると思うので、敵の種類によって変化できるように設計を考える
     // MEMO: 今回はランダムに動くようにする。
@@ -54,8 +53,6 @@ public class EnemyAITest : MonoBehaviour
         {
             InitializeMovementDistance();
         }
-
-        Debug.Log("気づいてないー");
 
         Vector3 pos = this.transform.position;
         GetComponent<Animator>().Play("WalkFWD");
@@ -104,5 +101,37 @@ public class EnemyAITest : MonoBehaviour
     {
         Debug.Log("気づいたー");
 
+
+        // 距離が近かったら
+        if (DistanceFromPlayer() < 5.0f) 
+        {
+            MoveToPlayer();
+        }
+        else
+        {
+            AttackPlayer();
+        }
+
+    }
+
+    // 敵とプレイヤーの距離を求める
+    float DistanceFromPlayer()
+    {
+        return Vector3.Distance(player.transform.position, this.transform.position);
+    }
+
+    // プレイヤーへ向かって動く
+    void MoveToPlayer()
+    {
+        this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+        this.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.transform.position;
+        GetComponent<Animator>().Play("WalkFWD");
+    }
+
+    // プレイヤーへ攻撃する
+    void AttackPlayer()
+    {
+        this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        GetComponent<Animator>().Play("Attack");
     }
 }

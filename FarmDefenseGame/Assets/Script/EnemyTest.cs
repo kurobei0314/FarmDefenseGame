@@ -18,6 +18,10 @@ public class EnemyTest : MonoBehaviour
     private EnemyStatus current_status;
     public EnemyStatus current_enemy_status => current_status;
 
+    // アニメーションが複数回流れないようにするラベル
+    // TODO: モデルを作った時に多分なくす
+    private int anim_label = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +29,10 @@ public class EnemyTest : MonoBehaviour
 
         // 気づいた時の挙動
         this.OnTriggerStayAsObservable()
-            .Where(_ => _.gameObject.tag == "Player")
+            .Where(_ => _.gameObject.tag == "Player" && current_status == EnemyStatus.IDLE && anim_label == 0)
             .Subscribe(_ => {
-                SetEnemyStatus(EnemyStatus.NOTICE);
-                Debug.Log("wa----------i");
-                GetComponent<Animator>().Play("Attack01");
+                StartCoroutine ("ChangeNoticeFromIdle");
             });
-    }
-
-    /// <summary>
-    /// 敵が気付いたかどうかを判断する
-    /// </summary>
-    bool IsNotice()
-    {
-        return false;
     }
 
     /// <summary>
@@ -47,6 +41,19 @@ public class EnemyTest : MonoBehaviour
     void SetEnemyStatus(EnemyStatus status)
     {
         current_status = status;
+    }
+
+    /// <summary>
+    /// idleからnoticeにステータスに変更する
+    /// TODO: 絶対にモデルを変更した時にこれはなくなる
+    /// </summary>
+    private IEnumerator ChangeNoticeFromIdle()
+    {
+        anim_label = 1;
+        SetEnemyStatus(EnemyStatus.NOTICE);
+        GetComponent<Animator>().Play("Victory");
+        yield return new WaitForSeconds(3.0f);
+        anim_label = 0;
     }
 
     // Update is called once per frame
