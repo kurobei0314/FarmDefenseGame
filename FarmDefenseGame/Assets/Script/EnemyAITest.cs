@@ -27,7 +27,7 @@ public class EnemyAITest : MonoBehaviour
     void Start()
     {
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
-        
+
         // 気づいていない時の行動
         Observable.EveryUpdate()
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
@@ -101,15 +101,14 @@ public class EnemyAITest : MonoBehaviour
     {
         Debug.Log("気づいたー");
 
-
         // 距離が近かったら
-        if (DistanceFromPlayer() < 5.0f) 
+        if (DistanceFromPlayer() < 2.0f) 
         {
-            MoveToPlayer();
+            AttackPlayer();
         }
         else
         {
-            AttackPlayer();
+            MoveToPlayer();
         }
 
     }
@@ -132,6 +131,6 @@ public class EnemyAITest : MonoBehaviour
     void AttackPlayer()
     {
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
-        GetComponent<Animator>().Play("Attack");
+        GetComponent<Animator>().Play("Attack02");
     }
 }
