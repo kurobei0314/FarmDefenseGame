@@ -44,6 +44,13 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 GetComponent<Animator>().Play("Standing(loop)");
         });
+
+        Observable.EveryUpdate()
+            .Where(_ => Input.GetKeyDown(KeyCode.A))
+            .Subscribe(_ => {
+                // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
+                GetComponent<Animator>().Play("KneelDownToUp");
+        });
     }
 
     // Update is called once per frame
