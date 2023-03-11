@@ -12,6 +12,7 @@ public class EnemyTest : MonoBehaviour
     {
         IDLE,
         NOTICE,
+        DAMAGE,
         DIE,
     }
 
@@ -35,6 +36,14 @@ public class EnemyTest : MonoBehaviour
             });
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Player") return;
+        if (collision.gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
+        SetEnemyStatus(EnemyStatus.DAMAGE);
+        GetComponent<Animator>().Play("GetHit");
+    }
+    
     /// <summary>
     /// EnemyStatusをセットする
     /// </summary>
