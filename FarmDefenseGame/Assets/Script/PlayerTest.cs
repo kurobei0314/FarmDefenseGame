@@ -26,37 +26,21 @@ public class PlayerTest : MonoBehaviour
         // 初期の回転のやつを保持
         Quaternion default_rotation = unity_chan.gameObject.transform.rotation;
 
+        // プレイヤーの移動系
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.UpArrow))
+            .Where(_ => Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                        Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             .Subscribe(_ => {
                 Vector3 pos = this.transform.position;
-                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
-                unity_chan.GetComponent<Animator>().Play("Running(loop)");
-        });
-
-        Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.DownArrow))
-            .Subscribe(_ => {
-                Vector3 pos = this.transform.position;
-                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
-                unity_chan.GetComponent<Animator>().Play("Running(loop)");
-        });
-
-        Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.RightArrow))
-            .Subscribe(_ => {
-                Vector3 pos = this.transform.position;
-                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.05f, 0.0f, 0.0f));
-                // this.transform.Rotate(0.0f, 0.05f, 0.0f);
-                unity_chan.GetComponent<Animator>().Play("Running(loop)");
-        });
-
-        Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.LeftArrow))
-            .Subscribe(_ => {
-                Vector3 pos = this.transform.position;
-                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
-                // this.transform.Rotate(0.0f, -0.05f, 0.0f);
+                if        (Input.GetKey(KeyCode.UpArrow)){
+                    this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
+                } else if (Input.GetKey(KeyCode.DownArrow)){
+                    this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
+                } else if (Input.GetKey(KeyCode.RightArrow)){
+                    this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.05f, 0.0f, 0.0f));
+                } else if (Input.GetKey(KeyCode.LeftArrow)){
+                    this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
+                }
                 unity_chan.GetComponent<Animator>().Play("Running(loop)");
         });
 
