@@ -23,6 +23,11 @@ public class EnemyTest : MonoBehaviour
     // TODO: モデルを作った時に多分なくす
     private int anim_label = 0;
 
+    // MEMO: とりあえずスライムのゲームオブジェクトを持ってくる
+    // 自分でモデリング作るときはこういう作りにしたくないな。。なっちゃうのかな。
+    [SerializeField]
+    GameObject Body;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +38,33 @@ public class EnemyTest : MonoBehaviour
             .Where(_ => _.gameObject.tag == "Player" && current_status == EnemyStatus.IDLE && anim_label == 0)
             .Subscribe(_ => {
                 StartCoroutine ("ChangeNoticeFromIdle");
-            });
+        });
+
+        // プレイヤーが攻撃した時の挙動
+        Body.OnTriggerEnterAsObservable()
+            .Where(_ => _.gameObject.tag == "Player" && _.gameObject.GetComponent<PlayerTest>().CurrentStatus == PlayerTest.PlayerStatus.ATTACK)
+            .Subscribe(_ => {
+                if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
+                SetEnemyStatus(EnemyStatus.DAMAGE);
+                GetComponent<Animator>().Play("GetHit");
+        });
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag != "Player") return;
-        if (collision.gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
-        SetEnemyStatus(EnemyStatus.DAMAGE);
-        GetComponent<Animator>().Play("GetHit");
-    }
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.tag != "Player") return;
+    //     if (collision.gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
+    //     SetEnemyStatus(EnemyStatus.DAMAGE);
+    //     GetComponent<Animator>().Play("GetHit");
+    // }
+
+    // void OnTriggerStay(Collider collision)
+    // {
+    //     if (collision.gameObject.tag != "Player") return;
+    //     if (collision.gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
+    //     SetEnemyStatus(EnemyStatus.DAMAGE);
+    //     GetComponent<Animator>().Play("GetHit");
+    // }
     
     /// <summary>
     /// EnemyStatusをセットする

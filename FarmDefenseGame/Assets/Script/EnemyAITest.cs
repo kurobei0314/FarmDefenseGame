@@ -131,6 +131,8 @@ public class EnemyAITest : MonoBehaviour
     void AttackPlayer()
     {
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        // TODO:この書き方も良くないので修正したい
+        if (this.gameObject.GetComponent<EnemyTest>().current_enemy_status != EnemyTest.EnemyStatus.NOTICE) return;
         GetComponent<Animator>().Play("Attack02");
     }
 }
