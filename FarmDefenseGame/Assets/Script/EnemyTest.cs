@@ -46,6 +46,7 @@ public class EnemyTest : MonoBehaviour
             .Subscribe(_ => {
                 if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
                 SetEnemyStatus(EnemyStatus.DAMAGE);
+                Debug.Log("攻撃されたおー");
                 GetComponent<Animator>().Play("GetHit");
         });
     }
