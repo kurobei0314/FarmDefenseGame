@@ -13,15 +13,25 @@ public class PlayerTest : MonoBehaviour
 
     public PlayerStatus CurrentStatus => current_status;
     private PlayerStatus current_status;
+
+    // unityちゃんのモデル
+    [SerializeField] GameObject unity_chan;
+    // カメラ
+    [SerializeField] GameObject camera;
+
     // Start is called before the first frame update
+    // MEMO: 大体ここにプレイヤーが操作するものが入ってる
     void Start()
     {
+        // 初期の回転のやつを保持
+        Quaternion default_rotation = unity_chan.gameObject.transform.rotation;
+
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.UpArrow))
             .Subscribe(_ => {
                 Vector3 pos = this.transform.position;
                 this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
-                GetComponent<Animator>().Play("Running(loop)");
+                unity_chan.GetComponent<Animator>().Play("Running(loop)");
         });
 
         Observable.EveryUpdate()
@@ -29,28 +39,50 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 Vector3 pos = this.transform.position;
                 this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
-                GetComponent<Animator>().Play("Running(loop)");
+                unity_chan.GetComponent<Animator>().Play("Running(loop)");
         });
 
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.RightArrow))
             .Subscribe(_ => {
-                this.transform.Rotate(0.0f, 0.05f, 0.0f);
-                GetComponent<Animator>().Play("Running(loop)");
+                Vector3 pos = this.transform.position;
+                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.05f, 0.0f, 0.0f));
+                // this.transform.Rotate(0.0f, 0.05f, 0.0f);
+                unity_chan.GetComponent<Animator>().Play("Running(loop)");
         });
 
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.LeftArrow))
             .Subscribe(_ => {
-                this.transform.Rotate(0.0f, -0.05f, 0.0f);
-                GetComponent<Animator>().Play("Running(loop)");
+                Vector3 pos = this.transform.position;
+                this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
+                // this.transform.Rotate(0.0f, -0.05f, 0.0f);
+                unity_chan.GetComponent<Animator>().Play("Running(loop)");
         });
 
+        // ボタンから離した時
         Observable.EveryUpdate()
             .Where(_ => Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
                         Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow))
             .Subscribe(_ => {
-                GetComponent<Animator>().Play("Standing(loop)");
+                unity_chan.GetComponent<Animator>().Play("Standing(loop)");
+        });
+
+        // ボタンを押した時、モデルだけが回転する
+        Observable.EveryUpdate()
+            .Where(_ => Input.GetKeyDown(KeyCode.UpArrow)    ||  Input.GetKeyDown(KeyCode.DownArrow) || 
+                        Input.GetKeyDown(KeyCode.RightArrow) ||  Input.GetKeyDown(KeyCode.LeftArrow))
+            .Subscribe(_ => {
+                unity_chan.gameObject.transform.rotation = default_rotation;
+                if        (Input.GetKeyDown(KeyCode.UpArrow)) {
+                    return;
+                } else if (Input.GetKeyDown(KeyCode.DownArrow)){
+                    unity_chan.transform.Rotate(0.0f, 180.0f, 0.0f);
+                } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                    unity_chan.transform.Rotate(0.0f, 90.0f, 0.0f);
+                } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                    unity_chan.transform.Rotate(0.0f, -90.0f, 0.0f);
+                } 
         });
 
         // アタック終わったら、プレイヤーのステータスをIDLEにする
@@ -58,17 +90,29 @@ public class PlayerTest : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => current_status == PlayerStatus.ATTACK)
             .Subscribe(_ => {
-                if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
+                if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
                     SetPlayerStatus(PlayerStatus.IDLE);
                 } 
         });
 
+        // 攻撃モーション
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKeyDown(KeyCode.A))
+            .Where(_ => Input.GetKeyDown(KeyCode.W))
             .Subscribe(_ => {
                 SetPlayerStatus(PlayerStatus.ATTACK);
                 // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
-                GetComponent<Animator>().Play("KneelDownToUp");
+                unity_chan.GetComponent<Animator>().Play("KneelDownToUp");
+        });
+
+        // カメラの移動
+        Observable.EveryUpdate()
+            .Where(_ => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            .Subscribe(_ => {
+                if        (Input.GetKey(KeyCode.A)) {
+                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, -0.1f);
+                } else if (Input.GetKey(KeyCode.D)) {
+                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.1f);
+                }
         });
     }
     
