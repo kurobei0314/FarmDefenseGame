@@ -105,8 +105,8 @@ public class PlayerTest : MonoBehaviour
         // 敵からの攻撃を受けた時の挙動
         this.OnTriggerEnterAsObservable()
             .Subscribe(_ => {
-                var parent = _.gameObject.transform.parent.gameObject;
-                if (parent != null && parent.tag != "Enemy") return;
+                var parent = _.gameObject.transform.parent;
+                if (parent == null || parent.gameObject.tag != "Enemy") return;
                 if (CurrentStatus == PlayerStatus.ATTACK) return;
                 SetPlayerStatus(PlayerStatus.DAMAGE);
                 Debug.Log("敵から攻撃されたおー");

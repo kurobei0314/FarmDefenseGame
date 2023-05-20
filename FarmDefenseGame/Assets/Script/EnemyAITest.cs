@@ -22,6 +22,9 @@ public class EnemyAITest : MonoBehaviour
 
     private EnemyDirectionMovement current_direction_movement;
     private float current_amount_distance = 0.0f;
+    // １回攻撃した後に攻撃するまでの時間
+    private float attack_time = 1f;
+    private float current_attack_time = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +40,8 @@ public class EnemyAITest : MonoBehaviour
         
         // 気づいた時の行動
         Observable.EveryUpdate()
-            .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.NOTICE)
+            .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.NOTICE
+                    ||  this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.ATTACK)
             .Subscribe(_ => {
                 NoticeAI();
             });
