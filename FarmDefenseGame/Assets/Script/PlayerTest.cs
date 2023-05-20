@@ -12,10 +12,14 @@ public class PlayerTest : MonoBehaviour
         IDLE,
         ATTACK,
         DAMAGE,
+        DIE,
     }
 
     public PlayerStatus CurrentStatus => current_status;
     private PlayerStatus current_status;
+    public int HP => hp;
+    private int hp = 9;
+
 
     // unityちゃんのモデル
     [SerializeField] GameObject unity_chan;
@@ -34,6 +38,7 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
                         Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             .Subscribe(_ => {
+                if (CurrentStatus != PlayerStatus.IDLE) return;
                 Vector3 pos = this.transform.position;
                 if        (Input.GetKey(KeyCode.UpArrow)){
                     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
@@ -107,10 +112,19 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 var parent = _.gameObject.transform.parent;
                 if (parent == null || parent.gameObject.tag != "Enemy") return;
-                if (CurrentStatus == PlayerStatus.ATTACK) return;
-                SetPlayerStatus(PlayerStatus.DAMAGE);
+                // TODO：これも絶対仕組み変える絶対に
+                if (CurrentStatus == PlayerStatus.ATTACK || CurrentStatus == PlayerStatus.DIE) return;
                 Debug.Log("敵から攻撃されたおー");
-                unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
+                ReserveDamage(parent.gameObject.GetComponent<EnemyTest>().Attack);
+                if (hp == 0) {
+                    Debug.Log("HPが0になっちゃったー");
+                    unity_chan.GetComponent<Animator>().Play("GoDown");
+                    SetPlayerStatus(PlayerStatus.DIE);
+                }
+                else {
+                    unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
+                    SetPlayerStatus(PlayerStatus.DAMAGE);
+                }
         });
     }
     
@@ -135,6 +149,17 @@ public class PlayerTest : MonoBehaviour
         current_status = status;
     }
 
+    /// <summary>
+    /// HPを減少させる
+    /// </summary> 
+    private void ReserveDamage(int value){
+        if( hp - value < 0 ){
+            hp = 0;
+        }
+        else{
+            hp -= value;
+        }
+    }
 
     // Update is called once per frame
     void Update()

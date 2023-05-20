@@ -25,6 +25,10 @@ public class EnemyTest : MonoBehaviour
     // TODO: モデルを作った時に多分なくす
     private int anim_label = 0;
 
+    // 敵の攻撃力
+    private int attack = 3;
+    public int Attack => attack;
+
     // MEMO: とりあえずスライムのゲームオブジェクトを持ってくる
     // 自分でモデリング作るときはこういう作りにしたくないな。。なっちゃうのかな。
     [SerializeField]
