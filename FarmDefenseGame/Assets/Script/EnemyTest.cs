@@ -12,10 +12,12 @@ public class EnemyTest : MonoBehaviour
     {
         IDLE,
         NOTICE,
+        ATTACK,
         DAMAGE,
         DIE,
     }
 
+    // TODO: 命名規則もしっかりしよーねー
     private EnemyStatus current_status;
     public EnemyStatus current_enemy_status => current_status;
 
@@ -70,7 +72,7 @@ public class EnemyTest : MonoBehaviour
     /// <summary>
     /// EnemyStatusをセットする
     /// </summary>
-    void SetEnemyStatus(EnemyStatus status)
+    public void SetEnemyStatus(EnemyStatus status)
     {
         current_status = status;
     }

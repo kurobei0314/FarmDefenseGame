@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UniRx.Triggers;
 
 public class PlayerTest : MonoBehaviour
 {
+    // TODO: enumで状態管理するのも良くないのかもしれないし、いいのかもしれない
     public enum PlayerStatus
     {
         IDLE,
         ATTACK,
+        DAMAGE,
     }
 
     public PlayerStatus CurrentStatus => current_status;
@@ -97,6 +100,17 @@ public class PlayerTest : MonoBehaviour
                 } else if (Input.GetKey(KeyCode.D)) {
                     camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.1f);
                 }
+        });
+
+        // 敵からの攻撃を受けた時の挙動
+        this.OnTriggerEnterAsObservable()
+            .Subscribe(_ => {
+                var parent = _.gameObject.transform.parent.gameObject;
+                if (parent != null && parent.tag != "Enemy") return;
+                if (CurrentStatus == PlayerStatus.ATTACK) return;
+                SetPlayerStatus(PlayerStatus.DAMAGE);
+                Debug.Log("敵から攻撃されたおー");
+                unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
         });
     }
     

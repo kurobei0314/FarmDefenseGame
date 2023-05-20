@@ -104,10 +104,14 @@ public class EnemyAITest : MonoBehaviour
         // 距離が近かったら
         if (DistanceFromPlayer() < 2.0f) 
         {
+            // TODO: 書き方マージで良くない
+            this.gameObject.GetComponent<EnemyTest>().SetEnemyStatus(EnemyTest.EnemyStatus.ATTACK);
             AttackPlayer();
         }
         else
         {
+            // TODO: 書き方マージで良くない
+            this.gameObject.GetComponent<EnemyTest>().SetEnemyStatus(EnemyTest.EnemyStatus.NOTICE);
             MoveToPlayer();
         }
 
@@ -132,7 +136,7 @@ public class EnemyAITest : MonoBehaviour
     {
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
         // TODO:この書き方も良くないので修正したい
-        if (this.gameObject.GetComponent<EnemyTest>().current_enemy_status != EnemyTest.EnemyStatus.NOTICE) return;
+        if (this.gameObject.GetComponent<EnemyTest>().current_enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
         GetComponent<Animator>().Play("Attack02");
     }
 }
