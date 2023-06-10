@@ -53,7 +53,7 @@ public class PlayerTest : MonoBehaviour
                     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
                 }
                 unity_chan.GetComponent<Animator>().Play("Running(loop)");
-        });
+        }).AddTo(this);
 
         // ボタンから離した時
         Observable.EveryUpdate()
@@ -62,7 +62,7 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE) return;
                 unity_chan.GetComponent<Animator>().Play("Standing(loop)");
-        });
+        }).AddTo(this);
 
         // ボタンを押した時、モデルだけが回転する
         Observable.EveryUpdate()
@@ -80,7 +80,7 @@ public class PlayerTest : MonoBehaviour
                 } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
                     unity_chan.transform.Rotate(0.0f, -90.0f, 0.0f);
                 } 
-        });
+        }).AddTo(this);
 
         // アタック終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
@@ -99,7 +99,7 @@ public class PlayerTest : MonoBehaviour
                 SetPlayerStatus(PlayerStatus.ATTACK);
                 // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
                 unity_chan.GetComponent<Animator>().Play("KneelDownToUp");
-        });
+        }).AddTo(this);
 
         // カメラの移動
         Observable.EveryUpdate()
@@ -110,7 +110,7 @@ public class PlayerTest : MonoBehaviour
                 } else if (Input.GetKey(KeyCode.D)) {
                     camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.1f);
                 }
-        });
+        }).AddTo(this);
 
         // 敵からの攻撃を受けた時の挙動
         this.OnTriggerEnterAsObservable()
@@ -130,7 +130,7 @@ public class PlayerTest : MonoBehaviour
                     unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
                     SetPlayerStatus(PlayerStatus.DAMAGE);
                 }
-        });
+        }).AddTo(this);
 
         // ダメージ終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
@@ -140,7 +140,7 @@ public class PlayerTest : MonoBehaviour
                 if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
                     SetPlayerStatus(PlayerStatus.IDLE);
                 } 
-        });
+        }).AddTo(this);
     }
     
     /// <summary>

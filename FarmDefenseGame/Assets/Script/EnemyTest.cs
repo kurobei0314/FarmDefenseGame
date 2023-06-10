@@ -48,7 +48,7 @@ public class EnemyTest : MonoBehaviour
             .Where(_ => _.gameObject.tag == "Player" && current_status == EnemyStatus.IDLE && anim_label == 0)
             .Subscribe(_ => {
                 StartCoroutine ("ChangeNoticeFromIdle");
-        });
+        }).AddTo(this);
 
         // プレイヤーが攻撃した時の挙動
         Body.OnTriggerEnterAsObservable()
@@ -65,7 +65,7 @@ public class EnemyTest : MonoBehaviour
                     SetEnemyStatus(EnemyStatus.DAMAGE);
                     GetComponent<Animator>().Play("GetHit");
                 }
-        });
+        }).AddTo(this);
 
         // アタック終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
@@ -75,7 +75,7 @@ public class EnemyTest : MonoBehaviour
                 if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Dizzy")){
                     SetEnemyStatus(EnemyStatus.NOTICE);
                 } 
-        });
+        }).AddTo(this);
 
     }
 

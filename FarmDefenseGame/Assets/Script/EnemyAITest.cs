@@ -36,7 +36,7 @@ public class EnemyAITest : MonoBehaviour
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
             .Subscribe(_ => {
                 IdleAI();
-            });
+            }).AddTo(this);
         
         // 気づいた時の行動
         Observable.EveryUpdate()
@@ -44,7 +44,7 @@ public class EnemyAITest : MonoBehaviour
                     ||  this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.ATTACK)
             .Subscribe(_ => {
                 NoticeAI();
-            });
+            }).AddTo(this);
     }
 
     // 気づいてない時の動き 
