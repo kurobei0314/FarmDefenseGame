@@ -60,8 +60,8 @@ public class EnemyTest : MonoBehaviour
                 StartCoroutine ("ChangeIdleFromNotice");
             }).AddTo(this);
 
-        // プレイヤーが攻撃した時の挙動
-        Body.OnTriggerEnterAsObservable()
+        // プレイヤーが攻撃した時の挙動(Enterにしたいけど、今のcolliderの設定的にstayの方がいいかもしれない)
+        Body.OnTriggerStayAsObservable()
             .Where(_ => _.gameObject.tag == "Player" && _.gameObject.GetComponent<PlayerTest>().CurrentStatus == PlayerTest.PlayerStatus.ATTACK)
             .Subscribe(_ => {
                 if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
