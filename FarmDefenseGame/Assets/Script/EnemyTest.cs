@@ -13,7 +13,7 @@ public class EnemyTest : MonoBehaviour
         IDLE,
         NOTICE,
         ATTACK,
-        ANIMATION, // なんかとりあえず、アニメーションをしたい時にやる(もっといい方法ある絶対)
+        ANIMATION, // なんかとりあえず、気づいた時とか見失った時アニメーションをしたい時にやる(もっといい方法ある絶対)
         DAMAGE,
         DIE,
     }
@@ -80,12 +80,28 @@ public class EnemyTest : MonoBehaviour
         // アタック終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
         Observable.EveryUpdate()
-            .Where(_ => current_enemy_status == EnemyStatus.DAMAGE)
+            .Where(_ => current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE)
             .Subscribe(_ => {
-                if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Dizzy")){
-                    SetEnemyStatus(EnemyStatus.NOTICE);
+                if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("IdleNormal")){
+                    if      (current_enemy_status == EnemyStatus.DAMAGE){
+                        SetEnemyStatus(EnemyStatus.NOTICE);
+                        Debug.Log("wa-i");
+                    }
+                    else if (current_enemy_status == EnemyStatus.DIE){
+                        this.gameObject.SetActive(false);
+                    }
                 } 
         }).AddTo(this);
+
+        // アタック終わったら、プレイヤーのステータスをIDLEにする
+        // TODO: なんかもっといい設計ないのだろうか
+        // Observable.EveryUpdate()
+        //     .Where(_ => current_enemy_status == EnemyStatus.DIE)
+        //     .Subscribe(_ => {
+        //         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Dizzy")){
+        //             SetEnemyStatus(EnemyStatus.NOTICE);
+        //         } 
+        // }).AddTo(this);
 
     }
 
@@ -122,7 +138,7 @@ public class EnemyTest : MonoBehaviour
         anim_label = 1;
         SetEnemyStatus(EnemyStatus.ANIMATION);
         GetComponent<Animator>().Play("Victory");
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         SetEnemyStatus(EnemyStatus.NOTICE);
         anim_label = 0;
     }
@@ -137,7 +153,7 @@ public class EnemyTest : MonoBehaviour
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
         SetEnemyStatus(EnemyStatus.ANIMATION);
         GetComponent<Animator>().Play("SenseSomethingRPT");
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         SetEnemyStatus(EnemyStatus.IDLE);
         anim_label = 0;
     }

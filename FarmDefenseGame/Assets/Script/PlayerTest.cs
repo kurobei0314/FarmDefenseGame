@@ -96,6 +96,7 @@ public class PlayerTest : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => Input.GetKeyDown(KeyCode.W))
             .Subscribe(_ => {
+                if (CurrentStatus != PlayerStatus.IDLE) return;
                 SetPlayerStatus(PlayerStatus.ATTACK);
                 // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
                 unity_chan.GetComponent<Animator>().Play("KneelDownToUp");
@@ -118,7 +119,9 @@ public class PlayerTest : MonoBehaviour
                 var parent = _.gameObject.transform.parent;
                 if (parent == null || parent.gameObject.tag != "Enemy") return;
                 // TODO：これも絶対仕組み変える絶対に
-                if (CurrentStatus == PlayerStatus.ATTACK || CurrentStatus == PlayerStatus.DIE) return;
+                if (CurrentStatus != PlayerStatus.IDLE) return;
+                var enemy_status = parent.gameObject.GetComponent<EnemyTest>().current_enemy_status;
+                if (enemy_status == EnemyTest.EnemyStatus.DAMAGE || enemy_status == EnemyTest.EnemyStatus.DIE) return;
                 Debug.Log("敵から攻撃されたおー");
                 ReserveDamage(parent.gameObject.GetComponent<EnemyTest>().Attack);
                 if (hp == 0) {
