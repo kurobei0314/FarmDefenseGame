@@ -85,7 +85,6 @@ public class EnemyTest : MonoBehaviour
                 if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("IdleNormal")){
                     if      (current_enemy_status == EnemyStatus.DAMAGE){
                         SetEnemyStatus(EnemyStatus.NOTICE);
-                        Debug.Log("wa-i");
                     }
                     else if (current_enemy_status == EnemyStatus.DIE){
                         this.gameObject.SetActive(false);
