@@ -29,6 +29,10 @@ public class EnemyTest : MonoBehaviour
     private int attack = 3;
     public int Attack => attack;
 
+    // 敵のHP
+    private int hp = 2;
+    public int HP => hp;
+
     // MEMO: とりあえずスライムのゲームオブジェクトを持ってくる
     // 自分でモデリング作るときはこういう作りにしたくないな。。なっちゃうのかな。
     [SerializeField]
@@ -51,10 +55,28 @@ public class EnemyTest : MonoBehaviour
             .Where(_ => _.gameObject.tag == "Player" && _.gameObject.GetComponent<PlayerTest>().CurrentStatus == PlayerTest.PlayerStatus.ATTACK)
             .Subscribe(_ => {
                 if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
-                SetEnemyStatus(EnemyStatus.DAMAGE);
-                Debug.Log("攻撃されたおー");
-                GetComponent<Animator>().Play("GetHit");
+                Debug.Log("攻撃したおー");
+                ReserveDamage(_.gameObject.GetComponent<PlayerTest>().Attack);
+                if (hp == 0){
+                    SetEnemyStatus(EnemyStatus.DIE);
+                    GetComponent<Animator>().Play("Die");
+                }
+                else {
+                    SetEnemyStatus(EnemyStatus.DAMAGE);
+                    GetComponent<Animator>().Play("GetHit");
+                }
         });
+
+        // アタック終わったら、プレイヤーのステータスをIDLEにする
+        // TODO: なんかもっといい設計ないのだろうか
+        Observable.EveryUpdate()
+            .Where(_ => current_enemy_status == EnemyStatus.DAMAGE)
+            .Subscribe(_ => {
+                if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Dizzy")){
+                    SetEnemyStatus(EnemyStatus.NOTICE);
+                } 
+        });
+
     }
 
     // void OnCollisionEnter(Collision collision)
@@ -92,6 +114,19 @@ public class EnemyTest : MonoBehaviour
         GetComponent<Animator>().Play("Victory");
         yield return new WaitForSeconds(3.0f);
         anim_label = 0;
+    }
+
+    /// <summary>
+    /// HPを減少させる
+    /// TODO: playerと共通化絶対にさせる
+    /// </summary> 
+    private void ReserveDamage(int value){
+        if( hp - value < 0 ){
+            hp = 0;
+        }
+        else{
+            hp -= value;
+        }
     }
 
     // Update is called once per frame

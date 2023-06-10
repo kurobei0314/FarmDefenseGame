@@ -20,6 +20,9 @@ public class PlayerTest : MonoBehaviour
     public int HP => hp;
     private int hp = 9;
 
+    private int attack = 1;
+    public int Attack => attack;
+
 
     // unityちゃんのモデル
     [SerializeField] GameObject unity_chan;
@@ -57,6 +60,7 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
                         Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow))
             .Subscribe(_ => {
+                if (CurrentStatus != PlayerStatus.IDLE) return;
                 unity_chan.GetComponent<Animator>().Play("Standing(loop)");
         });
 
@@ -65,6 +69,7 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKeyDown(KeyCode.UpArrow)    ||  Input.GetKeyDown(KeyCode.DownArrow) || 
                         Input.GetKeyDown(KeyCode.RightArrow) ||  Input.GetKeyDown(KeyCode.LeftArrow))
             .Subscribe(_ => {
+                if (CurrentStatus != PlayerStatus.IDLE) return;
                 unity_chan.gameObject.transform.rotation = default_rotation;
                 if        (Input.GetKeyDown(KeyCode.UpArrow)) {
                     return;
@@ -125,6 +130,16 @@ public class PlayerTest : MonoBehaviour
                     unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
                     SetPlayerStatus(PlayerStatus.DAMAGE);
                 }
+        });
+
+        // ダメージ終わったら、プレイヤーのステータスをIDLEにする
+        // TODO: なんかもっといい設計ないのだろうか
+        Observable.EveryUpdate()
+            .Where(_ => CurrentStatus == PlayerStatus.DAMAGE)
+            .Subscribe(_ => {
+                if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
+                    SetPlayerStatus(PlayerStatus.IDLE);
+                } 
         });
     }
     
