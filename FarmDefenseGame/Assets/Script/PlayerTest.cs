@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine.UI;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class PlayerTest : MonoBehaviour
     public PlayerStatus CurrentStatus => current_status;
     private PlayerStatus current_status;
     public int HP => hp;
-    private int hp = 9;
+    private int max_hp = 9;
+    private int hp;
 
     private int attack = 1;
     public int Attack => attack;
@@ -29,12 +31,16 @@ public class PlayerTest : MonoBehaviour
     // カメラ
     [SerializeField] GameObject camera;
 
+    [SerializeField] Slider HPbar;
+
     // Start is called before the first frame update
     // MEMO: 大体ここにプレイヤーが操作するものが入ってる
     void Start()
     {
         // 初期の回転のやつを保持
         Quaternion default_rotation = unity_chan.gameObject.transform.rotation;
+        hp = max_hp;
+        UpdateHPbar(1.0f);
 
         // プレイヤーの移動系
         Observable.EveryUpdate()
@@ -124,6 +130,7 @@ public class PlayerTest : MonoBehaviour
                 if (enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
                 Debug.Log("敵から攻撃されたおー");
                 ReserveDamage(parent.gameObject.GetComponent<EnemyTest>().Attack);
+                UpdateHPbar(hp/(float)max_hp);
                 if (hp == 0) {
                     Debug.Log("HPが0になっちゃったー");
                     unity_chan.GetComponent<Animator>().Play("GoDown");
@@ -177,6 +184,10 @@ public class PlayerTest : MonoBehaviour
         else{
             hp -= value;
         }
+    }
+
+    private void UpdateHPbar(float value){
+        HPbar.value = value;
     }
 
     // Update is called once per frame
