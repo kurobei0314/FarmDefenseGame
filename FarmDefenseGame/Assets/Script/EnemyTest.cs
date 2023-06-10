@@ -13,6 +13,7 @@ public class EnemyTest : MonoBehaviour
         IDLE,
         NOTICE,
         ATTACK,
+        ANIMATION, // なんかとりあえず、アニメーションをしたい時にやる(もっといい方法ある絶対)
         DAMAGE,
         DIE,
     }
@@ -44,11 +45,20 @@ public class EnemyTest : MonoBehaviour
         SetEnemyStatus(EnemyStatus.IDLE);
 
         // 気づいた時の挙動
-        this.OnTriggerStayAsObservable()
+        this.OnTriggerEnterAsObservable()
             .Where(_ => _.gameObject.tag == "Player" && current_status == EnemyStatus.IDLE && anim_label == 0)
             .Subscribe(_ => {
+                Debug.Log("気づいちゃったんだおー");
                 StartCoroutine ("ChangeNoticeFromIdle");
         }).AddTo(this);
+
+        // 見逃した時の挙動
+        this.OnTriggerExitAsObservable()
+            .Where(_ => _.gameObject.tag == "Player" && current_status == EnemyStatus.NOTICE && anim_label == 0)
+            .Subscribe(_ => {
+                Debug.Log("見逃したー");
+                StartCoroutine ("ChangeIdleFromNotice");
+            }).AddTo(this);
 
         // プレイヤーが攻撃した時の挙動
         Body.OnTriggerEnterAsObservable()
@@ -110,9 +120,25 @@ public class EnemyTest : MonoBehaviour
     private IEnumerator ChangeNoticeFromIdle()
     {
         anim_label = 1;
-        SetEnemyStatus(EnemyStatus.NOTICE);
+        SetEnemyStatus(EnemyStatus.ANIMATION);
         GetComponent<Animator>().Play("Victory");
         yield return new WaitForSeconds(3.0f);
+        SetEnemyStatus(EnemyStatus.NOTICE);
+        anim_label = 0;
+    }
+
+    /// <summary>
+    /// noticeからidleにステータスに変更する
+    /// TODO: 絶対にモデルを変更した時にこれはなくなる
+    /// </summary>
+    private IEnumerator ChangeIdleFromNotice()
+    {
+        anim_label = 1;
+        this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        SetEnemyStatus(EnemyStatus.ANIMATION);
+        GetComponent<Animator>().Play("SenseSomethingRPT");
+        yield return new WaitForSeconds(3.0f);
+        SetEnemyStatus(EnemyStatus.IDLE);
         anim_label = 0;
     }
 

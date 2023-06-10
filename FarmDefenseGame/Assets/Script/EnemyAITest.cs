@@ -35,6 +35,8 @@ public class EnemyAITest : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
             .Subscribe(_ => {
+                // Debug.Log("わーーーーーーーーーーい");
+                // this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
                 IdleAI();
             }).AddTo(this);
         
@@ -43,6 +45,7 @@ public class EnemyAITest : MonoBehaviour
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.NOTICE
                     ||  this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.ATTACK)
             .Subscribe(_ => {
+                // Debug.Log();
                 NoticeAI();
             }).AddTo(this);
     }
@@ -103,7 +106,7 @@ public class EnemyAITest : MonoBehaviour
     // MEMO: 今回は離れてたらプレイヤーに近づいて、ある程度近づいたら攻撃するようにする
     void NoticeAI()
     {
-        Debug.Log("気づいたー");
+        // Debug.Log("気づいたー");
 
         // 距離が近かったら
         if (DistanceFromPlayer() < 2.0f) 
