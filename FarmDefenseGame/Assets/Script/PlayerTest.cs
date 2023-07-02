@@ -61,7 +61,7 @@ public class PlayerTest : MonoBehaviour
         //         unity_chan.GetComponent<Animator>().Play("Running(loop)");
         // }).AddTo(this);
 
-               // プレイヤーの移動系
+        // プレイヤーの移動系
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
                         Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
@@ -70,7 +70,7 @@ public class PlayerTest : MonoBehaviour
                 float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");
                 Vector3 pos = this.transform.position;
-                Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+                Vector3 moveDirection = (camera.transform.forward * verticalInput + camera.transform.right * horizontalInput).normalized;
                 this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.05f);
                 unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
 
