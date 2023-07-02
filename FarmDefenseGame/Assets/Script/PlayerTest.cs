@@ -37,29 +37,8 @@ public class PlayerTest : MonoBehaviour
     // MEMO: 大体ここにプレイヤーが操作するものが入ってる
     void Start()
     {
-        // 初期の回転のやつを保持
-        Quaternion default_rotation = unity_chan.gameObject.transform.rotation;
         hp = max_hp;
         UpdateHPbar(1.0f);
-
-        // // プレイヤーの移動系
-        // Observable.EveryUpdate()
-        //     .Where(_ => Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-        //                 Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-        //     .Subscribe(_ => {
-        //         if (CurrentStatus != PlayerStatus.IDLE) return;
-        //         Vector3 pos = this.transform.position;
-        //         if        (Input.GetKey(KeyCode.UpArrow)){
-        //             this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
-        //         } else if (Input.GetKey(KeyCode.DownArrow)){
-        //             this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
-        //         } else if (Input.GetKey(KeyCode.RightArrow)){
-        //             this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.05f, 0.0f, 0.0f));
-        //         } else if (Input.GetKey(KeyCode.LeftArrow)){
-        //             this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
-        //         }
-        //         unity_chan.GetComponent<Animator>().Play("Running(loop)");
-        // }).AddTo(this);
 
         // プレイヤーの移動系
         Observable.EveryUpdate()
@@ -73,16 +52,6 @@ public class PlayerTest : MonoBehaviour
                 Vector3 moveDirection = (camera.transform.forward * verticalInput + camera.transform.right * horizontalInput).normalized;
                 this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.05f);
                 unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-
-                // if        (Input.GetKey(KeyCode.UpArrow)){
-                //     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, 0.05f));
-                // } else if (Input.GetKey(KeyCode.DownArrow)){
-                //     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.0f, 0.0f, -0.05f));
-                // } else if (Input.GetKey(KeyCode.RightArrow)){
-                //     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(0.05f, 0.0f, 0.0f));
-                // } else if (Input.GetKey(KeyCode.LeftArrow)){
-                //     this.GetComponent<Rigidbody>().MovePosition(pos + this.transform.rotation * new Vector3(-0.05f, 0.0f, 0.0f));
-                // }
                 unity_chan.GetComponent<Animator>().Play("Running(loop)");
         }).AddTo(this);
 
@@ -94,33 +63,6 @@ public class PlayerTest : MonoBehaviour
                 if (CurrentStatus != PlayerStatus.IDLE) return;
                 unity_chan.GetComponent<Animator>().Play("Standing(loop)");
         }).AddTo(this);
-
-        // ボタンを押した時、モデルだけが回転する
-        // Observable.EveryUpdate()
-        //     .Where(_ => Input.GetKeyDown(KeyCode.UpArrow)    ||  Input.GetKeyDown(KeyCode.DownArrow) || 
-        //                 Input.GetKeyDown(KeyCode.RightArrow) ||  Input.GetKeyDown(KeyCode.LeftArrow))
-        //     .Subscribe(_ => {
-        //         if (CurrentStatus != PlayerStatus.IDLE) return;
-        //         // unity_chan.gameObject.transform.rotation = default_rotation;
-
-        //         float horizontalInput = Input.GetAxis("Horizontal");
-        //         float verticalInput = Input.GetAxis("Vertical");
-        //         Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-
-        //         // unity_chan.transform.Rotate(moveDirection);
-        //         unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-                
-
-        //         // if        (Input.GetKeyDown(KeyCode.UpArrow)) {
-        //         //     return;
-        //         // } else if (Input.GetKeyDown(KeyCode.DownArrow)){
-        //         //     unity_chan.transform.Rotate(0.0f, 180.0f, 0.0f);
-        //         // } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-        //         //     unity_chan.transform.Rotate(0.0f, 90.0f, 0.0f);
-        //         // } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-        //         //     unity_chan.transform.Rotate(0.0f, -90.0f, 0.0f);
-        //         // } 
-        // }).AddTo(this);
 
         // アタック終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
@@ -186,19 +128,6 @@ public class PlayerTest : MonoBehaviour
                 } 
         }).AddTo(this);
     }
-    
-    /// <summary>
-    /// playerが攻撃アニメーションする時のやつ
-    /// </summary>
-    // private IEnumerator AttackAnimationFlow()
-    // {
-    //     SetPlayerStatus(PlayerStatus.ATTACK);
-    //     // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
-    //     GetComponent<Animator>().Play("KneelDownToUp");
-    //     yield return null; // ステートの反映に1フレームいるらしい。
-    //     anim_hash = animator.GetCurrentAnimatorStateInfo (0).fullPathHash;
-    //     SetPlayerStatus(PlayerStatus.IDLE);
-    // }
 
     /// <summary>
     /// PlayerStatusをセットする
