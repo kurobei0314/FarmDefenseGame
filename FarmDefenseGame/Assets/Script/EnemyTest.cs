@@ -69,6 +69,7 @@ public class EnemyTest : MonoBehaviour
                 ReserveDamage(_.gameObject.GetComponent<PlayerTest>().Attack);
                 if (hp == 0){
                     SetEnemyStatus(EnemyStatus.DIE);
+                    AudioManager.Instance.PlaySE("slime_die");
                     GetComponent<Animator>().Play("Die");
                 }
                 else {
@@ -143,6 +144,7 @@ public class EnemyTest : MonoBehaviour
     {
         anim_label = 1;
         SetEnemyStatus(EnemyStatus.ANIMATION);
+        AudioManager.Instance.PlaySE("slime_found");
         GetComponent<Animator>().Play("Victory");
         yield return new WaitForSeconds(5.0f);
         SetEnemyStatus(EnemyStatus.NOTICE);

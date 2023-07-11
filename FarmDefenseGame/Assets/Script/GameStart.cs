@@ -9,6 +9,7 @@ public class GameStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlayBGM("title");
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.A))
             .Subscribe(_ => {

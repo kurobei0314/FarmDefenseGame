@@ -35,6 +35,7 @@ public class EnemyAITest : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.IDLE)
             .Subscribe(_ => {
+                if (player.CurrentStatus == PlayerTest.PlayerStatus.DIE) return;
                 // Debug.Log("わーーーーーーーーーーい");
                 // this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
                 IdleAI();
@@ -45,6 +46,7 @@ public class EnemyAITest : MonoBehaviour
             .Where(_ => this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.NOTICE
                     ||  this.gameObject.GetComponent<EnemyTest>().current_enemy_status == EnemyTest.EnemyStatus.ATTACK)
             .Subscribe(_ => {
+                if (player.CurrentStatus == PlayerTest.PlayerStatus.DIE) return;
                 // Debug.Log();
                 NoticeAI();
             }).AddTo(this);
@@ -144,6 +146,7 @@ public class EnemyAITest : MonoBehaviour
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
         // TODO:この書き方も良くないので修正したい
         if (this.gameObject.GetComponent<EnemyTest>().current_enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
+        // AudioManager.Instance.PlaySE("slime_attack");
         GetComponent<Animator>().Play("Attack02");
     }
 }

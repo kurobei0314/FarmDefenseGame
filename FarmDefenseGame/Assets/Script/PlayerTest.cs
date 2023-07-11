@@ -37,6 +37,9 @@ public class PlayerTest : MonoBehaviour
     // MEMO: 大体ここにプレイヤーが操作するものが入ってる
     void Start()
     {
+        // TODO: ここで書くべきことではないけどとりあえずここに書く。
+        AudioManager.Instance.PlayBGM("main");
+        AudioManager.Instance.PlaySE("unitychan_begin");
         hp = max_hp;
         UpdateHPbar(1.0f);
 
@@ -80,6 +83,12 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE && CurrentStatus != PlayerStatus.ATTACK) return;
                 SetPlayerStatus(PlayerStatus.ATTACK);
+                float rnd = Random.Range(0.0f, 1.0f);
+                    if (rnd < 0.5f){
+                        AudioManager.Instance.PlaySE("unitychan_attack1");
+                    } else{
+                        AudioManager.Instance.PlaySE("unitychan_attack2");
+                    }
                 // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
                 unity_chan.GetComponent<Animator>().Play("KneelDownToUp");
         }).AddTo(this);
@@ -109,10 +118,17 @@ public class PlayerTest : MonoBehaviour
                 UpdateHPbar(hp/(float)max_hp);
                 if (hp == 0) {
                     Debug.Log("HPが0になっちゃったー");
+                    AudioManager.Instance.PlaySE("unitychan_lose");
                     unity_chan.GetComponent<Animator>().Play("GoDown");
                     SetPlayerStatus(PlayerStatus.DIE);
                 }
                 else {
+                    float rnd = Random.Range(0.0f, 1.0f);
+                    if (rnd < 0.5f){
+                        AudioManager.Instance.PlaySE("unitychan_damage1");
+                    } else{
+                        AudioManager.Instance.PlaySE("unitychan_damage2");
+                    }
                     unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
                     SetPlayerStatus(PlayerStatus.DAMAGE);
                 }
