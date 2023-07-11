@@ -146,6 +146,7 @@ public class EnemyAITest : MonoBehaviour
         this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
         // TODO:この書き方も良くないので修正したい
         if (this.gameObject.GetComponent<EnemyTest>().current_enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
+        // MEMO: なんかアタックする時にプレイヤーの声が消えちゃう
         // AudioManager.Instance.PlaySE("slime_attack");
         GetComponent<Animator>().Play("Attack02");
     }
