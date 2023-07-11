@@ -50,7 +50,7 @@ public class PlayerTest : MonoBehaviour
                 float verticalInput = Input.GetAxis("Vertical");
                 Vector3 pos = this.transform.position;
                 Vector3 moveDirection = (camera.transform.forward * verticalInput + camera.transform.right * horizontalInput).normalized;
-                this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.05f);
+                this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.07f);
                 unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
                 unity_chan.GetComponent<Animator>().Play("Running(loop)");
         }).AddTo(this);
@@ -89,9 +89,9 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             .Subscribe(_ => {
                 if        (Input.GetKey(KeyCode.A)) {
-                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, -0.5f);
+                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, -0.7f);
                 } else if (Input.GetKey(KeyCode.D)) {
-                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.5f);
+                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.7f);
                 }
         }).AddTo(this);
 
