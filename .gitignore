@@ -3,7 +3,6 @@ FarmDefenseGame/Library/*
 FarmDefenseGame/Temp/*
 FarmDefenseGame/Logs/*
 FarmDefenseGame/Packages/*
-FarmDefenseGame/ProjectSettings/*
 FarmDefenseGame/UserSettings/*
 FarmDefenseGame/Assembly-CSharp.csproj
 FarmDefenseGame/Assembly-CSharp-firstpass.csproj
