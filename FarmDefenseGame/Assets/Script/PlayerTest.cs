@@ -45,7 +45,8 @@ public class PlayerTest : MonoBehaviour
 
         // プレイヤーの移動系
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
+            .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
+                        Input.GetKey(KeyCode.UpArrow)    ||  Input.GetKey(KeyCode.DownArrow) ||
                         Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE) return;
@@ -60,7 +61,8 @@ public class PlayerTest : MonoBehaviour
 
         // ボタンから離した時
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
+            .Where(_ => (Input.GetAxis("Horizontal") == 0.0f && Input.GetAxis("Vertical") == 0.0f) ||
+                        Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
                         Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow))
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE) return;
@@ -79,7 +81,7 @@ public class PlayerTest : MonoBehaviour
 
         // 攻撃モーション
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKeyDown(KeyCode.W))
+            .Where(_ => Input.GetButtonDown("Attack"))
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE && CurrentStatus != PlayerStatus.ATTACK) return;
                 SetPlayerStatus(PlayerStatus.ATTACK);
@@ -95,13 +97,10 @@ public class PlayerTest : MonoBehaviour
 
         // カメラの移動
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            .Where(_ => Input.GetAxis("CameraMove") != 0)
             .Subscribe(_ => {
-                if        (Input.GetKey(KeyCode.A)) {
-                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, -0.7f);
-                } else if (Input.GetKey(KeyCode.D)) {
-                    camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, 0.7f);
-                }
+                float cameraInput = Input.GetAxis("CameraMove");
+                camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, cameraInput * 0.7f);
         }).AddTo(this);
 
         // 敵からの攻撃を受けた時の挙動
@@ -172,6 +171,5 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
