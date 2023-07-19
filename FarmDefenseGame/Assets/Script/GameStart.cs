@@ -10,8 +10,9 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayBGM("title");
+        // TODO: 今は、GetButtonDown("attack")にしてるけど、本当は良くないからね。直してね。
         Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.A))
+            .Where(_ => Input.GetButtonDown("Attack"))
             .Subscribe(_ => {
                 Initiate.Fade("Main", Color.black, 1.0f);
         }).AddTo(this);

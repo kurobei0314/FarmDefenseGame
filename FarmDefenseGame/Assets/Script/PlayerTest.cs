@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine.UI;
+using System;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -33,12 +34,14 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] Slider HPbar;
 
+    // 自分が死んだ時のObservable(ゲームダンジョン用)
+    private Subject<int> playerDie = new Subject<int>();
+    public IObservable<int> PlayerDieObservable => playerDie;
+
     // Start is called before the first frame update
     // MEMO: 大体ここにプレイヤーが操作するものが入ってる
     void Start()
     {
-        // TODO: ここで書くべきことではないけどとりあえずここに書く。
-        AudioManager.Instance.PlayBGM("main");
         AudioManager.Instance.PlaySE("unitychan_begin");
         hp = max_hp;
         UpdateHPbar(1.0f);
@@ -52,6 +55,8 @@ public class PlayerTest : MonoBehaviour
                 if (CurrentStatus != PlayerStatus.IDLE) return;
                 float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");
+                Debug.Log("horizontalInput: " + horizontalInput);
+                Debug.Log("verticalInput: " + verticalInput);
                 Vector3 pos = this.transform.position;
                 Vector3 moveDirection = (camera.transform.forward * verticalInput + camera.transform.right * horizontalInput).normalized;
                 this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.07f);
@@ -85,7 +90,7 @@ public class PlayerTest : MonoBehaviour
             .Subscribe(_ => {
                 if (CurrentStatus != PlayerStatus.IDLE && CurrentStatus != PlayerStatus.ATTACK) return;
                 SetPlayerStatus(PlayerStatus.ATTACK);
-                float rnd = Random.Range(0.0f, 1.0f);
+                float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
                     if (rnd < 0.5f){
                         AudioManager.Instance.PlaySE("unitychan_attack1");
                     } else{
@@ -100,6 +105,7 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetAxis("CameraMove") != 0)
             .Subscribe(_ => {
                 float cameraInput = Input.GetAxis("CameraMove");
+                Debug.Log("CameMove: " + cameraInput);
                 camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, cameraInput * 0.7f);
         }).AddTo(this);
 
@@ -116,20 +122,21 @@ public class PlayerTest : MonoBehaviour
                 ReserveDamage(parent.gameObject.GetComponent<EnemyTest>().Attack);
                 UpdateHPbar(hp/(float)max_hp);
                 if (hp == 0) {
+                    SetPlayerStatus(PlayerStatus.DIE);
                     Debug.Log("HPが0になっちゃったー");
                     AudioManager.Instance.PlaySE("unitychan_lose");
                     unity_chan.GetComponent<Animator>().Play("GoDown");
-                    SetPlayerStatus(PlayerStatus.DIE);
+                    playerDie.OnNext(1);
                 }
                 else {
-                    float rnd = Random.Range(0.0f, 1.0f);
+                    SetPlayerStatus(PlayerStatus.DAMAGE);
+                    float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
                     if (rnd < 0.5f){
                         AudioManager.Instance.PlaySE("unitychan_damage1");
                     } else{
                         AudioManager.Instance.PlaySE("unitychan_damage2");
                     }
                     unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
-                    SetPlayerStatus(PlayerStatus.DAMAGE);
                 }
         }).AddTo(this);
 

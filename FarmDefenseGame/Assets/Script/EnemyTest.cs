@@ -93,13 +93,6 @@ public class EnemyTest : MonoBehaviour
                 } 
         }).AddTo(this);
 
-        // MEMO: <ゲームダンジョン用>
-        Observable.EveryUpdate()
-            .Where(_ => Input.GetKey(KeyCode.Q))
-            .Subscribe(_ => {
-                Initiate.Fade("GameStart", Color.black, 1.0f);
-        }).AddTo(this);
-
         // アタック終わったら、プレイヤーのステータスをIDLEにする
         // TODO: なんかもっといい設計ないのだろうか
         // Observable.EveryUpdate()
