@@ -5,6 +5,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine.UI;
 using System;
+using DG.Tweening;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerTest : MonoBehaviour
         ATTACK,
         DAMAGE,
         DIE,
+        WIN, // これはいらない？
     }
 
     public PlayerStatus CurrentStatus => current_status;
@@ -55,8 +57,8 @@ public class PlayerTest : MonoBehaviour
                 if (CurrentStatus != PlayerStatus.IDLE) return;
                 float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");
-                Debug.Log("horizontalInput: " + horizontalInput);
-                Debug.Log("verticalInput: " + verticalInput);
+                // Debug.Log("horizontalInput: " + horizontalInput);
+                // Debug.Log("verticalInput: " + verticalInput);
                 Vector3 pos = this.transform.position;
                 Vector3 moveDirection = (camera.transform.forward * verticalInput + camera.transform.right * horizontalInput).normalized;
                 this.GetComponent<Rigidbody>().MovePosition(pos + moveDirection * 0.07f);
@@ -152,6 +154,48 @@ public class PlayerTest : MonoBehaviour
     }
 
     /// <summary>
+    /// プレイヤーがクリアした時に実行する
+    /// MEMO: 東京ゲームダンジョン用
+    /// </summary>
+    public void GameClearPlayer()
+    {
+        SetPlayerStatus(PlayerStatus.WIN);
+        float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
+        if (rnd < 0.5f){
+            AudioManager.Instance.PlaySE("unitychan_win1");
+        } else {
+            AudioManager.Instance.PlaySE("unitychan_win2");
+        }
+        Vector3 playerToCamera = camera.transform.position - unity_chan.transform.position;
+        float dotProduct = Vector3.Dot(unity_chan.transform.forward, playerToCamera.normalized);
+        Vector3[] paths;
+        // 正面を向いてる場合
+        // TODO: ここもちゃんとリファクタリングする
+        if (dotProduct > 0.0f){
+            Vector3[] tmp_paths = {
+                GetCameraPositionForPlayer(new Vector3(-0.03f, 1.42f, 2.73f)), // 最終地点
+            };
+            paths = tmp_paths;
+        } else {
+            Vector3[] tmp_paths = {
+                GetCameraPositionForPlayer(new Vector3(2.06f, 0.96f, -0.09f)),  // キャラがカメラの方に向いてる時に死ぬので考える
+                GetCameraPositionForPlayer(new Vector3(-0.03f, 1.42f, 2.73f)), // 最終地点
+            };
+            paths = tmp_paths;
+        }
+        camera.transform.DOLocalPath(paths, 2.0f, PathType.CatmullRom).SetLookAt(unity_chan.transform, stableZRotation: true);
+        unity_chan.GetComponent<Animator>().Play("Jumping(loop)");
+    }
+
+    /// <summary>
+    /// プレイヤーの場所に合わせたカメラ移動をするときの位置を求める
+    /// MEMO: 東京ゲームダンジョン用
+    /// </summary>
+    private Vector3 GetCameraPositionForPlayer(Vector3 offset){
+        return unity_chan.transform.forward * offset.z + unity_chan.transform.up * offset.y + unity_chan.transform.right * offset.x;
+    }
+
+    /// <summary>
     /// PlayerStatusをセットする
     /// </summary>
     private void SetPlayerStatus(PlayerStatus status)
@@ -174,6 +218,35 @@ public class PlayerTest : MonoBehaviour
     private void UpdateHPbar(float value){
         HPbar.value = value;
     }
+
+    // /// <summary>
+    // /// 勝った時のカメラの移動
+    // /// </summary>
+    // /// <param name="value"></param>
+    // public void DoRotateAround(float duration)
+    // {
+    //     float prevVal = 0.0f;
+    //     float endValue;
+
+    //     // durationの時間で値を0～endValueまで変更させて公転処理を呼ぶ
+    //     DOTween.To(x => RotateAroundPrc(x), 0.0f, endValue, duration);
+    // }
+
+    // /// <summary>
+    // /// 公転処理
+    // /// </summary>
+    // /// <param name="value"></param>
+    // private void RotateAroundPrc(float value)
+    // {
+    //     // 前回との差分を計算
+    //     float delta = value - prevVal;
+        
+    //     // Y軸周りに公転運動
+    //     camera.RotateAround(unity_chan.transform.position, Vector3.up, delta);
+        
+    //     // 前回の角度を更新
+    //     prevVal = value;
+    // }
 
     // Update is called once per frame
     void Update()

@@ -11,17 +11,40 @@ public class GameController : MonoBehaviour
     private PlayerTest player;
 
     [SerializeField]
+    private GameObject enemies;
+
+    [SerializeField]
+    private GameObject game_clear;
+
+    [SerializeField]
     private GameObject game_over;
+
+    // MEMO: 完全なるゲームダンジョン用。全滅したかどうかをみる
+    private int enemy_count = 1;
+    private int current_enemy_count;
 
     // Start is called before the first frame update
     void Start()
     {
         AudioManager.Instance.PlayBGM("main");
+        game_clear.SetActive(false);
         game_over.SetActive(false);
+        current_enemy_count = enemy_count;
 
         player.PlayerDieObservable.Subscribe(index => {
             game_over.SetActive(true);
         }).AddTo(this);
+
+        for (int i = 0; i < enemy_count; i++) {
+            var enemy = enemies.transform.GetChild(i).gameObject;
+            enemy.GetComponent<EnemyTest>().EnemyDieObservable.Subscribe(_ => {
+                current_enemy_count = current_enemy_count - 1;
+                if(current_enemy_count <= 0){
+                    player.GameClearPlayer();
+                    game_clear.SetActive(true);
+                }
+            });
+        }
         
         // タイトル画面に戻る (キーボードのQまたは、PSボタン)
         Observable.EveryUpdate()
@@ -37,7 +60,6 @@ public class GameController : MonoBehaviour
             .Subscribe(_ => {
                 Initiate.Fade("GameStart", Color.black, 1.0f);
         }).AddTo(this);
-
     }
 
     // Update is called once per frame

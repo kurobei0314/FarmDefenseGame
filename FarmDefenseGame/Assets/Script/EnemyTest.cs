@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-
+using System;
 
 // TODO：VO的な立ち位置にしたい
 public class EnemyTest : MonoBehaviour
@@ -39,6 +39,10 @@ public class EnemyTest : MonoBehaviour
     [SerializeField]
     GameObject Body;
 
+    // 敵が死んだ時のObservable(ゲームダンジョン用)
+    private Subject<int> enemyDie = new Subject<int>();
+    public IObservable<int> EnemyDieObservable => enemyDie;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +75,7 @@ public class EnemyTest : MonoBehaviour
                     SetEnemyStatus(EnemyStatus.DIE);
                     AudioManager.Instance.PlaySE("slime_die");
                     GetComponent<Animator>().Play("Die");
+                    enemyDie.OnNext(1);
                 }
                 else {
                     SetEnemyStatus(EnemyStatus.DAMAGE);
