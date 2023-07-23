@@ -107,7 +107,6 @@ public class PlayerTest : MonoBehaviour
             .Where(_ => Input.GetAxis("CameraMove") != 0)
             .Subscribe(_ => {
                 float cameraInput = Input.GetAxis("CameraMove");
-                Debug.Log("CameMove: " + cameraInput);
                 camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, cameraInput * 0.7f);
         }).AddTo(this);
 

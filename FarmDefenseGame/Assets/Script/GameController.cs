@@ -55,8 +55,8 @@ public class GameController : MonoBehaviour
 
         // タイトル画面に戻る(xボタン)
         Observable.EveryUpdate()
-            .Where(_ => player.CurrentStatus == PlayerTest.PlayerStatus.DIE && Input.GetKey(KeyCode.JoystickButton1)
-                        )
+            .Where(_ => (player.CurrentStatus == PlayerTest.PlayerStatus.DIE || player.CurrentStatus == PlayerTest.PlayerStatus.WIN) && 
+                        Input.GetKey(KeyCode.JoystickButton1))
             .Subscribe(_ => {
                 Initiate.Fade("GameStart", Color.black, 1.0f);
         }).AddTo(this);

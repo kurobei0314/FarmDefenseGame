@@ -72,7 +72,6 @@ public class EnemyTest : MonoBehaviour
                 if (root_gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
                 if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
                 Debug.Log("今のcurrent_enemy_status:"+ current_enemy_status);
-                SetEnemyStatus(EnemyStatus.DAMAGE);
                 Debug.Log("攻撃したおー");
                 Debug.Log("current_enemy_status:"+ current_enemy_status);
                 ReserveDamage(root_gameObject.GetComponent<PlayerTest>().Attack);
@@ -86,6 +85,7 @@ public class EnemyTest : MonoBehaviour
                 else {
                     Debug.Log("ダメージ受けたー");
                     GetComponent<Animator>().Play("GetHit");
+                    SetEnemyStatus(EnemyStatus.DAMAGE);
                 }
         }).AddTo(this);
 
