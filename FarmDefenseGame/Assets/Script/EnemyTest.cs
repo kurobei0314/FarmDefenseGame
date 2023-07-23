@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using System;
+using UnityEngine.UI;
 
 // TODO：VO的な立ち位置にしたい
 public class EnemyTest : MonoBehaviour
@@ -31,8 +32,11 @@ public class EnemyTest : MonoBehaviour
     public int Attack => attack;
 
     // 敵のHP
-    private int hp = 2;
+    private int max_hp = 2;
+    private int hp;
     public int HP => hp;
+
+    [SerializeField] Slider HPbar;
 
     // MEMO: とりあえずスライムのゲームオブジェクトを持ってくる
     // 自分でモデリング作るときはこういう作りにしたくないな。。なっちゃうのかな。
@@ -47,6 +51,7 @@ public class EnemyTest : MonoBehaviour
     void Start()
     {
         SetEnemyStatus(EnemyStatus.IDLE);
+        hp = max_hp;
 
         // 気づいた時の挙動
         this.OnTriggerEnterAsObservable()
@@ -75,6 +80,7 @@ public class EnemyTest : MonoBehaviour
                 Debug.Log("攻撃したおー");
                 Debug.Log("current_enemy_status:"+ current_enemy_status);
                 ReserveDamage(root_gameObject.GetComponent<PlayerTest>().Attack);
+                UpdateHPbar(hp/(float)max_hp);
                 if (hp == 0){
                     Debug.Log("倒れたー");
                     SetEnemyStatus(EnemyStatus.DIE);
@@ -184,6 +190,10 @@ public class EnemyTest : MonoBehaviour
         else{
             hp -= value;
         }
+    }
+
+    private void UpdateHPbar(float value){
+        HPbar.value = value;
     }
 
     // Update is called once per frame
