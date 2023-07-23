@@ -66,19 +66,25 @@ public class EnemyTest : MonoBehaviour
 
         // プレイヤーが攻撃した時の挙動(Enterにしたいけど、今のcolliderの設定的にstayの方がいいかもしれない)
         Body.OnTriggerStayAsObservable()
-            .Where(_ => _.gameObject.tag == "Player" && _.gameObject.GetComponent<PlayerTest>().CurrentStatus == PlayerTest.PlayerStatus.ATTACK)
+            .Where(_ =>  _.gameObject.tag == "PlayerWeapon")
             .Subscribe(_ => {
+                var root_gameObject = _.gameObject.transform.root.gameObject;
+                if (root_gameObject.GetComponent<PlayerTest>().CurrentStatus != PlayerTest.PlayerStatus.ATTACK) return;
                 if (current_enemy_status == EnemyStatus.DAMAGE || current_enemy_status == EnemyStatus.DIE) return;
+                Debug.Log("今のcurrent_enemy_status:"+ current_enemy_status);
+                SetEnemyStatus(EnemyStatus.DAMAGE);
                 Debug.Log("攻撃したおー");
-                ReserveDamage(_.gameObject.GetComponent<PlayerTest>().Attack);
+                Debug.Log("current_enemy_status:"+ current_enemy_status);
+                ReserveDamage(root_gameObject.GetComponent<PlayerTest>().Attack);
                 if (hp == 0){
+                    Debug.Log("倒れたー");
                     SetEnemyStatus(EnemyStatus.DIE);
                     AudioManager.Instance.PlaySE("slime_die");
                     GetComponent<Animator>().Play("Die");
                     enemyDie.OnNext(1);
                 }
                 else {
-                    SetEnemyStatus(EnemyStatus.DAMAGE);
+                    Debug.Log("ダメージ受けたー");
                     GetComponent<Animator>().Play("GetHit");
                 }
         }).AddTo(this);
@@ -90,6 +96,7 @@ public class EnemyTest : MonoBehaviour
             .Subscribe(_ => {
                 if (GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("IdleNormal")){
                     if      (current_enemy_status == EnemyStatus.DAMAGE){
+                        Debug.Log("NOTICEに戻すよー");
                         SetEnemyStatus(EnemyStatus.NOTICE);
                     }
                     else if (current_enemy_status == EnemyStatus.DIE){
@@ -144,8 +151,9 @@ public class EnemyTest : MonoBehaviour
         SetEnemyStatus(EnemyStatus.ANIMATION);
         AudioManager.Instance.PlaySE("slime_found");
         GetComponent<Animator>().Play("Victory");
-        yield return new WaitForSeconds(5.0f);
-        SetEnemyStatus(EnemyStatus.NOTICE);
+        yield return new WaitForSeconds(4.0f);
+        // 攻撃とか受けてステータスが変わってないことを見る
+        if (current_enemy_status == EnemyStatus.ANIMATION) SetEnemyStatus(EnemyStatus.NOTICE);
         anim_label = 0;
     }
 
@@ -160,7 +168,8 @@ public class EnemyTest : MonoBehaviour
         SetEnemyStatus(EnemyStatus.ANIMATION);
         GetComponent<Animator>().Play("SenseSomethingRPT");
         yield return new WaitForSeconds(5.0f);
-        SetEnemyStatus(EnemyStatus.IDLE);
+        // 攻撃とか受けてステータスが変わってないことを見る
+        if (current_enemy_status == EnemyStatus.ANIMATION) SetEnemyStatus(EnemyStatus.IDLE);
         anim_label = 0;
     }
 
