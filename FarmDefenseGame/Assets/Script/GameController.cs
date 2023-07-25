@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     private GameObject game_over;
 
     // MEMO: 完全なるゲームダンジョン用。全滅したかどうかをみる
-    private int enemy_count = 1;
+    private int enemy_count;
     private int current_enemy_count;
 
     // Start is called before the first frame update
@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
         AudioManager.Instance.PlayBGM("main");
         game_clear.SetActive(false);
         game_over.SetActive(false);
+        enemy_count = enemies.transform.childCount;
         current_enemy_count = enemy_count;
 
         player.PlayerDieObservable.Subscribe(index => {
