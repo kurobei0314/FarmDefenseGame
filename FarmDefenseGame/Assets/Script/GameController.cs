@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.JoystickButton9))
             .Subscribe(_ => {
+                AudioManager.Instance.PlaySE("system");
                 Initiate.Fade("GameStart", Color.black, 1.0f);
         }).AddTo(this);
 
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour
             .Where(_ => (player.CurrentStatus == PlayerTest.PlayerStatus.DIE || player.CurrentStatus == PlayerTest.PlayerStatus.WIN) && 
                         Input.GetKey(KeyCode.JoystickButton1))
             .Subscribe(_ => {
+                AudioManager.Instance.PlaySE("system");
                 Initiate.Fade("GameStart", Color.black, 1.0f);
         }).AddTo(this);
     }

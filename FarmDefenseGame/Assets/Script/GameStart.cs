@@ -14,6 +14,7 @@ public class GameStart : MonoBehaviour
         Observable.EveryUpdate()
             .Where(_ => Input.GetButtonDown("Attack"))
             .Subscribe(_ => {
+                AudioManager.Instance.PlaySE("system");
                 Initiate.Fade("Main", Color.black, 1.0f);
         }).AddTo(this);
     }
