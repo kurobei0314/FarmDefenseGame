@@ -176,7 +176,7 @@ public class PlayerTest : MonoBehaviour
     public void GameClearPlayer()
     {
         SetPlayerStatus(PlayerStatus.WIN);
-        float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
+        float rnd = UnityEngine.Random.Range(0.0f, 1.1f);
         if (rnd < 0.5f){
             AudioManager.Instance.PlaySE("unitychan_win1");
         } else {
