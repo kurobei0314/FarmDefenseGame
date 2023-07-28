@@ -132,27 +132,42 @@ public class PlayerTest : MonoBehaviour
                     playerDie.OnNext(1);
                 }
                 else {
-                    SetPlayerStatus(PlayerStatus.DAMAGE);
                     float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
                     if (rnd < 0.5f){
                         AudioManager.Instance.PlaySE("unitychan_damage1");
                     } else{
                         AudioManager.Instance.PlaySE("unitychan_damage2");
                     }
-                    unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
+                    StartCoroutine ("PlayAnimDamage");
                 }
         }).AddTo(this);
 
-        // ダメージ終わったら、プレイヤーのステータスをIDLEにする
-        // TODO: なんかもっといい設計ないのだろうか
-        Observable.EveryUpdate()
-            .Where(_ => CurrentStatus == PlayerStatus.DAMAGE)
-            .Subscribe(_ => {
-                if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
-                    SetPlayerStatus(PlayerStatus.IDLE);
-                } 
-        }).AddTo(this);
+        // MEMO: これうまく動かなかった。（アニメーションが終わる前にここに入っちゃう）
+        // // ダメージ終わったら、プレイヤーのステータスをIDLEにする
+        // // TODO: なんかもっといい設計ないのだろうか
+        // Observable.EveryUpdate()
+        //     .Where(_ => CurrentStatus == PlayerStatus.DAMAGE)
+        //     .Subscribe(_ => {
+        //         if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
+        //             Debug.Log("IDLEに変更するよー");
+        //             SetPlayerStatus(PlayerStatus.IDLE);
+        //         } 
+        // }).AddTo(this);
     }
+
+    /// <summary>
+    /// damageからidleにステータスに変更する
+    /// TODO: この書き方したくない。。。
+    /// </summary>
+    private IEnumerator PlayAnimDamage()
+    {
+        unity_chan.GetComponent<Animator>().Play("Damaged(loop)");
+        Debug.Log("DAMAGEに変更するよー");
+        SetPlayerStatus(PlayerStatus.DAMAGE);
+        yield return new WaitForSeconds(1.0f);
+        SetPlayerStatus(PlayerStatus.IDLE);
+    }
+
 
     /// <summary>
     /// プレイヤーがクリアした時に実行する
