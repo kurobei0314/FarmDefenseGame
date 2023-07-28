@@ -36,6 +36,8 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] Slider HPbar;
 
+    [SerializeField] GameObject body;
+
     // 自分が死んだ時のObservable(ゲームダンジョン用)
     private Subject<int> playerDie = new Subject<int>();
     public IObservable<int> PlayerDieObservable => playerDie;
@@ -84,7 +86,7 @@ public class PlayerTest : MonoBehaviour
                 if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
                     SetPlayerStatus(PlayerStatus.IDLE);
                 } 
-        });
+        }).AddTo(this);;
 
         // 攻撃モーション
         Observable.EveryUpdate()
@@ -111,7 +113,7 @@ public class PlayerTest : MonoBehaviour
         }).AddTo(this);
 
         // 敵からの攻撃を受けた時の挙動
-        this.OnTriggerEnterAsObservable()
+        body.OnTriggerEnterAsObservable()
             .Subscribe(_ => {
                 var parent = _.gameObject.transform.parent;
                 if (parent == null || parent.gameObject.tag != "Enemy") return;
