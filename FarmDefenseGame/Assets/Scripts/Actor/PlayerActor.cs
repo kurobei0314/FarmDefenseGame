@@ -34,7 +34,7 @@ namespace WolfVillageBattle
         }
         public void StandPlayer()
         {
-            if (playerEntity.CurrentStatus != PlayerStatus.IDLE) return;
+            if (playerEntity.CurrentStatus != Status.IDLE) return;
             playerView.PlayStand();
         }
     }
