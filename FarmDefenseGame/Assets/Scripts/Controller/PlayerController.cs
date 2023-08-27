@@ -8,21 +8,20 @@ namespace WolfVillageBattle {
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
-        IPlayerView player;
+        private PlayerView player;
 
         [SerializeField]
-        ICameraView camera;
+        private CameraView camera;
 
         [SerializeField]
-        IPlayerEntity playerEntity;
+        private MainGameRepository mainGameRepository;
+
 
         // Start is called before the first frame update
         void Start()
         {
-            // TODO:「依存関係逆転」の、Registerを作る(Datastoreから直接もってこないようにする)
-            // var register = new ItemBlockGestureRegisterActor();
-            // TODO: playerEntityはRegisterから取ってくるようにする(参考になるのは、MainGameController)
-            IPlayerUseCase playerUseCase = new PlayerActor(player, playerEntity, camera);
+            mainGameRepository.Initialize();
+            IPlayerUseCase playerUseCase = new PlayerActor(player, mainGameRepository.Player, camera);
             // var moveDownStream = this.UpdateAsObservable().Where(_ =>   Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
             //                                                             Input.GetKey(KeyCode.UpArrow)    ||  Input.GetKey(KeyCode.DownArrow) ||
             //                                                             Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow));

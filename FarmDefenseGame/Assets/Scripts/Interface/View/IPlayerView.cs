@@ -13,7 +13,7 @@ namespace WolfVillageBattle.Interface
 
     public interface IAnimation 
     {
-        Animator animator { get; }
+        Animator playerAnimator { get; }
         void PlayRun();
         void PlayStand();
     }
