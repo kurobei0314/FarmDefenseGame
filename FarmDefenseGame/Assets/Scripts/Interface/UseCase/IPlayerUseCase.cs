@@ -14,5 +14,6 @@ namespace WolfVillageBattle.Interface
     public interface IMoveable
     {
         void MovePlayer(float horizontalInput, float verticalInput);
+        void StandPlayer();
     }
 }

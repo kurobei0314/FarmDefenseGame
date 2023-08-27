@@ -47,8 +47,7 @@ namespace WolfVillageBattle {
                             Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
                             Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow))
                 .Subscribe(_ => {
-                    // if (CurrentStatus != PlayerStatus.IDLE) return;
-                    // unity_chan.GetComponent<Animator>().Play("Standing(loop)");
+                    playerUseCase.StandPlayer();
             }).AddTo(this);
 
             // // アタック終わったら、プレイヤーのステータスをIDLEにする

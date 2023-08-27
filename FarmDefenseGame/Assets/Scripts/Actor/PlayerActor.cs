@@ -32,5 +32,10 @@ namespace WolfVillageBattle
             playerView.unityChan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             playerView.PlayRun();
         }
+        public void StandPlayer()
+        {
+            if (playerEntity.CurrentStatus != PlayerStatus.IDLE) return;
+            playerView.PlayStand();
+        }
     }
 }
