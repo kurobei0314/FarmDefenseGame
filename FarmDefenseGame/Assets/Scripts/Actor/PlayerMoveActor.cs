@@ -7,14 +7,9 @@ namespace WolfVillageBattle
 {
     public class PlayerMoveActor : IPlayerMoveUseCase
     {
-        IPlayerView playerView;
-        public IPlayerView PlayerView => playerView;
-
-        IPlayerEntity playerEntity;
-        public IPlayerEntity PlayerEntity => playerEntity;
-
-        ICameraView camera;
-        public ICameraView Camera => camera;
+        private IPlayerView playerView;
+        private IPlayerEntity playerEntity;
+        private ICameraView camera;
 
         public PlayerMoveActor(IPlayerView playerView, IPlayerEntity playerEntity, ICameraView camera)
         {

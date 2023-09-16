@@ -4486,6 +4486,7 @@ GameObject:
   - component: {fileID: 615006815}
   - component: {fileID: 615006814}
   - component: {fileID: 615006816}
+  - component: {fileID: 615006817}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4538,6 +4539,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 821578665}
   camera: {fileID: 963194229}
+  mainGameRepository: {fileID: 11400000, guid: d86fab3e4b9bc438ca3a9ea47aeb45b0, type: 2}
+--- !u!114 &615006817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615006813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6f776c137d14b92a198b20e8b7ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 821578665}
   mainGameRepository: {fileID: 11400000, guid: d86fab3e4b9bc438ca3a9ea47aeb45b0, type: 2}
 --- !u!1 &687893990
 GameObject:

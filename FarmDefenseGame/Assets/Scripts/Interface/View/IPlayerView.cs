@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface 
 {
-    public interface IPlayerView : IAnimation
+    public interface IPlayerView : IAnimation, ISound
     {
         GameObject unityChan { get; }
         GameObject GameObject { get; }
@@ -16,5 +16,11 @@ namespace WolfVillageBattle.Interface
         Animator playerAnimator { get; }
         void PlayRun();
         void PlayStand();
+        void PlayAttack();
+    }
+
+    public interface ISound
+    {
+        void PlayAttackSound();
     }
 }

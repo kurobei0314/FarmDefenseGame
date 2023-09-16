@@ -4,7 +4,6 @@ using UnityEngine;
 using UniRx;
 using WolfVillageBattle.Interface;
 
-
 namespace WolfVillageBattle {
     public class PlayerAttackController : MonoBehaviour
     {
@@ -12,14 +11,20 @@ namespace WolfVillageBattle {
         private PlayerView player;
 
         [SerializeField]
-        private CameraView camera;
-
-        [SerializeField]
         private MainGameRepository mainGameRepository;
 
         // Start is called before the first frame update
         void Start()
         {
+            mainGameRepository.Initialize();
+            IPlayerAttackUseCase playerAttackUseCase = new PlayerAttackActor(player, mainGameRepository.Player);
+
+            Observable.EveryUpdate()
+                .Where(_ => Input.GetButtonDown("Attack"))
+                .Subscribe(_ => {
+                    playerAttackUseCase.AttackPlayer();
+                }).AddTo(this);
+            
             // // アタック終わったら、プレイヤーのステータスをIDLEにする
             // // TODO: なんかもっといい設計ないのだろうか
             // Observable.EveryUpdate()
@@ -29,22 +34,6 @@ namespace WolfVillageBattle {
             //             SetPlayerStatus(PlayerStatus.IDLE);
             //         } 
             // }).AddTo(this);;
-
-            // // 攻撃モーション
-            // Observable.EveryUpdate()
-            //     .Where(_ => Input.GetButtonDown("Attack"))
-            //     .Subscribe(_ => {
-            //         if (CurrentStatus != PlayerStatus.IDLE && CurrentStatus != PlayerStatus.ATTACK) return;
-            //         SetPlayerStatus(PlayerStatus.ATTACK);
-            //         float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
-            //             if (rnd < 0.5f){
-            //                 AudioManager.Instance.PlaySE("unitychan_attack1");
-            //             } else{
-            //                 AudioManager.Instance.PlaySE("unitychan_attack2");
-            //             }
-            //         // MEMO: 攻撃のモーションがなかったのでとりあえずこれで仮置き
-            //         unity_chan.GetComponent<Animator>().Play("KneelDownToUp");
-            // }).AddTo(this);
         }
     }
 }
