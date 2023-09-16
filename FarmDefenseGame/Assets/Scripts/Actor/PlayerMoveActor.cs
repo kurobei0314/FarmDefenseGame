@@ -5,7 +5,7 @@ using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
 {
-    public class PlayerActor : IPlayerUseCase
+    public class PlayerMoveActor : IPlayerMoveUseCase
     {
         IPlayerView playerView;
         public IPlayerView PlayerView => playerView;
@@ -16,7 +16,7 @@ namespace WolfVillageBattle
         ICameraView camera;
         public ICameraView Camera => camera;
 
-        public PlayerActor(IPlayerView playerView, IPlayerEntity playerEntity, ICameraView camera)
+        public PlayerMoveActor(IPlayerView playerView, IPlayerEntity playerEntity, ICameraView camera)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;

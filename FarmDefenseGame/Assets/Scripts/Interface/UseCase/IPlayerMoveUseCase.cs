@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IPlayerUseCase : IMoveable
+    public interface IPlayerMoveUseCase : IMoveable
     {
         IPlayerView PlayerView { get; }
         IPlayerEntity PlayerEntity { get; }
