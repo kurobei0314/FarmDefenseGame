@@ -13,14 +13,9 @@ namespace WolfVillageBattle {
         [SerializeField]
         private CameraView camera;
 
-        [SerializeField]
-        private MainGameRepository mainGameRepository;
-
-
         // Start is called before the first frame update
-        void Start()
+        public void Initialize(MainGameRepository mainGameRepository)
         {
-            mainGameRepository.Initialize();
             IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, mainGameRepository.Player, camera);
             var moveDownStream = Observable.EveryUpdate()
                                             .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
@@ -31,6 +26,7 @@ namespace WolfVillageBattle {
                                             .Where(_ => (Input.GetAxis("Horizontal") == 0.0f && Input.GetAxis("Vertical") == 0.0f) ||
                                                         Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
                                                         Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow));
+            
             // プレイヤーの移動系
             moveDownStream.Subscribe(_ => {
                     float horizontalInput = Input.GetAxis("Horizontal");

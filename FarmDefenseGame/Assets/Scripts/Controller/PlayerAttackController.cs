@@ -10,13 +10,9 @@ namespace WolfVillageBattle {
         [SerializeField]
         private PlayerView player;
 
-        [SerializeField]
-        private MainGameRepository mainGameRepository;
-
         // Start is called before the first frame update
-        void Start()
+        public void Initialize(MainGameRepository mainGameRepository)
         {
-            mainGameRepository.Initialize();
             IPlayerAttackUseCase playerAttackUseCase = new PlayerAttackActor(player, mainGameRepository.Player);
 
             Observable.EveryUpdate()
