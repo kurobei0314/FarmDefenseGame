@@ -7,15 +7,15 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerMoveController : MonoBehaviour
     {
-        [SerializeField]
         private PlayerView player;
-
-        [SerializeField]
         private CameraView camera;
 
         // Start is called before the first frame update
-        public void Initialize(MainGameRepository mainGameRepository)
+        public void Initialize(PlayerView player, MainGameRepository mainGameRepository, CameraView camera)
         {
+            this.player = player;
+            this.camera = camera;
+
             IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, mainGameRepository.Player, camera);
             var moveDownStream = Observable.EveryUpdate()
                                             .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||

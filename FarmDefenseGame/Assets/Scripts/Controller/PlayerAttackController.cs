@@ -7,12 +7,12 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerAttackController : MonoBehaviour
     {
-        [SerializeField]
         private PlayerView player;
 
         // Start is called before the first frame update
-        public void Initialize(MainGameRepository mainGameRepository)
+        public void Initialize(PlayerView player, MainGameRepository mainGameRepository)
         {
+            this.player = player;
             IPlayerAttackUseCase playerAttackUseCase = new PlayerAttackActor(player, mainGameRepository.Player);
 
             Observable.EveryUpdate()
