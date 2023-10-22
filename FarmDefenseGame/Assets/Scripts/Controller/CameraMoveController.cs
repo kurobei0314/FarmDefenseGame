@@ -1,29 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WolfVillageBattle.Interface;
+using UniRx;
 
-public class CameraMoveController : MonoBehaviour
+namespace WolfVillageBattle
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CameraMoveController : MonoBehaviour
     {
-        
-    }
+        private PlayerView player;
+        private CameraView camera;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void Initialize()
-    {
-
-        // // カメラの移動
-        // Observable.EveryUpdate()
-        //     .Where(_ => Input.GetAxis("CameraMove") != 0)
-        //     .Subscribe(_ => {
-        //         float cameraInput = Input.GetAxis("CameraMove");
-        //         camera.transform.RotateAround(unity_chan.gameObject.transform.position, Vector3.up, cameraInput * 0.7f);
-        // }).AddTo(this);
+        public void Initialize(PlayerView player, CameraView camera)
+        {
+            Observable.EveryUpdate()
+                        .Where(_ => Input.GetAxis("CameraMove") != 0)
+                        .Subscribe(_ => {
+                            float cameraInput = Input.GetAxis("CameraMove");
+                            camera.CameraMove(cameraInput, player.unityChan.gameObject.transform.position);
+                        });
+        }
     }
 }
+

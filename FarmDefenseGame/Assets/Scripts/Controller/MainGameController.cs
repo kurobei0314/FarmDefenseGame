@@ -13,9 +13,12 @@ namespace WolfVillageBattle {
         
         [SerializeField]
         private PlayerMoveController playerMoveController;
-        
+
         [SerializeField]
         private PlayerAttackController playerAttackController;
+
+        [SerializeField]
+        private CameraMoveController cameraMoveController;
 
         [SerializeField]
         private PlayerView playerView;
@@ -33,6 +36,7 @@ namespace WolfVillageBattle {
             playerStatusView.Initialize(mainGameRepository);
             playerMoveController.Initialize(playerView, mainGameRepository, cameraView);
             playerAttackController.Initialize(playerView, mainGameRepository);
+            cameraMoveController.Initialize(playerView, cameraView);
         }
     }
 }

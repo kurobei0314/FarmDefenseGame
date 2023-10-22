@@ -4488,6 +4488,7 @@ GameObject:
   - component: {fileID: 615006818}
   - component: {fileID: 615006820}
   - component: {fileID: 615006819}
+  - component: {fileID: 615006821}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4541,6 +4542,7 @@ MonoBehaviour:
   mainGameRepository: {fileID: 11400000, guid: d86fab3e4b9bc438ca3a9ea47aeb45b0, type: 2}
   playerMoveController: {fileID: 615006820}
   playerAttackController: {fileID: 615006819}
+  cameraMoveController: {fileID: 615006821}
   playerView: {fileID: 821578665}
   cameraView: {fileID: 963194229}
   playerStatusView: {fileID: 1390357009}
@@ -4566,6 +4568,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea36878ec925d4c3f99f29d3af19009c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &615006821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615006813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25515218364be46c8bce29cf904daec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &687893990
