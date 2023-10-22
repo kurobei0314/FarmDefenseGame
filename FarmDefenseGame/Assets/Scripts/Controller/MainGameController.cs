@@ -15,10 +15,14 @@ namespace WolfVillageBattle {
         [SerializeField]
         private PlayerAttackController playerAttackController;
 
+        [SerializeField]
+        private PlayerStatusView playerStatusView;
+
         // Start is called before the first frame update
         void Start()
         {
             mainGameRepository.Initialize();
+            playerStatusView.Initialize(mainGameRepository);
             playerMoveController.Initialize(mainGameRepository);
             playerAttackController.Initialize(mainGameRepository);
         }

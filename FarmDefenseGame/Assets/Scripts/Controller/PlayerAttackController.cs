@@ -20,16 +20,6 @@ namespace WolfVillageBattle {
                 .Subscribe(_ => {
                     playerAttackUseCase.AttackPlayer();
                 }).AddTo(this);
-            
-            // // アタック終わったら、プレイヤーのステータスをIDLEにする
-            // // TODO: なんかもっといい設計ないのだろうか
-            // Observable.EveryUpdate()
-            //     .Where(_ => current_status == PlayerStatus.ATTACK)
-            //     .Subscribe(_ => {
-            //         if (unity_chan.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName("Standing(loop)")){
-            //             SetPlayerStatus(PlayerStatus.IDLE);
-            //         } 
-            // }).AddTo(this);;
         }
     }
 }

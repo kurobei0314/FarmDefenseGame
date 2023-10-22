@@ -33,6 +33,12 @@ namespace WolfVillageBattle
             playerAnimator.Play("KneelDownToUp");
         }
 
+        // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい
+        // public void SetIdleStatus()
+        // {
+        //     playerEntity.SetStatus(Status.ATTACK);
+        // }
+
         public void PlayAttackSound()
         {
             float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
