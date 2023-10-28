@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IPlayerEntity : ISetStatus
+    public interface IEnemyEntity : ISetStatus
     {
-        IPlayerVO PlayerVO { get; }
+        IEnemyVO EnemyVO { get; }
         int CurrentHP { get; }
-        int Attack { get; }
-        string Weapon { get; }
     }
 }
+

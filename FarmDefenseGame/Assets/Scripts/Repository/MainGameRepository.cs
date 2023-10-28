@@ -20,6 +20,9 @@ namespace WolfVillageBattle
     {
         [SerializeField]
         private PlayerVODataStore playerDataStore;
+
+        [SerializeField]
+        private EnemyVODataStore enemyVODataStore;
         
         private IPlayerEntity player;
         public IPlayerEntity Player => player;

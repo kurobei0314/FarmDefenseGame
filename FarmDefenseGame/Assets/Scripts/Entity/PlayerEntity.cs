@@ -26,7 +26,7 @@ namespace WolfVillageBattle
         private int attack;
         public int Attack => attack;
 
-        // TIDO: 後で考える(絶対にstringではなくなる) 
+        // TODO: 後で考える(絶対にstringではなくなる) 
         [SerializeField]
         // string weapon;
         // public string Weapon => weapon;
