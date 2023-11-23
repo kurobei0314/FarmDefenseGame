@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 
-namespace WolfVillageBattle {
+namespace WolfVillageBattle 
+{
     // プレイヤーのアニメーションでStatusが変更されるなどのためだけに作られたクラス
     // なんか違う気がする
     public class PlayerStatusView : MonoBehaviour
@@ -14,6 +15,7 @@ namespace WolfVillageBattle {
         {
             playerEntity = mainGameRepository.Player;
         }
+        
         public void SetIdleStatus()
         {
             playerEntity.SetStatus(Status.IDLE);

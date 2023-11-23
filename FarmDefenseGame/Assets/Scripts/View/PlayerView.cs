@@ -15,22 +15,22 @@ namespace WolfVillageBattle
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
 
         [SerializeField]
-        private Animator player_animator;
-        public Animator playerAnimator => player_animator;
+        private Animator animator;
+        public Animator Animator => animator;
 
         public void PlayRun()
         {
-            playerAnimator.Play("Running(loop)");
+            animator.Play("Running(loop)");
         }
 
         public void PlayStand()
         {
-            playerAnimator.Play("Standing(loop)");
+            animator.Play("Standing(loop)");
         }
 
         public void PlayAttack()
         {
-            playerAnimator.Play("KneelDownToUp");
+            animator.Play("KneelDownToUp");
         }
 
         // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい
