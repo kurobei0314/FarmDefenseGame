@@ -21,6 +21,12 @@ namespace WolfVillageBattle
             if (enemyEntity.CurrentStatus != Status.ANIMATION) return;
             enemyEntity.SetStatus(Status.NOTICE);
         }
+
+        public void SetIdleStatus()
+        {
+            if (enemyEntity.CurrentStatus != Status.ANIMATION) return;
+            enemyEntity.SetStatus(Status.IDLE);
+        }
     }
 }
 

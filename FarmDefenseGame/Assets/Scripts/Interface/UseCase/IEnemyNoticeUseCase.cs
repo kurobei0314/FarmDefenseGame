@@ -7,5 +7,6 @@ namespace WolfVillageBattle.Interface
     public interface IEnemyNoticeUseCase 
     {
         void EnemyNotice();
+        void EnemyOverlook();
     }
 }

@@ -22,6 +22,12 @@ namespace WolfVillageBattle
             enemyView.PlayNoticeSound();
             enemyView.PlayNotice();
         }
+
+        public void EnemyOverlook()
+        {
+            enemyEntity.SetStatus(Status.ANIMATION);
+            enemyView.PlayOverlook();
+        }
     }
 }
 

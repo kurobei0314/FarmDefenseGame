@@ -40,7 +40,7 @@ public class EnemyView : MonoBehaviour, IEnemyView
 
     public void PlayOverlook()
     {
-        throw new System.NotImplementedException();
+        animator.Play("SenseSomethingRPT");
     }
 
     public void PlayNoticeSound()
