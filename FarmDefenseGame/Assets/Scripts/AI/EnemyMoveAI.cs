@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
 using WolfVillageBattle.Interface;
 using UnityEngine.AI;
 using System;
@@ -16,7 +15,7 @@ namespace WolfVillageBattle
         private PlayerView playerView;
         private EnemyView enemyView;
         private EnemyEntity enemyEntity;
-        private bool IsStopped => navMeshAgent.isStopped;
+        public bool IsStopped => navMeshAgent.isStopped;
 
         public void Initialize(IPlayerView playerView, IEnemyView enemyView, IEnemyEntity enemyEntity)
         {
@@ -44,14 +43,14 @@ namespace WolfVillageBattle
             }
         }
 
-        private void SetIdleAI()
+        public void SetIdleAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position + UnityEngine.Random.insideUnitSphere * 5;
             enemyView.PlayWalk();
         }
 
-        private void SetNoticeAI()
+        public void SetNoticeAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position;

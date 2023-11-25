@@ -2,22 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
+using System;
+using UniRx;
+using System.Data.Common;
+using UnityEditor;
 
-public class EnemyView : MonoBehaviour, IEnemyView
+namespace WolfVillageBattle
 {
+    public class EnemyView : MonoBehaviour, IEnemyView
+{
+
+    [SerializeField] private Animator animator;
+    [SerializeField] EnemyMoveAI enemyMoveAI;
+
     public GameObject GameObject => this.gameObject;
+    public Vector3 Position => this.gameObject.transform.position;
     public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
     public GameObject Body => throw new System.NotImplementedException();
-
-    [SerializeField]
-    private Animator animator;
     public Animator Animator => animator;
+    private PlayerView playerView;
+    private EnemyEntity enemyEntity;
 
-    [SerializeField]
+    private Subject<Unit> startAttackSubject = new Subject<Unit>();
+    public IObservable<Unit> StartAttackObservable => startAttackSubject;
 
-    public EnemyView ()
+    private Subject<Unit> stopAttackSubject = new Subject<Unit>();
+    public IObservable<Unit> StopAttackObservable => stopAttackSubject;
+
+    // TODO: 絶対にコンストラクタにする
+    public void Initialize (IPlayerView playerView, IEnemyEntity enemyEntity)
     {
+        this.playerView = (PlayerView)playerView;
+        this.enemyEntity = (EnemyEntity) enemyEntity;
 
+        Observable.EveryUpdate()
+            .Subscribe(_ => {
+                if (enemyEntity.CurrentStatus == Status.NOTICE)
+                {
+                    if ( DistanceFromPlayer() < 2.0f ){
+                        enemyMoveAI.StopNavMesh();
+                        startAttackSubject.OnNext(Unit.Default);
+                    } 
+                }
+                if (enemyEntity.CurrentStatus == Status.ATTACK)
+                {
+                    if ( DistanceFromPlayer() >= 2.0f ){
+                        enemyMoveAI.StartNavMesh();
+                        stopAttackSubject.OnNext(Unit.Default);
+                    }
+                }
+            }).AddTo(this);
+        
+    }
+
+    // 敵とプレイヤーの距離を求める
+    private float DistanceFromPlayer()
+    {
+        return Vector3.Distance(playerView.Position, Position);
     }
 
     public void PlayWalk()
@@ -59,4 +100,6 @@ public class EnemyView : MonoBehaviour, IEnemyView
     {
         throw new System.NotImplementedException();
     }
+}
+
 }

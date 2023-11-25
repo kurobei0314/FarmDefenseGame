@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UniRx;
 
 namespace WolfVillageBattle.Interface
 {
@@ -9,6 +11,8 @@ namespace WolfVillageBattle.Interface
         GameObject Body { get; }
         GameObject GameObject { get; }
         Rigidbody Rigidbody { get; }
+        IObservable<Unit> StartAttackObservable { get; }
+        IObservable<Unit> StopAttackObservable { get; }
     }
 
     public interface IEnemyAnimation 
