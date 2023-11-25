@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WolfVillageBattle.Interface;
 
-
-namespace WolfVillageBattle.Interface
+namespace WolfVillageBattle
 {
     public class EnemyEntity : IEnemyEntity
     {

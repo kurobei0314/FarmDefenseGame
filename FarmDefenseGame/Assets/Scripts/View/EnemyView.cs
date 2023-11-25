@@ -13,9 +13,16 @@ public class EnemyView : MonoBehaviour, IEnemyView
     private Animator animator;
     public Animator Animator => animator;
 
-    public void PlayRun()
+    [SerializeField]
+
+    public EnemyView ()
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public void PlayWalk()
+    {
+        animator.Play("WalkFWD");
     }
 
     public void PlayStand()

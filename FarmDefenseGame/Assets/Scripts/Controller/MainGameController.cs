@@ -16,6 +16,7 @@ namespace WolfVillageBattle {
         [SerializeField] private EnemyView[] enemyViews;
         [SerializeField] private EnemyNoticePresenter[] enemyNoticePresenters;
         [SerializeField] private EnemyStatusView[] enemyStatusViews;
+        [SerializeField] private EnemyMoveAI[] enemyMoveAIs;
         [SerializeField] private CameraView cameraView;
         [SerializeField] private PlayerStatusView playerStatusView;
 
@@ -34,6 +35,7 @@ namespace WolfVillageBattle {
                 // TODO: とりあえず、こんな感じで作っているがこれだとエネミーに1種類しか対応できてない
                 enemyNoticePresenters[i].Initialize(enemyViews[i], mainGameRepository.Enemies[0]);
                 enemyStatusViews[i].Initialize(mainGameRepository.Enemies[0]);
+                enemyMoveAIs[i].Initialize(playerView, enemyViews[i], mainGameRepository.Enemies[0]);
             }
         }
     }

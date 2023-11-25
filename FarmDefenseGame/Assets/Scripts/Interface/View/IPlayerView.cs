@@ -14,7 +14,7 @@ namespace WolfVillageBattle.Interface
     public interface IAnimation 
     {
         Animator Animator { get; }
-        void PlayRun();
+        void PlayWalk();
         void PlayStand();
         void PlayAttack();
     }

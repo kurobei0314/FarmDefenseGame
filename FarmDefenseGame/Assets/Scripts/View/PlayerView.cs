@@ -13,12 +13,13 @@ namespace WolfVillageBattle
 
         public GameObject GameObject => this.gameObject;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
+        public Vector3 Position => this.gameObject.transform.position;
 
         [SerializeField]
         private Animator animator;
         public Animator Animator => animator;
 
-        public void PlayRun()
+        public void PlayWalk()
         {
             animator.Play("Running(loop)");
         }
