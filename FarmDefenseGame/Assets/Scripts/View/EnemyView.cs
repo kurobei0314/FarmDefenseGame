@@ -66,6 +66,12 @@ namespace WolfVillageBattle
         PlayNoticeAnim();
     }
 
+    public void PlayOutlook()
+    {
+        enemyMoveAI.StopNavMesh();
+        PlayOverlookAnim();
+    }
+
     // 敵とプレイヤーの距離を求める
     private float DistanceFromPlayer()
     {

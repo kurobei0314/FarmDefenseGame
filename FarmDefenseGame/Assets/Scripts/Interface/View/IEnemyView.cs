@@ -15,6 +15,7 @@ namespace WolfVillageBattle.Interface
         IObservable<Unit> StopAttackObservable { get; }
 
         void PlayNotice();
+        void PlayOutlook();
     }
 
     public interface IEnemyAnimation 

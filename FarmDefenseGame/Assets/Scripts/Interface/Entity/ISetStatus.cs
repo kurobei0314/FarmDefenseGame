@@ -14,7 +14,6 @@ namespace WolfVillageBattle.Interface
         WIN, // player専用
 
         NOTICE, // Enemy専用
-        ANIMATION, // (Enemy専用)気づいた時とか見失った時アニメーションをしたい時にやる(もっといい方法ある絶対)
     }
     
     public interface ISetStatus
