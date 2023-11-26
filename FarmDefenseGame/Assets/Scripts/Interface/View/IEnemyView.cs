@@ -6,7 +6,7 @@ using UniRx;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IEnemyView : IAnimation, IEnemyAnimation, IEnemySound, ISound
+    public interface IEnemyView : IEnemySound, ISound
     {
         GameObject Body { get; }
         GameObject GameObject { get; }
@@ -16,6 +16,7 @@ namespace WolfVillageBattle.Interface
 
         void PlayNotice();
         void PlayOutlook();
+        void PlayerAttack();
     }
 
     public interface IEnemyAnimation 

@@ -20,7 +20,7 @@ namespace WolfVillageBattle
         {
             if (enemyEntity.CurrentStatus != Status.NOTICE) return;
             enemyEntity.SetStatus(Status.ATTACK);
-            enemyView.PlayAttackAnim();
+            enemyView.PlayerAttack();
         }
         
         public void StopAttack()
