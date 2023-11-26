@@ -82,7 +82,7 @@ namespace WolfVillageBattle
 
     public void PlayAttackAnim()
     {
-        throw new System.NotImplementedException();
+        animator.Play("Attack02");
     }
 
     public void PlayAttackSound()
