@@ -21,7 +21,7 @@ namespace WolfVillageBattle
             this.playerView = (PlayerView)playerView;
             this.enemyEntity = (EnemyEntity) enemyEntity;
 
-            Observable.Timer(TimeSpan.FromSeconds(1.0f))
+            Observable.Interval(TimeSpan.FromSeconds(1.0f))
                 .Subscribe(_=> {
                     UpdateAI();
                 }).AddTo(this);
@@ -30,7 +30,7 @@ namespace WolfVillageBattle
         private void UpdateAI()
         {
             if (IsStopped) return;
-            switch (this.enemyEntity.CurrentStatus)
+            switch (enemyEntity.CurrentStatus)
             {
                 case Status.IDLE:
                     SetIdleAI();
