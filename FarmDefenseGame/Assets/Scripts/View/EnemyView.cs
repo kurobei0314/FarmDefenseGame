@@ -42,14 +42,16 @@ namespace WolfVillageBattle
             .Subscribe(_ => {
                 if (enemyEntity.CurrentStatus == Status.NOTICE)
                 {
-                    if ( DistanceFromPlayer() < 2.0f ){
+                    if ( DistanceFromPlayer() < 2.0f )
+                    {
                         enemyMoveAI.StopNavMesh();
                         startAttackSubject.OnNext(Unit.Default);
                     } 
                 }
-                if (enemyEntity.CurrentStatus == Status.ATTACK)
+                else if (enemyEntity.CurrentStatus == Status.ATTACK)
                 {
-                    if ( DistanceFromPlayer() >= 2.0f ){
+                    if ( DistanceFromPlayer() >= 2.0f )
+                    {
                         enemyMoveAI.StartNavMesh();
                         stopAttackSubject.OnNext(Unit.Default);
                     }

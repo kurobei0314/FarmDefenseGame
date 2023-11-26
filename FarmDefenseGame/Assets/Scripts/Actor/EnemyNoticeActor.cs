@@ -24,7 +24,6 @@ namespace WolfVillageBattle
 
         public void EnemyOverlook()
         {
-            Debug.Log("見失った");
             enemyEntity.SetStatus(Status.ANIMATION);
             enemyView.PlayOverlookAnim();
         }
