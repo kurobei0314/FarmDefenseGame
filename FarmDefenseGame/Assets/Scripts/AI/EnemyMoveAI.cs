@@ -13,21 +13,8 @@ namespace WolfVillageBattle
         [SerializeField] private NavMeshAgent navMeshAgent;
         // TODO: 今はこう書いてるけど、絶対に動かないのでこれ。。。
         private PlayerView playerView;
-        private EnemyView enemyView;
         private EnemyEntity enemyEntity;
         public bool IsStopped => navMeshAgent.isStopped;
-
-        public void Initialize(IPlayerView playerView, IEnemyView enemyView, IEnemyEntity enemyEntity)
-        {
-            this.playerView = (PlayerView)playerView;
-            this.enemyView = (EnemyView) enemyView;
-            this.enemyEntity = (EnemyEntity) enemyEntity;
-
-            Observable.Timer(TimeSpan.FromSeconds(1.0f))
-                .Subscribe(_=> {
-                    UpdateAI();
-                }).AddTo(this);
-        }
 
         public void Initialize(IPlayerView playerView, IEnemyEntity enemyEntity)
         {
@@ -58,14 +45,12 @@ namespace WolfVillageBattle
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position + UnityEngine.Random.insideUnitSphere * 5;
-            //enemyView.PlayWalkAnim();
         }
 
         public void SetNoticeAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position;
-            //enemyView.PlayWalkAnim();
         }
 
         public void StopNavMesh()
