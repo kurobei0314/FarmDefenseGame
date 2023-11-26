@@ -19,17 +19,17 @@ namespace WolfVillageBattle
         private Animator animator;
         public Animator Animator => animator;
 
-        public void PlayWalk()
+        public void PlayWalkAnim()
         {
             animator.Play("Running(loop)");
         }
 
-        public void PlayStand()
+        public void PlayStandAnim()
         {
             animator.Play("Standing(loop)");
         }
 
-        public void PlayAttack()
+        public void PlayAttackAnim()
         {
             animator.Play("KneelDownToUp");
         }

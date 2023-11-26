@@ -14,6 +14,7 @@ namespace WolfVillageBattle
 
     [SerializeField] private Animator animator;
     [SerializeField] EnemyMoveAI enemyMoveAI;
+    [SerializeField] EnemyStatusView enemyStatusView;
 
     public GameObject GameObject => this.gameObject;
     public Vector3 Position => this.gameObject.transform.position;
@@ -32,8 +33,10 @@ namespace WolfVillageBattle
     // TODO: 絶対にコンストラクタにする
     public void Initialize (IPlayerView playerView, IEnemyEntity enemyEntity)
     {
-        this.playerView = (PlayerView)playerView;
+        this.playerView = (PlayerView) playerView;
         this.enemyEntity = (EnemyEntity) enemyEntity;
+        enemyMoveAI.Initialize(playerView, enemyEntity);
+        enemyStatusView.Initialize(enemyMoveAI, enemyEntity);
 
         Observable.EveryUpdate()
             .Subscribe(_ => {
@@ -52,7 +55,13 @@ namespace WolfVillageBattle
                     }
                 }
             }).AddTo(this);
-        
+    }
+
+    public void PlayNotice()
+    {
+        enemyMoveAI.StopNavMesh();
+        PlayNoticeSound();
+        PlayNoticeAnim();
     }
 
     // 敵とプレイヤーの距離を求める
@@ -61,17 +70,17 @@ namespace WolfVillageBattle
         return Vector3.Distance(playerView.Position, Position);
     }
 
-    public void PlayWalk()
+    public void PlayWalkAnim()
     {
         animator.Play("WalkFWD");
     }
 
-    public void PlayStand()
+    public void PlayStandAnim()
     {
         throw new System.NotImplementedException();
     }
 
-    public void PlayAttack()
+    public void PlayAttackAnim()
     {
         throw new System.NotImplementedException();
     }
@@ -81,12 +90,12 @@ namespace WolfVillageBattle
         throw new System.NotImplementedException();
     }
 
-    public void PlayNotice()
+    public void PlayNoticeAnim()
     {
         animator.Play("Victory");
     }
 
-    public void PlayOverlook()
+    public void PlayOverlookAnim()
     {
         animator.Play("SenseSomethingRPT");
     }

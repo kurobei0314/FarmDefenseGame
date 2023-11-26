@@ -20,7 +20,7 @@ namespace WolfVillageBattle
             if (playerEntity.CurrentStatus != Status.IDLE && playerEntity.CurrentStatus != Status.ATTACK) return;
             playerEntity.SetStatus(Status.ATTACK);
             playerView.PlayAttackSound();
-            playerView.PlayAttack();
+            playerView.PlayAttackAnim();
         }
     }
 }

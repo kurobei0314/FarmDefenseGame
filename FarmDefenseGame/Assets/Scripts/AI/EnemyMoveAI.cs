@@ -29,6 +29,17 @@ namespace WolfVillageBattle
                 }).AddTo(this);
         }
 
+        public void Initialize(IPlayerView playerView, IEnemyEntity enemyEntity)
+        {
+            this.playerView = (PlayerView)playerView;
+            this.enemyEntity = (EnemyEntity) enemyEntity;
+
+            Observable.Timer(TimeSpan.FromSeconds(1.0f))
+                .Subscribe(_=> {
+                    UpdateAI();
+                }).AddTo(this);
+        }
+
         private void UpdateAI()
         {
             if (IsStopped) return;
@@ -47,14 +58,14 @@ namespace WolfVillageBattle
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position + UnityEngine.Random.insideUnitSphere * 5;
-            enemyView.PlayWalk();
+            //enemyView.PlayWalkAnim();
         }
 
         public void SetNoticeAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position;
-            enemyView.PlayWalk();
+            //enemyView.PlayWalkAnim();
         }
 
         public void StopNavMesh()

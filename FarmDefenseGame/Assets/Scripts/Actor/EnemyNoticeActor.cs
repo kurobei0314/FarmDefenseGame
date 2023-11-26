@@ -19,14 +19,14 @@ namespace WolfVillageBattle
         public void EnemyNotice()
         {
             enemyEntity.SetStatus(Status.ANIMATION);
-            enemyView.PlayNoticeSound();
             enemyView.PlayNotice();
         }
 
         public void EnemyOverlook()
         {
+            Debug.Log("見失った");
             enemyEntity.SetStatus(Status.ANIMATION);
-            enemyView.PlayOverlook();
+            enemyView.PlayOverlookAnim();
         }
     }
 }

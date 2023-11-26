@@ -9,23 +9,27 @@ namespace WolfVillageBattle
     // なんか違う気がする
     public class EnemyStatusView : MonoBehaviour
     {
+        private EnemyMoveAI enemyMoveAI;
         private IEnemyEntity enemyEntity;
 
-        public void Initialize (IEnemyEntity enemyEntity)
+        public void Initialize (EnemyMoveAI enemyMoveAI, IEnemyEntity enemyEntity)
         {
             this.enemyEntity = enemyEntity;
+            this.enemyMoveAI = enemyMoveAI;
         }
         
         public void SetNoticeStatus()
         {
             if (enemyEntity.CurrentStatus != Status.ANIMATION) return;
             enemyEntity.SetStatus(Status.NOTICE);
+            enemyMoveAI.StartNavMesh();
         }
 
         public void SetIdleStatus()
         {
             if (enemyEntity.CurrentStatus != Status.ANIMATION) return;
             enemyEntity.SetStatus(Status.IDLE);
+            enemyMoveAI.StartNavMesh();
         }
     }
 }
