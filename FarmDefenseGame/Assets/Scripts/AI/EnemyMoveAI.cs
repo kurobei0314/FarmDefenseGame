@@ -21,7 +21,7 @@ namespace WolfVillageBattle
             this.playerView = (PlayerView)playerView;
             this.enemyEntity = (EnemyEntity) enemyEntity;
 
-            Observable.Interval(TimeSpan.FromSeconds(1.0f))
+            Observable.Interval(TimeSpan.FromSeconds(0.5f))
                 .Subscribe(_=> {
                     UpdateAI();
                 }).AddTo(this);
@@ -41,13 +41,13 @@ namespace WolfVillageBattle
             }
         }
 
-        public void SetIdleAI()
+        private void SetIdleAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position + UnityEngine.Random.insideUnitSphere * 5;
         }
 
-        public void SetNoticeAI()
+        private void SetNoticeAI()
         {
             StartNavMesh();
             navMeshAgent.destination = playerView.Position;
