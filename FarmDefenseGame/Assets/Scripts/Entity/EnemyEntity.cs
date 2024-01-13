@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
@@ -10,7 +11,8 @@ namespace WolfVillageBattle
         public EnemyEntity(IEnemyVO enemyVO)
         {
             this.enemyVO = (EnemyVO) enemyVO; 
-            current_hp = enemyVO.MaxHP;
+            current_hp = new ReactiveProperty<int>();
+            current_hp.Value = enemyVO.MaxHP;
             current_status = Status.IDLE;
         }
 
@@ -19,11 +21,16 @@ namespace WolfVillageBattle
         public IEnemyVO EnemyVO => enemyVO;
 
         [SerializeField]
-        private int current_hp;
-        public int CurrentHP => current_hp;
+        private ReactiveProperty<int> current_hp;
+        public ReactiveProperty<int> CurrentHP => current_hp;
 
         private Status current_status;
         public Status CurrentStatus => current_status;
+
+        public void ReduceHP(int value)
+        {
+            current_hp.Value = (current_hp.Value - value <= 0) ? 0 : current_hp.Value - value;
+        }
 
         public void SetStatus(Status status)
         {

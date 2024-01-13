@@ -34,6 +34,16 @@ namespace WolfVillageBattle
         {
             animator.Play("SenseSomethingRPT");
         }
+        
+        public void PlayDamageAnim()
+        {
+            animator.Play("GetHit");
+        }
+
+        public void PlayDieAnim()
+        {
+            animator.Play("Die");
+        }
     }
 }
 

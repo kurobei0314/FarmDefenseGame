@@ -6,21 +6,22 @@ using System;
 using UniRx;
 using System.Data.Common;
 using UnityEditor;
+using UniRx.Triggers;
 
 namespace WolfVillageBattle
 {
     public class EnemyView : MonoBehaviour, IEnemyView
     {
-        [SerializeField] EnemyMoveAI enemyMoveAI;
-        [SerializeField] EnemyStatusView enemyStatusView;
-        [SerializeField] EnemyAnimationView enemyAnimationView;
-        [SerializeField] EnemySEView enemySEView;
-        
+        [SerializeField] private EnemyMoveAI enemyMoveAI;
+        [SerializeField] private EnemyStatusView enemyStatusView;
+        [SerializeField] private EnemyAnimationView enemyAnimationView;
+        [SerializeField] private EnemySEView enemySEView;
+        [SerializeField] private GameObject body;
 
         public GameObject GameObject => this.gameObject;
         public Vector3 Position => this.gameObject.transform.position;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
-        public GameObject Body => throw new System.NotImplementedException();
+        public GameObject Body => body;
         private PlayerView playerView;
         private EnemyEntity enemyEntity;
 
@@ -92,6 +93,20 @@ namespace WolfVillageBattle
         {
             enemyMoveAI.StopNavMesh();
             enemyAnimationView.PlayAttackAnim();
+        }
+
+        public void Damage()
+        {
+            enemyMoveAI.StopNavMesh();
+            enemyAnimationView.PlayDamageAnim();
+            enemySEView.PlayDamageSound();
+        }
+
+        public void Die()
+        {
+            enemyMoveAI.StopNavMesh();
+            enemyAnimationView.PlayDieAnim();
+            enemySEView.PlayDieSound();
         }
 
         private float DistanceFromPlayer()

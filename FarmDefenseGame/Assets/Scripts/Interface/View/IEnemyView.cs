@@ -13,10 +13,11 @@ namespace WolfVillageBattle.Interface
         Rigidbody Rigidbody { get; }
         IObservable<Unit> StartAttackObservable { get; }
         IObservable<Unit> StopAttackObservable { get; }
-
         void Notice();
         void Outlook();
         void Attack();
+        void Damage();
+        void Die();
     }
 
     public interface IEnemyAnimation 

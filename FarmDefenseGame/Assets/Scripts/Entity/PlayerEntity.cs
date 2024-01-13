@@ -22,8 +22,9 @@ namespace WolfVillageBattle
         private int current_hp;
         public int CurrentHP => current_hp;
 
+        // TODO: weaponに応じた攻撃力になるようにする(今は固定で1)
         [SerializeField]
-        private int attack;
+        private int attack = 1;
         public int Attack => attack;
 
         // TODO: 後で考える(絶対にstringではなくなる) 
