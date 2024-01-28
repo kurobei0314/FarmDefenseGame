@@ -39,6 +39,7 @@ namespace WolfVillageBattle {
                 // var enemyView = new EnemyView(playerView, mainGameRepository.Enemies[0]);
                 enemyViews[i].Initialize(playerView, mainGameRepository.Enemies[0]);
                 // TODO: とりあえず、こんな感じで作っているがこれだとエネミーに1種類しか対応できてない
+                // TODO: 1種類でもデータが同じものになっているのでそれを修正する
                 var enemyAttackPresenter = new EnemyAttackPresenter(enemyViews[i], mainGameRepository.Enemies[0]);
                 var enemyDamagePresenter = new EnemyDamagePresenter(enemyViews[i], mainGameRepository.Enemies[0], mainGameRepository.Player);
                 enemyNoticePresenters[i].Initialize(enemyViews[i], mainGameRepository.Enemies[0]);
