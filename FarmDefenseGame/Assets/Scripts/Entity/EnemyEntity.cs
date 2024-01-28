@@ -24,6 +24,8 @@ namespace WolfVillageBattle
         private ReactiveProperty<int> current_hp;
         public ReactiveProperty<int> CurrentHP => current_hp;
 
+        public int CurrentHPValue => current_hp.Value;
+
         private Status current_status;
         public Status CurrentStatus => current_status;
 

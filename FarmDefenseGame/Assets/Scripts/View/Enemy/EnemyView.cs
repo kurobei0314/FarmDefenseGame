@@ -16,6 +16,7 @@ namespace WolfVillageBattle
         [SerializeField] private EnemyStatusView enemyStatusView;
         [SerializeField] private EnemyAnimationView enemyAnimationView;
         [SerializeField] private EnemySEView enemySEView;
+        [SerializeField] private HPBarView enemyHpBarView;
         [SerializeField] private GameObject body;
 
         public GameObject GameObject => this.gameObject;
@@ -100,6 +101,7 @@ namespace WolfVillageBattle
             enemyMoveAI.StopNavMesh();
             enemyAnimationView.PlayDamageAnim();
             enemySEView.PlayDamageSound();
+            enemyHpBarView.SetValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
         }
 
         public void Die()
@@ -107,6 +109,7 @@ namespace WolfVillageBattle
             enemyMoveAI.StopNavMesh();
             enemyAnimationView.PlayDieAnim();
             enemySEView.PlayDieSound();
+            enemyHpBarView.SetValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
         }
 
         private float DistanceFromPlayer()

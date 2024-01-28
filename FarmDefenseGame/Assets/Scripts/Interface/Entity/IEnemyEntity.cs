@@ -9,6 +9,7 @@ namespace WolfVillageBattle.Interface
     {
         IEnemyVO EnemyVO { get; }
         ReactiveProperty<int> CurrentHP { get; }
+        int CurrentHPValue { get; }
         public void ReduceHP(int value);
     }
 }
