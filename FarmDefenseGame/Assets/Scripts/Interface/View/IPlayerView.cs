@@ -4,19 +4,23 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface 
 {
-    public interface IPlayerView : IAnimation, ISound
+    public interface IPlayerView
     {
         GameObject unityChan { get; }
         GameObject GameObject { get; }
         Rigidbody Rigidbody { get; }
+        GameObject Body { get; }
+        void Walk();
+        void Stand();
+        void Attack();
     }
 
     public interface IAnimation 
     {
         Animator Animator { get; }
-        void PlayWalkAnim();
-        void PlayStandAnim();
-        void PlayAttackAnim();
+        void Walk();
+        void Stand();
+        void Attack();
     }
 
     public interface ISound

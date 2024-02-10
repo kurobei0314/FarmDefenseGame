@@ -7,31 +7,32 @@ namespace WolfVillageBattle
 {
     public class PlayerView : MonoBehaviour, IPlayerView
     {
-        [SerializeField]
-        private GameObject unity_chan;
+        [SerializeField] private GameObject unity_chan;
+        [SerializeField] private GameObject body;
+        [SerializeField] private PlayerAnimationView playerAnimationView;
+        [SerializeField] private PlayerSEView playerSEView;
+        
         public GameObject unityChan => unity_chan;
+        public GameObject Body => body;
 
         public GameObject GameObject => this.gameObject;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public Vector3 Position => this.gameObject.transform.position;
 
-        [SerializeField]
-        private Animator animator;
-        public Animator Animator => animator;
-
-        public void PlayWalkAnim()
+        public void Walk()
         {
-            animator.Play("Running(loop)");
+            playerAnimationView.Walk();
         }
 
-        public void PlayStandAnim()
+        public void Stand()
         {
-            animator.Play("Standing(loop)");
+            playerAnimationView.Stand();
         }
 
-        public void PlayAttackAnim()
+        public void Attack()
         {
-            animator.Play("KneelDownToUp");
+            playerAnimationView.Attack();
+            playerSEView.PlayAttackSound();
         }
 
         // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい
@@ -39,17 +40,6 @@ namespace WolfVillageBattle
         // {
         //     playerEntity.SetStatus(Status.ATTACK);
         // }
-
-        public void PlayAttackSound()
-        {
-            float rnd = UnityEngine.Random.Range(0.0f, 1.0f);
-            if (rnd < 0.5f)
-            {
-                //AudioManager.Instance.PlaySE("unitychan_attack1");
-            } else {
-                //AudioManager.Instance.PlaySE("unitychan_attack2");
-            }
-        }
 
     }
 }

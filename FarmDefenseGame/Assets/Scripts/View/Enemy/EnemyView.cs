@@ -93,7 +93,7 @@ namespace WolfVillageBattle
         public void Attack()
         {
             enemyMoveAI.StopNavMesh();
-            enemyAnimationView.PlayAttackAnim();
+            enemyAnimationView.Attack();
         }
 
         public void Damage()

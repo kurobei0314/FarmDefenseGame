@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 
@@ -10,17 +8,17 @@ namespace WolfVillageBattle
         [SerializeField] private Animator animator;
         public Animator Animator => animator;
 
-        public void PlayWalkAnim()
+        public void Walk()
         {
             animator.Play("WalkFWD");
         }
 
-        public void PlayStandAnim()
+        public void Stand()
         {
             throw new System.NotImplementedException();
         }
 
-        public void PlayAttackAnim()
+        public void Attack()
         {
             animator.Play("Attack02");
         }
