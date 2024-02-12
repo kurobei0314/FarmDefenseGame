@@ -17,5 +17,5 @@ MonoBehaviour:
   - name: "\u30B9\u30E9\u30A4\u30E0(\u4EEE)"
     id: 1
     max_hp: 2
-    attack: 3
+    attack: 1
     prefab_name: Slime
