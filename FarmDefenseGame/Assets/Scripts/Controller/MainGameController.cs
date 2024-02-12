@@ -29,6 +29,7 @@ namespace WolfVillageBattle {
             playerMoveController.Initialize(playerView, mainGameRepository, cameraView);
             playerAttackController.Initialize(playerView, mainGameRepository);
             cameraMoveController.Initialize(playerView, cameraView);
+            var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player);
 
             // enemyPrefabs = new GameObject[enemyNoticePresenters.Length];
 

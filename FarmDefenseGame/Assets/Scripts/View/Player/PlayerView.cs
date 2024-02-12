@@ -11,6 +11,7 @@ namespace WolfVillageBattle
         [SerializeField] private GameObject body;
         [SerializeField] private PlayerAnimationView playerAnimationView;
         [SerializeField] private PlayerSEView playerSEView;
+        [SerializeField] private HPBarView hPBarView;
         
         public GameObject unityChan => unity_chan;
         public GameObject Body => body;
@@ -33,6 +34,20 @@ namespace WolfVillageBattle
         {
             playerAnimationView.Attack();
             playerSEView.PlayAttackSound();
+        }
+
+        public void Damage(float currentHP)
+        {
+            playerAnimationView.Damage();
+            playerSEView.PlayDamageSound();
+            hPBarView.SetValue(currentHP);
+        }
+
+        public void Die()
+        {
+            playerAnimationView.Die();
+            playerSEView.PlayDieSound();
+            hPBarView.SetValue(0);
         }
 
         // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい

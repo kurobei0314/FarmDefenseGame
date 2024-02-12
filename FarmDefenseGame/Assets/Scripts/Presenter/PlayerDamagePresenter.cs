@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-using System;
 using UniRx.Triggers;
 using WolfVillageBattle.Interface;
 
@@ -11,29 +8,42 @@ namespace WolfVillageBattle
     public class PlayerDamagePresenter 
     {
         private IPlayerView playerView;
-        private IEnemyEntity enemyEntity;
         private IPlayerEntity playerEntity;
 
-        public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity, IEnemyEntity enemyEntity)
+        public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;
-            this.enemyEntity = enemyEntity;
 
-            IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity, enemyEntity);
+            IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity);
 
-            playerView.Body.OnCollisionEnterAsObservable().Subscribe(_ => {
-                // var parent = _.gameObject.transform.parent;
-                // if (parent == null || parent.gameObject.tag != "Enemy") return;
-                // // TODO：これも絶対仕組み変える絶対に
-                // if (CurrentStatus != PlayerStatus.IDLE) return;
+            playerView.GameObject.OnCollisionEnterAsObservable()
+                                .Where(collision => collision.gameObject.tag == "EnemyBody")
+                                .Subscribe(enemy => {
+                // TODO: 敵のViewからデータを探す処理がないので作る
+
+                if (playerEntity.CurrentStatus == Status.DAMAGE || playerEntity.CurrentStatus == Status.DIE) return;
                 // var enemy_status = parent.gameObject.GetComponent<EnemyTest>().current_enemy_status;
                 // if (enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
                 // Debug.Log("敵から攻撃されたおー");
-                playerDamageUseCase.ReduceHP(enemyEntity.EnemyVO.Attack);
-                // ReserveDamage(parent.gameObject.GetComponent<EnemyTest>().Attack);
-
+                
+                Debug.LogError("当たった");
+                playerDamageUseCase.ReduceHP(1);
             });
+
+            playerEntity.CurrentHP
+                .Pairwise()
+                .Where(value => value.Current < value.Previous)
+                .Subscribe(hp => {
+                    if (hp.Current <= 0)
+                    {
+                        playerDamageUseCase.Die();
+                    }
+                    else
+                    {
+                        playerDamageUseCase.Damage();
+                    }
+            }).AddTo(playerView.GameObject);
         }
     
     }

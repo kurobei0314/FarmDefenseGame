@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
@@ -9,28 +6,28 @@ namespace WolfVillageBattle
     {
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
-        private IEnemyEntity enemyEntity;
 
-        public PlayerDamageActor(IPlayerView playerView, IPlayerEntity playerEntity, IEnemyEntity enemyEntity)
+        public PlayerDamageActor(IPlayerView playerView, IPlayerEntity playerEntity)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;
-            this.enemyEntity = enemyEntity;
         }
 
         public void ReduceHP (int damage)
         {
-
+            playerEntity.ReduceHP(damage);
         }
 
         public void Damage()
         {
-
+            playerEntity.SetStatus(Status.DAMAGE);
+            playerView.Damage((float)playerEntity.CurrentHPValue/playerEntity.PlayerVO.MaxHP);
         }
 
         public void Die()
         {
-
+            playerEntity.SetStatus(Status.DIE);
+            playerView.Die();
         }
     }
     

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 
@@ -10,7 +11,8 @@ namespace WolfVillageBattle
         public PlayerEntity(IPlayerVO playerVO)
         {
             this.playerVO = (PlayerVO) playerVO; 
-            current_hp = playerVO.MaxHP;
+            current_hp = new ReactiveProperty<int>();
+            current_hp.Value = playerVO.MaxHP;
             current_status = Status.IDLE;
         }
 
@@ -19,8 +21,9 @@ namespace WolfVillageBattle
         public IPlayerVO PlayerVO => playerVO;
 
         [SerializeField]
-        private int current_hp;
-        public int CurrentHP => current_hp;
+        private ReactiveProperty<int> current_hp;
+        public ReactiveProperty<int> CurrentHP => current_hp;
+        public int CurrentHPValue => current_hp.Value;
 
         // TODO: weaponに応じた攻撃力になるようにする(今は固定で1)
         [SerializeField]
@@ -35,6 +38,12 @@ namespace WolfVillageBattle
 
         private Status current_status;
         public Status CurrentStatus => current_status;
+
+        public void ReduceHP(int value)
+        {
+            current_hp.Value = (current_hp.Value - value <= 0) ? 0 : current_hp.Value - value;
+        }
+
 
         public void SetStatus(Status status)
         {

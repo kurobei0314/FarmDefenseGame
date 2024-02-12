@@ -13,6 +13,8 @@ namespace WolfVillageBattle.Interface
         void Walk();
         void Stand();
         void Attack();
+        void Damage(float currentHP);
+        void Die();
     }
 
     public interface IAnimation 

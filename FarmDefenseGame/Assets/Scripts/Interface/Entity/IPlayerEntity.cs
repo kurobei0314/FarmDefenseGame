@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UniRx;
 
 namespace WolfVillageBattle.Interface
 {
     public interface IPlayerEntity : ISetStatus
     {
         IPlayerVO PlayerVO { get; }
-        int CurrentHP { get; }
+        ReactiveProperty<int> CurrentHP { get; }
+        int CurrentHPValue { get; }
         int Attack { get; }
         string Weapon { get; }
+        void ReduceHP(int value);
     }
 }

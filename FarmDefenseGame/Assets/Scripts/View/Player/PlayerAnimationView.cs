@@ -22,5 +22,15 @@ namespace WolfVillageBattle
         {
             animator.Play("KneelDownToUp");
         }
+
+        public void Damage()
+        {
+            animator.Play("Damaged(loop)");
+        }
+
+        public void Die()
+        {
+            animator.Play("GoDown");
+        }
     }
 }
