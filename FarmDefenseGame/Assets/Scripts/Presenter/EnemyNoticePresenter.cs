@@ -12,7 +12,7 @@ namespace WolfVillageBattle
     {
         public void Initialize(IEnemyView enemyView, IEnemyEntity enemyEntity)
         {
-            IEnemyNoticeUseCase enemyNoticeUseCase = new EnemyNotiveActor(enemyView, enemyEntity);
+            IEnemyNoticeUseCase enemyNoticeUseCase = new EnemyNoticeActor(enemyView, enemyEntity);
             enemyView.GameObject.OnTriggerEnterAsObservable()
                 .Where(_ => _.gameObject.tag == "Player")
                 .Subscribe(_ => {

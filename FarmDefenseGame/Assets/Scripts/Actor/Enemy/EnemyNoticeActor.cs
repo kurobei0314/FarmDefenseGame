@@ -5,12 +5,12 @@ using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
 {
-    public class EnemyNotiveActor : IEnemyNoticeUseCase
+    public class EnemyNoticeActor : IEnemyNoticeUseCase
     {
         private IEnemyEntity enemyEntity;
         private IEnemyView enemyView;
 
-        public EnemyNotiveActor (IEnemyView enemyView, IEnemyEntity enemyEntity)
+        public EnemyNoticeActor (IEnemyView enemyView, IEnemyEntity enemyEntity)
         {
             this.enemyView = enemyView;
             this.enemyEntity = enemyEntity; 
