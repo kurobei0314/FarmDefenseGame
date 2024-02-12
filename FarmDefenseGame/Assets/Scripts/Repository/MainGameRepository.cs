@@ -1,44 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
-using System;
+using System.Linq;
 
 namespace WolfVillageBattle.Interface
 {
     public interface IMainGameRepository
     {
         IPlayerEntity Player { get; }
-        IEnemyEntity[] Enemies { get; }
+        InitializeEnemyDTO[] Enemies { get; }
         void Initialize();
     }
 }
 
 namespace WolfVillageBattle
 {
+    public class InitializeEnemyDTO
+    {
+        private IEnemyEntity enemyEntity;
+        public IEnemyEntity EnemyEntity => enemyEntity;
+        private Vector3 pos;
+        public Vector3 Pos => pos;
+        private Vector3 rotation;
+        public Vector3 Rotation => rotation;
+
+        public InitializeEnemyDTO(IEnemyEntity enemyEntity, int posX, int posZ, int rotationY)
+        {
+            this.enemyEntity = enemyEntity;
+            this.pos = new Vector3(posX, 0.0f, posZ);
+            this.rotation = new Vector3(0.0f, rotationY, 0.0f);
+        }
+    }
+
     [CreateAssetMenu]
     public class MainGameRepository : ScriptableObject, IMainGameRepository
     {
-        [SerializeField]
-        private PlayerVODataStore playerDataStore;
-
-        [SerializeField]
-        private EnemyVODataStore enemyVODataStore;
+        [SerializeField] private PlayerVODataStore playerDataStore;
+        [SerializeField] private EnemyVODataStore enemyVODataStore;
+        [SerializeField] private FieldEnemyVODataStore fieldEnemyDataStore;
+        [SerializeField] private FieldVODataStore fieldDataStore;
         
         private IPlayerEntity player;
         public IPlayerEntity Player => player;
 
-        private IEnemyEntity[] enemies;
-        public IEnemyEntity[] Enemies => enemies;
+        private InitializeEnemyDTO[] enemies;
+        public InitializeEnemyDTO[] Enemies => enemies;
+
+        private IFieldEnemyVO fieldObjectVO;
+        private IFieldVO fieldVO;
 
         public void Initialize()
         {
+            // TODO: フィールドごとにちゃんと持って来れるようにする
+            fieldVO = fieldDataStore.Items.FirstOrDefault();
+            var fieldEnemies = fieldEnemyDataStore.Items.Where(fieldEnemy => fieldVO.Id == fieldEnemy.FieldId).ToArray();
             player = new PlayerEntity(playerDataStore.Items[0]);
-            enemies = new IEnemyEntity[enemyVODataStore.Items.Count];
-            
-            for (int i = 0; i < enemyVODataStore.Items.Count; i++)
+            enemies = new InitializeEnemyDTO[fieldEnemies.Length];
+            for (int i = 0; i < fieldEnemies.Length ; i++)
             {
-                enemies[i] = new EnemyEntity(enemyVODataStore.Items[i]);
+                var fieldEnemy = fieldEnemies[i];
+                var enemy = enemyVODataStore.Items.FirstOrDefault(enemy => enemy.Id == fieldEnemy.EnemyId);
+                enemies[i] = new InitializeEnemyDTO(new EnemyEntity(enemy), fieldEnemy.PosX, fieldEnemy.PosZ, fieldEnemy.RotationY);
             }
         }
     }

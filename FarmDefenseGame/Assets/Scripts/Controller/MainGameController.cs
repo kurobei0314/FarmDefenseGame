@@ -14,12 +14,10 @@ namespace WolfVillageBattle {
         [SerializeField] private CameraMoveController cameraMoveController;
         [SerializeField] private PlayerView playerView;
         [SerializeField] private EnemyView[] enemyViews;
-        // [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private EnemyNoticePresenter[] enemyNoticePresenters;
         [SerializeField] private CameraView cameraView;
         [SerializeField] private PlayerStatusView playerStatusView;
-
-        // private GameObject[] enemyPrefabs; 
+        [SerializeField] private GameObject enemyPrefab;
 
         void Start()
         {
@@ -31,19 +29,25 @@ namespace WolfVillageBattle {
             cameraMoveController.Initialize(playerView, cameraView);
             var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player);
 
-            // enemyPrefabs = new GameObject[enemyNoticePresenters.Length];
-
-            for (int i = 0 ; i < enemyNoticePresenters.Length; i++)
+            foreach(var enemyDTO in mainGameRepository.Enemies)
             {
-                // GameObject enemy = Instantiate(enemyPrefab, new Vector3(5.81f, 0.0f, 0.0f), Quaternion.identity);
-                // enemyPrefabs[i] = enemy;
-                // var enemyView = new EnemyView(playerView, mainGameRepository.Enemies[0]);
-                enemyViews[i].Initialize(playerView, mainGameRepository.Enemies[0]);
-                // TODO: とりあえず、こんな感じで作っているがこれだとエネミーに1種類しか対応できてない
-                // TODO: 1種類でもデータが同じものになっているのでそれを修正する
-                var enemyAttackPresenter = new EnemyAttackPresenter(enemyViews[i], mainGameRepository.Enemies[0]);
-                var enemyDamagePresenter = new EnemyDamagePresenter(enemyViews[i], mainGameRepository.Enemies[0], mainGameRepository.Player);
-                enemyNoticePresenters[i].Initialize(enemyViews[i], mainGameRepository.Enemies[0]);
+                // TODO: Prefabもmasterデータから持ってくる
+                var enemyGO = Instantiate(enemyPrefab, enemyDTO.Pos, Quaternion.Euler(enemyDTO.Rotation));
+                var enemyView = enemyGO.GetComponent<EnemyView>();
+                if (!enemyView)
+                {
+                    Debug.LogError("EnemyViewがありません");
+                    continue;
+                }
+                enemyView.Initialize(playerView, enemyDTO.EnemyEntity);
+                var enemyAttackPresenter = new EnemyAttackPresenter(enemyView, enemyDTO.EnemyEntity);
+                var enemyDamagePresenter = new EnemyDamagePresenter(enemyView, enemyDTO.EnemyEntity, mainGameRepository.Player);
+                // TODO: この書き方も変える
+                var presenter = enemyView.GetComponent<EnemyNoticePresenter>();
+                if (presenter)
+                {
+                    presenter.Initialize(enemyView, enemyDTO.EnemyEntity);
+                }
             }
         }
     }

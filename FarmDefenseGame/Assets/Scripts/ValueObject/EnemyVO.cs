@@ -15,7 +15,7 @@ namespace WolfVillageBattle
         
         [SerializeField]
         int id;
-        public int ID => id;
+        public int Id => id;
 
         [SerializeField]
         int max_hp;

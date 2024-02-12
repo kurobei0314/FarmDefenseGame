@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDataStore: {fileID: 11400000, guid: c03b058d4799544678df76d74d0821e0, type: 2}
   enemyVODataStore: {fileID: 11400000, guid: f5bd2d6ca0c28477ea92851e564d1560, type: 2}
+  fieldEnemyDataStore: {fileID: 11400000, guid: 4d71258c83950483195cda26646447d1, type: 2}
+  fieldDataStore: {fileID: 11400000, guid: 7e946f1b2a52440329fa93b5df21c940, type: 2}

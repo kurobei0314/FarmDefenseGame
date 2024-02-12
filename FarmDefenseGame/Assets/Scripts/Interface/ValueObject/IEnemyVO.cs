@@ -7,7 +7,7 @@ namespace WolfVillageBattle.Interface
     public interface IEnemyVO 
     {
         string Name { get; }
-        int ID { get; }
+        int Id { get; }
         int MaxHP { get; }
         int Attack { get; }
         string PrefabName { get; }
