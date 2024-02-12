@@ -27,7 +27,6 @@ namespace WolfVillageBattle
                 // if (enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
                 // Debug.Log("敵から攻撃されたおー");
                 
-                Debug.LogError("当たった");
                 playerDamageUseCase.ReduceHP(1);
             });
 
