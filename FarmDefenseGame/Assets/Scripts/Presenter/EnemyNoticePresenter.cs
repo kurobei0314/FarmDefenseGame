@@ -23,7 +23,7 @@ namespace WolfVillageBattle
                 .Where(_ => _.gameObject.tag == "Player")
                 .Subscribe(_ => {
                     enemyNoticeUseCase.EnemyOverlook();
-                });
+                }).AddTo(this);
         }
     }
 }
