@@ -24,7 +24,9 @@ namespace WolfVillageBattle
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
         private PlayerView playerView;
-        private EnemyEntity enemyEntity;
+
+        public IEnemyEntity EnemyEntity => enemyEntity;
+        private IEnemyEntity enemyEntity;
 
         private Subject<Unit> startAttackSubject = new Subject<Unit>();
         public IObservable<Unit> StartAttackObservable => startAttackSubject;

@@ -20,15 +20,18 @@ namespace WolfVillageBattle
             playerView.GameObject.OnCollisionEnterAsObservable()
                                 .Where(collision => collision.gameObject.tag == "EnemyBody")
                                 .Subscribe(enemy => {
-                // TODO: 敵のViewからデータを探す処理がないので作る
-
-                if (playerEntity.CurrentStatus == Status.DAMAGE || playerEntity.CurrentStatus == Status.DIE) return;
-                // var enemy_status = parent.gameObject.GetComponent<EnemyTest>().current_enemy_status;
-                // if (enemy_status != EnemyTest.EnemyStatus.ATTACK) return;
-                // Debug.Log("敵から攻撃されたおー");
-                
-                playerDamageUseCase.ReduceHP(1);
-            });
+                                    if (playerEntity.CurrentStatus == Status.DAMAGE || playerEntity.CurrentStatus == Status.DIE) return;
+                                    var parent = enemy.gameObject.transform.parent;
+                                    if (parent == null || parent.gameObject.tag != "Enemy") return;
+                                    var enemyView = parent.gameObject.GetComponent<EnemyView>();
+                                    if (!enemyView) 
+                                    {
+                                        Debug.LogError("enemyViewが取得できませんでした");
+                                        return;
+                                    }
+                                    if (enemyView.EnemyEntity.CurrentStatus != Status.ATTACK) return;
+                                    playerDamageUseCase.ReduceHP(enemyView.EnemyEntity.EnemyVO.Attack);
+                                });
 
             playerEntity.CurrentHP
                 .Pairwise()

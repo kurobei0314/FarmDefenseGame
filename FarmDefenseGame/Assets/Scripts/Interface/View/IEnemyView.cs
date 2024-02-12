@@ -11,6 +11,7 @@ namespace WolfVillageBattle.Interface
         GameObject Body { get; }
         GameObject GameObject { get; }
         Rigidbody Rigidbody { get; }
+        IEnemyEntity EnemyEntity { get; }
         IObservable<Unit> StartAttackObservable { get; }
         IObservable<Unit> StopAttackObservable { get; }
         void Notice();
