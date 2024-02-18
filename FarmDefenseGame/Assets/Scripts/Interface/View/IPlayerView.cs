@@ -8,9 +8,9 @@ namespace WolfVillageBattle.Interface
     {
         GameObject unityChan { get; }
         GameObject GameObject { get; }
-        Rigidbody Rigidbody { get; }
         GameObject Body { get; }
-        void Walk();
+        void Walk(Vector3 moveDirection);
+        void Run(Vector3 moveDirection);
         void Stand();
         void Attack();
         void Damage(float currentHP);
@@ -20,7 +20,7 @@ namespace WolfVillageBattle.Interface
     public interface IAnimation 
     {
         Animator Animator { get; }
-        void Walk();
+        void Run();
         void Stand();
         void Attack();
     }

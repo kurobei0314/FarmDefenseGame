@@ -17,12 +17,27 @@ namespace WolfVillageBattle
         public GameObject Body => body;
 
         public GameObject GameObject => this.gameObject;
-        public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
+        private Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public Vector3 Position => this.gameObject.transform.position;
 
-        public void Walk()
+        public void Walk(Vector3 moveDirection)
         {
+            var pos = this.gameObject.transform.position;
+            MovePlayer(moveDirection, pos + moveDirection * 0.04f);
             playerAnimationView.Walk();
+        }
+
+        public void Run(Vector3 moveDirection)
+        {
+            var pos = this.gameObject.transform.position;
+            MovePlayer(moveDirection, pos + moveDirection * 0.07f);
+            playerAnimationView.Run();
+        }
+
+        private void MovePlayer(Vector3 moveDirection, Vector3 afterPosition)
+        {
+            Rigidbody.MovePosition(afterPosition);
+            unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
         }
 
         public void Stand()

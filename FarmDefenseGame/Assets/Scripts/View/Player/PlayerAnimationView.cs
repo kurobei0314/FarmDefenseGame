@@ -10,6 +10,11 @@ namespace WolfVillageBattle
 
         public void Walk()
         {
+            animator.Play("Walking(loop)");
+        }
+
+        public void Run()
+        {
             animator.Play("Running(loop)");
         }
 

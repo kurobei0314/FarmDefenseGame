@@ -8,7 +8,7 @@ namespace WolfVillageBattle
         [SerializeField] private Animator animator;
         public Animator Animator => animator;
 
-        public void Walk()
+        public void Run()
         {
             animator.Play("WalkFWD");
         }

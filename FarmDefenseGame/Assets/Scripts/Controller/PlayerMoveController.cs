@@ -14,7 +14,6 @@ namespace WolfVillageBattle {
                                             .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
                                                         Input.GetKey(KeyCode.UpArrow)    ||  Input.GetKey(KeyCode.DownArrow) ||
                                                         Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow));
-
             var moveUpStream = Observable.EveryUpdate()
                                             .Where(_ => (Input.GetAxis("Horizontal") == 0.0f && Input.GetAxis("Vertical") == 0.0f) ||
                                                         Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
@@ -24,7 +23,15 @@ namespace WolfVillageBattle {
             moveDownStream.Subscribe(_ => {
                     float horizontalInput = Input.GetAxis("Horizontal");
                     float verticalInput = Input.GetAxis("Vertical");
-                    playerUseCase.MovePlayer(horizontalInput, verticalInput);
+                    // TODO: PS4などのゲーム機の場合、歩くが対応できてないため対応する
+                    if (Input.GetKey("left shift") || Input.GetKey("right shift")) 
+                    {
+                        playerUseCase.WalkPlayer(horizontalInput, verticalInput);
+                    }
+                    else
+                    {
+                        playerUseCase.RunPlayer(horizontalInput, verticalInput);
+                    }
             }).AddTo(this);
 
             // ボタンから離した時
