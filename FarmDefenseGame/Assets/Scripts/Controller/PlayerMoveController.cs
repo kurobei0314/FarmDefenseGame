@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using WolfVillageBattle.Interface;
@@ -7,15 +5,10 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerMoveController : MonoBehaviour
     {
-        private PlayerView player;
-        private CameraView camera;
 
         // Start is called before the first frame update
-        public void Initialize(PlayerView player, MainGameRepository mainGameRepository, CameraView camera)
+        public void Initialize(IPlayerView player, MainGameRepository mainGameRepository, ICameraView camera)
         {
-            this.player = player;
-            this.camera = camera;
-
             IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, mainGameRepository.Player, camera);
             var moveDownStream = Observable.EveryUpdate()
                                             .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
