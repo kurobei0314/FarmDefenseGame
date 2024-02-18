@@ -16,7 +16,7 @@ namespace WolfVillageBattle
         [SerializeField] private EnemyStatusView enemyStatusView;
         [SerializeField] private EnemyAnimationView enemyAnimationView;
         [SerializeField] private EnemySEView enemySEView;
-        [SerializeField] private HPBarView enemyHpBarView;
+        [SerializeField] private EnemyHPBarView enemyHpBarView;
         [SerializeField] private GameObject body;
 
         public GameObject GameObject => this.gameObject;

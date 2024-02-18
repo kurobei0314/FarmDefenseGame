@@ -9,11 +9,6 @@ namespace WolfVillageBattle
     {
         [SerializeField] private Slider hpBar;
 
-        void LateUpdate()
-        {
-            transform.rotation = Camera.main.transform.rotation;
-        }
-
         public void SetValue (float value)
         {
             hpBar.value = value;
