@@ -22,7 +22,7 @@ namespace WolfVillageBattle
         {
             if (playerEntity.CurrentStatus != Status.IDLE) return;
             var pos = playerView.GameObject.transform.position;
-            var moveDirection = (camera.GameObject.transform.forward * verticalInput + camera.GameObject.transform.right * horizontalInput).normalized;
+            var moveDirection = (camera.CameraTrans.forward * verticalInput + camera.CameraTrans.right * horizontalInput).normalized;
             playerView.Rigidbody.MovePosition(pos + moveDirection * 0.07f);
             playerView.unityChan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             playerView.Walk();
