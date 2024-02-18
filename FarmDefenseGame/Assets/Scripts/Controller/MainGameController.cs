@@ -13,11 +13,10 @@ namespace WolfVillageBattle {
         [SerializeField] private PlayerAttackController playerAttackController;
         [SerializeField] private CameraMoveController cameraMoveController;
         [SerializeField] private PlayerView playerView;
-        [SerializeField] private EnemyView[] enemyViews;
-        [SerializeField] private EnemyNoticePresenter[] enemyNoticePresenters;
         [SerializeField] private CameraView cameraView;
         [SerializeField] private PlayerStatusView playerStatusView;
         [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private Transform enemyParent;
 
         void Start()
         {
@@ -32,7 +31,7 @@ namespace WolfVillageBattle {
             foreach(var enemyDTO in mainGameRepository.Enemies)
             {
                 // TODO: Prefabもmasterデータから持ってくる
-                var enemyGO = Instantiate(enemyPrefab, enemyDTO.Pos, Quaternion.Euler(enemyDTO.Rotation));
+                var enemyGO = Instantiate(enemyPrefab, enemyDTO.Pos, Quaternion.Euler(enemyDTO.Rotation), enemyParent);
                 var enemyView = enemyGO.GetComponent<EnemyView>();
                 if (!enemyView)
                 {
