@@ -25,7 +25,8 @@ namespace WolfVillageBattle {
             playerStatusView.Initialize(mainGameRepository);
             playerMoveController.Initialize(playerView, mainGameRepository, cameraView);
             playerAttackController.Initialize(playerView, mainGameRepository);
-            cameraMoveController.Initialize(playerView, cameraView);
+            var cameraEntity = new CameraEntity();
+            cameraMoveController.Initialize(playerView, cameraView, cameraEntity);
             var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player);
 
             foreach(var enemyDTO in mainGameRepository.Enemies)

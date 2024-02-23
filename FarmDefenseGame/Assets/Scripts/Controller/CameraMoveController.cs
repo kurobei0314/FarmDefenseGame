@@ -6,9 +6,9 @@ namespace WolfVillageBattle
 {
     public class CameraMoveController : MonoBehaviour
     {
-        public void Initialize(IPlayerView player, ICameraView camera)
+        public void Initialize(IPlayerView player, ICameraView cameraView, ICameraEntity cameraEntity)
         {
-            ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(camera);
+            ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
 
             Observable.EveryUpdate()
                         .Where(_ => Input.GetAxis("CameraMove") != 0)
@@ -18,16 +18,16 @@ namespace WolfVillageBattle
                         }).AddTo(this);
             
             Observable.EveryUpdate()
-                        .Where(_ => Input.GetAxis("InitializeCameraPos") != 0)
+                        .Where(_ => Input.GetButtonDown("InitializeCameraPos"))
                         .Subscribe(_ => {
                             var angleY = player.unityChan.gameObject.transform.localEulerAngles.y;
                             cameraMoveUseCase.InitializeCameraPos(angleY);
                         }).AddTo(this);
 
             Observable.EveryUpdate()
-                        .Where(_ => Input.GetAxis("SwitchCameraTargetLock") != 0)
+                        .Where(_ => Input.GetButtonDown("SwitchCameraTargetLock"))
                         .Subscribe(_ => {
-
+                            cameraMoveUseCase.SwitchCameraMode();
                         }).AddTo(this);
         }
     }

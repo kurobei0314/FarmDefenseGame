@@ -6,9 +6,12 @@ namespace WolfVillageBattle
     public class CameraMoveActor : ICameraMoveUseCase
     {
         private ICameraView cameraView;
-        public CameraMoveActor(ICameraView cameraView)
+        private ICameraEntity cameraEntity;
+
+        public CameraMoveActor(ICameraView cameraView, ICameraEntity cameraEntity)
         {
             this.cameraView = cameraView;
+            this.cameraEntity = cameraEntity;
         }
 
         public void CameraMove(float cameraInput, Vector3 playerPos)
@@ -19,6 +22,11 @@ namespace WolfVillageBattle
         public void InitializeCameraPos(float angleY)
         {
             cameraView.SetCameraPositionForPlayerBack(angleY);
+        }
+
+        public void SwitchCameraMode()
+        {
+            cameraEntity.SwitchCameraMode();
         }
     }
 }
