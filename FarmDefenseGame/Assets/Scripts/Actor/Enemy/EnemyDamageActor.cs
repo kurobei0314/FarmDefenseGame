@@ -24,13 +24,13 @@ namespace WolfVillageBattle
         public void Damage()
         {
             enemyView.Damage();
-            enemyEntity.SetStatus(Status.DAMAGE);
+            enemyEntity.SetStatus(Status.Damage);
         }
         
         public void Die()
         {
             enemyView.Die();
-            enemyEntity.SetStatus(Status.DIE);
+            enemyEntity.SetStatus(Status.Die);
         }
     }
 }

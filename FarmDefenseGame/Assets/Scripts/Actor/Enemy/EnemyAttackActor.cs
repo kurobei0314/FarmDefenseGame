@@ -18,14 +18,14 @@ namespace WolfVillageBattle
 
         public void StartAttack()
         {
-            if (enemyEntity.CurrentStatus != Status.NOTICE) return;
-            enemyEntity.SetStatus(Status.ATTACK);
+            if (enemyEntity.CurrentStatus != Status.Notice) return;
+            enemyEntity.SetStatus(Status.Attack);
             enemyView.Attack();
         }
         
         public void StopAttack()
         {
-            enemyEntity.SetStatus(Status.NOTICE);
+            enemyEntity.SetStatus(Status.Notice);
         }
     }
 }

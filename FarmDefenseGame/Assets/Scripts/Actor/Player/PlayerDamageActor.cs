@@ -20,13 +20,13 @@ namespace WolfVillageBattle
 
         public void Damage()
         {
-            playerEntity.SetStatus(Status.DAMAGE);
+            playerEntity.SetStatus(Status.Damage);
             playerView.Damage((float)playerEntity.CurrentHPValue/playerEntity.PlayerVO.MaxHP);
         }
 
         public void Die()
         {
-            playerEntity.SetStatus(Status.DIE);
+            playerEntity.SetStatus(Status.Die);
             playerView.Die();
         }
     }

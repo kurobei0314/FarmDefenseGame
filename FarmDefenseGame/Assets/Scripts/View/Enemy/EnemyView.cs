@@ -51,14 +51,14 @@ namespace WolfVillageBattle
         // TODO: ここよくないので直す
         private void JudgeAttackable()
         {
-            if (enemyEntity.CurrentStatus == Status.NOTICE)
+            if (enemyEntity.CurrentStatus == Status.Notice)
             {
                 if ( DistanceFromPlayer() < 2.0f )
                 {
                     StartAttack();
                 } 
             }
-            else if (enemyEntity.CurrentStatus == Status.ATTACK)
+            else if (enemyEntity.CurrentStatus == Status.Attack)
             {
                 if ( DistanceFromPlayer() >= 2.0f )
                 {

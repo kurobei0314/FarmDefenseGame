@@ -17,8 +17,8 @@ namespace WolfVillageBattle
         }
         public void AttackPlayer()
         {
-            if (playerEntity.CurrentStatus != Status.IDLE && playerEntity.CurrentStatus != Status.ATTACK) return;
-            playerEntity.SetStatus(Status.ATTACK);
+            if (playerEntity.CurrentStatus != Status.Idle && playerEntity.CurrentStatus != Status.Attack) return;
+            playerEntity.SetStatus(Status.Attack);
             playerView.Attack();
         }
     }

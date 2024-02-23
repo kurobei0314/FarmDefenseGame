@@ -20,7 +20,7 @@ namespace WolfVillageBattle
             playerView.GameObject.OnCollisionEnterAsObservable()
                                 .Where(collision => collision.gameObject.tag == "EnemyBody")
                                 .Subscribe(enemy => {
-                                    if (playerEntity.CurrentStatus == Status.DAMAGE || playerEntity.CurrentStatus == Status.DIE) return;
+                                    if (playerEntity.CurrentStatus == Status.Damage || playerEntity.CurrentStatus == Status.Die) return;
                                     var parent = enemy.gameObject.transform.parent;
                                     if (parent == null || parent.gameObject.tag != "Enemy") return;
                                     var enemyView = parent.gameObject.GetComponent<EnemyView>();
@@ -29,7 +29,7 @@ namespace WolfVillageBattle
                                         Debug.LogError("enemyViewが取得できませんでした");
                                         return;
                                     }
-                                    if (enemyView.EnemyEntity.CurrentStatus != Status.ATTACK) return;
+                                    if (enemyView.EnemyEntity.CurrentStatus != Status.Attack) return;
                                     playerDamageUseCase.ReduceHP(enemyView.EnemyEntity.EnemyVO.Attack);
                                 });
 

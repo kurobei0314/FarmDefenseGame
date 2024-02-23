@@ -20,21 +20,21 @@ namespace WolfVillageBattle
 
         public void RunPlayer(float horizontalInput, float verticalInput)
         {
-            if (playerEntity.CurrentStatus != Status.IDLE) return;
+            if (playerEntity.CurrentStatus != Status.Idle) return;
             var moveDirection = (camera.CameraTrans.forward * verticalInput + camera.CameraTrans.right * horizontalInput).normalized;
             playerView.Run(moveDirection);
         }
 
         public void WalkPlayer(float horizontalInput, float verticalInput)
         {
-            if (playerEntity.CurrentStatus != Status.IDLE) return;
+            if (playerEntity.CurrentStatus != Status.Idle) return;
             var moveDirection = (camera.CameraTrans.forward * verticalInput + camera.CameraTrans.right * horizontalInput).normalized;
             playerView.Walk(moveDirection);
         }
 
         public void StandPlayer()
         {
-            if (playerEntity.CurrentStatus != Status.IDLE) return;
+            if (playerEntity.CurrentStatus != Status.Idle) return;
             playerView.Stand();
         }
     }

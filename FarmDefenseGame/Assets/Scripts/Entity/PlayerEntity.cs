@@ -13,7 +13,7 @@ namespace WolfVillageBattle
             this.playerVO = (PlayerVO) playerVO; 
             current_hp = new ReactiveProperty<int>();
             current_hp.Value = playerVO.MaxHP;
-            current_status = Status.IDLE;
+            current_status = Status.Idle;
         }
 
         [SerializeField]

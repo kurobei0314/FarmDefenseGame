@@ -32,10 +32,10 @@ namespace WolfVillageBattle
             if (IsStopped) return;
             switch (enemyEntity.CurrentStatus)
             {
-                case Status.IDLE:
+                case Status.Idle:
                     SetIdleAI();
                     break;
-                case Status.NOTICE:
+                case Status.Notice:
                     SetNoticeAI();
                     break;
             }

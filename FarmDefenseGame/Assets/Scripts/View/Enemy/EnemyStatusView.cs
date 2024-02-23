@@ -20,13 +20,13 @@ namespace WolfVillageBattle
         
         public void SetNoticeStatus()
         {
-            enemyEntity.SetStatus(Status.NOTICE);
+            enemyEntity.SetStatus(Status.Notice);
             enemyMoveAI.StartNavMesh();
         }
 
         public void SetIdleStatus()
         {
-            enemyEntity.SetStatus(Status.IDLE);
+            enemyEntity.SetStatus(Status.Idle);
             enemyMoveAI.StartNavMesh();
         }
     }

@@ -18,7 +18,7 @@ namespace WolfVillageBattle
         
         public void SetIdleStatus()
         {
-            playerEntity.SetStatus(Status.IDLE);
+            playerEntity.SetStatus(Status.Idle);
         }
     }
 }

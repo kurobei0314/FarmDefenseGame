@@ -6,14 +6,14 @@ namespace WolfVillageBattle.Interface
 {
     public enum Status
     {
-        IDLE,
-        ATTACK,
-        DAMAGE,
-        DIE,
+        Idle,
+        Attack,
+        Damage,
+        Die,
 
-        WIN, // player専用
+        Win, // player専用
 
-        NOTICE, // Enemy専用
+        Notice, // Enemy専用
     }
     
     public interface ISetStatus

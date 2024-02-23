@@ -23,9 +23,9 @@ namespace WolfVillageBattle
             enemyView.Body.OnCollisionEnterAsObservable()
                             .Where(_ => _.gameObject.tag == "PlayerWeapon")
                             .Subscribe(_ => {
-                                if (playerEntity.CurrentStatus != Status.ATTACK) return;
-                                if (enemyEntity.CurrentStatus == Status.DAMAGE 
-                                    || enemyEntity.CurrentStatus == Status.DIE) return;
+                                if (playerEntity.CurrentStatus != Status.Attack) return;
+                                if (enemyEntity.CurrentStatus == Status.Damage 
+                                    || enemyEntity.CurrentStatus == Status.Die) return;
                                 damageActor.ReduceHP(playerEntity.Attack);
                             }).AddTo(enemyView.GameObject);
 

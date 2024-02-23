@@ -18,13 +18,13 @@ namespace WolfVillageBattle
 
         public void EnemyNotice()
         {
-            enemyEntity.SetStatus(Status.NOTICE);
+            enemyEntity.SetStatus(Status.Notice);
             enemyView.Notice();
         }
 
         public void EnemyOverlook()
         {
-            enemyEntity.SetStatus(Status.IDLE);
+            enemyEntity.SetStatus(Status.Idle);
             enemyView.Outlook();
         }
     }
