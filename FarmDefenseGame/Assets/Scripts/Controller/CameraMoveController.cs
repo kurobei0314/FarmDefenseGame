@@ -14,7 +14,7 @@ namespace WolfVillageBattle
                         .Where(_ => Input.GetAxis("CameraMove") != 0)
                         .Subscribe(_ => {
                             float cameraInput = Input.GetAxis("CameraMove");
-                            cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position);
+                            cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position, enemyViews);
                         }).AddTo(this);
             
             Observable.EveryUpdate()

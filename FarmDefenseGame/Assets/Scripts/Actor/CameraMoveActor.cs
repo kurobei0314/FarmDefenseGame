@@ -15,7 +15,7 @@ namespace WolfVillageBattle
             // TODO: ここでFreeのカメラ位置に初期化するようにする
         }
 
-        public void CameraMove(float cameraInput, Vector3 playerPos)
+        public void CameraMove(float cameraInput, Vector3 playerPos, IEnemiesView enemiesView)
         {
             switch (cameraEntity.CurrentCameraMode)
             {
@@ -23,15 +23,17 @@ namespace WolfVillageBattle
                     cameraView.CameraMove(cameraInput, playerPos);
                 break;
                 case CameraMode.TargetLock:
-                    SwitchTargetEnemy();
+                    SwitchTargetEnemy(cameraInput, enemiesView);
                 break;
             }
         }
 
-        private void SwitchTargetEnemy()
+        private void SwitchTargetEnemy(float cameraInput, IEnemiesView enemyViews)
         {
             // TODO:今、ターゲットになっている敵よりも右or左にいる敵でかつカメラに見えてる敵にターゲットを変える処理を書く
-        
+            var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, cameraView.targetEnemyTrans, cameraView.CameraTrans.position, cameraView.CameraTrans.right);
+            if (nextEnemyTarget == null) return;
+
         }
         
         public void InitializeCameraPos(float angleY)

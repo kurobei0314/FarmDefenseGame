@@ -56,6 +56,42 @@ namespace WolfVillageBattle
             }
             return aliveEnemyViews[index].gameObject;
         }
+
+        public GameObject GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 rightCameraVector)
+        {
+            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
+                                                        && enemy.IsVisible && enemy.GameObject != targetEnemy.gameObject).ToArray();
+            if (aliveEnemyViews.Length == 0) return null;
+            var index = 0;
+            var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraPositionVector, rightCameraVector);
+            for (int i = 1; i < aliveEnemyViews.Length ; i++)
+            {
+                var enemyDirection = aliveEnemyViews[i].Position - cameraPositionVector;
+                var dotProduct = Vector3.Dot(enemyDirection.normalized, rightCameraVector);
+                if (IsInputRightButton(cameraInput))
+                {
+                    if (dotProduct < dot && dotProduct > 0)
+                    {
+                        index = i;
+                        dot = dotProduct;
+                    }
+                }
+                else
+                {
+                    if (dot < dotProduct && dotProduct < 0)
+                    {
+                        index = i;
+                        dot = dotProduct;
+                    }
+                }
+            }
+            return aliveEnemyViews[index].GameObject;
+        }
+
+        private bool IsInputRightButton(float cameraInput){
+            if (cameraInput > 0) return true;
+            return false;
+        }
     }
 
 }
