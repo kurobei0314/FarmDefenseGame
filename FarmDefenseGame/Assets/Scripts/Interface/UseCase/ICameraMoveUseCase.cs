@@ -6,7 +6,7 @@ namespace WolfVillageBattle.Interface
     {
         void CameraMove(float cameraInput, Vector3 playerPos);
         void InitializeCameraPos(float angleY);
-        void SwitchCameraMode();
+        void SwitchCameraMode(IEnemiesView EnemyViews);
     }
 }
 

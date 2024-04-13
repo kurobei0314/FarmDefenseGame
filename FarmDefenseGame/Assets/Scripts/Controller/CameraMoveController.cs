@@ -8,7 +8,7 @@ namespace WolfVillageBattle
     {
         public void Initialize(IPlayerView player, ICameraView cameraView, ICameraEntity cameraEntity, IEnemiesView enemyViews)
         {
-            ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity, enemyViews);
+            ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
 
             Observable.EveryUpdate()
                         .Where(_ => Input.GetAxis("CameraMove") != 0)
@@ -27,7 +27,7 @@ namespace WolfVillageBattle
             Observable.EveryUpdate()
                         .Where(_ => Input.GetButtonDown("SwitchCameraTargetLock"))
                         .Subscribe(_ => {
-                            cameraMoveUseCase.SwitchCameraMode();
+                            cameraMoveUseCase.SwitchCameraMode(enemyViews);
                         }).AddTo(this);
         }
     }

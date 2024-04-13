@@ -903,8 +903,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 820618014}
-  m_Father: {fileID: 520483235}
-  m_RootOrder: 1
+  m_Father: {fileID: 821578662}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!114 &507533134
 MonoBehaviour:
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 520483235}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
@@ -973,7 +973,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 564593216}
-  - {fileID: 507533133}
   m_Father: {fileID: 821578662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4675,10 +4674,8 @@ MonoBehaviour:
   playerAttackController: {fileID: 615006819}
   cameraMoveController: {fileID: 615006821}
   playerView: {fileID: 821578665}
-  cameraView: {fileID: 821578668}
+  cameraView: {fileID: 963194230}
   playerStatusView: {fileID: 1390357009}
-  enemyPrefab: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
-  enemyParent: {fileID: 1642990865}
   enemiesView: {fileID: 1642990866}
 --- !u!114 &615006819
 MonoBehaviour:
@@ -5076,6 +5073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820618014}
   - component: {fileID: 820618015}
+  - component: {fileID: 820618016}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -5110,6 +5108,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &820618016
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820618013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &821578660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,7 +5133,6 @@ GameObject:
   - component: {fileID: 821578665}
   - component: {fileID: 821578667}
   - component: {fileID: 821578666}
-  - component: {fileID: 821578668}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -5145,6 +5154,7 @@ Transform:
   m_Children:
   - {fileID: 520483235}
   - {fileID: 1810811594}
+  - {fileID: 507533133}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5206,20 +5216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1390357010}
---- !u!114 &821578668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821578660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e720f17e6b67044d7ac2e670e1d59cee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FreePosVirtualCamera: {fileID: 1810811595}
-  TargetLockPosVirtualCamera: {fileID: 507533134}
 --- !u!1 &858095874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: de56bad3c5656b74d8cc92d71dee9f62, type: 3}
@@ -5407,6 +5403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963194228}
+  - component: {fileID: 963194230}
   - component: {fileID: 963194227}
   - component: {fileID: 963194229}
   - component: {fileID: 963194226}
@@ -5517,6 +5514,21 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e720f17e6b67044d7ac2e670e1d59cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FreePosVirtualCamera: {fileID: 1810811595}
+  TargetLockPosVirtualCamera: {fileID: 507533134}
+  mainCamera: {fileID: 963194227}
 --- !u!1001 &975047817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6856,7 +6868,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 564593216}
+  m_LookAt: {fileID: 520483235}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60

@@ -9,6 +9,6 @@ namespace WolfVillageBattle.Interface
     public interface ICameraEntity 
     {
         CameraMode CurrentCameraMode { get; }
-        public void SwitchCameraMode();
+        public void SetCameraMode (CameraMode cameraMode);
     }
 }

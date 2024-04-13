@@ -6,7 +6,7 @@ namespace WolfVillageBattle.Interface
 {
     public interface IEnemiesView 
     {
-        
+        GameObject GetMinDistanceEnemyFromPlayer();
     }
 }
 

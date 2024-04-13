@@ -18,12 +18,14 @@ namespace WolfVillageBattle
         [SerializeField] private EnemySEView enemySEView;
         [SerializeField] private EnemyHPBarView enemyHpBarView;
         [SerializeField] private GameObject body;
+        [SerializeField] private Renderer targetRenderer;
 
         public GameObject GameObject => this.gameObject;
         public Vector3 Position => this.gameObject.transform.position;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
         private PlayerView playerView;
+        public Boolean IsVisible => targetRenderer.isVisible;
 
         public IEnemyEntity EnemyEntity => enemyEntity;
         private IEnemyEntity enemyEntity;
@@ -114,7 +116,7 @@ namespace WolfVillageBattle
             enemyHpBarView.SetValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
         }
 
-        private float DistanceFromPlayer()
+        public float DistanceFromPlayer()
         {
             return Vector3.Distance(playerView.Position, Position);
         }

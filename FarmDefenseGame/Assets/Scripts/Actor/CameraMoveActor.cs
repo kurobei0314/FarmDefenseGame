@@ -8,7 +8,7 @@ namespace WolfVillageBattle
         private ICameraView cameraView;
         private ICameraEntity cameraEntity;
 
-        public CameraMoveActor(ICameraView cameraView, ICameraEntity cameraEntity, IEnemiesView EnemyViews)
+        public CameraMoveActor(ICameraView cameraView, ICameraEntity cameraEntity)
         {
             this.cameraView = cameraView;
             this.cameraEntity = cameraEntity;
@@ -39,21 +39,28 @@ namespace WolfVillageBattle
             cameraView.SetCameraPositionForPlayerBack(angleY);
         }
 
-        public void SwitchCameraMode()
+        public void SwitchCameraMode(IEnemiesView EnemyViews)
         {
-            cameraEntity.SwitchCameraMode();
+            var changedCameraMode = ((CameraMode)1 - (int)cameraEntity.CurrentCameraMode);
 
-            switch (cameraEntity.CurrentCameraMode)
+            switch (changedCameraMode)
             {
                 case CameraMode.Free:
+                    Debug.Log("CameraMode.Free");
                     // TODO: ここでターゲットロックが解除された時の処理を書く
                     // FreeのvirtualCameraを初期位置に戻す
-                break;
+                    cameraView.SwitchVirtualFreeCamera();
+                    cameraEntity.SetCameraMode(CameraMode.Free);
+                    break;
                 case CameraMode.TargetLock:
+                    Debug.Log("CameraMode.TargetLock");
                     // TODO:ここでターゲットロックした時の処理を書く
                     // カメラに写っており、一番近い敵をVirtualCameraのlookatに設定する
-
-                break;
+                    var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer();
+                    if (enemyView == null) return;
+                    cameraView.SwitchVirtualTargetLockCamera(enemyView.transform);
+                    cameraEntity.SetCameraMode(CameraMode.TargetLock);
+                    break;
             }
             
         }

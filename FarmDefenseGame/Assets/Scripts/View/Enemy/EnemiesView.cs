@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
+using System.Linq;
 
 namespace WolfVillageBattle
 {
@@ -36,6 +35,26 @@ namespace WolfVillageBattle
                 enemyViews[index] = enemyView;
                 index++;
             }
+        }
+
+        public GameObject GetMinDistanceEnemyFromPlayer()
+        {
+            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible).ToArray();
+            if (aliveEnemyViews.Length == 0) return null;
+
+            var index = 0;
+            var minDistance = aliveEnemyViews[0].DistanceFromPlayer();
+
+            for (var i = 1 ; i < aliveEnemyViews.Length; i++)
+            {
+                var distance = aliveEnemyViews[i].DistanceFromPlayer();
+                if (minDistance > distance)
+                {
+                    index = i;
+                    minDistance = distance;
+                }
+            }
+            return aliveEnemyViews[index].gameObject;
         }
     }
 
