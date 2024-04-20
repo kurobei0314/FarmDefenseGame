@@ -37,7 +37,7 @@ namespace WolfVillageBattle
             }
         }
 
-        public GameObject GetMinDistanceEnemyFromPlayer()
+        public IEnemyView GetMinDistanceEnemyFromPlayer()
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
@@ -54,13 +54,20 @@ namespace WolfVillageBattle
                     minDistance = distance;
                 }
             }
-            return aliveEnemyViews[index].gameObject;
+            return aliveEnemyViews[index];
         }
 
-        public GameObject GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 rightCameraVector)
+        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 rightCameraVector)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
                                                         && enemy.IsVisible && enemy.GameObject != targetEnemy.gameObject).ToArray();
+            foreach(var enemy in enemyViews)
+            {
+                var tmp = enemy.EnemyEntity.CurrentStatus;
+                var tmp2 = enemy.IsVisible;
+                var tmp3 = enemy.GameObject;
+            }
+            Debug.LogError("aliveEnemyViews: " + aliveEnemyViews.Length);
             if (aliveEnemyViews.Length == 0) return null;
             var index = 0;
             var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraPositionVector, rightCameraVector);
@@ -85,11 +92,12 @@ namespace WolfVillageBattle
                     }
                 }
             }
-            return aliveEnemyViews[index].GameObject;
+            Debug.LogError("index: " + index);
+            return aliveEnemyViews[index];
         }
 
         private bool IsInputRightButton(float cameraInput){
-            if (cameraInput > 0) return true;
+            if (cameraInput < 0) return true;
             return false;
         }
     }

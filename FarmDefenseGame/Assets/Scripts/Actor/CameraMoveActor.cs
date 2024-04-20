@@ -21,10 +21,10 @@ namespace WolfVillageBattle
             {
                 case CameraMode.Free:
                     cameraView.CameraMove(cameraInput, playerPos);
-                break;
+                    break;
                 case CameraMode.TargetLock:
                     SwitchTargetEnemy(cameraInput, enemiesView);
-                break;
+                    break;
             }
         }
 
@@ -33,11 +33,19 @@ namespace WolfVillageBattle
             // TODO:今、ターゲットになっている敵よりも右or左にいる敵でかつカメラに見えてる敵にターゲットを変える処理を書く
             var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, cameraView.targetEnemyTrans, cameraView.CameraTrans.position, cameraView.CameraTrans.right);
             if (nextEnemyTarget == null) return;
-
+            if (cameraView.targetEnemyTrans != null)
+            {
+                var targetEnemy = cameraView.targetEnemyTrans.gameObject.GetComponent<IEnemyView>();
+                if (targetEnemy != null) targetEnemy.SetTargetLockActive(false);
+            }
+            nextEnemyTarget.SetTargetLockActive(true);
+            cameraView.SwitchVirtualTargetLockCamera(nextEnemyTarget.GameObject.transform);
+            // Debug.LogError("enemyView pos: " + nextEnemyTarget.transform.position);
         }
         
         public void InitializeCameraPos(float angleY)
         {
+            if (cameraEntity.CurrentCameraMode == CameraMode.TargetLock) return;
             cameraView.SetCameraPositionForPlayerBack(angleY);
         }
 
@@ -60,7 +68,8 @@ namespace WolfVillageBattle
                     // カメラに写っており、一番近い敵をVirtualCameraのlookatに設定する
                     var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer();
                     if (enemyView == null) return;
-                    cameraView.SwitchVirtualTargetLockCamera(enemyView.transform);
+                    cameraView.SwitchVirtualTargetLockCamera(enemyView.GameObject.transform);
+                    enemyView.SetTargetLockActive(true);
                     cameraEntity.SetCameraMode(CameraMode.TargetLock);
                     break;
             }

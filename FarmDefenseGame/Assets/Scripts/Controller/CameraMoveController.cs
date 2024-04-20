@@ -11,12 +11,19 @@ namespace WolfVillageBattle
             ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
 
             Observable.EveryUpdate()
-                        .Where(_ => Input.GetAxis("CameraMove") != 0)
+                        .Where(_ => Input.GetAxis("CameraMove") != 0 && cameraEntity.CurrentCameraMode == CameraMode.Free)
                         .Subscribe(_ => {
                             float cameraInput = Input.GetAxis("CameraMove");
                             cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position, enemyViews);
                         }).AddTo(this);
-            
+
+            Observable.EveryUpdate()
+                        .Where(_ => Input.GetButtonDown("CameraMove") && cameraEntity.CurrentCameraMode == CameraMode.TargetLock)
+                        .Subscribe(_ => {
+                            float cameraInput = Input.GetAxis("CameraMove");
+                            cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position, enemyViews);
+                        }).AddTo(this);
+
             Observable.EveryUpdate()
                         .Where(_ => Input.GetButtonDown("InitializeCameraPos"))
                         .Subscribe(_ => {

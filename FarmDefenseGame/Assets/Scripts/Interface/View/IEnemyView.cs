@@ -20,6 +20,7 @@ namespace WolfVillageBattle.Interface
         void Attack();
         void Damage();
         void Die();
+        void SetTargetLockActive(bool active);
     }
 
     public interface IEnemyAnimation 

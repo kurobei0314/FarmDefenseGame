@@ -16,7 +16,7 @@ namespace WolfVillageBattle
         [SerializeField] private EnemyStatusView enemyStatusView;
         [SerializeField] private EnemyAnimationView enemyAnimationView;
         [SerializeField] private EnemySEView enemySEView;
-        [SerializeField] private EnemyHPBarView enemyHpBarView;
+        [SerializeField] private EnemyCanvasView enemyCanvasView;
         [SerializeField] private GameObject body;
         [SerializeField] private Renderer targetRenderer;
 
@@ -43,6 +43,7 @@ namespace WolfVillageBattle
             this.enemyEntity = (EnemyEntity) enemyEntity;
             enemyMoveAI.Initialize(playerView, enemyEntity);
             enemyStatusView.Initialize(enemyMoveAI, enemyEntity);
+            enemyCanvasView.Initialize();
 
             Observable.EveryUpdate()
                 .Subscribe(_ => {
@@ -105,7 +106,7 @@ namespace WolfVillageBattle
             enemyMoveAI.StopNavMesh();
             enemyAnimationView.PlayDamageAnim();
             enemySEView.PlayDamageSound();
-            enemyHpBarView.SetValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
+            enemyCanvasView.SetHPBarValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
         }
 
         public void Die()
@@ -113,12 +114,17 @@ namespace WolfVillageBattle
             enemyMoveAI.StopNavMesh();
             enemyAnimationView.PlayDieAnim();
             enemySEView.PlayDieSound();
-            enemyHpBarView.SetValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
+            enemyCanvasView.SetHPBarValue((float)enemyEntity.CurrentHPValue/enemyEntity.EnemyVO.MaxHP);
         }
 
         public float DistanceFromPlayer()
         {
             return Vector3.Distance(playerView.Position, Position);
+        }
+
+        public void SetTargetLockActive(bool active)
+        {
+            enemyCanvasView.SetTargetLockActive(active);
         }
     }
 }
