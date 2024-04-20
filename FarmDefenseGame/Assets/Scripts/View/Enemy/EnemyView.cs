@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 using System;
 using UniRx;
-using System.Data.Common;
-using UnityEditor;
-using UniRx.Triggers;
 
 namespace WolfVillageBattle
 {
@@ -25,7 +20,17 @@ namespace WolfVillageBattle
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
         private PlayerView playerView;
-        public Boolean IsVisible => targetRenderer.isVisible;
+        public Boolean IsVisible(Vector3 cameraPosition)
+        {
+            if (!targetRenderer.isVisible) return false;
+            var direction = Position - cameraPosition;
+            var ray = new Ray(cameraPosition, direction);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit)) {
+                if (hit.collider.gameObject.CompareTag("Enemy")) return true;
+            }
+            return false;
+        }
 
         public IEnemyEntity EnemyEntity => enemyEntity;
         private IEnemyEntity enemyEntity;
@@ -125,6 +130,17 @@ namespace WolfVillageBattle
         public void SetTargetLockActive(bool active)
         {
             enemyCanvasView.SetTargetLockActive(active);
+        }
+
+        void OnWillRenderObject()
+        {
+            Debug.LogError("wa-------i");
+        #if UNITY_EDITOR
+            if(Camera.current.name != "SceneCamera"  && Camera.current.name != "Preview Camera")
+        #endif
+            {
+                Debug.LogError("wa----i");
+            }
         }
     }
 }

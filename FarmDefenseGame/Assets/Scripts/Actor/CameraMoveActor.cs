@@ -51,7 +51,7 @@ namespace WolfVillageBattle
         public void SwitchCameraMode(IEnemiesView EnemyViews)
         {
             var changedCameraMode = ((CameraMode)1 - (int)cameraEntity.CurrentCameraMode);
-            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer();
+            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer(cameraView.CameraTrans.position);
             switch (changedCameraMode)
             {
                 case CameraMode.Free:

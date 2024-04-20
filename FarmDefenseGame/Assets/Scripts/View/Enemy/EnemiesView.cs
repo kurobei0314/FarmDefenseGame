@@ -37,9 +37,9 @@ namespace WolfVillageBattle
             }
         }
 
-        public IEnemyView GetMinDistanceEnemyFromPlayer()
+        public IEnemyView GetMinDistanceEnemyFromPlayer(Vector3 cameraPositionVector)
         {
-            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible).ToArray();
+            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible(cameraPositionVector)).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
 
             var index = 0;
@@ -60,14 +60,7 @@ namespace WolfVillageBattle
         public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 rightCameraVector)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
-                                                        && enemy.IsVisible && enemy.GameObject != targetEnemy.gameObject).ToArray();
-            foreach(var enemy in enemyViews)
-            {
-                var tmp = enemy.EnemyEntity.CurrentStatus;
-                var tmp2 = enemy.IsVisible;
-                var tmp3 = enemy.GameObject;
-            }
-            Debug.LogError("aliveEnemyViews: " + aliveEnemyViews.Length);
+                                                        && enemy.IsVisible(cameraPositionVector) && enemy.GameObject != targetEnemy.gameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
             var index = 0;
             var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraPositionVector, rightCameraVector);
