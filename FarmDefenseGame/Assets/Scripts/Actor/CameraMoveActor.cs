@@ -40,7 +40,6 @@ namespace WolfVillageBattle
             }
             nextEnemyTarget.SetTargetLockActive(true);
             cameraView.SwitchVirtualTargetLockCamera(nextEnemyTarget.GameObject.transform);
-            // Debug.LogError("enemyView pos: " + nextEnemyTarget.transform.position);
         }
         
         public void InitializeCameraPos(float angleY)
@@ -52,7 +51,7 @@ namespace WolfVillageBattle
         public void SwitchCameraMode(IEnemiesView EnemyViews)
         {
             var changedCameraMode = ((CameraMode)1 - (int)cameraEntity.CurrentCameraMode);
-
+            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer();
             switch (changedCameraMode)
             {
                 case CameraMode.Free:
@@ -61,12 +60,13 @@ namespace WolfVillageBattle
                     // FreeのvirtualCameraを初期位置に戻す
                     cameraView.SwitchVirtualFreeCamera();
                     cameraEntity.SetCameraMode(CameraMode.Free);
+                    if (enemyView == null) return;
+                    enemyView.SetTargetLockActive(false);
                     break;
                 case CameraMode.TargetLock:
                     Debug.Log("CameraMode.TargetLock");
                     // TODO:ここでターゲットロックした時の処理を書く
                     // カメラに写っており、一番近い敵をVirtualCameraのlookatに設定する
-                    var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer();
                     if (enemyView == null) return;
                     cameraView.SwitchVirtualTargetLockCamera(enemyView.GameObject.transform);
                     enemyView.SetTargetLockActive(true);
