@@ -14,14 +14,14 @@ namespace WolfVillageBattle
                         .Where(_ => Input.GetAxis("CameraMove") != 0 && cameraEntity.CurrentCameraMode == CameraMode.Free)
                         .Subscribe(_ => {
                             float cameraInput = Input.GetAxis("CameraMove");
-                            cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position, enemyViews);
+                            cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
                         }).AddTo(this);
 
             Observable.EveryUpdate()
                         .Where(_ => Input.GetButtonDown("CameraMove") && cameraEntity.CurrentCameraMode == CameraMode.TargetLock)
                         .Subscribe(_ => {
                             float cameraInput = Input.GetAxis("CameraMove");
-                            cameraMoveUseCase.CameraMove(cameraInput, player.unityChan.gameObject.transform.position, enemyViews);
+                            cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
                         }).AddTo(this);
 
             Observable.EveryUpdate()
