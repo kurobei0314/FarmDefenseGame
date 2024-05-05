@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cinemachine; 
 using WolfVillageBattle.Interface;
+using System;
 
 public interface ICameraView
 {
@@ -11,7 +12,7 @@ public interface ICameraView
     void SetCameraPositionForPlayerBack(float playerAngleY);
     void SwitchVirtualFreeCamera();
     void SwitchVirtualTargetLockCamera(Transform targetEnemy);
-    Vector3 CalculateViewportPointOfTargetPosition(Vector3 targetPosition);
+    Boolean IsVisibleInCamera(Vector3 targetPosition);
 }
 
 public class CameraView : MonoBehaviour, ICameraView
@@ -46,9 +47,10 @@ public class CameraView : MonoBehaviour, ICameraView
         TargetLockPosVirtualCamera.LookAt = targetEnemy;
     }
 
-    public Vector3 CalculateViewportPointOfTargetPosition(Vector3 targetPosition)
+    public Boolean IsVisibleInCamera(Vector3 targetPosition)
     {
-        return mainCamera.WorldToViewportPoint(targetPosition);
+        var viewPos = mainCamera.WorldToViewportPoint(targetPosition);
+        return (viewPos.x >= 0 && viewPos.x <=1 && viewPos.y >= 0 && viewPos.y <=1 && viewPos.z >=0) ? true : false;
     }
 }
 

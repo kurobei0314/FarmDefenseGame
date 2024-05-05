@@ -22,8 +22,7 @@ namespace WolfVillageBattle
         private PlayerView playerView;
         public Boolean IsVisible(ICameraView cameraView)
         {
-            var viewPort = cameraView.CalculateViewportPointOfTargetPosition(Position);
-            if (!IsCameraVisible(viewPort)) return false;
+            if (!cameraView.IsVisibleInCamera(Position)) return false;
             var direction = Position - cameraView.CameraTrans.position;
             var ray = new Ray(cameraView.CameraTrans.position, direction);
             RaycastHit hit;
