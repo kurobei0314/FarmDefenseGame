@@ -6,8 +6,8 @@ namespace WolfVillageBattle.Interface
 {
     public interface IEnemiesView 
     {
-        IEnemyView GetMinDistanceEnemyFromPlayer(Vector3 cameraPositionVector);
-        IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 playerPositionVector, Vector3 rightPlayerVector);
+        IEnemyView GetMinDistanceEnemyFromPlayer(ICameraView cameraView);
+        IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView, Vector3 playerPositionVector, Vector3 rightPlayerVector);
     }
 }
 

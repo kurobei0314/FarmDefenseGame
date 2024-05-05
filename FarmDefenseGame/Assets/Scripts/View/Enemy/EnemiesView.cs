@@ -37,9 +37,10 @@ namespace WolfVillageBattle
             }
         }
 
-        public IEnemyView GetMinDistanceEnemyFromPlayer(Vector3 cameraPositionVector)
+        public IEnemyView GetMinDistanceEnemyFromPlayer(ICameraView cameraView)
         {
-            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible(cameraPositionVector)).ToArray();
+            var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible(cameraView)).ToArray();
+
             if (aliveEnemyViews.Length == 0) return null;
 
             var index = 0;
@@ -57,16 +58,16 @@ namespace WolfVillageBattle
             return aliveEnemyViews[index];
         }
 
-        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, Vector3 cameraPositionVector, Vector3 playerPositionVector, Vector3 rightCameraVector)
+        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView, Vector3 playerPositionVector, Vector3 rightCameraVector)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
-                                                        && enemy.IsVisible(cameraPositionVector) && enemy.GameObject != targetEnemy.gameObject).ToArray();
+                                                        && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
             var index = 0;
-            var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraPositionVector, rightCameraVector);
+            var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraView.CameraTrans.position, rightCameraVector);
             for (int i = 1; i < aliveEnemyViews.Length ; i++)
             {
-                var enemyDirection = aliveEnemyViews[i].Position - cameraPositionVector;
+                var enemyDirection = aliveEnemyViews[i].Position - cameraView.CameraTrans.position;
                 var dotProduct = Vector3.Dot(enemyDirection.normalized, rightCameraVector);
                 if (IsInputRightButton(cameraInput))
                 {

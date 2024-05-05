@@ -20,17 +20,23 @@ namespace WolfVillageBattle
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
         private PlayerView playerView;
-        public Boolean IsVisible(Vector3 cameraPosition)
+        public Boolean IsVisible(ICameraView cameraView)
         {
-            if (!targetRenderer.isVisible) return false;
-            var direction = Position - cameraPosition;
-            var ray = new Ray(cameraPosition, direction);
+            var viewPort = cameraView.CalculateViewportPointOfTargetPosition(Position);
+            if (!IsCameraVisible(viewPort)) return false;
+            var direction = Position - cameraView.CameraTrans.position;
+            var ray = new Ray(cameraView.CameraTrans.position, direction);
             RaycastHit hit;
-            Debug.DrawRay (ray.origin, ray.direction * 100, Color.red, 100, false);
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 100, false);
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider.gameObject.CompareTag("Enemy")) return true;
             }
             return false;
+        }
+
+        private Boolean IsCameraVisible(Vector3 viewPos)
+        {
+            return (viewPos.x >= 0 && viewPos.x <=1 && viewPos.y >= 0 && viewPos.y <=1 && viewPos.z >=0) ? true : false;
         }
 
         public IEnemyEntity EnemyEntity => enemyEntity;

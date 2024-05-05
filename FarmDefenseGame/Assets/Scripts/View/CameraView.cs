@@ -11,6 +11,7 @@ public interface ICameraView
     void SetCameraPositionForPlayerBack(float playerAngleY);
     void SwitchVirtualFreeCamera();
     void SwitchVirtualTargetLockCamera(Transform targetEnemy);
+    Vector3 CalculateViewportPointOfTargetPosition(Vector3 targetPosition);
 }
 
 public class CameraView : MonoBehaviour, ICameraView
@@ -43,6 +44,11 @@ public class CameraView : MonoBehaviour, ICameraView
         FreePosVirtualCamera.Priority = 0;
         TargetLockPosVirtualCamera.Priority = 10;
         TargetLockPosVirtualCamera.LookAt = targetEnemy;
+    }
+
+    public Vector3 CalculateViewportPointOfTargetPosition(Vector3 targetPosition)
+    {
+        return mainCamera.WorldToViewportPoint(targetPosition);
     }
 }
 

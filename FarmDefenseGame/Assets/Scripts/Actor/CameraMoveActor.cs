@@ -31,7 +31,7 @@ namespace WolfVillageBattle
         private void SwitchTargetEnemy(float cameraInput, IEnemiesView enemyViews, IPlayerView playerView)
         {
             // TODO:今、ターゲットになっている敵よりも右or左にいる敵でかつカメラに見えてる敵にターゲットを変える処理を書く
-            var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, cameraView.targetEnemyTrans, cameraView.CameraTrans.position, playerView.unityChan.transform.position, playerView.unityChan.transform.right);
+            var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, cameraView.targetEnemyTrans, cameraView, playerView.unityChan.transform.position, playerView.unityChan.transform.right);
             if (nextEnemyTarget == null) return;
             if (cameraView.targetEnemyTrans != null)
             {
@@ -51,7 +51,7 @@ namespace WolfVillageBattle
         public void SwitchCameraMode(IEnemiesView EnemyViews)
         {
             var changedCameraMode = ((CameraMode)1 - (int)cameraEntity.CurrentCameraMode);
-            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer(cameraView.CameraTrans.position);
+            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer(cameraView);
             switch (changedCameraMode)
             {
                 case CameraMode.Free:
