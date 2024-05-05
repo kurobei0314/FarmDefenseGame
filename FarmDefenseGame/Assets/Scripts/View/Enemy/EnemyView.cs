@@ -27,7 +27,6 @@ namespace WolfVillageBattle
             var direction = Position - cameraView.CameraTrans.position;
             var ray = new Ray(cameraView.CameraTrans.position, direction);
             RaycastHit hit;
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 100, false);
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider.gameObject.CompareTag("Enemy")) return true;
             }
