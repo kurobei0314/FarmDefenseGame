@@ -136,16 +136,5 @@ namespace WolfVillageBattle
         {
             enemyCanvasView.SetTargetLockActive(active);
         }
-
-        void OnWillRenderObject()
-        {
-            Debug.LogError("wa-------i");
-        #if UNITY_EDITOR
-            if(Camera.current.name != "SceneCamera"  && Camera.current.name != "Preview Camera")
-        #endif
-            {
-                Debug.LogError("wa----i");
-            }
-        }
     }
 }
