@@ -25,7 +25,7 @@ public class CameraView : MonoBehaviour, ICameraView
     [SerializeField] private CinemachineTargetGroup  targetLockCinemachineTargetGroup;
     [SerializeField] private Camera mainCamera;
     public Transform CameraTrans => mainCamera.gameObject.transform;
-    public Transform targetEnemyTrans => targetLockPosVirtualCamera.LookAt;
+    public Transform targetEnemyTrans => targetLockCinemachineTargetGroup.m_Targets[1].target;
 
     public void CameraMove(float cameraInput, Vector3 playerPosition)
     {
