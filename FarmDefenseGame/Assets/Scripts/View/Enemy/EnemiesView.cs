@@ -58,7 +58,7 @@ namespace WolfVillageBattle
             return aliveEnemyViews[index];
         }
 
-        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView, Vector3 playerPositionVector, Vector3 rightCameraVector)
+        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView, Vector3 rightCameraVector)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
                                                         && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
