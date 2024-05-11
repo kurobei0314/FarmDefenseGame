@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace WolfVillageBattle
 {
-  public class EnemiesView : MonoBehaviour, IEnemiesView
+    public class EnemiesView : MonoBehaviour, IEnemiesView
     {
         [SerializeField] private GameObject enemyPrefab;
         private EnemyView[] enemyViews;
@@ -72,26 +72,28 @@ namespace WolfVillageBattle
                 var enemyDirection = aliveEnemyViews[i].Position - cameraView.CameraTrans.position;
                 var dotProduct = Vector3.Dot(enemyDirection.normalized, rightCameraVector);
                 var distance =  Vector3.Distance(targetEnemy.position, aliveEnemyViews[i].Position);
-                if (IsInputRightButton(cameraInput))
+                if (CheckCondition(cameraInput, dot, dotProduct, distance, minDistance))
                 {
-                    if (dot < dotProduct && distance < minDistance)
-                    {
-                        index = i;
-                        dot = dotProduct;
-                        minDistance = distance;
-                    }
-                }
-                else
-                {
-                    if (dotProduct < dot && distance < minDistance)
-                    {
-                        index = i;
-                        dot = dotProduct;
-                        minDistance = distance;
-                    }
+                    index = i;
+                    dot = dotProduct;
+                    minDistance = distance;
                 }
             }
             return (index == -1) ? null : aliveEnemyViews[index];
+        }
+
+        private bool CheckCondition(float cameraInput, float dot, float indexDotProduct, float distance, float indexDistance)
+        {
+            if (IsInputRightButton(cameraInput))
+            {
+                if (dot < indexDotProduct && distance < indexDistance) return true;
+                return false;
+            }
+            else
+            {
+                if (indexDotProduct < dot && distance < indexDistance) return true;
+                return false;
+            }
         }
 
         private bool IsInputRightButton(float cameraInput){
@@ -99,5 +101,4 @@ namespace WolfVillageBattle
             return false;
         }
     }
-
 }
