@@ -58,40 +58,43 @@ namespace WolfVillageBattle
             return aliveEnemyViews[index];
         }
 
-        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView, Vector3 rightCameraVector)
+        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
                                                         && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
-            var index = -1;
-            var dot = Vector3.Dot((targetEnemy.position - cameraView.CameraTrans.position).normalized, rightCameraVector);
-            var targetDot = dot;
-            var minDistance = 1000000f;
-            for (int i = 0; i < aliveEnemyViews.Length ; i++)
+            var index = 0;
+            var ab = targetEnemy.position - cameraView.CameraTrans.position;
+            var right = Vector3.Cross(aliveEnemyViews[0].transform.position - cameraView.CameraTrans.position, cameraView.CameraTrans.up);
+            var dot  = Vector3.Dot(new Vector3(ab.x, 0, ab.z).normalized, new Vector3(right.x, 0, right.z).normalized);
+            for (int i = 1; i < aliveEnemyViews.Length ; i++)
             {
-                var enemyDirection = aliveEnemyViews[i].Position - cameraView.CameraTrans.position;
-                var dotProduct = Vector3.Dot(enemyDirection.normalized, rightCameraVector);
-                var distance =  Vector3.Distance(targetEnemy.position, aliveEnemyViews[i].Position);
-                if (CheckCondition(cameraInput, dot, dotProduct, distance, minDistance))
+                var acRight = Vector3.Cross(aliveEnemyViews[i].transform.position - cameraView.CameraTrans.position, cameraView.CameraTrans.up);
+                float indexDotProduct = Vector3.Dot(new Vector3(ab.x, 0, ab.z).normalized, new Vector3(acRight.x, 0, acRight.z).normalized);
+                
+                if (CheckCondition(cameraInput, dot, indexDotProduct))
                 {
                     index = i;
-                    dot = dotProduct;
-                    minDistance = distance;
+                    dot = indexDotProduct;
                 }
             }
-            return (index == -1) ? null : aliveEnemyViews[index];
+            if (IsInputRightButton(cameraInput)) return dot > 0 ? aliveEnemyViews[index] : null;
+            else                                 return dot < 0 ? aliveEnemyViews[index] : null;
+            
         }
 
-        private bool CheckCondition(float cameraInput, float dot, float indexDotProduct, float distance, float indexDistance)
+        private bool CheckCondition(float cameraInput, float dot, float indexDotProduct)
         {
             if (IsInputRightButton(cameraInput))
             {
-                if (dot < indexDotProduct && distance < indexDistance) return true;
+                if (dot < 0) return true;
+                if (indexDotProduct < dot && indexDotProduct > 0) return true;
                 return false;
             }
             else
             {
-                if (indexDotProduct < dot && distance < indexDistance) return true;
+                if (dot > 0) return true;
+                if (dot < indexDotProduct && indexDotProduct < 0) return true;
                 return false;
             }
         }
