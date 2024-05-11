@@ -64,14 +64,10 @@ namespace WolfVillageBattle
                                                         && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
             var index = 0;
-            var ab = targetEnemy.position - cameraView.CameraTrans.position;
-            var right = Vector3.Cross(aliveEnemyViews[0].transform.position - cameraView.CameraTrans.position, cameraView.CameraTrans.up);
-            var dot  = Vector3.Dot(new Vector3(ab.x, 0, ab.z).normalized, new Vector3(right.x, 0, right.z).normalized);
+            var dot = CalculateDotProduction(targetEnemy.position, aliveEnemyViews[0].transform.position, cameraView.CameraTrans);
             for (int i = 1; i < aliveEnemyViews.Length ; i++)
             {
-                var acRight = Vector3.Cross(aliveEnemyViews[i].transform.position - cameraView.CameraTrans.position, cameraView.CameraTrans.up);
-                float indexDotProduct = Vector3.Dot(new Vector3(ab.x, 0, ab.z).normalized, new Vector3(acRight.x, 0, acRight.z).normalized);
-                
+                var indexDotProduct = CalculateDotProduction(targetEnemy.position, aliveEnemyViews[i].transform.position, cameraView.CameraTrans);
                 if (CheckCondition(cameraInput, dot, indexDotProduct))
                 {
                     index = i;
@@ -80,7 +76,13 @@ namespace WolfVillageBattle
             }
             if (IsInputRightButton(cameraInput)) return dot > 0 ? aliveEnemyViews[index] : null;
             else                                 return dot < 0 ? aliveEnemyViews[index] : null;
-            
+        }
+
+        private float CalculateDotProduction(Vector3 targetEnemyPosition, Vector3 aliveEnemyPosition, Transform CameraTrans)
+        {
+            var ab = targetEnemyPosition - CameraTrans.position;
+            var acRight = Vector3.Cross(aliveEnemyPosition - CameraTrans.position, CameraTrans.up);
+            return Vector3.Dot(new Vector3(ab.x, 0, ab.z).normalized, new Vector3(acRight.x, 0, acRight.z).normalized);
         }
 
         private bool CheckCondition(float cameraInput, float dot, float indexDotProduct)
