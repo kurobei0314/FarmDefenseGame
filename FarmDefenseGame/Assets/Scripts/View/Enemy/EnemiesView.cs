@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace WolfVillageBattle
 {
-    public class EnemiesView : MonoBehaviour, IEnemiesView
+  public class EnemiesView : MonoBehaviour, IEnemiesView
     {
         [SerializeField] private GameObject enemyPrefab;
         private EnemyView[] enemyViews;
@@ -63,31 +63,35 @@ namespace WolfVillageBattle
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
                                                         && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
-            var index = 0;
-            var dot = Vector3.Dot(aliveEnemyViews[0].Position - cameraView.CameraTrans.position, rightCameraVector);
-            for (int i = 1; i < aliveEnemyViews.Length ; i++)
+            var index = -1;
+            var dot = Vector3.Dot((targetEnemy.position - cameraView.CameraTrans.position).normalized, rightCameraVector);
+            var targetDot = dot;
+            var minDistance = 1000000f;
+            for (int i = 0; i < aliveEnemyViews.Length ; i++)
             {
                 var enemyDirection = aliveEnemyViews[i].Position - cameraView.CameraTrans.position;
                 var dotProduct = Vector3.Dot(enemyDirection.normalized, rightCameraVector);
+                var distance =  Vector3.Distance(targetEnemy.position, aliveEnemyViews[i].Position);
                 if (IsInputRightButton(cameraInput))
                 {
-                    if (dotProduct < dot && dotProduct > 0)
+                    if (dot < dotProduct && distance < minDistance)
                     {
                         index = i;
                         dot = dotProduct;
+                        minDistance = distance;
                     }
                 }
                 else
                 {
-                    if (dot < dotProduct && dotProduct < 0)
+                    if (dotProduct < dot && distance < minDistance)
                     {
                         index = i;
                         dot = dotProduct;
+                        minDistance = distance;
                     }
                 }
             }
-            Debug.LogError("index: " + index);
-            return aliveEnemyViews[index];
+            return (index == -1) ? null : aliveEnemyViews[index];
         }
 
         private bool IsInputRightButton(float cameraInput){
