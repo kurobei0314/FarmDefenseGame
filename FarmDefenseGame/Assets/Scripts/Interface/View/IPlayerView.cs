@@ -9,6 +9,7 @@ namespace WolfVillageBattle.Interface
         GameObject unityChan { get; }
         GameObject GameObject { get; }
         GameObject Body { get; }
+        Vector3 Position { get; }
         void Walk(Vector3 moveDirection);
         void Run(Vector3 moveDirection);
         void Stand();

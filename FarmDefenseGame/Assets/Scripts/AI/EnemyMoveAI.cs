@@ -12,14 +12,14 @@ namespace WolfVillageBattle
     {
         [SerializeField] private NavMeshAgent navMeshAgent;
         // TODO: 今はこう書いてるけど、絶対に動かないのでこれ。。。
-        private PlayerView playerView;
-        private EnemyEntity enemyEntity;
+        private IPlayerView playerView;
+        private IEnemyEntity enemyEntity;
         public bool IsStopped => navMeshAgent.isStopped;
 
         public void Initialize(IPlayerView playerView, IEnemyEntity enemyEntity)
         {
-            this.playerView = (PlayerView)playerView;
-            this.enemyEntity = (EnemyEntity) enemyEntity;
+            this.playerView = playerView;
+            this.enemyEntity = enemyEntity;
 
             Observable.Interval(TimeSpan.FromSeconds(0.5f))
                 .Subscribe(_=> {
