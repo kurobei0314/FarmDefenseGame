@@ -76,7 +76,7 @@ namespace WolfVillageBattle
 
         private void MovePlayerForSeconds(Vector3 moveDirection, Vector3 afterPosition, float time)
         {
-            GameObject.transform.DOMove(afterPosition, time);
+            Rigidbody.DOMove(afterPosition, time);
             unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
         }
 
