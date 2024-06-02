@@ -6,6 +6,6 @@ namespace WolfVillageBattle.Interface
 {
     public interface IPlayerAvoidUseCase
     {
-        void AvoidEnemy();
+        void AvoidEnemy(float horizontalInput, float verticalInput);
     }
 }

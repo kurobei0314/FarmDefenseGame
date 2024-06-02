@@ -66,11 +66,10 @@ namespace WolfVillageBattle
             hPBarView.SetValue(0);
         }
 
-        public void Avoid()
+        public void Avoid(Vector3 moveDirection)
         {
             var pos = this.gameObject.transform.position;
-            var forwardDirection = unity_chan.transform.forward;
-            MovePlayerForSeconds(forwardDirection, pos + forwardDirection * 5.0f, 1.0f);
+            MovePlayerForSeconds(moveDirection, pos + moveDirection * 5.0f, 1.0f);
             playerAnimationView.Avoid();
         }
 
