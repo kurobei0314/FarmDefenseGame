@@ -16,6 +16,7 @@ namespace WolfVillageBattle.Interface
         void Attack();
         void Damage(float currentHP);
         void Die();
+        void Avoid();
     }
 
     public interface IAnimation 

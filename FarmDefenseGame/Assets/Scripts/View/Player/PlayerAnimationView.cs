@@ -37,5 +37,9 @@ namespace WolfVillageBattle
         {
             animator.Play("GoDown");
         }
+        public void Avoid()
+        {
+            animator.Play("Avoid");
+        }
     }
 }

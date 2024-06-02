@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 
@@ -63,6 +64,20 @@ namespace WolfVillageBattle
             playerAnimationView.Die();
             playerSEView.PlayDieSound();
             hPBarView.SetValue(0);
+        }
+
+        public void Avoid()
+        {
+            var pos = this.gameObject.transform.position;
+            var forwardDirection = unity_chan.transform.forward;
+            MovePlayerForSeconds(forwardDirection, pos + forwardDirection * 5.0f, 1.0f);
+            playerAnimationView.Avoid();
+        }
+
+        private void MovePlayerForSeconds(Vector3 moveDirection, Vector3 afterPosition, float time)
+        {
+            GameObject.transform.DOMove(afterPosition, time);
+            unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
         }
 
         // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい

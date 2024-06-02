@@ -10,7 +10,7 @@ namespace WolfVillageBattle.Interface
         Attack,
         Damage,
         Die,
-
+        Avoid,
         Win, // player専用
 
         Notice, // Enemy専用

@@ -5,8 +5,6 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerMoveController : MonoBehaviour
     {
-
-        // Start is called before the first frame update
         public void Initialize(IPlayerView player, MainGameRepository mainGameRepository, ICameraView camera)
         {
             IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, mainGameRepository.Player, camera);
