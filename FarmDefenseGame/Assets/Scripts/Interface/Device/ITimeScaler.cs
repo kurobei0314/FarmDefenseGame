@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IPlayerDamageUseCase 
+    public interface ITimeScaler
     {
-        void HitEnemyAttack(Collision enemy);
-        void Damage();
-        void Die();
+        void SetTimeScaler(float timeScale);
     }
 }
-

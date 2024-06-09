@@ -12,39 +12,20 @@ namespace WolfVillageBattle
 
         public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity)
         {
-            this.playerView = playerView;
-            this.playerEntity = playerEntity;
-
             IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity);
 
             playerView.GameObject.OnCollisionEnterAsObservable()
                                 .Where(collision => collision.gameObject.tag == "EnemyBody")
                                 .Subscribe(enemy => {
-                                    if (playerEntity.CurrentStatus == Status.Damage || playerEntity.CurrentStatus == Status.Die) return;
-                                    var parent = enemy.gameObject.transform.parent;
-                                    if (parent == null || parent.gameObject.tag != "Enemy") return;
-                                    var enemyView = parent.gameObject.GetComponent<EnemyView>();
-                                    if (!enemyView) 
-                                    {
-                                        Debug.LogError("enemyViewが取得できませんでした");
-                                        return;
-                                    }
-                                    if (enemyView.EnemyEntity.CurrentStatus != Status.Attack) return;
-                                    playerDamageUseCase.ReduceHP(enemyView.EnemyEntity.EnemyVO.Attack);
+                                    playerDamageUseCase.HitEnemyAttack(enemy);
                                 });
 
             playerEntity.CurrentHP
                 .Pairwise()
                 .Where(value => value.Current < value.Previous)
                 .Subscribe(hp => {
-                    if (hp.Current <= 0)
-                    {
-                        playerDamageUseCase.Die();
-                    }
-                    else
-                    {
-                        playerDamageUseCase.Damage();
-                    }
+                    if (hp.Current <= 0) playerDamageUseCase.Die();
+                    else                 playerDamageUseCase.Damage();
             }).AddTo(playerView.GameObject);
         }
     

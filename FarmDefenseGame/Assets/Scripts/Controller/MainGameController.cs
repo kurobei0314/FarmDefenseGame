@@ -17,6 +17,7 @@ namespace WolfVillageBattle {
         [SerializeField] private CameraView cameraView;
         [SerializeField] private PlayerStatusView playerStatusView;
         [SerializeField] private EnemiesView enemiesView;
+        [SerializeField] private InGameView inGameView;
 
         void Start()
         {
@@ -27,6 +28,7 @@ namespace WolfVillageBattle {
             playerAttackController.Initialize(playerView, mainGameRepository);
             playerAvoidController.Initialize(playerView, mainGameRepository.Player, cameraView);
             var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player);
+            inGameView.Initialize(mainGameRepository.Player.PlayerVO.MaxHP);
 
             enemiesView.Initialize(mainGameRepository.Enemies, playerView, mainGameRepository.Player);
 
