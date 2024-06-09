@@ -20,5 +20,11 @@ namespace WolfVillageBattle
         {
             playerEntity.SetStatus(Status.Idle);
         }
+
+        public void ResetTimeScaler()
+        {
+            var timeScaler = (ITimeScaler) new TimeScaler();
+            timeScaler.SetTimeScaler(1.0f);
+        }
     }
 }

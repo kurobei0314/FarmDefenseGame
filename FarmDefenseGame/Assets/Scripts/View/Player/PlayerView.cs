@@ -70,6 +70,11 @@ namespace WolfVillageBattle
             playerAnimationView.Avoid();
         }
 
+        public void AttackFromJustAvoid(Vector3 moveDirection)
+        {
+            
+        }
+
         private void MovePlayerForSeconds(Vector3 moveDirection, Vector3 afterPosition, float time)
         {
             Rigidbody.DOMove(afterPosition, time);

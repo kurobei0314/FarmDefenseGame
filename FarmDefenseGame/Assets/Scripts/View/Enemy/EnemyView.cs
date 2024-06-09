@@ -19,7 +19,7 @@ namespace WolfVillageBattle
         public Vector3 Position => this.gameObject.transform.position;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
-        private PlayerView playerView;
+        private IPlayerView playerView;
         public Boolean IsVisible(ICameraView cameraView)
         {
             if (!cameraView.IsVisibleInCamera(Position)) return false;
@@ -49,8 +49,8 @@ namespace WolfVillageBattle
         // TODO: 絶対にコンストラクタにする
         public void Initialize (IPlayerView playerView, IEnemyEntity enemyEntity)
         {
-            this.playerView = (PlayerView) playerView;
-            this.enemyEntity = (EnemyEntity) enemyEntity;
+            this.playerView = playerView;
+            this.enemyEntity = enemyEntity;
             enemyMoveAI.Initialize(playerView, enemyEntity);
             enemyStatusView.Initialize(enemyMoveAI, enemyEntity);
             enemyCanvasView.Initialize();
