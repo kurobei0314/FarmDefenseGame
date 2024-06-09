@@ -7,11 +7,13 @@ namespace WolfVillageBattle
     {
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
+        private IInGameView inGameView;
 
-        public PlayerDamageActor(IPlayerView playerView, IPlayerEntity playerEntity)
+        public PlayerDamageActor(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView inGameView)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;
+            this.inGameView = inGameView;
         }
 
         public void HitEnemyAttack(Collision collision)
@@ -44,20 +46,22 @@ namespace WolfVillageBattle
         private void AvoidEnemyAttack()
         {
             playerEntity.SetStatus(Status.JustAvoid);
-            var timeScaler = new TimeScaler();
+            var timeScaler = (ITimeScaler) new TimeScaler();
             timeScaler.SetTimeScaler(GameInfo.JUST_AVOID_TIME_SCALE);
         }
 
         public void Damage()
         {
             playerEntity.SetStatus(Status.Damage);
-            playerView.Damage((float)playerEntity.CurrentHPValue/playerEntity.PlayerVO.MaxHP);
+            playerView.Damage();
+            inGameView.UpdatePlayerHPView((float)playerEntity.CurrentHPValue/playerEntity.PlayerVO.MaxHP);
         }
 
         public void Die()
         {
             playerEntity.SetStatus(Status.Die);
             playerView.Die();
+            inGameView.UpdatePlayerHPView(0);
         }
     }
     

@@ -14,7 +14,7 @@ namespace WolfVillageBattle.Interface
         void Run(Vector3 moveDirection);
         void Stand();
         void Attack();
-        void Damage(float currentHP);
+        void Damage();
         void Die();
         void Avoid(Vector3 moveDirection);
     }

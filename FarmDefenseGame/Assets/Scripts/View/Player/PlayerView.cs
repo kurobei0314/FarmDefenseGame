@@ -12,7 +12,6 @@ namespace WolfVillageBattle
         [SerializeField] private GameObject body;
         [SerializeField] private PlayerAnimationView playerAnimationView;
         [SerializeField] private PlayerSEView playerSEView;
-        [SerializeField] private HPBarView hPBarView;
         
         public GameObject unityChan => unity_chan;
         public GameObject Body => body;
@@ -52,18 +51,16 @@ namespace WolfVillageBattle
             playerSEView.PlayAttackSound();
         }
 
-        public void Damage(float currentHP)
+        public void Damage()
         {
             playerAnimationView.Damage();
             playerSEView.PlayDamageSound();
-            hPBarView.SetValue(currentHP);
         }
 
         public void Die()
         {
             playerAnimationView.Die();
             playerSEView.PlayDieSound();
-            hPBarView.SetValue(0);
         }
 
         public void Avoid(Vector3 moveDirection)
@@ -78,12 +75,5 @@ namespace WolfVillageBattle
             Rigidbody.DOMove(afterPosition, time);
             unity_chan.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
         }
-
-        // TODO: これ今はPlayerStatusViewにいるので、それをどうにかしたい
-        // public void SetIdleStatus()
-        // {
-        //     playerEntity.SetStatus(Status.ATTACK);
-        // }
-
     }
 }

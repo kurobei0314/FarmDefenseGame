@@ -22,13 +22,13 @@ namespace WolfVillageBattle {
         void Start()
         {
             mainGameRepository.Initialize();
+            inGameView.Initialize(mainGameRepository.Player.PlayerVO.MaxHP);
 
             playerStatusView.Initialize(mainGameRepository);
             playerMoveController.Initialize(playerView, mainGameRepository, cameraView);
             playerAttackController.Initialize(playerView, mainGameRepository);
             playerAvoidController.Initialize(playerView, mainGameRepository.Player, cameraView);
-            var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player);
-            inGameView.Initialize(mainGameRepository.Player.PlayerVO.MaxHP);
+            var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player, inGameView);
 
             enemiesView.Initialize(mainGameRepository.Enemies, playerView, mainGameRepository.Player);
 
