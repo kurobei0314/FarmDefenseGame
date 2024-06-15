@@ -5,8 +5,8 @@ namespace WolfVillageBattle.Interface
         int Id { get; }
         int FieldId { get; }
         int EnemyId { get; }
-        int PosX { get; }
-        int PosZ { get; }
-        int RotationY { get; }
+        float PosX { get; }
+        float PosZ { get; }
+        float RotationY { get; }
     }
 }

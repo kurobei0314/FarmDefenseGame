@@ -16,13 +16,13 @@ namespace WolfVillageBattle
         [SerializeField] private int enemy_id;
         public int EnemyId => enemy_id;
 
-        [SerializeField] private int pos_x;
-        public int PosX => pos_x;
+        [SerializeField] private float pos_x;
+        public float PosX => pos_x;
 
-        [SerializeField] private int pos_z;
-        public int PosZ => pos_z;
+        [SerializeField] private float pos_z;
+        public float PosZ => pos_z;
 
-        [SerializeField] private int rotation_y;
-        public int RotationY => rotation_y;
+        [SerializeField] private float rotation_y;
+        public float RotationY => rotation_y;
     }
 }

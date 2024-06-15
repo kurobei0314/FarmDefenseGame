@@ -23,7 +23,7 @@ namespace WolfVillageBattle
         private Vector3 rotation;
         public Vector3 Rotation => rotation;
 
-        public InitializeEnemyDTO(IEnemyEntity enemyEntity, int posX, int posZ, int rotationY)
+        public InitializeEnemyDTO(IEnemyEntity enemyEntity, float posX, float posZ, float rotationY)
         {
             this.enemyEntity = enemyEntity;
             this.pos = new Vector3(posX, 0.0f, posZ);
