@@ -10,9 +10,9 @@ namespace WolfVillageBattle
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
 
-        public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView inGameView)
+        public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView inGameView, IEnemiesView enemiesView)
         {
-            IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity, inGameView);
+            IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity, inGameView, enemiesView);
 
             playerView.GameObject.OnCollisionEnterAsObservable()
                                 .Where(collision => collision.gameObject.tag == "EnemyBody")

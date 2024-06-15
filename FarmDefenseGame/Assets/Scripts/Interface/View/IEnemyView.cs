@@ -14,6 +14,7 @@ namespace WolfVillageBattle.Interface
         IEnemyEntity EnemyEntity { get; }
         IObservable<Unit> StartAttackObservable { get; }
         IObservable<Unit> StopAttackObservable { get; }
+        Vector3 Position { get; }
         Boolean IsVisible(ICameraView cameraView);
         void Notice();
         void Outlook();

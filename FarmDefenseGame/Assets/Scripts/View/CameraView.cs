@@ -7,7 +7,6 @@ using System;
 public interface ICameraView
 {
     Transform CameraTrans { get; }
-    Transform targetEnemyTrans { get; }
     void CameraMove(float cameraInput, Vector3 playerPosition);
     void SetCameraPositionForPlayerBack(float playerAngleY);
     void SwitchVirtualFreeCamera();
@@ -25,7 +24,6 @@ public class CameraView : MonoBehaviour, ICameraView
     [SerializeField] private CinemachineTargetGroup  targetLockCinemachineTargetGroup;
     [SerializeField] private Camera mainCamera;
     public Transform CameraTrans => mainCamera.gameObject.transform;
-    public Transform targetEnemyTrans => targetLockCinemachineTargetGroup.m_Targets[1].target;
 
     public void CameraMove(float cameraInput, Vector3 playerPosition)
     {

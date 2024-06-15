@@ -8,12 +8,17 @@ namespace WolfVillageBattle
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
         private IInGameView inGameView;
+        private IEnemiesView enemiesView;
 
-        public PlayerDamageActor(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView inGameView)
+        public PlayerDamageActor(IPlayerView playerView, 
+                                IPlayerEntity playerEntity, 
+                                IInGameView inGameView,
+                                IEnemiesView enemiesView)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;
             this.inGameView = inGameView;
+            this.enemiesView = enemiesView;
         }
 
         public void HitEnemyAttack(Collision collision)
@@ -21,6 +26,7 @@ namespace WolfVillageBattle
             if (playerEntity.CurrentStatus == Status.Damage || playerEntity.CurrentStatus == Status.Die) return;
             var enemyView = GetEnemyViewForCollision(collision);
             if (enemyView == null || enemyView.EnemyEntity.CurrentStatus != Status.Attack) return;
+            enemiesView.SetHitEnemyView(enemyView);
             if (playerEntity.CurrentStatus == Status.Avoid) AvoidEnemyAttack();
             else                                            ReduceHP(enemyView.EnemyEntity.EnemyVO.Attack);
         }

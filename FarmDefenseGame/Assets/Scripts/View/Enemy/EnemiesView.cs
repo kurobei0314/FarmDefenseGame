@@ -8,6 +8,10 @@ namespace WolfVillageBattle
     {
         [SerializeField] private GameObject enemyPrefab;
         private EnemyView[] enemyViews;
+        public IEnemyView HitEnemyView => hitEnemyView;
+        public IEnemyView TargetEnemyView => targetEnemyView;
+        private IEnemyView hitEnemyView;
+        private IEnemyView targetEnemyView;
 
         public void Initialize(InitializeEnemyDTO[] enemyDTOs, IPlayerView playerView, IPlayerEntity playerEntity)
         {
@@ -37,6 +41,12 @@ namespace WolfVillageBattle
             }
         }
 
+        public void SetHitEnemyView(IEnemyView enemyView)
+            => hitEnemyView = enemyView;
+        
+        public void SetTargetEnemyView(IEnemyView enemyView)
+            => targetEnemyView = enemyView;
+
         public IEnemyView GetMinDistanceEnemyFromPlayer(ICameraView cameraView)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die && enemy.IsVisible(cameraView)).ToArray();
@@ -58,16 +68,16 @@ namespace WolfVillageBattle
             return aliveEnemyViews[index];
         }
 
-        public IEnemyView GetNeighborsEnemy(float cameraInput, Transform targetEnemy, ICameraView cameraView)
+        public IEnemyView GetNeighborsEnemy(float cameraInput, IEnemyView targetEnemy, ICameraView cameraView)
         {
             var aliveEnemyViews = enemyViews.Where(enemy => enemy.EnemyEntity.CurrentStatus != Status.Die 
-                                                        && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.gameObject).ToArray();
+                                                        && enemy.IsVisible(cameraView) && enemy.GameObject != targetEnemy.GameObject).ToArray();
             if (aliveEnemyViews.Length == 0) return null;
             var index = 0;
-            var dot = CalculateDotProduction(targetEnemy.position, aliveEnemyViews[0].transform.position, cameraView.CameraTrans);
+            var dot = CalculateDotProduction(targetEnemy.Position, aliveEnemyViews[0].transform.position, cameraView.CameraTrans);
             for (int i = 1; i < aliveEnemyViews.Length ; i++)
             {
-                var indexDotProduct = CalculateDotProduction(targetEnemy.position, aliveEnemyViews[i].transform.position, cameraView.CameraTrans);
+                var indexDotProduct = CalculateDotProduction(targetEnemy.Position, aliveEnemyViews[i].transform.position, cameraView.CameraTrans);
                 if (CheckCondition(cameraInput, dot, indexDotProduct))
                 {
                     index = i;

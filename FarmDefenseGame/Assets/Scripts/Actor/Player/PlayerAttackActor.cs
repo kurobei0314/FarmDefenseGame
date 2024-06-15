@@ -9,11 +9,18 @@ namespace WolfVillageBattle
     {
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
+        private ICameraEntity cameraEntity;
+        private IEnemiesView enemiesView;
 
-        public PlayerAttackActor(IPlayerView playerView, IPlayerEntity playerEntity)
+        public PlayerAttackActor(IPlayerView playerView, 
+                                IPlayerEntity playerEntity, 
+                                ICameraEntity cameraEntity,
+                                IEnemiesView enemiesView)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;
+            this.cameraEntity = cameraEntity;
+            this.enemiesView = enemiesView;
         }
         public void AttackPlayer()
         {
@@ -35,9 +42,35 @@ namespace WolfVillageBattle
         {
             // TODO: 一旦Attackで代用
             playerEntity.SetStatus(Status.Attack);
-            playerView.Attack();
+            var targetPos = GetTargetEnemyPositionForJustAvoidAttack();
+            playerView.AttackFromJustAvoid(targetPos);
             var timeScaler = (ITimeScaler) new TimeScaler();
             timeScaler.SetTimeScaler(1.0f);
+        }
+
+        private Vector3 GetTargetEnemyPositionForJustAvoidAttack()
+        {
+            switch(cameraEntity.CurrentCameraMode)
+            {
+                case CameraMode.Free:
+                    return GetPositionForFreeCamera();
+                case CameraMode.TargetLock:
+                    return GetPositionForTargetLockCamera();
+                default:
+                    return GetPositionForFreeCamera();
+            }
+        }
+
+        private Vector3 GetPositionForFreeCamera()
+        {
+            var enemyView = enemiesView.HitEnemyView;
+            return enemyView?.Position ?? Vector3.zero;
+        }
+
+        private Vector3 GetPositionForTargetLockCamera()
+        {
+            var enemyView = enemiesView.TargetEnemyView;
+            return enemyView?.Position ?? Vector3.zero;
         }
     }
 }

@@ -31,14 +31,15 @@ namespace WolfVillageBattle
         private void SwitchTargetEnemy(float cameraInput, IEnemiesView enemyViews, IPlayerView playerView)
         {
             // TODO:今、ターゲットになっている敵よりも右or左にいる敵でかつカメラに見えてる敵にターゲットを変える処理を書く
-            var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, cameraView.targetEnemyTrans, cameraView);
+            var nextEnemyTarget = enemyViews.GetNeighborsEnemy(cameraInput, enemyViews.TargetEnemyView, cameraView);
             if (nextEnemyTarget == null) return;
-            if (cameraView.targetEnemyTrans != null)
+            var targetEnemy = enemyViews.TargetEnemyView;
+            if (targetEnemy != null)
             {
-                var targetEnemy = cameraView.targetEnemyTrans.gameObject.GetComponent<IEnemyView>();
-                if (targetEnemy != null) targetEnemy.SetTargetLockActive(false);
+                targetEnemy.SetTargetLockActive(false);
             }
             nextEnemyTarget.SetTargetLockActive(true);
+            enemyViews.SetTargetEnemyView(nextEnemyTarget);
             cameraView.SwitchVirtualTargetLockCamera(nextEnemyTarget.GameObject.transform);
         }
         
@@ -48,27 +49,22 @@ namespace WolfVillageBattle
             cameraView.SetCameraPositionForPlayerBack(angleY);
         }
 
-        public void SwitchCameraMode(IEnemiesView EnemyViews)
+        public void SwitchCameraMode(IEnemiesView enemyViews)
         {
             var changedCameraMode = ((CameraMode)1 - (int)cameraEntity.CurrentCameraMode);
-            var enemyView = EnemyViews.GetMinDistanceEnemyFromPlayer(cameraView);
+            var enemyView = enemyViews.GetMinDistanceEnemyFromPlayer(cameraView);
             switch (changedCameraMode)
             {
                 case CameraMode.Free:
-                    Debug.Log("CameraMode.Free");
-                    // TODO: ここでターゲットロックが解除された時の処理を書く
-                    // FreeのvirtualCameraを初期位置に戻す
                     cameraView.SwitchVirtualFreeCamera();
                     cameraEntity.SetCameraMode(CameraMode.Free);
                     if (enemyView == null) return;
                     enemyView.SetTargetLockActive(false);
                     break;
                 case CameraMode.TargetLock:
-                    Debug.Log("CameraMode.TargetLock");
-                    // TODO:ここでターゲットロックした時の処理を書く
-                    // カメラに写っており、一番近い敵をVirtualCameraのlookatに設定する
                     if (enemyView == null) return;
                     cameraView.SwitchVirtualTargetLockCamera(enemyView.GameObject.transform);
+                    enemyViews.SetTargetEnemyView(enemyView);
                     enemyView.SetTargetLockActive(true);
                     cameraEntity.SetCameraMode(CameraMode.TargetLock);
                     break;
