@@ -46,8 +46,9 @@ namespace WolfVillageBattle
 
 
         public void SetStatus(Status status)
-        {
-            current_status = status;
-        }
+            => current_status = status;
+
+        public bool IsAttack()
+            => current_status == Status.Attack || current_status == Status.JustAvoidAttack;
     }
 }

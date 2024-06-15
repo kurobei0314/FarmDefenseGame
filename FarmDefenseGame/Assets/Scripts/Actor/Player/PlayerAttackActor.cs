@@ -40,10 +40,9 @@ namespace WolfVillageBattle
 
         private void JustAvoidAttack()
         {
-            // TODO: 一旦Attackで代用
-            playerEntity.SetStatus(Status.Attack);
+            playerEntity.SetStatus(Status.JustAvoidAttack);
             var targetPos = GetTargetEnemyPositionForJustAvoidAttack();
-            playerView.AttackFromJustAvoid(targetPos);
+            playerView.JustAvoidAttack(targetPos);
             var timeScaler = (ITimeScaler) new TimeScaler();
             timeScaler.SetTimeScaler(1.0f);
         }

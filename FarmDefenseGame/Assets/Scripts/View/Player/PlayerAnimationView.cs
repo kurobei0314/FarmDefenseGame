@@ -9,37 +9,28 @@ namespace WolfVillageBattle
         public Animator Animator => animator;
 
         public void Walk()
-        {
-            animator.Play("Walking(loop)");
-        }
+            => animator.Play("Walking(loop)");
 
         public void Run()
-        {
-            animator.Play("Running(loop)");
-        }
+            => animator.Play("Running(loop)");
 
         public void Stand()
-        {
-            animator.Play("Standing(loop)");
-        }
+            => animator.Play("Standing(loop)");
 
         public void Attack()
-        {
-            animator.Play("KneelDownToUp");
-        }
+            => animator.Play("KneelDownToUp");
+        
 
         public void Damage()
-        {
-            animator.Play("Damaged(loop)");
-        }
+            => animator.Play("Damaged(loop)");
 
         public void Die()
-        {
-            animator.Play("GoDown");
-        }
+            => animator.Play("GoDown");
+        
         public void Avoid()
-        {
-            animator.Play("Avoid");
-        }
+            => animator.Play("Avoid");
+        
+        public void JustAvoidAttack()
+            => animator.Play("JustAvoidAttack");
     }
 }

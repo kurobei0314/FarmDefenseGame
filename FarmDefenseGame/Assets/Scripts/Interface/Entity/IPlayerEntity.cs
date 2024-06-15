@@ -10,5 +10,6 @@ namespace WolfVillageBattle.Interface
         int Attack { get; }
         string Weapon { get; }
         void ReduceHP(int value);
+        bool IsAttack();
     }
 }

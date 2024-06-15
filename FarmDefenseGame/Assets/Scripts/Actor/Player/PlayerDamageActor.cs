@@ -24,6 +24,7 @@ namespace WolfVillageBattle
         public void HitEnemyAttack(Collision collision)
         {
             if (playerEntity.CurrentStatus == Status.Damage || playerEntity.CurrentStatus == Status.Die) return;
+            if (playerEntity.CurrentStatus == Status.JustAvoidAttack) return;
             var enemyView = GetEnemyViewForCollision(collision);
             if (enemyView == null || enemyView.EnemyEntity.CurrentStatus != Status.Attack) return;
             enemiesView.SetHitEnemyView(enemyView);

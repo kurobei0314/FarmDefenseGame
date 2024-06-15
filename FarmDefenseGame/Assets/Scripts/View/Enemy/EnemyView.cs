@@ -16,7 +16,7 @@ namespace WolfVillageBattle
         [SerializeField] private Renderer targetRenderer;
 
         public GameObject GameObject => this.gameObject;
-        public Vector3 Position => this.gameObject.transform.position;
+        public Vector3 Position => body.transform.position;
         public Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public GameObject Body => body;
         private IPlayerView playerView;
