@@ -33,14 +33,8 @@ namespace WolfVillageBattle
                 .Pairwise()
                 .Where(value => value.Current < value.Previous)
                 .Subscribe(hp => {
-                    if (hp.Current <= 0)
-                    {
-                        damageActor.Die();
-                    }
-                    else
-                    {
-                        damageActor.Damage();
-                    }
+                    if (hp.Current <= 0) damageActor.Die();
+                    else                 damageActor.Damage();
             }).AddTo(enemyView.GameObject);
         }
     }
