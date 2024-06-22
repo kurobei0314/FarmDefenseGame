@@ -11,6 +11,7 @@ namespace WolfVillageBattle.Interface
         int MaxHP { get; }
         int Attack { get; }
         string PrefabName { get; }
+        AttackType TypeId { get; }
     }
 
 }

@@ -10,24 +10,27 @@ namespace WolfVillageBattle
     public class EnemyVO : IEnemyVO
     {
         [SerializeField]
-        string name;
+        private string name;
         public string Name => name;
         
         [SerializeField]
-        int id;
+        private int id;
         public int Id => id;
 
         [SerializeField]
-        int max_hp;
+        private int max_hp;
         public int MaxHP => max_hp;
 
         [SerializeField]
-        int attack;
+        private int attack;
         public int Attack => attack;
 
         [SerializeField]
-        string prefab_name;
+        private string prefab_name;
         public string PrefabName => prefab_name;
 
+        [SerializeField]
+        private int type_id;
+        public AttackType TypeId => (AttackType)type_id;
     }
 }
