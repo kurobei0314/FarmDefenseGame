@@ -17,30 +17,5994 @@ MonoBehaviour:
   - id: 1
     field_id: 1
     enemy_id: 1
-    pos_x: 5
-    pos_z: 4
-    rotation_y: 183
+    pos_x: 5.81
+    pos_z: 4.11
+    rotation_y: 183.689
   - id: 2
     field_id: 1
     enemy_id: 1
-    pos_x: -27
-    pos_z: 10
-    rotation_y: 183
+    pos_x: -27.8
+    pos_z: 10.8
+    rotation_y: 183.689
   - id: 3
     field_id: 1
     enemy_id: 1
-    pos_x: -17
-    pos_z: -9
-    rotation_y: 183
+    pos_x: -17.17
+    pos_z: -9.57
+    rotation_y: 183.689
   - id: 4
     field_id: 1
     enemy_id: 1
-    pos_x: -13
-    pos_z: -32
-    rotation_y: 183
+    pos_x: -13.98
+    pos_z: -32.75
+    rotation_y: 183.689
   - id: 5
     field_id: 1
     enemy_id: 1
-    pos_x: 35
-    pos_z: -12
-    rotation_y: 183
+    pos_x: 35.6
+    pos_z: -12.6
+    rotation_y: 183.689
+  - id: 6
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 7
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 8
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 9
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 10
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 11
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 12
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 13
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 14
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 15
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 16
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 17
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 18
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 19
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 20
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 21
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 22
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0
+  - id: 0
+    field_id: 0
+    enemy_id: 0
+    pos_x: 0
+    pos_z: 0
+    rotation_y: 0

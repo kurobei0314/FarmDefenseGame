@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IEnemyVO 
+    public interface IWeaponVO
     {
         string Name { get; }
         int Id { get; }
-        int MaxHP { get; }
-        int Attack { get; }
-        string PrefabName { get; }
+        RoleType RoleType { get; }
         AttackType AttackType { get; }
     }
-
 }

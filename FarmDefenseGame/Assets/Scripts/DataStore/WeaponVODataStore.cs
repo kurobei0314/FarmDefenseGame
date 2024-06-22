@@ -4,7 +4,7 @@ using Qitz.DataUtil;
 namespace WolfVillageBattle
 {
     [CreateAssetMenu]
-    public class PlayerVODataStore : BaseDataStore<PlayerVO>
+    public class WeaponVODataStore : BaseDataStore<WeaponVO>
     {
         [ContextMenu("サーバーからデータを読み込む")]
         protected override void LoadDataFromServer()
