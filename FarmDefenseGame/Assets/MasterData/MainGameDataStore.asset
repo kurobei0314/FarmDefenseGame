@@ -16,3 +16,5 @@ MonoBehaviour:
   enemyVODataStore: {fileID: 11400000, guid: f5bd2d6ca0c28477ea92851e564d1560, type: 2}
   fieldEnemyDataStore: {fileID: 11400000, guid: 4d71258c83950483195cda26646447d1, type: 2}
   fieldDataStore: {fileID: 11400000, guid: 7e946f1b2a52440329fa93b5df21c940, type: 2}
+  weaponVODataStore: {fileID: 11400000, guid: 642840e33fdc442078ca6c4be6f5247d, type: 2}
+  skillVODataStore: {fileID: 11400000, guid: f4972169f6e664f8b9ed6c79de176ec2, type: 2}

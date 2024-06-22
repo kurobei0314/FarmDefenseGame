@@ -38,6 +38,8 @@ namespace WolfVillageBattle
         [SerializeField] private EnemyVODataStore enemyVODataStore;
         [SerializeField] private FieldEnemyVODataStore fieldEnemyDataStore;
         [SerializeField] private FieldVODataStore fieldDataStore;
+        [SerializeField] private WeaponVODataStore weaponVODataStore;
+        [SerializeField] private SkillVODataStore skillVODataStore;
         
         private IPlayerEntity player;
         public IPlayerEntity Player => player;
