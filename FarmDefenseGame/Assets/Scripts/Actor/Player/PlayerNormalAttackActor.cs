@@ -5,14 +5,14 @@ using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
 {
-    public class PlayerAttackActor : IPlayerAttackUseCase
+    public class PlayerNormalAttackActor : IPlayerNormalAttackUseCase
     {
         private IPlayerView playerView;
         private IPlayerEntity playerEntity;
         private ICameraEntity cameraEntity;
         private IEnemiesView enemiesView;
 
-        public PlayerAttackActor(IPlayerView playerView, 
+        public PlayerNormalAttackActor(IPlayerView playerView, 
                                 IPlayerEntity playerEntity, 
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)

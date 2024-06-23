@@ -3,20 +3,20 @@ using UniRx;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle {
-    public class PlayerAttackController : MonoBehaviour
+    public class PlayerNormalAttackController : MonoBehaviour
     {
         public void Initialize(PlayerView player,
-                                MainGameRepository mainGameRepository,
+                                IPlayerEntity playerEntity,
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)
         {
-            IPlayerAttackUseCase playerAttackUseCase = new PlayerAttackActor(player, 
-                                                                            mainGameRepository.Player,
+            IPlayerNormalAttackUseCase playerAttackUseCase = new PlayerNormalAttackActor(player, 
+                                                                            playerEntity,
                                                                             cameraEntity,
                                                                             enemiesView);
 
             Observable.EveryUpdate()
-                .Where(_ => Input.GetButtonDown("Attack"))
+                .Where(_ => Input.GetButtonDown("NormalAttack"))
                 .Subscribe(_ => {
                     playerAttackUseCase.AttackPlayer();
                 }).AddTo(this);

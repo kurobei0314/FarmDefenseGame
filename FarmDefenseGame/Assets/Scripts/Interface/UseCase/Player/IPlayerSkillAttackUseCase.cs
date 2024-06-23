@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace WolfVillageBattle.Interface
 {
-    public interface IPlayerAttackUseCase
+    public interface IPlayerSkillAttackUseCase
     {
-        void AttackPlayer();
+        public void AttackPlayer(int index);
     }
 }

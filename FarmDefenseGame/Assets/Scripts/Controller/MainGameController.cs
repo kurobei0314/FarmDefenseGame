@@ -10,7 +10,7 @@ namespace WolfVillageBattle {
     {
         [SerializeField] private MainGameRepository mainGameRepository;
         [SerializeField] private PlayerMoveController playerMoveController;
-        [SerializeField] private PlayerAttackController playerAttackController;
+        [SerializeField] private PlayerNormalAttackController playerAttackController;
         [SerializeField] private PlayerAvoidController playerAvoidController;
         [SerializeField] private CameraMoveController cameraMoveController;
         [SerializeField] private PlayerView playerView;
@@ -23,15 +23,17 @@ namespace WolfVillageBattle {
         {
             mainGameRepository.Initialize();
             var cameraEntity = new CameraEntity();
-            inGameView.Initialize(mainGameRepository.Player.PlayerVO.MaxHP);
+            var playerEntity = mainGameRepository.Player;
+            inGameView.Initialize(playerEntity.PlayerVO.MaxHP, playerEntity.SetCurrentSkills);
 
-            playerStatusView.Initialize(mainGameRepository);
-            playerMoveController.Initialize(playerView, mainGameRepository, cameraView);
-            playerAttackController.Initialize(playerView, mainGameRepository, cameraEntity, enemiesView);
-            playerAvoidController.Initialize(playerView, mainGameRepository.Player, cameraView);
-            var playerDamagePresenter = new PlayerDamagePresenter(playerView, mainGameRepository.Player, inGameView, enemiesView);
+            playerStatusView.Initialize(playerEntity);
+            playerMoveController.Initialize(playerView, playerEntity, cameraView);
+            playerAttackController.Initialize(playerView, playerEntity, cameraEntity, enemiesView);
+            playerAvoidController.Initialize(playerView, playerEntity, cameraView);
+            var playerDamagePresenter = new PlayerDamagePresenter(playerView, playerEntity, inGameView, enemiesView);
+            var playerSkillAttackController = new PlayerSkillAttackController(playerView, playerEntity, inGameView);
 
-            enemiesView.Initialize(mainGameRepository.Enemies, playerView, mainGameRepository.Player);
+            enemiesView.Initialize(mainGameRepository.Enemies, playerView, playerEntity);
             cameraMoveController.Initialize(playerView, cameraView, cameraEntity, enemiesView);
         }
     }

@@ -5,9 +5,9 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerMoveController : MonoBehaviour
     {
-        public void Initialize(IPlayerView player, MainGameRepository mainGameRepository, ICameraView camera)
+        public void Initialize(IPlayerView player, IPlayerEntity playerEntity, ICameraView camera)
         {
-            IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, mainGameRepository.Player, camera);
+            IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, playerEntity, camera);
             var moveDownStream = Observable.EveryUpdate()
                                             .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
                                                         Input.GetKey(KeyCode.UpArrow)    ||  Input.GetKey(KeyCode.DownArrow) ||
