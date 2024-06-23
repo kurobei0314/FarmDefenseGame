@@ -55,7 +55,12 @@ namespace WolfVillageBattle
             // TODO: フィールドごとにちゃんと持って来れるようにする
             fieldVO = fieldDataStore.Items.FirstOrDefault();
             var fieldEnemies = fieldEnemyDataStore.Items.Where(fieldEnemy => fieldVO.Id == fieldEnemy.FieldId).ToArray();
-            player = new PlayerEntity(playerDataStore.Items[0]);
+
+            // TODO: プレイヤーがセットしたスキルを取得できるようにする
+            var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
+            var skillEntities = setSkillVO.Select(skillVO => new SkillEntity(skillVO)).ToArray();
+
+            player = new PlayerEntity(playerDataStore.Items[0], skillEntities);
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {

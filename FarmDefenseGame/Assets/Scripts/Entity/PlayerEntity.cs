@@ -1,40 +1,40 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniRx;
-using UnityEngine;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle
 {
     public class PlayerEntity : IPlayerEntity
     {
-        public PlayerEntity(IPlayerVO playerVO)
+        public PlayerEntity(IPlayerVO playerVO, ISkillEntity[] skillEntities)
         {
             this.playerVO = (PlayerVO) playerVO; 
             current_hp = new ReactiveProperty<int>();
             current_hp.Value = playerVO.MaxHP;
             current_status = Status.Idle;
+            setCurrentSkills = new List<ISkillEntity>();
+            Array.ForEach(skillEntities, skillEntity => setCurrentSkills.Add(skillEntity));
         }
 
-        [SerializeField]
         private PlayerVO playerVO;
         public IPlayerVO PlayerVO => playerVO;
 
-        [SerializeField]
         private ReactiveProperty<int> current_hp;
         public ReactiveProperty<int> CurrentHP => current_hp;
         public int CurrentHPValue => current_hp.Value;
 
         // TODO: weaponに応じた攻撃力になるようにする(今は固定で1)
-        [SerializeField]
         private int attack = 1;
         public int Attack => attack;
 
-        // TODO: 後で考える(絶対にstringではなくなる) 
-        [SerializeField]
-        // string weapon;
-        // public string Weapon => weapon;
-        public string Weapon => throw new System.NotImplementedException();
+        // TODO: 武器をセットできるようにする(今は適当)
+        public IWeaponEntity SetCurrentWeapon => throw new System.NotImplementedException();
+
+        // TODO: スキルをセットできるようにする(今は適当)
+        private List<ISkillEntity> setCurrentSkills;
+        public IReadOnlyList<ISkillEntity> SetCurrentSkills => setCurrentSkills;
 
         private Status current_status;
         public Status CurrentStatus => current_status;

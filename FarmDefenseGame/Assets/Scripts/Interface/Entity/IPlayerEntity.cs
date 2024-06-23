@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UniRx;
 
 namespace WolfVillageBattle.Interface
@@ -8,7 +9,8 @@ namespace WolfVillageBattle.Interface
         ReactiveProperty<int> CurrentHP { get; }
         int CurrentHPValue { get; }
         int Attack { get; }
-        string Weapon { get; }
+        IWeaponEntity SetCurrentWeapon { get; }
+        IReadOnlyList<ISkillEntity> SetCurrentSkills { get; }
         void ReduceHP(int value);
         bool IsAttack();
     }
