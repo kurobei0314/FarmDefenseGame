@@ -7,5 +7,6 @@ namespace WolfVillageBattle.Interface
     public interface IPlayerSkillAttackUseCase
     {
         public void AttackPlayer(int index);
+        public void FinishIntervalTimeSkill(int index);
     }
 }

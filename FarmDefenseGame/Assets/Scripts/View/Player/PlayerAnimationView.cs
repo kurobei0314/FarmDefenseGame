@@ -19,7 +19,6 @@ namespace WolfVillageBattle
 
         public void Attack()
             => animator.Play("KneelDownToUp");
-        
 
         public void Damage()
             => animator.Play("Damaged(loop)");
@@ -32,5 +31,8 @@ namespace WolfVillageBattle
         
         public void JustAvoidAttack()
             => animator.Play("JustAvoidAttack");
+
+        public void SkillAttack()
+            => animator.Play("SkillAttack");
     }
 }

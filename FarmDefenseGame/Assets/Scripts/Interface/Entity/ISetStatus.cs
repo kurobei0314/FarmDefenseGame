@@ -14,7 +14,6 @@ namespace WolfVillageBattle.Interface
         JustAvoid,
         JustAvoidAttack,
         Win, // player専用
-
         Notice, // Enemy専用
     }
     

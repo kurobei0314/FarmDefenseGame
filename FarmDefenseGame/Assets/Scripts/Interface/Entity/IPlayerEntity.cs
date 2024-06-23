@@ -10,7 +10,7 @@ namespace WolfVillageBattle.Interface
         int CurrentHPValue { get; }
         int Attack { get; }
         IWeaponEntity SetCurrentWeapon { get; }
-        IReadOnlyList<ISkillEntity> SetCurrentSkills { get; }
+        ISkillEntity[] SetCurrentSkills { get; }
         void ReduceHP(int value);
         bool IsAttack();
     }

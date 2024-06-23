@@ -63,6 +63,13 @@ namespace WolfVillageBattle
             playerSEView.PlayDieSound();
         }
 
+        public void SkillAttack()
+        {
+            // TODO: セットされたスキルによってアニメーションを変化させるようにする
+            playerAnimationView.SkillAttack();
+            playerSEView.PlayAttackSound();
+        }
+
         public void Avoid(Vector3 moveDirection)
         {
             var pos = this.gameObject.transform.position;

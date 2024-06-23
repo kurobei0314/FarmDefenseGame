@@ -18,6 +18,7 @@ namespace WolfVillageBattle.Interface
         void Die();
         void Avoid(Vector3 moveDirection);
         void JustAvoidAttack(Vector3 targetPosition);
+        void SkillAttack();
     }
 
     public interface IAnimation 

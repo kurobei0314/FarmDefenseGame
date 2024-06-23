@@ -14,8 +14,12 @@ namespace WolfVillageBattle
             current_hp = new ReactiveProperty<int>();
             current_hp.Value = playerVO.MaxHP;
             current_status = Status.Idle;
-            setCurrentSkills = new List<ISkillEntity>();
-            Array.ForEach(skillEntities, skillEntity => setCurrentSkills.Add(skillEntity));
+            setCurrentSkills = new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM];
+
+            for (var i = 0 ; i < setCurrentSkills.Length; i++)
+            {
+                setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
+            }
         }
 
         private PlayerVO playerVO;
@@ -33,8 +37,8 @@ namespace WolfVillageBattle
         public IWeaponEntity SetCurrentWeapon => throw new System.NotImplementedException();
 
         // TODO: スキルをセットできるようにする(今は適当)
-        private List<ISkillEntity> setCurrentSkills;
-        public IReadOnlyList<ISkillEntity> SetCurrentSkills => setCurrentSkills;
+        private ISkillEntity[] setCurrentSkills;
+        public ISkillEntity[] SetCurrentSkills => setCurrentSkills;
 
         private Status current_status;
         public Status CurrentStatus => current_status;

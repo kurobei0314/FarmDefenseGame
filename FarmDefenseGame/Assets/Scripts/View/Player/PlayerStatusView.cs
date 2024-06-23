@@ -11,9 +11,9 @@ namespace WolfVillageBattle
     {
         private IPlayerEntity playerEntity;
 
-        public void Initialize (MainGameRepository mainGameRepository)
+        public void Initialize (IPlayerEntity playerEntity)
         {
-            playerEntity = mainGameRepository.Player;
+            this.playerEntity = playerEntity;
         }
         
         public void SetIdleStatus()

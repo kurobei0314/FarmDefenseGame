@@ -21,7 +21,21 @@ namespace WolfVillageBattle
         public void AttackPlayer(int index)
         {
             var skillEntity = playerEntity.SetCurrentSkills[index];
+            if (skillEntity == null) return; 
+            if (!skillEntity.AbleUseSkill()) return;
+            
+            gameView.UpdateSkillIconViewForUseSkill(index);
             skillEntity.UpdateStatus(SkillEntity.Status.IntervalTime);
+            playerView.SkillAttack();
+            playerEntity.SetStatus(Status.Attack);
+        }
+
+        public void FinishIntervalTimeSkill(int index)
+        {
+            var skillEntity = playerEntity.SetCurrentSkills[index];
+            if (skillEntity == null) return;
+
+            skillEntity.UpdateStatus(SkillEntity.Status.CanUse);
         }
     }
 }

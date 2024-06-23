@@ -6,7 +6,9 @@ namespace WolfVillageBattle.Interface
 {
     public interface IInGameView
     {
+        PlayerSkillIconView[] PlayerSkillIconViews { get; }
         public void UpdatePlayerHPView(float currentHP);
         public void UpdateJustAvoidViewActive(bool active);
+        public void UpdateSkillIconViewForUseSkill(int index);
     }
 }

@@ -7,5 +7,6 @@ namespace WolfVillageBattle.Interface
         RoleType RoleType { get; }
         AttackType AttackType { get; }
         float IntervalTime { get; }
+        string IconImageName { get; }
     }
 }

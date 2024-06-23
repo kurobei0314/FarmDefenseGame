@@ -26,5 +26,10 @@ namespace WolfVillageBattle
         [SerializeField]
         private float interval_time;
         public float IntervalTime => interval_time;
+
+        // TODO: スキルアイコンを持ってこれるようにする
+        [SerializeField]
+        private string icon_image_name;
+        public string IconImageName => icon_image_name;
     }
 }
