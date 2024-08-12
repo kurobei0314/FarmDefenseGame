@@ -29,6 +29,11 @@ namespace WolfVillageBattle
             enemyEntity.SetStatus(Status.Idle);
             enemyMoveAI.StartNavMesh();
         }
+
+        public void DestroyAfterDieAnimation()
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
