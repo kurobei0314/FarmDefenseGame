@@ -29,8 +29,8 @@ namespace WolfVillageBattle
             }
         }
 
-        public void UpdatePlayerHPView(float currentHP)
-            => _playerHPBarView.SetValue(currentHP);
+        public void UpdatePlayerHPView(float currentHPRatio)
+            => _playerHPBarView.SetValue(currentHPRatio);
 
         public void UpdateJustAvoidViewActive(bool active)
             => _attackTextParent.gameObject.SetActive(active);
