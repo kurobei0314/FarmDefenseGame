@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using UniRx;
+using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +12,7 @@ namespace WolfVillageBattle
         [SerializeField] private Image NotSetImage = null;
         [SerializeField] private Image CannotUseSkillImage = null;
 
-        public IObservable<int> AbleUseSkillObservable => ableUseSkill;
+        public Observable<int> AbleUseSkillObservable => ableUseSkill;
         private Subject<int> ableUseSkill = new Subject<int>();
 
         private int index;

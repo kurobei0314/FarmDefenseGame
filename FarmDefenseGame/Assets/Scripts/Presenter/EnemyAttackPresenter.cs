@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
-using UniRx;
+using R3;
 namespace WolfVillageBattle
 {
     public class EnemyAttackPresenter

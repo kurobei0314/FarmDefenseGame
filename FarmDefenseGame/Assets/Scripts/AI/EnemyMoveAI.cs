@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using WolfVillageBattle.Interface;
 using UnityEngine.AI;
 using System;
-using UniRx;
+using R3;
 
 namespace WolfVillageBattle
 {

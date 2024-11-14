@@ -1,6 +1,6 @@
 using UnityEngine;
 using WolfVillageBattle.Interface;
-using UniRx;
+using R3;
 
 namespace WolfVillageBattle
 {

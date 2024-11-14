@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UniRx;
+using R3;
 
 namespace WolfVillageBattle.Interface
 {

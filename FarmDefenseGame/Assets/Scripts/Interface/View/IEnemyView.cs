@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UniRx;
+using R3;
 
 namespace WolfVillageBattle.Interface
 {
@@ -12,8 +12,8 @@ namespace WolfVillageBattle.Interface
         GameObject GameObject { get; }
         Rigidbody Rigidbody { get; }
         IEnemyEntity EnemyEntity { get; }
-        IObservable<Unit> StartAttackObservable { get; }
-        IObservable<Unit> StopAttackObservable { get; }
+        Observable<Unit> StartAttackObservable { get; }
+        Observable<Unit> StopAttackObservable { get; }
         Vector3 Position { get; }
         Boolean IsVisible(ICameraView cameraView);
         void Notice();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using WolfVillageBattle.Interface;
 using System;
-using UniRx;
+using R3;
 
 namespace WolfVillageBattle
 {
@@ -41,10 +41,10 @@ namespace WolfVillageBattle
         private IEnemyEntity enemyEntity;
 
         private Subject<Unit> startAttackSubject = new Subject<Unit>();
-        public IObservable<Unit> StartAttackObservable => startAttackSubject;
+        public Observable<Unit> StartAttackObservable => startAttackSubject;
 
         private Subject<Unit> stopAttackSubject = new Subject<Unit>();
-        public IObservable<Unit> StopAttackObservable => stopAttackSubject;
+        public Observable<Unit> StopAttackObservable => stopAttackSubject;
 
         // TODO: 絶対にコンストラクタにする
         public void Initialize (IPlayerView playerView, IEnemyEntity enemyEntity)
