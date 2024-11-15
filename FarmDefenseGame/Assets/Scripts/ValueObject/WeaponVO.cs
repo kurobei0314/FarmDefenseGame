@@ -16,6 +16,10 @@ namespace WolfVillageBattle
         public int Id => id;
 
         [SerializeField]
+        private int attack;
+        public int Attack => attack;
+
+        [SerializeField]
         private int role_type_id;
         public RoleType RoleType => (RoleType)role_type_id;
 

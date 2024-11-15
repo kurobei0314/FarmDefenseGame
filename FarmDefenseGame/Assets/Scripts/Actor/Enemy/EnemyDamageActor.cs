@@ -21,6 +21,11 @@ namespace WolfVillageBattle
             enemyEntity.ReduceHP(damage);
         }
 
+        private int CalculateEnemyDamage()
+        {
+            return 0;
+        }
+
         public void Damage()
         {
             enemyView.Damage();

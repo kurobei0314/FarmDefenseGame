@@ -48,7 +48,6 @@ namespace WolfVillageBattle
             current_hp.Value = (current_hp.Value - value <= 0) ? 0 : current_hp.Value - value;
         }
 
-
         public void SetStatus(Status status)
             => current_status = status;
 
