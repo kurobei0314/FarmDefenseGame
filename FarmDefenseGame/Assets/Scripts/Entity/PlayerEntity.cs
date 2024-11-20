@@ -8,18 +8,18 @@ namespace WolfVillageBattle
 {
     public class PlayerEntity : IPlayerEntity
     {
-        public PlayerEntity(IPlayerVO playerVO, ISkillEntity[] skillEntities)
+        public PlayerEntity(IPlayerVO playerVO, ISkillEntity[] skillEntities, IWeaponEntity weaponEntity)
         {
             this.playerVO = (PlayerVO) playerVO; 
             current_hp = new ReactiveProperty<int>();
             current_hp.Value = playerVO.MaxHP;
             current_status = Status.Idle;
             setCurrentSkills = new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM];
-
             for (var i = 0 ; i < setCurrentSkills.Length; i++)
             {
                 setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
             }
+            setCurrentWeapon = weaponEntity;
         }
 
         private PlayerVO playerVO;
@@ -29,12 +29,9 @@ namespace WolfVillageBattle
         public ReactiveProperty<int> CurrentHP => current_hp;
         public int CurrentHPValue => current_hp.Value;
 
-        // TODO: weaponに応じた攻撃力になるようにする(今は固定で1)
-        private int attack = 1;
-        public int Attack => attack;
-
         // TODO: 武器をセットできるようにする(今は適当)
-        public IWeaponEntity SetCurrentWeapon => throw new System.NotImplementedException();
+        private IWeaponEntity setCurrentWeapon;
+        public IWeaponEntity SetCurrentWeapon => setCurrentWeapon;
 
         // TODO: スキルをセットできるようにする(今は適当)
         private ISkillEntity[] setCurrentSkills;

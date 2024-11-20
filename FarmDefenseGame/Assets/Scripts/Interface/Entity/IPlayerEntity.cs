@@ -8,7 +8,6 @@ namespace WolfVillageBattle.Interface
         IPlayerVO PlayerVO { get; }
         ReactiveProperty<int> CurrentHP { get; }
         int CurrentHPValue { get; }
-        int Attack { get; }
         IWeaponEntity SetCurrentWeapon { get; }
         ISkillEntity[] SetCurrentSkills { get; }
         void ReduceHP(int value);

@@ -16,14 +16,26 @@ namespace WolfVillageBattle
             this.enemyEntity = enemyEntity;
         }
 
-        public void ReduceHP(int damage)
+        public void ReduceHP(IWeaponEntity setWeapon)
         {
+            var damage = CalculateTotalEnemyDamage(setWeapon);
             enemyEntity.ReduceHP(damage);
         }
 
-        private int CalculateEnemyDamage()
+        private int CalculateTotalEnemyDamage(IWeaponEntity setWeapon)
+            => CalculateEnemyDamage(setWeapon) + (Random.Range(0, 21) - 10);
+
+        private int CalculateEnemyDamage(IWeaponEntity setWeapon)
         {
-            return 0;
+            if (setWeapon.WeaponVO.AttackType == AttackType.White)
+            {
+                return (int) GameInfo.ATTACK_GLOBAL_TYPE_RATIO * setWeapon.WeaponVO.Attack ;
+            } 
+            if (setWeapon.WeaponVO.AttackType == enemyEntity.EnemyVO.AttackType)
+            {
+                return (int) GameInfo.ATTACK_WEAK_TYPE_RATIO * setWeapon.WeaponVO.Attack;
+            }
+            return (int) setWeapon.WeaponVO.Attack;
         }
 
         public void Damage()

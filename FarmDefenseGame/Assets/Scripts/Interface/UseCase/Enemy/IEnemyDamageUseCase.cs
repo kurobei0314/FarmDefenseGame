@@ -6,7 +6,7 @@ namespace WolfVillageBattle.Interface
 {
     public interface IEnemyDamageUseCase 
     {
-        void ReduceHP(int damage);
+        void ReduceHP(IWeaponEntity setWeapon);
         void Damage();
         void Die();
     }
