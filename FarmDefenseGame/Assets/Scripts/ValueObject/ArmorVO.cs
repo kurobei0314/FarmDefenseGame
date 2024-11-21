@@ -5,7 +5,7 @@ using System;
 namespace WolfVillageBattle
 {
     [Serializable]
-    public class EquipmentVO : IEquipmentVO
+    public class ArmorVO : IArmorVO
     {
         [SerializeField]
         private string name;

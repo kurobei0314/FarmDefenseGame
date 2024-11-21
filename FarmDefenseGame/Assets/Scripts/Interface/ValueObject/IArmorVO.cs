@@ -1,6 +1,6 @@
 namespace WolfVillageBattle.Interface
 {
-    public interface IEquipmentVO
+    public interface IArmorVO
     {
         int Id { get; }
         string Name { get; }

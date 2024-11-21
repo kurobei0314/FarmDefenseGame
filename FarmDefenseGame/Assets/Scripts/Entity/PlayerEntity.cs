@@ -11,7 +11,7 @@ namespace WolfVillageBattle
         public PlayerEntity(IPlayerStatusVO playerStatusVO,
                             ISkillEntity[] skillEntities,
                             IWeaponEntity weaponEntity,
-                            IEquipmentEntity equipmentEntity)
+                            IArmorEntity armorEntity)
         {
             setCurrentSkills = new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM];
             for (var i = 0 ; i < setCurrentSkills.Length; i++)
@@ -19,7 +19,7 @@ namespace WolfVillageBattle
                 setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
             }
             setCurrentWeapon = weaponEntity;
-            setCurrentEquipment = equipmentEntity;
+            setCurrentArmor = armorEntity;
             this.playerStatusVO = (PlayerStatusVO) playerStatusVO; 
             // TODO: 武器の特性も見てMaxHPを加算する処理を作る
             current_max_hp = playerStatusVO.MaxHP;
@@ -44,8 +44,8 @@ namespace WolfVillageBattle
         public IWeaponEntity SetCurrentWeapon => setCurrentWeapon;
 
         // TODO: 防具をセットできるようにする(今は適当)
-        private IEquipmentEntity setCurrentEquipment;
-        public IEquipmentEntity SetCurrentEquipment => setCurrentEquipment;
+        private IArmorEntity setCurrentArmor;
+        public IArmorEntity SetCurrentArmor => setCurrentArmor;
 
         // TODO: スキルをセットできるようにする(今は適当)
         private ISkillEntity[] setCurrentSkills;

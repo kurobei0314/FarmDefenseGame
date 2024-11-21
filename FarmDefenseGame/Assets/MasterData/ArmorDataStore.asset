@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd5c406b3a1ce4e14bf72b8bbbbf4d6b, type: 3}
-  m_Name: EquipmentDataStore
+  m_Name: ArmorDataStore
   m_EditorClassIdentifier: 
   loadingServerUrl: https://docs.google.com/spreadsheets/d/1HTirwNstPrs_dKaqJ8OD1FpKL52unS0Ldr0wE9scXhw/edit#gid=1215025132#gid=1215025132
   items:
