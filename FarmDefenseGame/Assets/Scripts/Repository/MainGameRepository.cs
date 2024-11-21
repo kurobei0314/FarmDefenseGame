@@ -40,6 +40,7 @@ namespace WolfVillageBattle
         [SerializeField] private FieldVODataStore fieldDataStore;
         [SerializeField] private WeaponVODataStore weaponVODataStore;
         [SerializeField] private SkillVODataStore skillVODataStore;
+        [SerializeField] private EquipmentVODataStore equipmentVODataStore;
         
         private IPlayerEntity player;
         public IPlayerEntity Player => player;
@@ -64,9 +65,13 @@ namespace WolfVillageBattle
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
             var weaponEntity = setWeaponVO.Select(vo => new WeaponEntity(vo)).FirstOrDefault();
 
+            // TODO: プレイヤーが装備した武具を取得できるようにする
+            var setEquipmentVO = equipmentVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
+            var equipmentEntity = setEquipmentVO.Select(vo => new EquipmentEntity(vo)).FirstOrDefault();
+
             // TODO: クリアしたフィールドの情報からStatusを取得するようにする
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
-            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntity);
+            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntity, equipmentEntity);
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {
