@@ -10,8 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7af10b5817b84a0b9ec44e440cda2d3, type: 3}
-  m_Name: PlayerDataStore
+  m_Name: PlayerStatusDataStore
   m_EditorClassIdentifier: 
   loadingServerUrl: https://docs.google.com/spreadsheets/d/1HTirwNstPrs_dKaqJ8OD1FpKL52unS0Ldr0wE9scXhw/edit#gid=0
   items:
-  - max_hp: 3
+  - id: 1
+    clear_field_id: 0
+    max_hp: 3
+  - id: 2
+    clear_field_id: 1
+    max_hp: 10
+  - id: 3
+    clear_field_id: 0
+    max_hp: 0
+  - id: 4
+    clear_field_id: 0
+    max_hp: 0
+  - id: 5
+    clear_field_id: 0
+    max_hp: 0

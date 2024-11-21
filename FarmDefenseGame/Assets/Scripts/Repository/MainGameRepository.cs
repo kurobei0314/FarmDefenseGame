@@ -34,7 +34,7 @@ namespace WolfVillageBattle
     [CreateAssetMenu]
     public class MainGameRepository : ScriptableObject, IMainGameRepository
     {
-        [SerializeField] private PlayerVODataStore playerDataStore;
+        [SerializeField] private PlayerStatusVODataStore playerDataStore;
         [SerializeField] private EnemyVODataStore enemyVODataStore;
         [SerializeField] private FieldEnemyVODataStore fieldEnemyDataStore;
         [SerializeField] private FieldVODataStore fieldDataStore;
@@ -64,7 +64,9 @@ namespace WolfVillageBattle
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
             var weaponEntity = setWeaponVO.Select(vo => new WeaponEntity(vo)).FirstOrDefault();
 
-            player = new PlayerEntity(playerDataStore.Items[0], skillEntities, weaponEntity);
+            // TODO: クリアしたフィールドの情報からStatusを取得するようにする
+            var playerStatusVO = playerDataStore.Items.FirstOrDefault();
+            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntity);
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {

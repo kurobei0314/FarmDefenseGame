@@ -61,7 +61,7 @@ namespace WolfVillageBattle
         {
             playerEntity.SetStatus(Status.Damage);
             playerView.Damage();
-            inGameView.UpdatePlayerHPView((float)playerEntity.CurrentHPValue/playerEntity.PlayerVO.MaxHP);
+            inGameView.UpdatePlayerHPView((float)playerEntity.CurrentHPValue/playerEntity.CurrentMaxHP);
         }
 
         public void Die()

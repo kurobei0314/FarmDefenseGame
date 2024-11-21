@@ -5,9 +5,10 @@ namespace WolfVillageBattle.Interface
 {
     public interface IPlayerEntity : ISetStatus
     {
-        IPlayerVO PlayerVO { get; }
+        IPlayerStatusVO PlayerStatusVO { get; }
         ReactiveProperty<int> CurrentHP { get; }
         int CurrentHPValue { get; }
+        int CurrentMaxHP { get; }
         IWeaponEntity SetCurrentWeapon { get; }
         ISkillEntity[] SetCurrentSkills { get; }
         void ReduceHP(int value);

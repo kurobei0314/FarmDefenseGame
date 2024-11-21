@@ -22,13 +22,6 @@ namespace WolfVillageBattle
         public ISkillVO SkillVO => skillVO;
         private Status current_status;
 
-        // private IEnumerator UpdateStatusForUseSkill()
-        // {
-        //     UpdateStatus(SkillStatus.IntervalTime);
-        //     yield return new WaitForSeconds(SkillVO.IntervalTime);
-        //     UpdateStatus(SkillStatus.CanUse);
-        // }
-
         public bool AbleUseSkill()
             => current_status == Status.CanUse;
         

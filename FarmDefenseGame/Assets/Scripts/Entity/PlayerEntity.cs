@@ -8,26 +8,32 @@ namespace WolfVillageBattle
 {
     public class PlayerEntity : IPlayerEntity
     {
-        public PlayerEntity(IPlayerVO playerVO, ISkillEntity[] skillEntities, IWeaponEntity weaponEntity)
+        public PlayerEntity(IPlayerStatusVO playerStatusVO, ISkillEntity[] skillEntities, IWeaponEntity weaponEntity)
         {
-            this.playerVO = (PlayerVO) playerVO; 
-            current_hp = new ReactiveProperty<int>();
-            current_hp.Value = playerVO.MaxHP;
-            current_status = Status.Idle;
             setCurrentSkills = new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM];
             for (var i = 0 ; i < setCurrentSkills.Length; i++)
             {
                 setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
             }
             setCurrentWeapon = weaponEntity;
+            this.playerStatusVO = (PlayerStatusVO) playerStatusVO; 
+            // TODO: 武器の特性も見てMaxHPを加算する処理を作る
+            current_max_hp = playerStatusVO.MaxHP;
+            current_hp = new ReactiveProperty<int>();
+            current_hp.Value = current_max_hp;
+            current_status = Status.Idle;
         }
 
-        private PlayerVO playerVO;
-        public IPlayerVO PlayerVO => playerVO;
+        private PlayerStatusVO playerStatusVO;
+        public IPlayerStatusVO PlayerStatusVO => playerStatusVO;
 
         private ReactiveProperty<int> current_hp;
         public ReactiveProperty<int> CurrentHP => current_hp;
         public int CurrentHPValue => current_hp.Value;
+
+        // MEMO: 武器によって最大HPが変化する可能性もあるため、一旦Entityに持ってる
+        private int current_max_hp;
+        public int CurrentMaxHP => current_max_hp;
 
         // TODO: 武器をセットできるようにする(今は適当)
         private IWeaponEntity setCurrentWeapon;
