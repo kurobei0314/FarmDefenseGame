@@ -8,5 +8,6 @@ namespace WolfVillageBattle.Interface
         AttackType AttackType { get; }
         float IntervalTime { get; }
         string IconImageName { get; }
+        string Description { get; }
     }
 }

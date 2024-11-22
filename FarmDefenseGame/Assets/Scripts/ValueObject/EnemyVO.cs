@@ -32,5 +32,9 @@ namespace WolfVillageBattle
         [SerializeField]
         private int attack_type_id;
         public AttackType AttackType => (AttackType)attack_type_id;
+
+        [SerializeField]
+        private string description;
+        public string Description => description;
     }
 }

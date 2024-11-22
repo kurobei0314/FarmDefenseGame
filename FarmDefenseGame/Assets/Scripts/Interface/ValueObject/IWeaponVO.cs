@@ -7,5 +7,6 @@ namespace WolfVillageBattle.Interface
         int Attack { get; }
         RoleType RoleType { get; }
         AttackType AttackType { get; }
+        string Description { get; }
     }
 }

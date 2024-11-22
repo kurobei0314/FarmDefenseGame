@@ -31,5 +31,9 @@ namespace WolfVillageBattle
         [SerializeField]
         private string icon_image_name;
         public string IconImageName => icon_image_name;
+
+        [SerializeField]
+        private string description;
+        public string Description => description;
     }
 }

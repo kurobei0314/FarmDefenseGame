@@ -12,6 +12,7 @@ namespace WolfVillageBattle.Interface
         int Attack { get; }
         string PrefabName { get; }
         AttackType AttackType { get; }
+        string Description { get; }
     }
 
 }
