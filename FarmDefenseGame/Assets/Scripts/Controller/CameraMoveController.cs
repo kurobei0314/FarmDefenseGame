@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using WolfVillageBattle.Interface;
 using R3;
 
@@ -6,37 +7,46 @@ namespace WolfVillageBattle
 {
     public class CameraMoveController : MonoBehaviour
     {
+        IPlayerView _playerView = null;
+        IEnemiesView _enemyViews = null;
+        ICameraMoveUseCase _cameraMoveUseCase = null;
+
         public void Initialize(IPlayerView player, ICameraView cameraView, ICameraEntity cameraEntity, IEnemiesView enemyViews)
         {
-            ICameraMoveUseCase cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
+            _playerView = player;
+            _enemyViews = enemyViews;
+            _cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
+
+            if (this.gameObject.TryGetComponent<PlayerInput>(out var playerInput))
+            {
+                // カメラの移動系
+                Observable.EveryUpdate()
+                            .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].IsPressed() 
+                                        && cameraEntity.CurrentCameraMode == CameraMode.Free)
+                            .Subscribe(_ => {
+                                var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
+                                _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
+                            }).AddTo(this);
+            }
 
             Observable.EveryUpdate()
-                        .Where(_ => Input.GetAxis("CameraMove") != 0 && cameraEntity.CurrentCameraMode == CameraMode.Free)
+                        .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].WasPressedThisFrame()
+                                    && cameraEntity.CurrentCameraMode == CameraMode.TargetLock)
                         .Subscribe(_ => {
-                            float cameraInput = Input.GetAxis("CameraMove");
-                            cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
-                        }).AddTo(this);
-
-            Observable.EveryUpdate()
-                        .Where(_ => Input.GetButtonDown("CameraMove") && cameraEntity.CurrentCameraMode == CameraMode.TargetLock)
-                        .Subscribe(_ => {
-                            float cameraInput = Input.GetAxis("CameraMove");
-                            cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
-                        }).AddTo(this);
-
-            Observable.EveryUpdate()
-                        .Where(_ => Input.GetButtonDown("InitializeCameraPos"))
-                        .Subscribe(_ => {
-                            var angleY = player.unityChan.gameObject.transform.localEulerAngles.y;
-                            cameraMoveUseCase.InitializeCameraPos(angleY);
-                        }).AddTo(this);
-
-            Observable.EveryUpdate()
-                        .Where(_ => Input.GetButtonDown("SwitchCameraTargetLock"))
-                        .Subscribe(_ => {
-                            cameraMoveUseCase.SwitchCameraMode(enemyViews);
+                            var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
+                            _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
                         }).AddTo(this);
         }
+
+        #region InputSystemEventHandler
+        public void InputInitCameraPosEvent()
+        {
+            var angleY = _playerView.unityChan.gameObject.transform.localEulerAngles.y;
+            _cameraMoveUseCase.InitializeCameraPos(angleY);
+        }
+        public void InputSwitchCameraMode()
+            => _cameraMoveUseCase.SwitchCameraMode(_enemyViews);
+        #endregion
     }
 }
 

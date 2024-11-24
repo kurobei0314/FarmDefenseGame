@@ -14,4 +14,11 @@ namespace WolfVillageBattle
         // 全ての属性で攻撃力が上がる時の増加倍率(今は白属性)
         public const float ATTACK_GLOBAL_TYPE_RATIO = 1.5f;
     }
+
+    public class GameInputActionName
+    {
+        public const string PlayerMove = "Move";
+        public const string PlayerWalk = "Walk";
+        public const string CameraMove = "CameraMove";
+    }
 }

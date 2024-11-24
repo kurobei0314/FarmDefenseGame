@@ -5,21 +5,18 @@ using WolfVillageBattle.Interface;
 namespace WolfVillageBattle {
     public class PlayerNormalAttackController : MonoBehaviour
     {
+        private IPlayerNormalAttackUseCase _playerNormalAttackUseCase = null;
         public void Initialize(PlayerView player,
                                 IPlayerEntity playerEntity,
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)
         {
-            IPlayerNormalAttackUseCase playerAttackUseCase = new PlayerNormalAttackActor(player, 
-                                                                            playerEntity,
-                                                                            cameraEntity,
-                                                                            enemiesView);
-
-            Observable.EveryUpdate()
-                .Where(_ => Input.GetButtonDown("NormalAttack"))
-                .Subscribe(_ => {
-                    playerAttackUseCase.AttackPlayer();
-                }).AddTo(this);
+            _playerNormalAttackUseCase = new PlayerNormalAttackActor(player, playerEntity, cameraEntity, enemiesView);
         }
+
+        #region InputSystemEventHandler
+        public void InputNormalAttackEvent()
+            => _playerNormalAttackUseCase.AttackPlayer();
+        #endregion
     }
 }

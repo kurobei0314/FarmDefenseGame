@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb81964cd08104bb5bf2c92891edae56, type: 3}
+  m_Name: ItemDataStore
+  m_EditorClassIdentifier: 
+  loadingServerUrl: https://docs.google.com/spreadsheets/d/1HTirwNstPrs_dKaqJ8OD1FpKL52unS0Ldr0wE9scXhw/edit#gid=375472213#gid=375472213
+  items:
+  - name: "\u4EEE\u306E\u30B3\u30A4\u30F3"
+    id: 1
+    description: 
+  - name: 
+    id: 2
+    description: 
+  - name: 
+    id: 3
+    description: 
+  - name: 
+    id: 4
+    description: 
+  - name: 
+    id: 5
+    description: 
+  - name: 
+    id: 6
+    description: 
+  - name: 
+    id: 7
+    description: 
+  - name: 
+    id: 8
+    description: 
+  - name: 
+    id: 9
+    description: 
+  - name: 
+    id: 10
+    description: 
+  - name: 
+    id: 11
+    description: 
+  - name: 
+    id: 12
+    description: 

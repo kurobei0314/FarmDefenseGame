@@ -1,41 +1,36 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using R3;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle {
     public class PlayerMoveController : MonoBehaviour
     {
+        private IPlayerMoveUseCase _playerMoveUseCase;
+
         public void Initialize(IPlayerView player, IPlayerEntity playerEntity, ICameraView camera)
         {
-            IPlayerMoveUseCase playerUseCase = new PlayerMoveActor(player, playerEntity, camera);
-            var moveDownStream = Observable.EveryUpdate()
-                                            .Where(_ => Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0.0f ||
-                                                        Input.GetKey(KeyCode.UpArrow)    ||  Input.GetKey(KeyCode.DownArrow) ||
-                                                        Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow));
-            var moveUpStream = Observable.EveryUpdate()
-                                            .Where(_ => (Input.GetAxis("Horizontal") == 0.0f && Input.GetAxis("Vertical") == 0.0f) ||
-                                                        Input.GetKeyUp(KeyCode.UpArrow)    ||  Input.GetKeyUp(KeyCode.DownArrow) || 
-                                                        Input.GetKeyUp(KeyCode.RightArrow) ||  Input.GetKeyUp(KeyCode.LeftArrow));
+            _playerMoveUseCase = new PlayerMoveActor(player, playerEntity, camera);
             
-            // プレイヤーの移動系
-            moveDownStream.Subscribe(_ => {
-                    float horizontalInput = Input.GetAxis("Horizontal");
-                    float verticalInput = Input.GetAxis("Vertical");
-                    // TODO: PS4などのゲーム機の場合、歩くが対応できてないため対応する
-                    if (Input.GetKey("left shift") || Input.GetKey("right shift")) 
+            if (this.gameObject.TryGetComponent<PlayerInput>(out var playerInput))
+            {
+                // プレイヤーの移動系
+                Observable.EveryUpdate().Where(_ => playerInput.actions[GameInputActionName.PlayerMove].IsPressed()).Subscribe(_ => {
+                    var axis = playerInput.actions[GameInputActionName.PlayerMove].ReadValue<Vector2>();
+                    if (playerInput.actions[GameInputActionName.PlayerWalk].IsPressed())
                     {
-                        playerUseCase.WalkPlayer(horizontalInput, verticalInput);
+                        // TODO: コントローラーの時の動きがおかしくなると思うのでそこを考える必要がある
+                        _playerMoveUseCase.WalkPlayer(axis.x, axis.y);
+                        return;
                     }
-                    else
-                    {
-                        playerUseCase.RunPlayer(horizontalInput, verticalInput);
-                    }
-            }).AddTo(this);
+                    _playerMoveUseCase.RunPlayer(axis.x, axis.y);
+                }).AddTo(this);
 
-            // ボタンから離した時
-            moveUpStream.Subscribe(_ => {
-                    playerUseCase.StandPlayer();
-            }).AddTo(this);
+                // ボタンから離した時
+                Observable.EveryUpdate().Where(_ => playerInput.actions[GameInputActionName.PlayerMove].WasReleasedThisFrame()).Subscribe(_ => {
+                        _playerMoveUseCase.StandPlayer();
+                }).AddTo(this);
+            }
         }
     }
 }

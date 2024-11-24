@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using R3;
 using WolfVillageBattle.Interface;
 
@@ -6,16 +7,21 @@ namespace WolfVillageBattle
 {
     public class PlayerAvoidController : MonoBehaviour
     {
+        IPlayerAvoidUseCase _playerAvoidUseCase = null;
         public void Initialize(IPlayerView playerView, IPlayerEntity playerEntity, ICameraView cameraView)
         {
-            IPlayerAvoidUseCase playerAvoidUseCase = new PlayerAvoidActor(playerView, playerEntity, cameraView);
-            Observable.EveryUpdate()
-                .Where(_ => Input.GetButtonDown("Avoid"))
-                .Subscribe(_ => {
-                    float horizontalInput = Input.GetAxis("Horizontal");
-                    float verticalInput = Input.GetAxis("Vertical");
-                    playerAvoidUseCase.AvoidEnemy(horizontalInput, verticalInput);
-                }).AddTo(this);
+            _playerAvoidUseCase = new PlayerAvoidActor(playerView, playerEntity, cameraView);
         }
+
+        #region InputSystemEventHandler
+        public void InputAvoidEvent()
+        {
+            if (this.gameObject.TryGetComponent<PlayerInput>(out var playerInput))
+            {
+                var axis = playerInput.actions[GameInputActionName.PlayerMove].ReadValue<Vector2>();
+                _playerAvoidUseCase.AvoidEnemy(axis.x, axis.y);
+            }
+        }
+        #endregion
     }
 }
