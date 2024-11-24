@@ -11,23 +11,30 @@ namespace WolfVillageBattle
         IEnemiesView _enemyViews = null;
         ICameraMoveUseCase _cameraMoveUseCase = null;
 
-        public void Initialize(IPlayerView player, ICameraView cameraView, ICameraEntity cameraEntity, IEnemiesView enemyViews)
+        public void Initialize( IPlayerView player,
+                                ICameraView cameraView,
+                                ICameraEntity cameraEntity,
+                                IEnemiesView enemyViews,
+                                PlayerInput playerInput)
         {
             _playerView = player;
             _enemyViews = enemyViews;
             _cameraMoveUseCase = new CameraMoveActor(cameraView, cameraEntity);
 
-            if (this.gameObject.TryGetComponent<PlayerInput>(out var playerInput))
+            if (playerInput == null)
             {
-                // カメラの移動系
-                Observable.EveryUpdate()
-                            .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].IsPressed() 
-                                        && cameraEntity.CurrentCameraMode == CameraMode.Free)
-                            .Subscribe(_ => {
-                                var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
-                                _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
-                            }).AddTo(this);
+                Debug.LogError("playerInputを取得できませんでした");
+                return;
             }
+
+            // カメラの移動系
+            Observable.EveryUpdate()
+                        .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].IsPressed() 
+                                    && cameraEntity.CurrentCameraMode == CameraMode.Free)
+                        .Subscribe(_ => {
+                            var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
+                            _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
+                        }).AddTo(this);
 
             Observable.EveryUpdate()
                         .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].WasPressedThisFrame()
