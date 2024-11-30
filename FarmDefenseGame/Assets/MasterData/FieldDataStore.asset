@@ -17,3 +17,7 @@ MonoBehaviour:
   - name: "\u9069\u5F53\u306A\u540D\u524D"
     id: 1
     scene_name: Main
+    player_pos_x: 5.81
+    player_pos_y: 0
+    player_pos_z: -9.96
+    player_rot_y: 0

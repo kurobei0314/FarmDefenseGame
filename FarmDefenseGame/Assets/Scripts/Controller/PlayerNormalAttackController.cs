@@ -6,7 +6,7 @@ namespace WolfVillageBattle {
     public class PlayerNormalAttackController : MonoBehaviour
     {
         private IPlayerNormalAttackUseCase _playerNormalAttackUseCase = null;
-        public void Initialize(PlayerView player,
+        public void Initialize(IPlayerView player,
                                 IPlayerEntity playerEntity,
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)

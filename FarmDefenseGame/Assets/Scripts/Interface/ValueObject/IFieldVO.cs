@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace WolfVillageBattle.Interface
 {
     public interface IFieldVO
@@ -5,6 +7,8 @@ namespace WolfVillageBattle.Interface
         string Name { get; }
         int Id { get; }
         string SceneName { get; }
+        Vector3 PlayerInitPos { get; }
+        Vector3 PlayerInitRot { get; }
     }
 }
 

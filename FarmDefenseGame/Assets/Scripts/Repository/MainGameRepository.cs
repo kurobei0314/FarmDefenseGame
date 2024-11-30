@@ -50,6 +50,7 @@ namespace WolfVillageBattle
 
         private IFieldEnemyVO fieldObjectVO;
         private IFieldVO fieldVO;
+        public IFieldVO FieldVO => fieldVO;
 
         public void Initialize()
         {
