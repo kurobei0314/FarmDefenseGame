@@ -20,6 +20,12 @@ namespace WolfVillageBattle
         private Rigidbody Rigidbody => this.GetComponent<Rigidbody>();
         public Vector3 Position => this.gameObject.transform.position;
 
+        public void Initialize(Vector3 playerInitPos, Vector3 playerInitRot)
+        {
+            this.gameObject.transform.position = playerInitPos;
+            unity_chan.transform.rotation = Quaternion.LookRotation(playerInitRot, Vector3.up);
+        }
+
         public void Walk(Vector3 moveDirection)
         {
             var pos = this.gameObject.transform.position;
