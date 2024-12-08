@@ -3,6 +3,7 @@ using WolfVillageBattle.Interface;
 using UnityEngine.AI;
 using System;
 using R3;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillageBattle
 {

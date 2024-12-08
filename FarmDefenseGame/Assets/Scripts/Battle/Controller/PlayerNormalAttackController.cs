@@ -1,6 +1,6 @@
 using UnityEngine;
-using R3;
 using WolfVillageBattle.Interface;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillageBattle {
     public class PlayerNormalAttackController : MonoBehaviour

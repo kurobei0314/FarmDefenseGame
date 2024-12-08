@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using WolfVillageBattle.Interface;
 using R3;
+using WolfVillage.Entity.Interface;
+
 namespace WolfVillageBattle
 {
     public class EnemyAttackPresenter

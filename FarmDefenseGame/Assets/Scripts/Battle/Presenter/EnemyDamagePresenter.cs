@@ -1,5 +1,6 @@
 using R3;
 using R3.Triggers;
+using WolfVillage.Entity.Interface;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle

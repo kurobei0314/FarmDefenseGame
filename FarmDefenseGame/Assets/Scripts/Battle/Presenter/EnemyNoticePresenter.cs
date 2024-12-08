@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using R3;
 using R3.Triggers;
 using WolfVillageBattle.Interface;
-using TMPro;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillageBattle
 {

@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using R3;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillageBattle.Interface
 {

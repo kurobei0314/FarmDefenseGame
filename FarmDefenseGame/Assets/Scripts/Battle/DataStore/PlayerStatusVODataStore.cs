@@ -1,5 +1,6 @@
 using UnityEngine;
 using Qitz.DataUtil;
+using WolfVillage.ValueObject;
 
 namespace WolfVillageBattle
 {

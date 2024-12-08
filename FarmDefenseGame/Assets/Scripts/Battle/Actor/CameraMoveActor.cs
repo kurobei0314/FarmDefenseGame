@@ -1,4 +1,4 @@
-using UnityEngine;
+using WolfVillage.Entity.Interface;
 using WolfVillageBattle.Interface;
 
 namespace WolfVillageBattle

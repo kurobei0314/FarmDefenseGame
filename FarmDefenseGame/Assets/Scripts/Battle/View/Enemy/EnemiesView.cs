@@ -1,6 +1,7 @@
 using UnityEngine;
 using WolfVillageBattle.Interface;
 using System.Linq;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillageBattle
 {

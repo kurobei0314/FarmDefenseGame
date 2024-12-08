@@ -1,6 +1,7 @@
 
 using UnityEngine.InputSystem;
 using UnityEngine;
+using WolfVillage.Entity;
 
 // TODO:プレイヤーから入力があるのがプレイヤーなら、このクラス名ってControllerなのか、、、？考えていきたい
 namespace WolfVillageBattle {
