@@ -3,7 +3,7 @@ using System;
 using R3;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface IEnemyView 
     {

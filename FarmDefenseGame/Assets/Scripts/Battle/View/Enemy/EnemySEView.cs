@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemySEView : MonoBehaviour, IEnemySound, ISound
     {

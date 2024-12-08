@@ -1,6 +1,6 @@
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface IEnemyDamageUseCase 
     {

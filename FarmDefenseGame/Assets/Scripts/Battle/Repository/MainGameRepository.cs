@@ -1,11 +1,12 @@
 using UnityEngine;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using System.Linq;
 using WolfVillage.Entity.Interface;
 using WolfVillage.ValueObject.Interface;
 using WolfVillage.Entity;
+using WolfVillage.MasterDataStore;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface IMainGameRepository
     {
@@ -15,7 +16,7 @@ namespace WolfVillageBattle.Interface
     }
 }
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class InitializeEnemyDTO
     {

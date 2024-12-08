@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine; 
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using System;
 
 public interface ICameraView

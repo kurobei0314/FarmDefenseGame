@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemyCanvasView : MonoBehaviour
     {

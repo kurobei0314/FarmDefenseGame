@@ -1,10 +1,10 @@
 using UnityEngine;
 using R3;
 using R3.Triggers;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemyNoticePresenter : MonoBehaviour
     {

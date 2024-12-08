@@ -1,11 +1,11 @@
 using UnityEngine;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using UnityEngine.AI;
 using System;
 using R3;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemyMoveAI : MonoBehaviour
     {

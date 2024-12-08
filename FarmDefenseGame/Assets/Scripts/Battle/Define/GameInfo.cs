@@ -1,4 +1,4 @@
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class GameInfo 
     {

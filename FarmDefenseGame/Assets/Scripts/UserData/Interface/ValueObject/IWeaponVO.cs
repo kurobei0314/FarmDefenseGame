@@ -1,4 +1,4 @@
-using WolfVillageBattle.Interface;
+using WolfVillage.Interface;
 
 namespace WolfVillage.ValueObject.Interface
 {

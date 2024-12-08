@@ -1,9 +1,9 @@
 using R3;
 using R3.Triggers;
 using WolfVillage.Entity.Interface;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemyDamagePresenter
     {

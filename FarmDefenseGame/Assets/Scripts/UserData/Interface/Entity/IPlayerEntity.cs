@@ -2,7 +2,7 @@ using R3;
 using WolfVillage.Entity.Interface;
 using WolfVillage.ValueObject.Interface;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface IPlayerEntity : ISetStatus
     {

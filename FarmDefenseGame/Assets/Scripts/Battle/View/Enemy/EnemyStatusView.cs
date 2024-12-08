@@ -1,7 +1,7 @@
 using UnityEngine;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     // プレイヤーのアニメーションでStatusが変更されるなどのためだけに作られたクラス
     // なんか違う気がする

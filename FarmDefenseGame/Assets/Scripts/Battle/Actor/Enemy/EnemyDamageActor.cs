@@ -1,8 +1,9 @@
 using UnityEngine;
 using WolfVillage.Entity.Interface;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
+using WolfVillage.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemyDamageActor : IEnemyDamageUseCase
     {

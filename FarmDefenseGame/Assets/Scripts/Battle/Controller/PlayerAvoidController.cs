@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using R3;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 
-namespace WolfVillageBattle 
+namespace WolfVillage.Battle 
 {
     public class PlayerAvoidController : MonoBehaviour
     {

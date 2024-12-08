@@ -4,7 +4,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class PlayerSkillIconView : MonoBehaviour
     {

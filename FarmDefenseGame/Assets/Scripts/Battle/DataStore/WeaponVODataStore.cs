@@ -2,7 +2,7 @@ using UnityEngine;
 using Qitz.DataUtil;
 using WolfVillage.ValueObject;
 
-namespace WolfVillageBattle
+namespace WolfVillage.MasterDataStore
 {
     [CreateAssetMenu]
     public class WeaponVODataStore : BaseDataStore<WeaponVO>

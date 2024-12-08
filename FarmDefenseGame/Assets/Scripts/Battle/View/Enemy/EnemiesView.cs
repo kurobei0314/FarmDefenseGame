@@ -1,9 +1,9 @@
 using UnityEngine;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using System.Linq;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class EnemiesView : MonoBehaviour, IEnemiesView
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface IPlayerMoveUseCase : IMoveable
     {

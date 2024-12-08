@@ -1,7 +1,7 @@
 using UnityEngine;
-using WolfVillageBattle.Interface;
 using WolfVillage.ValueObject.Interface;
 using System;
+using WolfVillage.Interface;
 
 namespace WolfVillage.ValueObject
 {

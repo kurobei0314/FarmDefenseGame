@@ -2,8 +2,8 @@ using R3;
 using WolfVillage.Entity.Interface;
 using WolfVillage.ValueObject;
 using WolfVillage.ValueObject.Interface;
-using WolfVillageBattle;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle;
+using WolfVillage.Battle.Interface;
 
 namespace WolfVillage.Entity
 {

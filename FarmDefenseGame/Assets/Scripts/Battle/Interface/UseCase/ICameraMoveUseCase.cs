@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Battle.Interface
 {
     public interface ICameraMoveUseCase
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class PlayerAnimationEndPresenter
     {

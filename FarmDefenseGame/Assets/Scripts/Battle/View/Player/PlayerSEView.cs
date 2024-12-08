@@ -1,7 +1,7 @@
 using UnityEngine;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class PlayerSEView : MonoBehaviour, ISound
     {

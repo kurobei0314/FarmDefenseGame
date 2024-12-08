@@ -4,7 +4,7 @@ using UnityEngine;
 using WolfVillage.Entity;
 
 // TODO:プレイヤーから入力があるのがプレイヤーなら、このクラス名ってControllerなのか、、、？考えていきたい
-namespace WolfVillageBattle {
+namespace WolfVillage.Battle {
     public class MainGameController : MonoBehaviour
     {
         [SerializeField] private MainGameRepository mainGameRepository;

@@ -1,4 +1,4 @@
-namespace WolfVillageBattle.Interface
+namespace WolfVillage.Interface
 {
     public enum RoleType : int
     {

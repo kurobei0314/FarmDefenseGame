@@ -1,4 +1,4 @@
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using WolfVillage.Entity.Interface;
 
 public class PlayerAvoidActor : IPlayerAvoidUseCase

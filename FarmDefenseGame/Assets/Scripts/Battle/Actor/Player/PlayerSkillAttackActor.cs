@@ -1,8 +1,8 @@
 using WolfVillage.Entity;
-using WolfVillageBattle.Interface;
+using WolfVillage.Battle.Interface;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillageBattle
+namespace WolfVillage.Battle
 {
     public class PlayerSkillAttackActor : IPlayerSkillAttackUseCase
     {
