@@ -1,7 +1,7 @@
-using UnityEngine;
 using R3;
 using R3.Triggers;
 using WolfVillage.Battle.Interface;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Battle
 {
