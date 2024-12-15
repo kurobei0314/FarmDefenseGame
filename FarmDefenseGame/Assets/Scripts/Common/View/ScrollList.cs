@@ -8,14 +8,16 @@ namespace WolfVillage.Common
 {
     [RequireComponent(typeof(LoopScrollRect))]
     [DisallowMultipleComponent]
-    public class ScrollList<View, ViewModel> : MonoBehaviour, LoopScrollPrefabSource, LoopScrollDataSource 
+    public abstract class ScrollList<View, ViewModel> : MonoBehaviour, LoopScrollPrefabSource, LoopScrollDataSource 
                                     where View : ScrollPanel<ViewModel>
                                     where ViewModel : ScrollPanelVM
     {
         [SerializeField] private GameObject _prefab;
-        private ObjectPool<GameObject> _pool;
-        private IReadOnlyList<ViewModel> _dataList;
+        [SerializeField] private Transform _content;
         private Action<ViewModel> _clickAction;
+        private int _selectDataIndex;
+        private ObjectPool<GameObject> _pool;
+        protected IReadOnlyList<ViewModel> _dataList;
 
         public void Initialize(ViewModel[] dataList, Action<ViewModel> clickAction)
         {
@@ -37,18 +39,22 @@ namespace WolfVillage.Common
                 o =>o.SetActive(false));
         }
 
-        void LoopScrollDataSource.ProvideData(Transform trans, int index)
+        #region LoopScrollDataSource
+        public virtual void ProvideData(Transform trans, int index)
         {
             if (trans.gameObject.TryGetComponent<View>(out var view))
             {
-                view.Setup(_dataList[index], (viewModel) => _clickAction(viewModel));
+                view.Setup(_dataList[index], _clickAction);
             }
         }
+        #endregion
 
-        GameObject LoopScrollPrefabSource.GetObject(int index)
+        #region LoopScrollPrefabSource
+        public GameObject GetObject(int index)
             => _pool.Get();
 
         void LoopScrollPrefabSource.ReturnObject(Transform trans)
             => _pool.Release(trans.gameObject);
+        #endregion
     }
 }

@@ -7,6 +7,8 @@ namespace WolfVillage.Search.PlayerMenuUI
     {
         [SerializeField] private GameObject _setIconGroup;
         [SerializeField] private HasWeaponPanel _weaponPanel;
+        [SerializeField] private GameObject _selectedGroup;
+
         public override void UpdateView()
         {   
             var vo = viewModel.weaponEntity.WeaponVO;
@@ -16,6 +18,16 @@ namespace WolfVillage.Search.PlayerMenuUI
         public override void OnClick()
         {
             ClickAction.Invoke(viewModel);
+        }
+
+        public override void OnSelect()
+        {
+
+        }
+
+        public override void OnUnSelect()
+        {
+
         }
     }
 }
