@@ -17,15 +17,16 @@ namespace WolfVillage.Common
         private IReadOnlyList<ViewModel> _dataList;
         private Action<ViewModel> _clickAction;
 
-        public void Initialize(IReadOnlyList<ViewModel> dataList, Action<ViewModel> clickAction)
+        public void Initialize(ViewModel[] dataList, Action<ViewModel> clickAction)
         {
             _dataList = dataList;
             _clickAction = clickAction;
             InitializeObjectPool();
-            // var scrollRect = GetComponent<LoopScrollRect>();
-            // scrollRect.prefabSource = this;
-            // scrollRect.dataSource = this;
-            // scrollRect.RefillCells();
+            var scrollRect = GetComponent<LoopScrollRect>();
+            scrollRect.prefabSource = this;
+            scrollRect.dataSource = this;
+            scrollRect.totalCount = dataList.Length;
+            scrollRect.RefillCells();
         }
 
         private void InitializeObjectPool()

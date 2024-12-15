@@ -5,12 +5,15 @@ namespace WolfVillage.Entity
 {
     public class WeaponEntity : IWeaponEntity
     {
-        public WeaponEntity(IWeaponVO weaponVO)
+        private int id;
+        private IWeaponVO weaponVO;
+
+        public WeaponEntity(int id, IWeaponVO weaponVO)
         {
+            this.id = id;
             this.weaponVO = weaponVO;
         }
-
-        private IWeaponVO weaponVO;
+        public int Id => id;
         public IWeaponVO WeaponVO => weaponVO;
     }
 }

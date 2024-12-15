@@ -4,6 +4,7 @@ namespace WolfVillage.Entity.Interface
 {
     public interface IWeaponEntity
     {
+        int Id { get; }
         IWeaponVO WeaponVO { get; }
     }
 }

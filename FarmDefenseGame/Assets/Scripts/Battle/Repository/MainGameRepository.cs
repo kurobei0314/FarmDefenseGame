@@ -68,15 +68,15 @@ namespace WolfVillage.Battle
 
             // TODO: プレイヤーが装備した武器を取得できるようにする
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var weaponEntity = setWeaponVO.Select(vo => new WeaponEntity(vo)).FirstOrDefault();
+            var weaponEntities = setWeaponVO.Select(vo => new WeaponEntity(1, vo)).ToArray();
 
             // TODO: プレイヤーが装備した武具を取得できるようにする
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var armorEntity = setArmorVO.Select(vo => new ArmorEntity(vo)).FirstOrDefault();
+            var armorEntities = setArmorVO.Select(vo => new ArmorEntity(vo)).ToArray();
 
             // TODO: クリアしたフィールドの情報からStatusを取得するようにする
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
-            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntity, armorEntity);
+            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntities.FirstOrDefault(), armorEntities.FirstOrDefault());
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {
