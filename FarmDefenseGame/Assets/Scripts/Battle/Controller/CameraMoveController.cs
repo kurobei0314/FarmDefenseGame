@@ -30,18 +30,18 @@ namespace WolfVillage.Battle
 
             // カメラの移動系
             Observable.EveryUpdate()
-                        .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].IsPressed() 
+                        .Where(_ =>    playerInput.actions[BattleGameInputActionName.CameraMove].IsPressed() 
                                     && cameraEntity.CurrentCameraMode == CameraMode.Free)
                         .Subscribe(_ => {
-                            var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
+                            var cameraInput = playerInput.actions[BattleGameInputActionName.CameraMove].ReadValue<float>();
                             _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
                         }).AddTo(this);
 
             Observable.EveryUpdate()
-                        .Where(_ =>    playerInput.actions[GameInputActionName.CameraMove].WasPressedThisFrame()
+                        .Where(_ =>    playerInput.actions[BattleGameInputActionName.CameraMove].WasPressedThisFrame()
                                     && cameraEntity.CurrentCameraMode == CameraMode.TargetLock)
                         .Subscribe(_ => {
-                            var cameraInput = playerInput.actions[GameInputActionName.CameraMove].ReadValue<float>();
+                            var cameraInput = playerInput.actions[BattleGameInputActionName.CameraMove].ReadValue<float>();
                             _cameraMoveUseCase.CameraMove(cameraInput, player, enemyViews);
                         }).AddTo(this);
         }

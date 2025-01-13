@@ -1,6 +1,6 @@
 namespace WolfVillage.Battle
 {
-    public class GameInfo 
+    public class BattleGameInfo 
     {
         // ジャスト回避した際にどのくらいの時間を遅くするか
         public const float JUST_AVOID_TIME_SCALE = 0.5f;
@@ -15,10 +15,19 @@ namespace WolfVillage.Battle
         public const float ATTACK_GLOBAL_TYPE_RATIO = 1.5f;
     }
 
-    public class GameInputActionName
+    public class BattleGameInputActionName
     {
         public const string PlayerMove = "Move";
         public const string PlayerWalk = "Walk";
         public const string CameraMove = "CameraMove";
+    }
+}
+
+namespace WolfVillage.Search
+{
+    public class SearchGameInputActionName
+    {
+        public const string StickInput = "StickInput";
+        public const string Decide = "Decide";
     }
 }

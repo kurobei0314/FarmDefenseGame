@@ -6,7 +6,7 @@ namespace WolfVillage.Search.PlayerMenuUI
     public  class OwnedWeaponPanel : ScrollPanel<OwnedWeaponPanelVM>
     {
         [SerializeField] private GameObject _setIconGroup;
-        [SerializeField] private HasWeaponPanel _weaponPanel;
+        [SerializeField] private WeaponPanel _weaponPanel;
         [SerializeField] private GameObject _selectedGroup;
 
         public override void UpdateView()

@@ -55,7 +55,7 @@ namespace WolfVillage.Battle
         {
             playerEntity.SetStatus(Status.JustAvoid);
             var timeScaler = (ITimeScaler) new TimeScaler();
-            timeScaler.SetTimeScaler(GameInfo.JUST_AVOID_TIME_SCALE);
+            timeScaler.SetTimeScaler(BattleGameInfo.JUST_AVOID_TIME_SCALE);
         }
 
         public void Damage()

@@ -22,7 +22,7 @@ namespace WolfVillage.Battle
         public void InputAvoidEvent()
         {
             if (_playerInput == null) return;
-            var axis = _playerInput.actions[GameInputActionName.PlayerMove].ReadValue<Vector2>();
+            var axis = _playerInput.actions[BattleGameInputActionName.PlayerMove].ReadValue<Vector2>();
             _playerAvoidUseCase.AvoidEnemy(axis.x, axis.y);
             
         }

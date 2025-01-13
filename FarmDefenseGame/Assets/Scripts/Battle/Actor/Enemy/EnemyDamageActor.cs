@@ -29,11 +29,11 @@ namespace WolfVillage.Battle
         {
             if (setWeapon.WeaponVO.AttackType == AttackType.White)
             {
-                return (int) GameInfo.ATTACK_GLOBAL_TYPE_RATIO * setWeapon.WeaponVO.Attack ;
+                return (int) BattleGameInfo.ATTACK_GLOBAL_TYPE_RATIO * setWeapon.WeaponVO.Attack ;
             } 
             if (setWeapon.WeaponVO.AttackType == enemyEntity.EnemyVO.AttackType)
             {
-                return (int) GameInfo.ATTACK_WEAK_TYPE_RATIO * setWeapon.WeaponVO.Attack;
+                return (int) BattleGameInfo.ATTACK_WEAK_TYPE_RATIO * setWeapon.WeaponVO.Attack;
             }
             return (int) setWeapon.WeaponVO.Attack;
         }

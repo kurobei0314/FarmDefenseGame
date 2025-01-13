@@ -417,6 +417,109 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Search"",
+            ""id"": ""a03a10d4-390f-48e8-b968-8ba554aa911f"",
+            ""actions"": [
+                {
+                    ""name"": ""StickInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cdfbaaf-35a6-4ff8-8ac4-027de6622add"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Decide"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7f5faef-bada-4e06-8a78-3ec5c2d67b2c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e409899b-90fb-4cb7-b197-2a4d26b9a63c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""5cc28c05-963f-40b7-8d9a-81e0625067ea"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a4fa05e5-3e6c-46fa-bb12-dd4c3cf2a18e"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e7f98b1e-317e-4d51-b18c-a34de7d0cc33"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3eb96146-e8fd-4f24-8dd8-ce4173c362d2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ebf750c8-a794-492e-a9ed-3d404bc22c78"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5f940f3-21bd-43b5-83d4-399177aa266b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Decide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -433,11 +536,16 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Battle_CameraMove = m_Battle.FindAction("CameraMove", throwIfNotFound: true);
         m_Battle_InitCameraPos = m_Battle.FindAction("InitCameraPos", throwIfNotFound: true);
         m_Battle_SwitchCameraMode = m_Battle.FindAction("SwitchCameraMode", throwIfNotFound: true);
+        // Search
+        m_Search = asset.FindActionMap("Search", throwIfNotFound: true);
+        m_Search_StickInput = m_Search.FindAction("StickInput", throwIfNotFound: true);
+        m_Search_Decide = m_Search.FindAction("Decide", throwIfNotFound: true);
     }
 
     ~@InputSystem()
     {
         UnityEngine.Debug.Assert(!m_Battle.enabled, "This will cause a leak and performance issues, InputSystem.Battle.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Search.enabled, "This will cause a leak and performance issues, InputSystem.Search.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -613,6 +721,60 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         }
     }
     public BattleActions @Battle => new BattleActions(this);
+
+    // Search
+    private readonly InputActionMap m_Search;
+    private List<ISearchActions> m_SearchActionsCallbackInterfaces = new List<ISearchActions>();
+    private readonly InputAction m_Search_StickInput;
+    private readonly InputAction m_Search_Decide;
+    public struct SearchActions
+    {
+        private @InputSystem m_Wrapper;
+        public SearchActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StickInput => m_Wrapper.m_Search_StickInput;
+        public InputAction @Decide => m_Wrapper.m_Search_Decide;
+        public InputActionMap Get() { return m_Wrapper.m_Search; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SearchActions set) { return set.Get(); }
+        public void AddCallbacks(ISearchActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SearchActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SearchActionsCallbackInterfaces.Add(instance);
+            @StickInput.started += instance.OnStickInput;
+            @StickInput.performed += instance.OnStickInput;
+            @StickInput.canceled += instance.OnStickInput;
+            @Decide.started += instance.OnDecide;
+            @Decide.performed += instance.OnDecide;
+            @Decide.canceled += instance.OnDecide;
+        }
+
+        private void UnregisterCallbacks(ISearchActions instance)
+        {
+            @StickInput.started -= instance.OnStickInput;
+            @StickInput.performed -= instance.OnStickInput;
+            @StickInput.canceled -= instance.OnStickInput;
+            @Decide.started -= instance.OnDecide;
+            @Decide.performed -= instance.OnDecide;
+            @Decide.canceled -= instance.OnDecide;
+        }
+
+        public void RemoveCallbacks(ISearchActions instance)
+        {
+            if (m_Wrapper.m_SearchActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISearchActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SearchActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SearchActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SearchActions @Search => new SearchActions(this);
     public interface IBattleActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -625,5 +787,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnCameraMove(InputAction.CallbackContext context);
         void OnInitCameraPos(InputAction.CallbackContext context);
         void OnSwitchCameraMode(InputAction.CallbackContext context);
+    }
+    public interface ISearchActions
+    {
+        void OnStickInput(InputAction.CallbackContext context);
+        void OnDecide(InputAction.CallbackContext context);
     }
 }

@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPanel: {fileID: 878801837675360657}
+  _armorPanel: {fileID: 9095136724576130241}
 --- !u!1001 &3103994543062487180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,3 +565,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9014323383894370238, guid: 528c15a987cd74ccfae479e226867aa0, type: 3}
   m_PrefabInstance: {fileID: 6420393243591865820}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9095136724576130241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2819740496981926173, guid: 528c15a987cd74ccfae479e226867aa0, type: 3}
+  m_PrefabInstance: {fileID: 6420393243591865820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a1ae34745fa494e92e6ab8c3f9e6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

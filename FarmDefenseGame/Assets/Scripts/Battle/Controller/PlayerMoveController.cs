@@ -22,9 +22,9 @@ namespace WolfVillage.Battle {
                 return;
             }
             // プレイヤーの移動系
-            Observable.EveryUpdate().Where(_ => playerInput.actions[GameInputActionName.PlayerMove].IsPressed()).Subscribe(_ => {
-                var axis = playerInput.actions[GameInputActionName.PlayerMove].ReadValue<Vector2>();
-                if (playerInput.actions[GameInputActionName.PlayerWalk].IsPressed())
+            Observable.EveryUpdate().Where(_ => playerInput.actions[BattleGameInputActionName.PlayerMove].IsPressed()).Subscribe(_ => {
+                var axis = playerInput.actions[BattleGameInputActionName.PlayerMove].ReadValue<Vector2>();
+                if (playerInput.actions[BattleGameInputActionName.PlayerWalk].IsPressed())
                 {
                     // TODO: コントローラーの時の動きがおかしくなると思うのでそこを考える必要がある
                     _playerMoveUseCase.WalkPlayer(axis.x, axis.y);
@@ -34,7 +34,7 @@ namespace WolfVillage.Battle {
             }).AddTo(this);
 
             // ボタンから離した時
-            Observable.EveryUpdate().Where(_ => playerInput.actions[GameInputActionName.PlayerMove].WasReleasedThisFrame()).Subscribe(_ => {
+            Observable.EveryUpdate().Where(_ => playerInput.actions[BattleGameInputActionName.PlayerMove].WasReleasedThisFrame()).Subscribe(_ => {
                     _playerMoveUseCase.StandPlayer();
             }).AddTo(this);
             

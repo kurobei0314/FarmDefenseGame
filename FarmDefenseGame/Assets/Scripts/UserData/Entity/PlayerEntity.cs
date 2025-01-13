@@ -14,7 +14,7 @@ namespace WolfVillage.Entity
                             IWeaponEntity weaponEntity,
                             IArmorEntity armorEntity)
         {
-            setCurrentSkills = new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM];
+            setCurrentSkills = new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM];
             for (var i = 0 ; i < setCurrentSkills.Length; i++)
             {
                 setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;

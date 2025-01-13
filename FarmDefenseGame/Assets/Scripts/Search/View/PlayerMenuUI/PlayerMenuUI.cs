@@ -3,6 +3,7 @@ using WolfVillage.MasterDataStore;
 using WolfVillage.Entity;
 using System.Linq;
 using WolfVillage.Entity.Interface;
+using UnityEngine.InputSystem;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -15,6 +16,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private SkillVODataStore skillVODataStore;
         [SerializeField] private ArmorVODataStore armorVODataStore;
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
+        [SerializeField] private PlayerInput _playerInput;
         private IPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
@@ -38,7 +40,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public void Initialize()
         {
-            _contentUI.Initialize(player, _weaponEntities, _armorEntities);
+            _contentUI.Initialize(player, _weaponEntities, _armorEntities, _playerInput);
         }
     }
 }
