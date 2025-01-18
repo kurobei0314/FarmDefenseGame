@@ -439,6 +439,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9791ae3-38e3-4398-9951-77eead96f512"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -518,6 +527,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Decide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d891de53-3fe8-4b31-9af7-e271a28dcdea"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -540,6 +560,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Search = asset.FindActionMap("Search", throwIfNotFound: true);
         m_Search_StickInput = m_Search.FindAction("StickInput", throwIfNotFound: true);
         m_Search_Decide = m_Search.FindAction("Decide", throwIfNotFound: true);
+        m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
     }
 
     ~@InputSystem()
@@ -727,12 +748,14 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private List<ISearchActions> m_SearchActionsCallbackInterfaces = new List<ISearchActions>();
     private readonly InputAction m_Search_StickInput;
     private readonly InputAction m_Search_Decide;
+    private readonly InputAction m_Search_Back;
     public struct SearchActions
     {
         private @InputSystem m_Wrapper;
         public SearchActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @StickInput => m_Wrapper.m_Search_StickInput;
         public InputAction @Decide => m_Wrapper.m_Search_Decide;
+        public InputAction @Back => m_Wrapper.m_Search_Back;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -748,6 +771,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Decide.started += instance.OnDecide;
             @Decide.performed += instance.OnDecide;
             @Decide.canceled += instance.OnDecide;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -758,6 +784,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Decide.started -= instance.OnDecide;
             @Decide.performed -= instance.OnDecide;
             @Decide.canceled -= instance.OnDecide;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -792,5 +821,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     {
         void OnStickInput(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }
