@@ -3,10 +3,10 @@ using WolfVillage.Common;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public  class OwnedWeaponPanel : ScrollPanel<OwnedWeaponPanelVM>
+    public  class OwnedEquipmentPanel : ScrollPanel<OwnedEquipmentPanelVM>
     {
         [SerializeField] private GameObject _setIconGroup;
-        [SerializeField] private WeaponPanel _weaponPanel;
+        [SerializeField] private EquipmentPanel _weaponPanel;
         [SerializeField] private GameObject _selectedGroup;
         [SerializeField] private Animator _animator;
 

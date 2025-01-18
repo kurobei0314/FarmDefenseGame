@@ -5,7 +5,7 @@ using WolfVillage.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class WeaponPanel : MonoBehaviour
+    public class EquipmentPanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text _weaponName;
         [SerializeField] private Image _weaponIcon;

@@ -5,10 +5,9 @@ using WolfVillage.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class HasWeaponPanel : MonoBehaviour
+    public class HasEquipmentPanel : MonoBehaviour
     {
-
-        [SerializeField] private WeaponPanel _weaponPanel;
+        [SerializeField] private EquipmentPanel _weaponPanel;
         [SerializeField] private Animator _animator;
 
         public void Initialize(string weaponName, RoleType roleType, AttackType attackType)

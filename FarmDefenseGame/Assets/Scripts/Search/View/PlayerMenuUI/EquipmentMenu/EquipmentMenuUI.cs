@@ -5,10 +5,10 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class WeaponMenuUI : MonoBehaviour
+    public class EquipmentMenuUI : MonoBehaviour
     {
-        [SerializeField] private OwnedWeaponList _ownedWeaponList;
-        [SerializeField] private SetCurrentWeaponPanel _currentWeaponPanel;
+        [SerializeField] private OwnedEquipmentList _ownedWeaponList;
+        [SerializeField] private SetCurrentEquipmentPanel _currentWeaponPanel;
         private WeaponMenuVM _weaponMenuVM;
 
         public void Initialize( IWeaponEntity setWeaponEntity,

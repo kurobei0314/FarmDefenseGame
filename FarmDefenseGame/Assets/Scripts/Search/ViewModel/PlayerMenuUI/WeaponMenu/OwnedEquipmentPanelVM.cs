@@ -3,11 +3,11 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class OwnedWeaponPanelVM : ScrollPanelVM
+    public class OwnedEquipmentPanelVM : ScrollPanelVM
     {
         private IWeaponEntity _weaponEntity;
         private bool _isSet;
-        public OwnedWeaponPanelVM(IWeaponEntity weaponEntity, bool isSet)
+        public OwnedEquipmentPanelVM(IWeaponEntity weaponEntity, bool isSet)
         {
             _weaponEntity = weaponEntity;
             _isSet = isSet;

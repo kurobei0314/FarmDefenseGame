@@ -3,10 +3,10 @@ using WolfVillage.Entity.Interface;
 
 namespace  WolfVillage.Search.PlayerMenuUI
 {
-    public class SetCurrentWeaponPanel : MonoBehaviour
+    public class SetCurrentEquipmentPanel : MonoBehaviour
     {
-        [SerializeField] private HasWeaponPanel _weaponPanel;
-        [SerializeField] private HasWeaponPanel _armorPanel;
+        [SerializeField] private HasEquipmentPanel _weaponPanel;
+        [SerializeField] private HasEquipmentPanel _armorPanel;
 
         public void Initialize(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
         {

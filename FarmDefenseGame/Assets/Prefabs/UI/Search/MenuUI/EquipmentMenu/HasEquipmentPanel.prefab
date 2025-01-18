@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2819740496981926173}
   - component: {fileID: 178154045371697647}
   m_Layer: 0
-  m_Name: HasWeaponPanel
+  m_Name: HasEquipmentPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

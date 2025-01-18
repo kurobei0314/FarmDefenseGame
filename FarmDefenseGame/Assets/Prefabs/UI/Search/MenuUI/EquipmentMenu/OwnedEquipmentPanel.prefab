@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 8290032053655887769}
   - component: {fileID: 1657135692268587538}
   m_Layer: 0
-  m_Name: OwnedWeaponPanel
+  m_Name: OwnedEquipmentPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
