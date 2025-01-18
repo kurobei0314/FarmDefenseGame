@@ -196,7 +196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2737123288485231587, guid: cab5d3b4dbd0f48e6b82e5bfc68a3352, type: 3}
       propertyPath: m_Name
-      value: WeaponPanel
+      value: EquipmentPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6769649225220542557, guid: cab5d3b4dbd0f48e6b82e5bfc68a3352, type: 3}
       propertyPath: m_Pivot.x

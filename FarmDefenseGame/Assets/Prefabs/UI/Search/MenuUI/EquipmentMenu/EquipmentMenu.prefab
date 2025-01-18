@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 345902779175682908, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
       propertyPath: m_Name
-      value: OwnedWeaponList
+      value: OwnedEquipmentList
       objectReference: {fileID: 0}
     - target: {fileID: 345902779175682908, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
       propertyPath: m_IsActive
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7704469290719946760, guid: 2b44504dc3e60446099dcdc7526a432c, type: 3}
       propertyPath: m_Name
-      value: CurrentWeaponMenu
+      value: CurrentEquipmentMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
