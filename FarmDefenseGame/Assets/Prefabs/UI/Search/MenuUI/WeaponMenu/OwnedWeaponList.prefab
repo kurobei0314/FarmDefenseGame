@@ -449,7 +449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4444749885963628577}
   - component: {fileID: 4233990653830761079}
-  - component: {fileID: 3416803264386363293}
   m_Layer: 0
   m_Name: Loop Vertical Scroll Rect
   m_TagString: Untagged
@@ -509,20 +508,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3416803264386363293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7368196327745938108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfae9ddeb29e497bb79cc4a80f21410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 9084133385949510810, guid: 184fd5ce1a500476fbda70fbf9524339, type: 3}
-  _content: {fileID: 0}
 --- !u!1 &7921814009389832890
 GameObject:
   m_ObjectHideFlags: 0

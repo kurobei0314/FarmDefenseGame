@@ -28,7 +28,7 @@ namespace WolfVillage.Search.PlayerMenuUI
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
             var skillEntities = setSkillVO.Select(skillVO => new SkillEntity(skillVO)).ToArray();
 
-            var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
+            var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1 || vo.Id == 2).ToArray();
             _weaponEntities = setWeaponVO.Select(vo => new WeaponEntity(1, vo)).ToArray();
 
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Id == 1).ToArray();

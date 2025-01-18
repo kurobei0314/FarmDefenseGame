@@ -2109,6 +2109,17 @@ MonoBehaviour:
   onChangedFloatParamEvents: []
   onChangedIntParamEvents: []
   onChangedStringParamEvents: []
+--- !u!114 &497143114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 299907549641053710, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+  m_PrefabInstance: {fileID: 8419346843327591257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfae9ddeb29e497bb79cc4a80f21410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &546995296
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,17 +8170,6 @@ MonoBehaviour:
   onDrawGraphicObject:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2088645041 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 88175518342919323, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
-  m_PrefabInstance: {fileID: 8419346843327591257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfae9ddeb29e497bb79cc4a80f21410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2093096689
 GameObject:
   m_ObjectHideFlags: 0
@@ -8402,7 +8402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 299907549641053710, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 339868495794367177, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8774,7 +8774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5703905329272624351, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5703905329272624351, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_VerticalScrollbarVisibility
@@ -8799,7 +8799,7 @@ PrefabInstance:
     - target: {fileID: 6400055922490233386, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: _ownedWeaponList
       value: 
-      objectReference: {fileID: 2088645041}
+      objectReference: {fileID: 497143114}
     - target: {fileID: 6868258156090707563, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

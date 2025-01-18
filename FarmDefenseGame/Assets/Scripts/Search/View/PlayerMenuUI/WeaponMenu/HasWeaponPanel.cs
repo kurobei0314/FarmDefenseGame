@@ -9,7 +9,7 @@ namespace WolfVillage.Search.PlayerMenuUI
     {
 
         [SerializeField] private WeaponPanel _weaponPanel;
-        [SerializeField] private GameObject _selectedGroup;
+        [SerializeField] private Animator _animator;
 
         public void Initialize(string weaponName, RoleType roleType, AttackType attackType)
         {
@@ -17,9 +17,9 @@ namespace WolfVillage.Search.PlayerMenuUI
         }
 
         public void SetSelectedPanel()
-            => _selectedGroup.SetActive(true);
+            => _animator.SetBool("Select", true);
 
         public void SetUnSelectedPanel()
-            => _selectedGroup.SetActive(false);
+            => _animator.SetBool("Select", false);
     }
 }

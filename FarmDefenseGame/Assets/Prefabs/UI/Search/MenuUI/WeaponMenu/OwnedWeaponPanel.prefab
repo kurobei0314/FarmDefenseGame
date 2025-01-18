@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6755718864915537493}
   - component: {fileID: 7578789445789206729}
+  - component: {fileID: 8290032053655887769}
   - component: {fileID: 1657135692268587538}
   m_Layer: 0
   m_Name: OwnedWeaponPanel
@@ -490,6 +491,29 @@ MonoBehaviour:
   _setIconGroup: {fileID: 9025891019707257123}
   _weaponPanel: {fileID: 8429446770469422103}
   _selectedGroup: {fileID: 5704626918482114125}
+  _animator: {fileID: 8290032053655887769}
+--- !u!95 &8290032053655887769
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084133385949510810}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef608084e209a4f8bb8ef798f395a89e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1657135692268587538
 MonoBehaviour:
   m_ObjectHideFlags: 0
