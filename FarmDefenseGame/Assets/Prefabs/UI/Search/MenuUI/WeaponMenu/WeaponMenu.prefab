@@ -136,17 +136,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 387471109551126830}
     m_Modifications:
+    - target: {fileID: 322897700250092985, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 345902779175682908, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
       propertyPath: m_Name
       value: OwnedWeaponList
       objectReference: {fileID: 0}
-    - target: {fileID: 3090836884976873935, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 345902779175682908, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3090836884976873935, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090836884976873935, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4879190962303093930, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
       propertyPath: m_Pivot.x
@@ -228,11 +236,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7024481757220261849, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+      propertyPath: m_Content
+      value: 
+      objectReference: {fileID: 184990787247985985}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+--- !u!224 &184990787247985985 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 322897700250092985, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}
+  m_PrefabInstance: {fileID: 498230068117524728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3211280481044897264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3060990954510208264, guid: dbb3ed58f4418475196982e4364d2d07, type: 3}

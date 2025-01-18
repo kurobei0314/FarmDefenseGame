@@ -4,7 +4,7 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class OwnedWeaponList : ScrollList<OwnedWeaponPanel, OwnedWeaponPanelVM>
+    public class OwnedWeaponList : VerticalScrollList<OwnedWeaponPanel, OwnedWeaponPanelVM>
     {
         public void Initialize(IWeaponEntity setWeaponEntity, IWeaponEntity[] ownedWeaponEntities)
         {

@@ -735,10 +735,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3667831899963749540}
     m_Modifications:
-    - target: {fileID: 184990787247985985, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 387471109551126830, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -823,32 +819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 2347785044058423036, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174697293109059895, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174697293109059895, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7463002706198863649, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-      propertyPath: m_Content
-      value: 
-      objectReference: {fileID: 3037826256493174463}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
---- !u!224 &3037826256493174463 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 184990787247985985, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
-  m_PrefabInstance: {fileID: 2934586392153656318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3303720375024022224 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 387471109551126830, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}

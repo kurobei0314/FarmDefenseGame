@@ -14,21 +14,23 @@ namespace WolfVillage.Common
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _content;
-        private Action<ViewModel> _clickAction;
-        private int _selectDataIndex;
+        private Action<ViewModel> _selectAction;
+        protected int _selectDataIndex;
         private ObjectPool<GameObject> _pool;
         protected IReadOnlyList<ViewModel> _dataList;
+        protected LoopScrollRect _scrollRect;
 
-        public void Initialize(ViewModel[] dataList, Action<ViewModel> clickAction)
+        public void Initialize(ViewModel[] dataList, Action<ViewModel> selectAction, int selectedViewModelIndex = 0)
         {
             _dataList = dataList;
-            _clickAction = clickAction;
+            _selectAction = selectAction;
+            _selectDataIndex = selectedViewModelIndex;
             InitializeObjectPool();
-            var scrollRect = GetComponent<LoopScrollRect>();
-            scrollRect.prefabSource = this;
-            scrollRect.dataSource = this;
-            scrollRect.totalCount = dataList.Length;
-            scrollRect.RefillCells();
+            _scrollRect = GetComponent<LoopScrollRect>();
+            _scrollRect.prefabSource = this;
+            _scrollRect.dataSource = this;
+            _scrollRect.totalCount = dataList.Length;
+            _scrollRect.RefillCells();
         }
 
         private void InitializeObjectPool()
@@ -36,15 +38,42 @@ namespace WolfVillage.Common
             _pool = new ObjectPool<GameObject>(
                 () => Instantiate(_prefab),
                 o => o.SetActive(true),
-                o =>o.SetActive(false));
+                o => o.SetActive(false));
         }
+
+        // /// <summary>
+        // /// フォーカスの初期化をする
+        // /// </summary>
+        // private void InitializeFocusIndex(int index = 0)
+        // {
+        //     _selectDataIndex = index;
+        //     var view = FindByView(_dataList[_selectDataIndex]);
+        //     if (view == null) return;
+        //     view.OnFocus();
+        // }
+
+        protected View FindByView(ViewModel viewModel)
+        {
+            for (var i = 0; i < _content.childCount; i++)
+            {
+                var panel = _content.GetChild(i);
+                if (!panel.TryGetComponent<View>(out var view)) continue;
+                if (view.Data != viewModel) continue;
+                return view;
+            }
+            return null;
+        }
+
+        public abstract void UpdateFocusIndex(Vector2 inputAxis);
 
         #region LoopScrollDataSource
         public virtual void ProvideData(Transform trans, int index)
         {
             if (trans.gameObject.TryGetComponent<View>(out var view))
             {
-                view.Setup(_dataList[index], _clickAction);
+                view.Setup(_dataList[index], _selectAction);
+                if (index == _selectDataIndex) view.OnFocus();
+                else view.OnUnFocus();
             }
         }
         #endregion

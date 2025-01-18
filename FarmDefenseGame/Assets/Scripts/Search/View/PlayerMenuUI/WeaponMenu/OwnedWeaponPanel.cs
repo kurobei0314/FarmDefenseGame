@@ -16,17 +16,17 @@ namespace WolfVillage.Search.PlayerMenuUI
             _setIconGroup.SetActive(viewModel.isSet);
             _weaponPanel.Initialize(vo.Name, vo.RoleType, vo.AttackType);
         }
-        public override void OnClick()
+        public override void OnSelect()
         {
-            ClickAction.Invoke(viewModel);
+            SelectAction.Invoke(viewModel);
         }
 
-        public override void OnSelect()
+        public override void OnFocus()
         {
             _animator.SetBool("Select", true);
         }
 
-        public override void OnUnSelect()
+        public override void OnUnFocus()
         {
             _animator.SetBool("Select", false);
         }

@@ -26,83 +26,83 @@ MonoBehaviour:
     role_type_id: 2
     attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30D4\u30C3\u30C1\u30D5\u30A9\u30FC\u30AF"
     id: 3
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 1
+    role_type_id: 3
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u304F\u308F2"
     id: 4
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 2
+    role_type_id: 1
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30CF\u30F3\u30DE\u30FC2"
     id: 5
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 2
+    role_type_id: 2
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30D4\u30C3\u30C1\u30D5\u30A9\u30FC\u30AF2"
     id: 6
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 2
+    role_type_id: 3
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u304F\u308F3"
     id: 7
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 3
+    role_type_id: 1
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30CF\u30F3\u30DE\u30FC3"
     id: 8
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 3
+    role_type_id: 2
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30D4\u30C3\u30C1\u30D5\u30A9\u30FC\u30AF3"
     id: 9
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 3
+    role_type_id: 3
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u304F\u308F4"
     id: 10
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 4
+    role_type_id: 1
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30CF\u30F3\u30DE\u30FC4"
     id: 11
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 4
+    role_type_id: 2
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30D4\u30C3\u30C1\u30D5\u30A9\u30FC\u30AF4"
     id: 12
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 4
+    role_type_id: 3
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u304F\u308F5"
     id: 13
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 5
+    role_type_id: 1
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30CF\u30F3\u30DE\u30FC5"
     id: 14
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 5
+    role_type_id: 2
+    attack_type_id: 4
     description: 
-  - name: 
+  - name: "\u4EEE\u306E\u30D4\u30C3\u30C1\u30D5\u30A9\u30FC\u30AF5"
     id: 15
-    attack: 0
-    role_type_id: 0
-    attack_type_id: 0
+    attack: 5
+    role_type_id: 3
+    attack_type_id: 4
     description: 
   - name: 
     id: 16
