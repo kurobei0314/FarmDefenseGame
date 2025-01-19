@@ -26,13 +26,13 @@ namespace WolfVillage.Search.PlayerMenuUI
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
-            var skillEntities = setSkillVO.Select(skillVO => new SkillEntity(skillVO)).ToArray();
+            var skillEntities = setSkillVO.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
 
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Name != string.Empty).ToArray();
-            _weaponEntities = setWeaponVO.Select(vo => new WeaponEntity(1, vo)).ToArray();
+            _weaponEntities = setWeaponVO.Select((vo, index) => new WeaponEntity(index, vo)).ToArray();
 
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            _armorEntities = setArmorVO.Select(vo => new ArmorEntity(vo)).ToArray();
+            _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
             player = new PlayerEntity(playerStatusVO, skillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
             Initialize();

@@ -47,7 +47,7 @@ namespace WolfVillage.Common
             {
                 var panel = _content.GetChild(i);
                 if (!panel.TryGetComponent<View>(out var view)) continue;
-                if (view.Data != viewModel) continue;
+                if (view.Data.Id != viewModel.Id) continue;
                 return view;
             }
             return null;

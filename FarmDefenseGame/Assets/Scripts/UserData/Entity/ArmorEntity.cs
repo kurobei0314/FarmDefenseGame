@@ -5,12 +5,14 @@ namespace WolfVillage.Entity
 {
     public class ArmorEntity : IArmorEntity
     {
-        public ArmorEntity(IArmorVO armorVO)
+        private int _id;
+        private IArmorVO _armorVO;
+        public ArmorEntity(int id, IArmorVO armorVO)
         {
-            this.armorVO = armorVO;
+            _armorVO = armorVO;
+            _id = id;
         }
-
-        private IArmorVO armorVO;
-        public IArmorVO ArmorVO => armorVO;
+        public int Id => _id;
+        public IArmorVO ArmorVO => _armorVO;
     }
 }

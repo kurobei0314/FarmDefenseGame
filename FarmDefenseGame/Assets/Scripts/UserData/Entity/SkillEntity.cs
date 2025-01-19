@@ -11,12 +11,15 @@ namespace WolfVillage.Entity
             IntervalTime,
         }
 
-        public SkillEntity(ISkillVO skillVO)
+        public SkillEntity(int id, ISkillVO skillVO)
         {
+            this.id = id;
             this.skillVO = skillVO;
             current_status = Status.CanUse;
         }
 
+        private int id;
+        public int Id => id;
         private ISkillVO skillVO;
         public ISkillVO SkillVO => skillVO;
         private Status current_status;

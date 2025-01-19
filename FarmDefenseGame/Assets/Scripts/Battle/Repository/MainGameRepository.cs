@@ -64,15 +64,15 @@ namespace WolfVillage.Battle
 
             // TODO: プレイヤーがセットしたスキルを取得できるようにする
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
-            var skillEntities = setSkillVO.Select(skillVO => new SkillEntity(skillVO)).ToArray();
+            var skillEntities = setSkillVO.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
 
             // TODO: プレイヤーが装備した武器を取得できるようにする
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var weaponEntities = setWeaponVO.Select(vo => new WeaponEntity(1, vo)).ToArray();
+            var weaponEntities = setWeaponVO.Select((vo, index) => new WeaponEntity(index, vo)).ToArray();
 
             // TODO: プレイヤーが装備した武具を取得できるようにする
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var armorEntities = setArmorVO.Select(vo => new ArmorEntity(vo)).ToArray();
+            var armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
 
             // TODO: クリアしたフィールドの情報からStatusを取得するようにする
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();

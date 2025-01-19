@@ -7,7 +7,7 @@ namespace WolfVillage.Search.PlayerMenuUI
     {
         private IWeaponEntity _weaponEntity;
         private bool _isSet;
-        public OwnedEquipmentPanelVM(IWeaponEntity weaponEntity, bool isSet)
+        public OwnedEquipmentPanelVM(int id, IWeaponEntity weaponEntity, bool isSet) : base(id)
         {
             _weaponEntity = weaponEntity;
             _isSet = isSet;
