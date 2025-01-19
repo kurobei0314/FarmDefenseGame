@@ -41,17 +41,6 @@ namespace WolfVillage.Common
                 o => o.SetActive(false));
         }
 
-        // /// <summary>
-        // /// フォーカスの初期化をする
-        // /// </summary>
-        // private void InitializeFocusIndex(int index = 0)
-        // {
-        //     _selectDataIndex = index;
-        //     var view = FindByView(_dataList[_selectDataIndex]);
-        //     if (view == null) return;
-        //     view.OnFocus();
-        // }
-
         protected View FindByView(ViewModel viewModel)
         {
             for (var i = 0; i < _content.childCount; i++)
