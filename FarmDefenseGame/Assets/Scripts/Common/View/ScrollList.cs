@@ -12,7 +12,7 @@ namespace WolfVillage.Common
                                     where View : ScrollPanel<ViewModel>
                                     where ViewModel : ScrollPanelVM
     {
-        [SerializeField] private GameObject _prefab;
+        [SerializeField] protected GameObject _prefab;
         private Action<ViewModel> _selectAction;
         protected int _selectDataIndex;
         private ObjectPool<GameObject> _pool;
@@ -20,6 +20,7 @@ namespace WolfVillage.Common
         protected LoopScrollRect _scrollRect;
         protected Transform _content => _scrollRect.content;
         protected Transform _viewport => _scrollRect.viewport;
+        protected float viewportHeight => _viewport.GetComponent<RectTransform>().rect.height;
 
         public void Initialize(ViewModel[] dataList, Action<ViewModel> selectAction, int selectedViewModelIndex = 0)
         {
@@ -32,7 +33,9 @@ namespace WolfVillage.Common
             _scrollRect.dataSource = this;
             _scrollRect.totalCount = dataList.Length;
             _scrollRect.RefillCells();
+            if (!IsViewportSizeAppropriate()) Debug.LogError("viewportの高さがprefab+spaceの高さに合ってません");
         }
+        protected abstract bool IsViewportSizeAppropriate();
 
         private void InitializeObjectPool()
         {
