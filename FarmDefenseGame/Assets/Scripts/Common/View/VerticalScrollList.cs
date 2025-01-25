@@ -25,6 +25,7 @@ namespace WolfVillage.Common
 
         public override void UpdateFocusIndex(Vector2 inputAxis)
         {
+            if (IsHorizonInput(inputAxis)) return;
             var delta = IsUpInput(inputAxis) ? -1 : 1;
 
             if (_selectDataIndex + delta < 0 || _selectDataIndex + delta >= _dataList.Count) return;
@@ -53,6 +54,9 @@ namespace WolfVillage.Common
             var num = (int) (viewportHeight / (cellHeight + _space));
             return _endDataIndex + 1 - num;
         }
+
+        private bool IsHorizonInput(Vector2 inputAxis)
+            => inputAxis.x != 0;
 
         private bool IsUpInput(Vector2 inputAxis) 
             => inputAxis.y > 0;
