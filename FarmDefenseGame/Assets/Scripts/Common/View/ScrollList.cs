@@ -13,12 +13,13 @@ namespace WolfVillage.Common
                                     where ViewModel : ScrollPanelVM
     {
         [SerializeField] private GameObject _prefab;
-        [SerializeField] private Transform _content;
         private Action<ViewModel> _selectAction;
         protected int _selectDataIndex;
         private ObjectPool<GameObject> _pool;
         protected IReadOnlyList<ViewModel> _dataList;
         protected LoopScrollRect _scrollRect;
+        protected Transform _content => _scrollRect.content;
+        protected Transform _viewport => _scrollRect.viewport;
 
         public void Initialize(ViewModel[] dataList, Action<ViewModel> selectAction, int selectedViewModelIndex = 0)
         {

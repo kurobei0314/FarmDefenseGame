@@ -14,16 +14,31 @@ namespace WolfVillage.Common
             FindByView(_dataList[_selectDataIndex]).OnUnFocus();
             _selectDataIndex += delta;
             var afterView = FindByView(_dataList[_selectDataIndex]);
-            if (afterView != null)
+            if (afterView != null && IsInViewportCell(afterView))
             { 
                 afterView.OnFocus();
                 return;
             }
-            if      (IsUpInput(inputAxis)) _scrollRect.RefillCellsFromEnd(_selectDataIndex);
-            else if (IsDownInput(inputAxis)) _scrollRect.RefillCells(_selectDataIndex);
+            if      (IsUpInput(inputAxis)) _scrollRect.RefillCells(_selectDataIndex);
+            else if (IsDownInput(inputAxis)) 
+            {
+                
+                _scrollRect.RefillCells(_selectDataIndex + 1);
+            }
         }
 
-        private bool IsUpInput(Vector2 inputAxis)
+        private bool IsInViewportCell(View cell)
+        {
+            var viewportHeight = _viewport.GetComponent<RectTransform>().rect.height;
+            var cellHeight = cell.GetComponent<RectTransform>().rect.height;
+            var cellUpY = cell.GetComponent<Transform>().localPosition.y;
+            var cellDownY = cellUpY - cellHeight;
+
+            if (0 >= cellUpY && cellDownY >= -viewportHeight) return true;
+            return false;
+        }
+
+        private bool IsUpInput(Vector2 inputAxis) 
             => inputAxis.y > 0;
         
         private bool IsDownInput(Vector2 inputAxis)
