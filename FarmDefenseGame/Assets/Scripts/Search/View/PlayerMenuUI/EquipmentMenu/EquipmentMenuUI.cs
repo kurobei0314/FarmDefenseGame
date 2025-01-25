@@ -31,7 +31,7 @@ namespace WolfVillage.Search.PlayerMenuUI
                         .Where(_ => playerInput.actions[SearchGameInputActionName.Decide].IsPressed())
                         .Subscribe(_ => {
                             UpdateViewDecide(setWeaponEntity, setArmorEntity, ownedWeaponEntities, ownedArmorEntities);
-                        });
+                        }).AddTo(this);
         }
         private void UpdateViewStickInput(PlayerInput playerInput)
         {
