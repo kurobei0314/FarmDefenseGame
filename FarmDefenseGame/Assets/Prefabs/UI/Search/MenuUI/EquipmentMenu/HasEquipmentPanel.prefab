@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a1ae34745fa494e92e6ab8c3f9e6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPanel: {fileID: 3808278464120563591}
+  _equipmentPanel: {fileID: 3808278464120563591}
   _animator: {fileID: 178154045371697647}
 --- !u!95 &178154045371697647
 Animator:

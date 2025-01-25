@@ -19,5 +19,6 @@ namespace WolfVillage.Common
         public abstract void OnSelect();
         public abstract void OnFocus();
         public abstract void OnUnFocus();
+        public abstract void Dispose();
     }
 }

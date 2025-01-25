@@ -59,6 +59,17 @@ namespace WolfVillage.Common
 
         public abstract void UpdateFocusIndex(Vector2 inputAxis);
 
+        public void Dispose()
+        {
+            for (var i = _content.childCount - 1; i >= 0; i--)
+            {
+                var panel = _content.GetChild(i);
+                if (!panel.TryGetComponent<View>(out var view)) continue;
+                view.Dispose();
+                Destroy(panel.gameObject);
+            }
+        }
+
         #region LoopScrollDataSource
         public virtual void ProvideData(Transform trans, int index)
         {

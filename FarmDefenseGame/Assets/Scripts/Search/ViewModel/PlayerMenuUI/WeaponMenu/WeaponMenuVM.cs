@@ -4,15 +4,15 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public class WeaponMenuVM 
     {
-        public enum WeaponMenuUIState
+        public enum FocusWeaponMenuUIState
         {
             SetWeaponPanel,
             SetArmorPanel,
             OwnedWeaponList,
             OwnedArmorList,
         }
-        private WeaponMenuUIState _state;
-        public WeaponMenuUIState State => _state;
+        private FocusWeaponMenuUIState _state;
+        public FocusWeaponMenuUIState State => _state;
 
         private IWeaponEntity _setWeaponEntity;
         private IArmorEntity _setArmorEntity;
@@ -21,10 +21,10 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _setWeaponEntity = setWeaponEntity;
             _setArmorEntity = setArmorEntity;
-            SetState(WeaponMenuUIState.SetWeaponPanel);
+            SetState(FocusWeaponMenuUIState.SetWeaponPanel);
         }
 
-        public void SetState(WeaponMenuUIState state)
+        public void SetState(FocusWeaponMenuUIState state)
             => _state = state;
     }
 }

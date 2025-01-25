@@ -1,19 +1,23 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using WolfVillage.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
     public class EquipmentPanel : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _weaponName;
-        [SerializeField] private Image _weaponIcon;
+        [SerializeField] private TMP_Text _name;
+        [SerializeField] private Image _icon;
 
-        public void Initialize(string weaponName, RoleType roleType, AttackType attackType)
+        // TODO: 将来的には、アイコンの情報を持ったinterfaceを渡してそこからiconを表示するようにする
+        public void Initialize(string name)
         {
-            _weaponName.text = weaponName;
-            
+            _name.text = name;
+        }
+
+        public void Dispose()
+        {
+            _icon.sprite = null;
         }
     }
 }

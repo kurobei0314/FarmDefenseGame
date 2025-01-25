@@ -10,8 +10,8 @@ namespace  WolfVillage.Search.PlayerMenuUI
 
         public void Initialize(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
         {
-            var weaponVO = SetCurrentWeapon.WeaponVO;
-            _weaponPanel.Initialize(weaponVO.Name, weaponVO.RoleType, weaponVO.AttackType);
+            _weaponPanel.Initialize(SetCurrentWeapon.WeaponVO.Name);
+            _armorPanel.Initialize(SetCurrentArmor.ArmorVO.Name);
             SelectWeaponPanel();
         }
 
@@ -25,6 +25,12 @@ namespace  WolfVillage.Search.PlayerMenuUI
         {
             _weaponPanel.SetUnSelectedPanel();
             _armorPanel.SetSelectedPanel();
+        }
+        
+        public void Dispose()
+        {
+            _weaponPanel.Dispose();
+            _armorPanel.Dispose();
         }
     }
 }

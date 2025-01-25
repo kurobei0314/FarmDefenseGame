@@ -6,15 +6,14 @@ namespace WolfVillage.Search.PlayerMenuUI
     public  class OwnedEquipmentPanel : ScrollPanel<OwnedEquipmentPanelVM>
     {
         [SerializeField] private GameObject _setIconGroup;
-        [SerializeField] private EquipmentPanel _weaponPanel;
+        [SerializeField] private EquipmentPanel _equipmentPanel;
         [SerializeField] private GameObject _selectedGroup;
         [SerializeField] private Animator _animator;
 
         public override void UpdateView()
         {   
-            var vo = viewModel.weaponEntity.WeaponVO;
             _setIconGroup.SetActive(viewModel.isSet);
-            _weaponPanel.Initialize(vo.Name, vo.RoleType, vo.AttackType);
+            _equipmentPanel.Initialize(viewModel.Name);
         }
         public override void OnSelect()
         {
@@ -29,6 +28,11 @@ namespace WolfVillage.Search.PlayerMenuUI
         public override void OnUnFocus()
         {
             _animator.SetBool("Select", false);
+        }
+
+        public override void Dispose()
+        {
+            _equipmentPanel.Dispose();
         }
     }
 }

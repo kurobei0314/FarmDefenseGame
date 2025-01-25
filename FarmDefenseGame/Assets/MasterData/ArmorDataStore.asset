@@ -17,42 +17,20 @@ MonoBehaviour:
   - name: "\u4EEE\u306E\u93A7"
     id: 1
     defense: 1
-  - name: 
+    description: 
+  - name: "\u4EEE\u306E\u307B\u3093\u306E\u3061\u3087\u3063\u3068\u5F37\u3044\u93A7"
     id: 2
-    defense: 0
-  - name: 
+    defense: 2
+    description: 
+  - name: "\u4EEE\u306E\u3061\u3087\u3063\u3068\u5F37\u3044\u93A7"
     id: 3
-    defense: 0
-  - name: 
+    defense: 3
+    description: 
+  - name: "\u4EEE\u306E\u666E\u901A\u306B\u5F37\u3044\u93A7"
     id: 4
-    defense: 0
-  - name: 
+    defense: 4
+    description: 
+  - name: "\u4EEE\u306E\u3059\u3054\u304F\u5F37\u3044\u93A7"
     id: 5
-    defense: 0
-  - name: 
-    id: 6
-    defense: 0
-  - name: 
-    id: 7
-    defense: 0
-  - name: 
-    id: 8
-    defense: 0
-  - name: 
-    id: 9
-    defense: 0
-  - name: 
-    id: 10
-    defense: 0
-  - name: 
-    id: 11
-    defense: 0
-  - name: 
-    id: 12
-    defense: 0
-  - name: 
-    id: 13
-    defense: 0
-  - name: 
-    id: 14
-    defense: 0
+    defense: 5
+    description: 

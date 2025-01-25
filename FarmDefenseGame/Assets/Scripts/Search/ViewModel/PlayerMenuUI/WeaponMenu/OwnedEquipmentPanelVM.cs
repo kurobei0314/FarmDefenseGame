@@ -5,14 +5,16 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public class OwnedEquipmentPanelVM : ScrollPanelVM
     {
-        private IWeaponEntity _weaponEntity;
+        private string _name;
         private bool _isSet;
-        public OwnedEquipmentPanelVM(int id, IWeaponEntity weaponEntity, bool isSet) : base(id)
+        private SetEquipmentChangeStatusPanelVM _statusPanelVM;
+        public OwnedEquipmentPanelVM(int id, string name, bool isSet) : base(id)
         {
-            _weaponEntity = weaponEntity;
+            _name = name;
             _isSet = isSet;
         }
-        public IWeaponEntity weaponEntity => _weaponEntity;
+        public string Name => _name;
         public bool isSet => _isSet;
+        public SetEquipmentChangeStatusPanelVM StatusPanelVM => _statusPanelVM;
     }
 }

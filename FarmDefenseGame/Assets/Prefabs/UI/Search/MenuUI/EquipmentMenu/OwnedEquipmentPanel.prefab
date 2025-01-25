@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _setIconGroup: {fileID: 9025891019707257123}
-  _weaponPanel: {fileID: 8429446770469422103}
+  _equipmentPanel: {fileID: 8429446770469422103}
   _selectedGroup: {fileID: 5704626918482114125}
   _animator: {fileID: 8290032053655887769}
 --- !u!95 &8290032053655887769
@@ -544,7 +544,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2737123288485231587, guid: cab5d3b4dbd0f48e6b82e5bfc68a3352, type: 3}
       propertyPath: m_Name
-      value: WeaponPanel
+      value: EquipmentPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6769649225220542557, guid: cab5d3b4dbd0f48e6b82e5bfc68a3352, type: 3}
       propertyPath: m_Pivot.x
