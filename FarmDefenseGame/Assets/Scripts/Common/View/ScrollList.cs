@@ -32,7 +32,7 @@ namespace WolfVillage.Common
             _scrollRect.prefabSource = this;
             _scrollRect.dataSource = this;
             _scrollRect.totalCount = dataList.Length;
-            _scrollRect.RefillCells();
+            _scrollRect.RefillCells(selectedViewModelIndex);
             if (!IsViewportSizeAppropriate()) Debug.LogError("viewportの高さがprefab+spaceの高さに合ってません");
         }
         protected abstract bool IsViewportSizeAppropriate();
@@ -76,6 +76,7 @@ namespace WolfVillage.Common
             if (trans.gameObject.TryGetComponent<View>(out var view))
             {
                 view.Setup(_dataList[index], _selectAction);
+                trans.gameObject.SetActive(true);
                 if (index == _selectDataIndex) view.OnFocus();
                 else view.OnUnFocus();
             }
