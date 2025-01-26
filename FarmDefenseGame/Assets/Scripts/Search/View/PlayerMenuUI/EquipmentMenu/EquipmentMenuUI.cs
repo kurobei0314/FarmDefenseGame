@@ -33,6 +33,12 @@ namespace WolfVillage.Search.PlayerMenuUI
                         .Subscribe(_ => {
                             UpdateViewDecide(setWeaponEntity, setArmorEntity, ownedWeaponEntities, ownedArmorEntities);
                         }).AddTo(this);
+
+            Observable.EveryUpdate()
+                        .Where(_ => playerInput.actions[SearchGameInputActionName.Cancel].IsPressed())
+                        .Subscribe(_ => {
+                            UpdateViewCancel();
+                        }).AddTo(this);
         }
         private void UpdateViewStickInput(PlayerInput playerInput)
         {
@@ -74,6 +80,7 @@ namespace WolfVillage.Search.PlayerMenuUI
                     break;
             }
         }
+
         private void UpdateViewForSetWeaponPanel(IWeaponEntity setWeaponEntity, IWeaponEntity[] ownedWeaponEntities)
         {
             _ownedWeaponList.gameObject.SetActive(true);
@@ -88,6 +95,21 @@ namespace WolfVillage.Search.PlayerMenuUI
             var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, entity.Id == setArmorEntity.Id)).ToArray();
             _ownedWeaponList.Initialize(panelVMs, null);
             _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.OwnedArmorList);
+        }
+
+        private void UpdateViewCancel()
+        {
+            switch (_weaponMenuVM.State)
+            {
+                case WeaponMenuVM.FocusWeaponMenuUIState.OwnedWeaponList:
+                    _ownedWeaponList.gameObject.SetActive(false);
+                    _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.SetWeaponPanel);
+                    break;
+                case WeaponMenuVM.FocusWeaponMenuUIState.OwnedArmorList:
+                    _ownedWeaponList.gameObject.SetActive(false);
+                    _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.SetArmorPanel);
+                    break;
+            }
         }
 
         public void Dispose()

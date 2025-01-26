@@ -29,5 +29,6 @@ namespace WolfVillage.Search
     {
         public const string StickInput = "StickInput";
         public const string Decide = "Decide";
+        public const string Cancel = "Cancel";
     }
 }

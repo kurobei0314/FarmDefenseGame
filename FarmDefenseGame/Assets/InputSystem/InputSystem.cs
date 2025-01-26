@@ -448,6 +448,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""30286d99-04b1-4adb-a654-6dd281e14a0e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -531,11 +540,22 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d891de53-3fe8-4b31-9af7-e271a28dcdea"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e277efb3-fec5-4413-ba13-f2feb33b67bb"",
+                    ""path"": ""*/{Cancel}"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -561,6 +581,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Search_StickInput = m_Search.FindAction("StickInput", throwIfNotFound: true);
         m_Search_Decide = m_Search.FindAction("Decide", throwIfNotFound: true);
         m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
+        m_Search_Cancel = m_Search.FindAction("Cancel", throwIfNotFound: true);
     }
 
     ~@InputSystem()
@@ -749,6 +770,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Search_StickInput;
     private readonly InputAction m_Search_Decide;
     private readonly InputAction m_Search_Back;
+    private readonly InputAction m_Search_Cancel;
     public struct SearchActions
     {
         private @InputSystem m_Wrapper;
@@ -756,6 +778,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @StickInput => m_Wrapper.m_Search_StickInput;
         public InputAction @Decide => m_Wrapper.m_Search_Decide;
         public InputAction @Back => m_Wrapper.m_Search_Back;
+        public InputAction @Cancel => m_Wrapper.m_Search_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -774,6 +797,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -787,6 +813,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -822,5 +851,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnStickInput(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }
