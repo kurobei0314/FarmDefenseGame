@@ -2913,6 +2913,17 @@ MonoBehaviour:
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: c21b87b03d0fde34096b48a2cfe70f82, type: 2}
+--- !u!114 &651168815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6400055922490233386, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+  m_PrefabInstance: {fileID: 8419346843327591257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024c9dc370ebc4fc08facbd9c2b8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &669243363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,7 +6127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -6127,7 +6138,101 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab6a3a96-1c27-43f1-837f-d84792d68400
+    m_ActionName: 'Battle/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 208c39b2-8071-4032-af5d-188608d1cd1a
+    m_ActionName: 'Battle/Walk[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2ea165a7-2f6c-4f17-babc-80c6c1cce537
+    m_ActionName: 'Battle/NomalAttack[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c786d553-e379-486b-98bc-d8c005dbe2a9
+    m_ActionName: 'Battle/SkillAttack1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9962857d-ddb1-44d1-be81-e2159f8bafc8
+    m_ActionName: 'Battle/SkillAttack2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 046911c0-9fba-41b7-b92d-2f2c320ea10e
+    m_ActionName: 'Battle/SkillAttack3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 74bc21d1-f2cb-497f-bb41-80ad91631f0b
+    m_ActionName: 'Battle/Avoid[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 036294f0-7454-4d17-9f11-d78e2ebf086a
+    m_ActionName: 'Battle/CameraMove[/Keyboard/d,/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bad488f0-0e82-4ce4-830e-345fa02ecce5
+    m_ActionName: 'Battle/InitCameraPos[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b93990ff-706b-4d39-b1c1-93187d778e29
+    m_ActionName: 'Battle/SwitchCameraMode[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1cdfbaaf-35a6-4ff8-8ac4-027de6622add
+    m_ActionName: 'Search/StickInput[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 651168815}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.EquipmentMenuUI,
+          Script
+        m_MethodName: InputDecideEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a7f5faef-bada-4e06-8a78-3ec5c2d67b2c
+    m_ActionName: 'Search/Decide[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9791ae3-38e3-4398-9951-77eead96f512
+    m_ActionName: 'Search/Back[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 651168815}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.EquipmentMenuUI,
+          Script
+        m_MethodName: InputCancelEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 30286d99-04b1-4adb-a654-6dd281e14a0e
+    m_ActionName: 'Search/Cancel[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Search
@@ -8397,6 +8502,10 @@ PrefabInstance:
     - target: {fileID: 248940510549714907, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589053220388615426, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_Name
+      value: EquipmentMenu
       objectReference: {fileID: 0}
     - target: {fileID: 615303776631379976, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchorMax.y

@@ -59,6 +59,9 @@ namespace WolfVillage.Common
 
         public abstract void UpdateFocusIndex(Vector2 inputAxis);
 
+        public void SelectFocusIndex()
+            => FindByView(_dataList[_selectDataIndex]).OnSelect();
+
         public void Dispose()
         {
             for (var i = _content.childCount - 1; i >= 0; i--)
