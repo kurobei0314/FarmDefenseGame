@@ -1,9 +1,9 @@
-public class SetEquipmentChangeStatusPanelVM
+public class SetEquipmentChangeStatusVM
 {
     private int m_addAttack;
     private int m_addDefense;
 
-    public SetEquipmentChangeStatusPanelVM(int addAttack, int addDefense)
+    public SetEquipmentChangeStatusVM(int addAttack, int addDefense)
     {
         m_addAttack = addAttack;
         m_addDefense = addDefense;

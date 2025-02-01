@@ -7,14 +7,15 @@ namespace WolfVillage.Search.PlayerMenuUI
     {
         private string _name;
         private bool _isSet;
-        private SetEquipmentChangeStatusPanelVM _statusPanelVM;
-        public OwnedEquipmentPanelVM(int id, string name, bool isSet) : base(id)
+        private SetEquipmentChangeStatusVM _statusPanelVM;
+        public OwnedEquipmentPanelVM(int id, string name, int addAttack, int addDefense, bool isSet) : base(id)
         {
             _name = name;
             _isSet = isSet;
+            _statusPanelVM = new SetEquipmentChangeStatusVM(addAttack, addDefense);
         }
         public string Name => _name;
         public bool isSet => _isSet;
-        public SetEquipmentChangeStatusPanelVM StatusPanelVM => _statusPanelVM;
+        public SetEquipmentChangeStatusVM StatusPanelVM => _statusPanelVM;
     }
 }

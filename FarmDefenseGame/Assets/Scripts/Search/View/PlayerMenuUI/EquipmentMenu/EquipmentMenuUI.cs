@@ -91,7 +91,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         private void UpdateViewForSetWeaponPanel(IWeaponEntity setWeaponEntity, IWeaponEntity[] ownedWeaponEntities)
         {
             _ownedWeaponList.gameObject.SetActive(true);
-            var panelVMs = ownedWeaponEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.WeaponVO.Name, entity.Id == setWeaponEntity.Id)).ToArray();
+            var panelVMs = ownedWeaponEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.WeaponVO.Name, entity.WeaponVO.Attack, 0, entity.Id == setWeaponEntity.Id)).ToArray();
             _ownedWeaponList.Initialize(panelVMs, (VM) =>
             {
                 _equipmentUseCase.SetCurrentWeapon(VM.Id);
@@ -104,7 +104,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         private void UpdateViewForSetWeaponPanel(IArmorEntity setArmorEntity, IArmorEntity[] ownedArmorEntities)
         {
             _ownedWeaponList.gameObject.SetActive(true);
-            var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, entity.Id == setArmorEntity.Id)).ToArray();
+            var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, 0, entity.ArmorVO.Defense, entity.Id == setArmorEntity.Id)).ToArray();
             _ownedWeaponList.Initialize(panelVMs, (VM) => 
             {
                 _equipmentUseCase.SetCurrentArmor(VM.Id);
