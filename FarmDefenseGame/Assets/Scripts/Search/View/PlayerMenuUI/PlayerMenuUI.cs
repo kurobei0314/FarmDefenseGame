@@ -20,6 +20,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         private IPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
+
         // TODO: masterやユーザーデータの情報は、ここで取得するわけでなく別のところに持たせるようにする
         void Start()
         {
@@ -35,12 +36,15 @@ namespace WolfVillage.Search.PlayerMenuUI
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
             player = new PlayerEntity(playerStatusVO, skillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
-            Initialize();
+            // TODO: ここの処理も別の場所に書く
+            var equipmentActor = new SetEquipmentActor(player, _weaponEntities, _armorEntities);
+
+            Initialize(equipmentActor);
         }
 
-        public void Initialize()
+        public void Initialize(ISetEquipmentUseCase equipmentUseCase)
         {
-            _contentUI.Initialize(player, _weaponEntities, _armorEntities, _playerInput);
+            _contentUI.Initialize(player, _weaponEntities, _armorEntities, _playerInput, equipmentUseCase);
         }
     }
 }

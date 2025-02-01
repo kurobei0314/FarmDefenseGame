@@ -10,9 +10,10 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void Initialize(IPlayerEntity playerEntity,
                                 IWeaponEntity[] weaponEntities,
                                 IArmorEntity[] armorEntities,
-                                PlayerInput playerInput)
+                                PlayerInput playerInput,
+                                ISetEquipmentUseCase equipmentUseCase)
         {
-            _weaponMenuUI.Initialize(playerEntity.SetCurrentWeapon, playerEntity.SetCurrentArmor, weaponEntities, armorEntities, playerInput);
+            _weaponMenuUI.Initialize(playerEntity.CurrentWeapon, playerEntity.CurrentArmor, weaponEntities, armorEntities, playerInput, equipmentUseCase);
         }
     }
 }

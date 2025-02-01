@@ -9,10 +9,12 @@ namespace WolfVillage.Entity.Interface
         ReactiveProperty<int> CurrentHP { get; }
         int CurrentHPValue { get; }
         int CurrentMaxHP { get; }
-        IWeaponEntity SetCurrentWeapon { get; }
-        IArmorEntity SetCurrentArmor { get; }
+        IWeaponEntity CurrentWeapon { get; }
+        IArmorEntity CurrentArmor { get; }
         ISkillEntity[] SetCurrentSkills { get; }
         void ReduceHP(int value);
+        void SetCurrentWeapon(IWeaponEntity weaponEntity);
+        void SetCurrentArmor(IArmorEntity armorEntity);
         bool IsAttack();
     }
 }

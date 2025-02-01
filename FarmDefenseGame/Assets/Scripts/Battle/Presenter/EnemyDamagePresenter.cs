@@ -24,7 +24,7 @@ namespace WolfVillage.Battle
                                 if (!playerEntity.IsAttack()) return;
                                 if (enemyEntity.CurrentStatus == Status.Damage 
                                     || enemyEntity.CurrentStatus == Status.Die) return;
-                                damageActor.ReduceHP(playerEntity.SetCurrentWeapon);
+                                damageActor.ReduceHP(playerEntity.CurrentWeapon);
                             }).AddTo(enemyView.GameObject);
 
             enemyEntity.CurrentHP

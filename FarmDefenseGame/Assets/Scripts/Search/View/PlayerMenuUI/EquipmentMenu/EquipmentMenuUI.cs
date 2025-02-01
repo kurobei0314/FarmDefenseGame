@@ -11,24 +11,23 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private OwnedEquipmentList _ownedWeaponList;
         [SerializeField] private SetCurrentEquipmentPanel _currentWeaponPanel;
         private WeaponMenuVM _weaponMenuVM;
-        private IWeaponEntity _setWeaponEntity;
-        private IArmorEntity _setArmorEntity;
         private IWeaponEntity[] _ownedWeaponEntities;
         private IArmorEntity[] _ownedArmorEntities;
+        private ISetEquipmentUseCase _equipmentUseCase;
 
         public void Initialize( IWeaponEntity setWeaponEntity,
                                 IArmorEntity setArmorEntity, 
                                 IWeaponEntity[] ownedWeaponEntities,
                                 IArmorEntity[] ownedArmorEntities,
-                                PlayerInput playerInput)
+                                PlayerInput playerInput,
+                                ISetEquipmentUseCase equipmentUseCase)
         {
-            _currentWeaponPanel.Initialize(setWeaponEntity, setArmorEntity);
+            _currentWeaponPanel.Initialize(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _ownedWeaponList.gameObject.SetActive(false);
-            _weaponMenuVM = new WeaponMenuVM(setWeaponEntity, setArmorEntity);
-            _setWeaponEntity = setWeaponEntity;
-            _setArmorEntity = setArmorEntity;
+            _weaponMenuVM = new WeaponMenuVM(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _ownedArmorEntities = ownedArmorEntities;
             _ownedWeaponEntities = ownedWeaponEntities;
+            _equipmentUseCase = equipmentUseCase;
 
             Observable.EveryUpdate()
                         .Where(_ => playerInput.actions[SearchGameInputActionName.StickInput].WasPressedThisFrame())
@@ -39,17 +38,17 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         // TODO: 絶対にUI全体を管理するクラスを作成し、そこで通知を受け取るようにする
         #region InputSystemEventHandler
-            public void InputDecideEvent(InputAction.CallbackContext context)
-            {
-                if (!context.performed) return;
-                UpdateViewDecide(_setWeaponEntity, _setArmorEntity, _ownedWeaponEntities, _ownedArmorEntities);
-            }
+        public void InputDecideEvent(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            UpdateViewDecide(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor, _ownedWeaponEntities, _ownedArmorEntities);
+        }
 
-            public void InputCancelEvent(InputAction.CallbackContext context)
-            {
-                if (!context.performed) return;
-                UpdateViewCancel();
-            }
+        public void InputCancelEvent(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            UpdateViewCancel();
+        }
         #endregion
 
         private void UpdateViewStickInput(PlayerInput playerInput)
@@ -101,7 +100,12 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _ownedWeaponList.gameObject.SetActive(true);
             var panelVMs = ownedWeaponEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.WeaponVO.Name, entity.Id == setWeaponEntity.Id)).ToArray();
-            _ownedWeaponList.Initialize(panelVMs, (VM) => Debug.LogError("wwww: " + VM.Id));
+            _ownedWeaponList.Initialize(panelVMs, (VM) =>
+            {
+                _equipmentUseCase.SetCurrentWeapon(VM.Id);
+                _currentWeaponPanel.Initialize(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                UpdateViewCancel();
+            });
             _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.OwnedWeaponList);
         }
 
@@ -109,7 +113,12 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _ownedWeaponList.gameObject.SetActive(true);
             var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, entity.Id == setArmorEntity.Id)).ToArray();
-            _ownedWeaponList.Initialize(panelVMs, (VM) => Debug.LogError("yyyy"));
+            _ownedWeaponList.Initialize(panelVMs, (VM) => 
+            {
+                _equipmentUseCase.SetCurrentArmor(VM.Id);
+                _currentWeaponPanel.Initialize(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                UpdateViewCancel();
+            });
             _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.OwnedArmorList);
         }
 
