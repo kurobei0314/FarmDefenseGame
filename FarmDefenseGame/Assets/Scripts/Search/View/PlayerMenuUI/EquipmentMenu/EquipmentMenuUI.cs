@@ -15,9 +15,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         private IArmorEntity[] _ownedArmorEntities;
         private ISetEquipmentUseCase _equipmentUseCase;
 
-        public void Initialize( IWeaponEntity setWeaponEntity,
-                                IArmorEntity setArmorEntity, 
-                                IWeaponEntity[] ownedWeaponEntities,
+        public void Initialize( IWeaponEntity[] ownedWeaponEntities,
                                 IArmorEntity[] ownedArmorEntities,
                                 PlayerInput playerInput,
                                 ISetEquipmentUseCase equipmentUseCase)
