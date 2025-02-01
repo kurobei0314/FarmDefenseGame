@@ -11,6 +11,8 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public IWeaponEntity PlayerCurrentWeapon => _playerEntity.CurrentWeapon;
         public IArmorEntity PlayerCurrentArmor => _playerEntity.CurrentArmor;
+        public IWeaponEntity[] HasWeaponEntity => _hasWeaponEntity;
+        public IArmorEntity[] HasArmorEntity => _hasArmorEntity;
 
         public SetEquipmentActor(IPlayerEntity playerEntity,
                                 IWeaponEntity[] hasWeaponEntity,

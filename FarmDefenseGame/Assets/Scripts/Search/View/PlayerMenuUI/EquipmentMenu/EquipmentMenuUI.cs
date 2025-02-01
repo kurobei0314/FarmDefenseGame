@@ -11,20 +11,14 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private OwnedEquipmentList _ownedWeaponList;
         [SerializeField] private SetCurrentEquipmentPanel _currentWeaponPanel;
         private WeaponMenuVM _weaponMenuVM;
-        private IWeaponEntity[] _ownedWeaponEntities;
-        private IArmorEntity[] _ownedArmorEntities;
         private ISetEquipmentUseCase _equipmentUseCase;
 
-        public void Initialize( IWeaponEntity[] ownedWeaponEntities,
-                                IArmorEntity[] ownedArmorEntities,
-                                PlayerInput playerInput,
+        public void Initialize( PlayerInput playerInput,
                                 ISetEquipmentUseCase equipmentUseCase)
         {
             _currentWeaponPanel.Initialize(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _ownedWeaponList.gameObject.SetActive(false);
             _weaponMenuVM = new WeaponMenuVM(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
-            _ownedArmorEntities = ownedArmorEntities;
-            _ownedWeaponEntities = ownedWeaponEntities;
             _equipmentUseCase = equipmentUseCase;
 
             Observable.EveryUpdate()
@@ -39,7 +33,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void InputDecideEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            UpdateViewDecide(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor, _ownedWeaponEntities, _ownedArmorEntities);
+            UpdateViewDecide(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor, _equipmentUseCase.HasWeaponEntity, _equipmentUseCase.HasArmorEntity);
         }
 
         public void InputCancelEvent(InputAction.CallbackContext context)

@@ -7,12 +7,10 @@ namespace WolfVillage.Search.PlayerMenuUI
     public class PlayerMenuContentUI : MonoBehaviour
     {
         [SerializeField] private EquipmentMenuUI _weaponMenuUI;
-        public void Initialize( IWeaponEntity[] weaponEntities,
-                                IArmorEntity[] armorEntities,
-                                PlayerInput playerInput,
+        public void Initialize( PlayerInput playerInput,
                                 ISetEquipmentUseCase equipmentUseCase)
         {
-            _weaponMenuUI.Initialize(weaponEntities, armorEntities, playerInput, equipmentUseCase);
+            _weaponMenuUI.Initialize(playerInput, equipmentUseCase);
         }
     }
 }

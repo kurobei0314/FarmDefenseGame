@@ -44,7 +44,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public void Initialize(ISetEquipmentUseCase equipmentUseCase)
         {
-            _contentUI.Initialize(_weaponEntities, _armorEntities, _playerInput, equipmentUseCase);
+            _contentUI.Initialize(_playerInput, equipmentUseCase);
         }
     }
 }

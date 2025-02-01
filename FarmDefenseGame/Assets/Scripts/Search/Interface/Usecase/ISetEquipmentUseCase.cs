@@ -6,6 +6,8 @@ namespace WolfVillage.Search.PlayerMenuUI
     {
         IWeaponEntity PlayerCurrentWeapon { get; }
         IArmorEntity PlayerCurrentArmor { get; }
+        IWeaponEntity[] HasWeaponEntity { get; }
+        IArmorEntity[] HasArmorEntity { get; }
         IWeaponEntity GetWeaponEntityById(int weaponEntityId);
         IArmorEntity GetArmorEntityById(int armorEntityId);
         void SetCurrentWeapon(int weaponEntityId);
