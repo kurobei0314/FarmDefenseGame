@@ -7,7 +7,7 @@ namespace WolfVillage.Battle {
     {
         private IPlayerNormalAttackUseCase _playerNormalAttackUseCase = null;
         public void Initialize(IPlayerView player,
-                                IPlayerEntity playerEntity,
+                                IBattlePlayerEntity playerEntity,
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)
         {

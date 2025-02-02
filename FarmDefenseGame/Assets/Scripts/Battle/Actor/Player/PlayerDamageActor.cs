@@ -7,12 +7,12 @@ namespace WolfVillage.Battle
     public class PlayerDamageActor : IPlayerDamageUseCase
     {
         private IPlayerView playerView;
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
         private IInGameView inGameView;
         private IEnemiesView enemiesView;
 
         public PlayerDamageActor(IPlayerView playerView, 
-                                IPlayerEntity playerEntity, 
+                                IBattlePlayerEntity playerEntity, 
                                 IInGameView inGameView,
                                 IEnemiesView enemiesView)
         {

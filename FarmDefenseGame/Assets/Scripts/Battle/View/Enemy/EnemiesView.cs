@@ -14,7 +14,7 @@ namespace WolfVillage.Battle
         private IEnemyView hitEnemyView;
         private IEnemyView targetEnemyView;
 
-        public void Initialize(InitializeEnemyDTO[] enemyDTOs, IPlayerView playerView, IPlayerEntity playerEntity)
+        public void Initialize(InitializeEnemyDTO[] enemyDTOs, IPlayerView playerView, IBattlePlayerEntity playerEntity)
         {
             enemyViews = new EnemyView[enemyDTOs.Length];
             var index = 0;

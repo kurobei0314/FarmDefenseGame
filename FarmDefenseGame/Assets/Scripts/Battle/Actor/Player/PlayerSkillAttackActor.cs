@@ -7,10 +7,10 @@ namespace WolfVillage.Battle
     public class PlayerSkillAttackActor : IPlayerSkillAttackUseCase
     {
         private IPlayerView playerView;
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
         private IInGameView gameView;
 
-        public PlayerSkillAttackActor(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView gameView)
+        public PlayerSkillAttackActor(IPlayerView playerView, IBattlePlayerEntity playerEntity, IInGameView gameView)
         {
             this.playerView = playerView;
             this.playerEntity = playerEntity;

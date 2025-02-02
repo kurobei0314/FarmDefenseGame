@@ -10,7 +10,7 @@ namespace WolfVillage.Battle.Interface
 {
     public interface IMainGameRepository
     {
-        IPlayerEntity Player { get; }
+        IBattlePlayerEntity Player { get; }
         InitializeEnemyDTO[] Enemies { get; }
         void Initialize();
     }
@@ -46,8 +46,8 @@ namespace WolfVillage.Battle
         [SerializeField] private SkillVODataStore skillVODataStore;
         [SerializeField] private ArmorVODataStore armorVODataStore;
         
-        private IPlayerEntity player;
-        public IPlayerEntity Player => player;
+        private IBattlePlayerEntity player;
+        public IBattlePlayerEntity Player => player;
 
         private InitializeEnemyDTO[] enemies;
         public InitializeEnemyDTO[] Enemies => enemies;
@@ -76,7 +76,7 @@ namespace WolfVillage.Battle
 
             // TODO: クリアしたフィールドの情報からStatusを取得するようにする
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
-            player = new PlayerEntity(playerStatusVO, skillEntities, weaponEntities.FirstOrDefault(), armorEntities.FirstOrDefault());
+            player = new Entity.BattlePlayerEntity(playerStatusVO, skillEntities, weaponEntities.FirstOrDefault(), armorEntities.FirstOrDefault());
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {

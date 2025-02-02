@@ -8,9 +8,9 @@ namespace WolfVillage.Battle
     // なんか違う気がする
     public class PlayerStatusView : MonoBehaviour
     {
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
 
-        public void Initialize (IPlayerEntity playerEntity)
+        public void Initialize (IBattlePlayerEntity playerEntity)
         {
             this.playerEntity = playerEntity;
         }

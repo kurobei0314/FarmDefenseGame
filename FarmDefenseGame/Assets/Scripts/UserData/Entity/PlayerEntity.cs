@@ -1,13 +1,11 @@
-using R3;
 using WolfVillage.Entity.Interface;
 using WolfVillage.ValueObject;
 using WolfVillage.ValueObject.Interface;
 using WolfVillage.Battle;
-using WolfVillage.Battle.Interface;
 
 namespace WolfVillage.Entity
 {
-    public class PlayerEntity : IPlayerEntity
+    public class PlayerEntity
     {
         public PlayerEntity(IPlayerStatusVO playerStatusVO,
                             ISkillEntity[] skillEntities,
@@ -19,57 +17,31 @@ namespace WolfVillage.Entity
             {
                 setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
             }
-            SetCurrentWeapon(weaponEntity);
-            SetCurrentArmor(armorEntity);
+            // TODO: いつか消す
+            setCurrentWeapon = weaponEntity;
+            setCurrentArmor = armorEntity;
             this.playerStatusVO = (PlayerStatusVO) playerStatusVO; 
             // TODO: 武器の特性も見てMaxHPを加算する処理を作る
             current_max_hp = playerStatusVO.MaxHP;
-            current_hp = new ReactiveProperty<int>();
-            current_hp.Value = current_max_hp;
-            current_status = Status.Idle;
         }
 
         private PlayerStatusVO playerStatusVO;
         public IPlayerStatusVO PlayerStatusVO => playerStatusVO;
 
-        private ReactiveProperty<int> current_hp;
-        public ReactiveProperty<int> CurrentHP => current_hp;
-        public int CurrentHPValue => current_hp.Value;
-
         // MEMO: 武器によって最大HPが変化する可能性もあるため、一旦Entityに持ってる
-        private int current_max_hp;
+        protected int current_max_hp;
         public int CurrentMaxHP => current_max_hp;
 
         // TODO: 武器をセットできるようにする(今は適当)
-        private IWeaponEntity setCurrentWeapon;
+        protected IWeaponEntity setCurrentWeapon;
         public IWeaponEntity CurrentWeapon => setCurrentWeapon;
 
         // TODO: 防具をセットできるようにする(今は適当)
-        private IArmorEntity setCurrentArmor;
+        protected IArmorEntity setCurrentArmor;
         public IArmorEntity CurrentArmor => setCurrentArmor;
 
         // TODO: スキルをセットできるようにする(今は適当)
-        private ISkillEntity[] setCurrentSkills;
+        protected ISkillEntity[] setCurrentSkills;
         public ISkillEntity[] SetCurrentSkills => setCurrentSkills;
-
-        private Status current_status;
-        public Status CurrentStatus => current_status;
-
-        public void ReduceHP(int value)
-        {
-            current_hp.Value = (current_hp.Value - value <= 0) ? 0 : current_hp.Value - value;
-        }
-
-        public void SetStatus(Status status)
-            => current_status = status;
-
-        public bool IsAttack()
-            => current_status == Status.Attack || current_status == Status.JustAvoidAttack;
-
-        public void SetCurrentWeapon(IWeaponEntity weaponEntity)
-            => setCurrentWeapon = weaponEntity;
-
-        public void SetCurrentArmor(IArmorEntity armorEntity)
-            => setCurrentArmor = armorEntity;
     }
 }

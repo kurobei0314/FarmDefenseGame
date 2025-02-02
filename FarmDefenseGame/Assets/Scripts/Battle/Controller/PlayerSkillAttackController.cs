@@ -8,7 +8,7 @@ namespace WolfVillage.Battle
     public class PlayerSkillAttackController : MonoBehaviour
     {
         IPlayerSkillAttackUseCase _playerAttackUseCase = null;
-        public void Initialize(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView gameView)
+        public void Initialize(IPlayerView playerView, IBattlePlayerEntity playerEntity, IInGameView gameView)
         {
             _playerAttackUseCase = new PlayerSkillAttackActor(playerView, playerEntity, gameView);
 

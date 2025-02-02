@@ -8,9 +8,9 @@ namespace WolfVillage.Battle
     public class PlayerDamagePresenter 
     {
         private IPlayerView playerView;
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
 
-        public PlayerDamagePresenter(IPlayerView playerView, IPlayerEntity playerEntity, IInGameView inGameView, IEnemiesView enemiesView)
+        public PlayerDamagePresenter(IPlayerView playerView, IBattlePlayerEntity playerEntity, IInGameView inGameView, IEnemiesView enemiesView)
         {
             IPlayerDamageUseCase playerDamageUseCase = new PlayerDamageActor(playerView, playerEntity, inGameView, enemiesView);
 

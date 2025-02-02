@@ -17,7 +17,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private ArmorVODataStore armorVODataStore;
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
         [SerializeField] private PlayerInput _playerInput;
-        private IPlayerEntity player;
+        private ISearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
 
@@ -34,7 +34,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Name != string.Empty).ToArray();
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
-            player = new PlayerEntity(playerStatusVO, skillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
+            player = new SearchPlayerEntity(playerStatusVO, skillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor(player, _weaponEntities, _armorEntities);

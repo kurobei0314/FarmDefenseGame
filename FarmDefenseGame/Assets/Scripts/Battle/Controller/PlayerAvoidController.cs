@@ -10,7 +10,7 @@ namespace WolfVillage.Battle
         IPlayerAvoidUseCase _playerAvoidUseCase = null;
         PlayerInput _playerInput = null;
         public void Initialize( IPlayerView playerView,
-                                IPlayerEntity playerEntity,
+                                IBattlePlayerEntity playerEntity,
                                 ICameraView cameraView,
                                 PlayerInput playerInput)
         {

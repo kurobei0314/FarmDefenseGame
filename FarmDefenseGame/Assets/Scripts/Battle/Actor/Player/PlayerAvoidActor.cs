@@ -4,10 +4,10 @@ using WolfVillage.Entity.Interface;
 public class PlayerAvoidActor : IPlayerAvoidUseCase
 {
     private IPlayerView _playerView;
-    private IPlayerEntity _playerEntity;
+    private IBattlePlayerEntity _playerEntity;
     private ICameraView _cameraView;
 
-    public PlayerAvoidActor(IPlayerView playerView, IPlayerEntity playerEntity, ICameraView cameraView)
+    public PlayerAvoidActor(IPlayerView playerView, IBattlePlayerEntity playerEntity, ICameraView cameraView)
     {
         _playerView = playerView;
         _playerEntity = playerEntity;

@@ -7,12 +7,12 @@ namespace WolfVillage.Battle
     public class PlayerNormalAttackActor : IPlayerNormalAttackUseCase
     {
         private IPlayerView playerView;
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
         private ICameraEntity cameraEntity;
         private IEnemiesView enemiesView;
 
         public PlayerNormalAttackActor(IPlayerView playerView, 
-                                IPlayerEntity playerEntity, 
+                                IBattlePlayerEntity playerEntity, 
                                 ICameraEntity cameraEntity,
                                 IEnemiesView enemiesView)
         {

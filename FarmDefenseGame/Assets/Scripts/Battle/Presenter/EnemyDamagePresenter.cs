@@ -9,9 +9,9 @@ namespace WolfVillage.Battle
     {
         private IEnemyView enemyView;
         private IEnemyEntity enemyEntity;
-        private IPlayerEntity playerEntity;
+        private IBattlePlayerEntity playerEntity;
 
-        public EnemyDamagePresenter(IEnemyView enemyView, IEnemyEntity enemyEntity, IPlayerEntity playerEntity)
+        public EnemyDamagePresenter(IEnemyView enemyView, IEnemyEntity enemyEntity, IBattlePlayerEntity playerEntity)
         {
             this.enemyView = enemyView;
             this.enemyEntity = enemyEntity;
