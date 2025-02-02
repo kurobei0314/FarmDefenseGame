@@ -10,9 +10,14 @@ namespace  WolfVillage.Search.PlayerMenuUI
 
         public void Initialize(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
         {
+            UpdateView(SetCurrentWeapon, SetCurrentArmor);
+            SelectWeaponPanel();
+        }
+
+        public void UpdateView(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
+        {
             _weaponPanel.Initialize(SetCurrentWeapon.WeaponVO.Name);
             _armorPanel.Initialize(SetCurrentArmor.ArmorVO.Name);
-            SelectWeaponPanel();
         }
 
         public void SelectWeaponPanel()

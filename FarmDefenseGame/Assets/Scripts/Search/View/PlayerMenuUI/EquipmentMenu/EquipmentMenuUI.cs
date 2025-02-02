@@ -79,7 +79,7 @@ namespace WolfVillage.Search.PlayerMenuUI
                     UpdateViewForSetWeaponPanel(setWeaponEntity, ownedWeaponEntities);
                     break;
                 case WeaponMenuVM.FocusWeaponMenuUIState.SetArmorPanel:
-                    UpdateViewForSetWeaponPanel(setArmorEntity, ownedArmorEntities);
+                    UpdateViewForSetArmorPanel(setArmorEntity, ownedArmorEntities);
                     break;
                 case WeaponMenuVM.FocusWeaponMenuUIState.OwnedWeaponList:
                 case WeaponMenuVM.FocusWeaponMenuUIState.OwnedArmorList:
@@ -95,20 +95,20 @@ namespace WolfVillage.Search.PlayerMenuUI
             _ownedWeaponList.Initialize(panelVMs, (VM) =>
             {
                 _equipmentUseCase.SetCurrentWeapon(VM.Id);
-                _currentWeaponPanel.Initialize(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                _currentWeaponPanel.UpdateView(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                 UpdateViewCancel();
             });
             _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.OwnedWeaponList);
         }
 
-        private void UpdateViewForSetWeaponPanel(IArmorEntity setArmorEntity, IArmorEntity[] ownedArmorEntities)
+        private void UpdateViewForSetArmorPanel(IArmorEntity setArmorEntity, IArmorEntity[] ownedArmorEntities)
         {
             _ownedWeaponList.gameObject.SetActive(true);
             var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, 0, entity.ArmorVO.Defense, entity.Id == setArmorEntity.Id)).ToArray();
             _ownedWeaponList.Initialize(panelVMs, (VM) => 
             {
                 _equipmentUseCase.SetCurrentArmor(VM.Id);
-                _currentWeaponPanel.Initialize(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                _currentWeaponPanel.UpdateView(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                 UpdateViewCancel();
             });
             _weaponMenuVM.SetState(WeaponMenuVM.FocusWeaponMenuUIState.OwnedArmorList);
