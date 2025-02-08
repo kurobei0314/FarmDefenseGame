@@ -4,6 +4,8 @@ using WolfVillage.Entity;
 using System.Linq;
 using WolfVillage.Entity.Interface;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using WolfVillage.Battle;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -17,7 +19,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private ArmorVODataStore armorVODataStore;
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
         [SerializeField] private PlayerInput _playerInput;
-        private ISearchPlayerEntity player;
+        private SearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
 
@@ -46,5 +48,21 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _contentUI.Initialize(_playerInput, equipmentUseCase);
         }
+
+        // TODO; デバックのためなので後で消す
+        #region InputSystemEventHandler
+        public void InputDebugBattleStartEvent(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            SceneManager.sceneLoaded += BattleSceneLoaded;
+            SceneManager.LoadScene("Main");
+        }
+        private void BattleSceneLoaded(Scene next, LoadSceneMode mode)
+        {
+            var controller = GameObject.Find("GameController").GetComponent<MainGameController>();
+            controller.Initialize(player);
+            SceneManager.sceneLoaded -= BattleSceneLoaded;
+        }
+        #endregion
     }
 }

@@ -457,6 +457,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugBattleStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1d05964-b597-44c0-80ef-df5763c857c0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -558,6 +567,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""beb9051a-9152-4aac-acbc-3b0048e85808"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugBattleStart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -582,6 +602,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Search_Decide = m_Search.FindAction("Decide", throwIfNotFound: true);
         m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
         m_Search_Cancel = m_Search.FindAction("Cancel", throwIfNotFound: true);
+        m_Search_DebugBattleStart = m_Search.FindAction("DebugBattleStart", throwIfNotFound: true);
     }
 
     ~@InputSystem()
@@ -771,6 +792,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Search_Decide;
     private readonly InputAction m_Search_Back;
     private readonly InputAction m_Search_Cancel;
+    private readonly InputAction m_Search_DebugBattleStart;
     public struct SearchActions
     {
         private @InputSystem m_Wrapper;
@@ -779,6 +801,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Decide => m_Wrapper.m_Search_Decide;
         public InputAction @Back => m_Wrapper.m_Search_Back;
         public InputAction @Cancel => m_Wrapper.m_Search_Cancel;
+        public InputAction @DebugBattleStart => m_Wrapper.m_Search_DebugBattleStart;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -800,6 +823,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Cancel.started += instance.OnCancel;
             @Cancel.performed += instance.OnCancel;
             @Cancel.canceled += instance.OnCancel;
+            @DebugBattleStart.started += instance.OnDebugBattleStart;
+            @DebugBattleStart.performed += instance.OnDebugBattleStart;
+            @DebugBattleStart.canceled += instance.OnDebugBattleStart;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -816,6 +842,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Cancel.started -= instance.OnCancel;
             @Cancel.performed -= instance.OnCancel;
             @Cancel.canceled -= instance.OnCancel;
+            @DebugBattleStart.started -= instance.OnDebugBattleStart;
+            @DebugBattleStart.performed -= instance.OnDebugBattleStart;
+            @DebugBattleStart.canceled -= instance.OnDebugBattleStart;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -852,5 +881,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnDecide(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+        void OnDebugBattleStart(InputAction.CallbackContext context);
     }
 }

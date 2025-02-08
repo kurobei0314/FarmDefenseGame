@@ -6244,6 +6244,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 30286d99-04b1-4adb-a654-6dd281e14a0e
     m_ActionName: 'Search/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122802958}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+        m_MethodName: InputDebugBattleStartEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e1d05964-b597-44c0-80ef-df5763c857c0
+    m_ActionName: 'Search/DebugBattleStart[/Keyboard/b]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Search
@@ -8361,6 +8377,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3026030421538665215, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
   m_PrefabInstance: {fileID: 8419346843327591257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2122802958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4217065879300540365, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+  m_PrefabInstance: {fileID: 8419346843327591257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ced522a34e349e5a0f35c7ae31378b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2125086252 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22400000, guid: 9665df51fb2b942fbbd5e00ac7b93b09, type: 3}

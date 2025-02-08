@@ -20,14 +20,13 @@ namespace WolfVillage.Battle {
         [SerializeField] private InGameView inGameView;
         [SerializeField] private PlayerInput playerInput = null;
 
-        void Start()
+        public void Initialize(PlayerEntity player)
         {
-            mainGameRepository.Initialize();
+            mainGameRepository.Initialize(player);
             var cameraEntity = new CameraEntity();
             var playerEntity = mainGameRepository.Player;
             inGameView.Initialize(playerEntity.CurrentMaxHP, playerEntity.SetCurrentSkills);
             playerView.Initialize(mainGameRepository.FieldVO.PlayerInitPos, mainGameRepository.FieldVO.PlayerInitRot);
-
 
             playerStatusView.Initialize(playerEntity);
             playerMoveController.Initialize(playerView, playerEntity, cameraView, playerInput);

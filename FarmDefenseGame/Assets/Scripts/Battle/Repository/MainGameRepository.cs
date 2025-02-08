@@ -12,7 +12,7 @@ namespace WolfVillage.Battle.Interface
     {
         IBattlePlayerEntity Player { get; }
         InitializeEnemyDTO[] Enemies { get; }
-        void Initialize();
+        void Initialize(PlayerEntity playerEntity);
     }
 }
 
@@ -46,8 +46,8 @@ namespace WolfVillage.Battle
         [SerializeField] private SkillVODataStore skillVODataStore;
         [SerializeField] private ArmorVODataStore armorVODataStore;
         
-        private IBattlePlayerEntity player;
-        public IBattlePlayerEntity Player => player;
+        private IBattlePlayerEntity battlePlayer;
+        public IBattlePlayerEntity Player => battlePlayer;
 
         private InitializeEnemyDTO[] enemies;
         public InitializeEnemyDTO[] Enemies => enemies;
@@ -56,27 +56,14 @@ namespace WolfVillage.Battle
         private IFieldVO fieldVO;
         public IFieldVO FieldVO => fieldVO;
 
-        public void Initialize()
+        public void Initialize(PlayerEntity playerEntity)
         {
             // TODO: フィールドごとにちゃんと持って来れるようにする
             fieldVO = fieldDataStore.Items.FirstOrDefault();
             var fieldEnemies = fieldEnemyDataStore.Items.Where(fieldEnemy => fieldVO.Id == fieldEnemy.FieldId).ToArray();
 
-            // TODO: プレイヤーがセットしたスキルを取得できるようにする
-            var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
-            var skillEntities = setSkillVO.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
-
-            // TODO: プレイヤーが装備した武器を取得できるようにする
-            var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var weaponEntities = setWeaponVO.Select((vo, index) => new WeaponEntity(index, vo)).ToArray();
-
-            // TODO: プレイヤーが装備した武具を取得できるようにする
-            var setArmorVO = armorVODataStore.Items.Where(vo => vo.Id == 1).ToArray();
-            var armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
-
-            // TODO: クリアしたフィールドの情報からStatusを取得するようにする
-            var playerStatusVO = playerDataStore.Items.FirstOrDefault();
-            player = new Entity.BattlePlayerEntity(playerStatusVO, skillEntities, weaponEntities.FirstOrDefault(), armorEntities.FirstOrDefault());
+            battlePlayer = new Entity.BattlePlayerEntity(playerEntity.PlayerStatusVO, playerEntity.SetCurrentSkills, playerEntity.CurrentWeapon, playerEntity.CurrentArmor);
+            Debug.Log($"<color=red>プレイヤーの装備品 {battlePlayer.CurrentWeapon.WeaponVO.Name} {battlePlayer.CurrentArmor.ArmorVO.Name}</color>");
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)
             {
