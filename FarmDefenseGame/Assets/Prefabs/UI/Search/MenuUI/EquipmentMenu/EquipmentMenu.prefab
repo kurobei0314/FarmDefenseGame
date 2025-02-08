@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024c9dc370ebc4fc08facbd9c2b8d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ownedWeaponList: {fileID: 3211280481044897264}
-  _currentWeaponPanel: {fileID: 5223536371731507843}
+  _ownedEquipmentList: {fileID: 3211280481044897264}
+  _currentEquipmentPanel: {fileID: 5223536371731507843}
 --- !u!1 &6703771746820503009
 GameObject:
   m_ObjectHideFlags: 0

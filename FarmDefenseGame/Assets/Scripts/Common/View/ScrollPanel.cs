@@ -7,10 +7,12 @@ namespace WolfVillage.Common
     {
         protected ViewModel viewModel;
         protected Action<ViewModel> SelectAction;
+        protected Action<ViewModel> FocusAction;
 
-        public void Setup(ViewModel viewModel, Action<ViewModel> onSelect)
+        public void Setup(ViewModel viewModel, Action<ViewModel> onFocus, Action<ViewModel> onSelect)
         {
             this.viewModel = viewModel;
+            FocusAction = onFocus;
             SelectAction = onSelect;
             UpdateView();
         }

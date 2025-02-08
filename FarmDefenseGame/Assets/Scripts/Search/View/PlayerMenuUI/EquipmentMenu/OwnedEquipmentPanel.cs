@@ -22,6 +22,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public override void OnFocus()
         {
+            FocusAction.Invoke(viewModel);
             _animator.SetBool("Select", true);
         }
 

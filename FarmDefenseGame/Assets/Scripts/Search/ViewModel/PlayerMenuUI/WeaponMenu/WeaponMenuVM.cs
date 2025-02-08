@@ -2,7 +2,7 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class WeaponMenuVM 
+    public class EquipmentMenuVM 
     {
         public enum FocusWeaponMenuUIState
         {
@@ -17,7 +17,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         private IWeaponEntity _setWeaponEntity;
         private IArmorEntity _setArmorEntity;
 
-        public WeaponMenuVM(IWeaponEntity setWeaponEntity, IArmorEntity setArmorEntity)
+        public EquipmentMenuVM(IWeaponEntity setWeaponEntity, IArmorEntity setArmorEntity)
         {
             _setWeaponEntity = setWeaponEntity;
             _setArmorEntity = setArmorEntity;

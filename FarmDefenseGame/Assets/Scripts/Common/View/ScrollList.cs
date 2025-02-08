@@ -13,6 +13,7 @@ namespace WolfVillage.Common
                                     where ViewModel : ScrollPanelVM
     {
         [SerializeField] protected GameObject _prefab;
+        private Action<ViewModel> _focusAction;
         private Action<ViewModel> _selectAction;
         protected int _selectDataIndex;
         private ObjectPool<GameObject> _pool;
@@ -22,9 +23,13 @@ namespace WolfVillage.Common
         protected Transform _viewport => _scrollRect.viewport;
         protected float viewportHeight => _viewport.GetComponent<RectTransform>().rect.height;
 
-        public void Initialize(ViewModel[] dataList, Action<ViewModel> selectAction, int selectedViewModelIndex = 0)
+        public void Initialize( ViewModel[] dataList,
+                                Action<ViewModel> focusAction,
+                                Action<ViewModel> selectAction,
+                                int selectedViewModelIndex = 0)
         {
             _dataList = dataList;
+            _focusAction = focusAction;
             _selectAction = selectAction;
             _selectDataIndex = selectedViewModelIndex;
             InitializeObjectPool();
@@ -78,7 +83,7 @@ namespace WolfVillage.Common
         {
             if (trans.gameObject.TryGetComponent<View>(out var view))
             {
-                view.Setup(_dataList[index], _selectAction);
+                view.Setup(_dataList[index], _focusAction, _selectAction);
                 trans.gameObject.SetActive(true);
                 if (index == _selectDataIndex) view.OnFocus();
                 else view.OnUnFocus();
