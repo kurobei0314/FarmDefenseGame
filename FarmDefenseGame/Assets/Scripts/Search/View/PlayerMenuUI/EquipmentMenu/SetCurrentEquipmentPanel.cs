@@ -7,26 +7,36 @@ namespace  WolfVillage.Search.PlayerMenuUI
     {
         [SerializeField] private HasEquipmentPanel _weaponPanel;
         [SerializeField] private HasEquipmentPanel _armorPanel;
+        [SerializeField] private PlayerStatusChangerUI _statusPanel;
 
         public void Initialize(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
         {
-            UpdateView(SetCurrentWeapon, SetCurrentArmor);
-            SelectWeaponPanel();
+            SetEquipments(SetCurrentWeapon, SetCurrentArmor);
+            FocusWeaponPanel();
         }
 
-        public void UpdateView(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
+        public void SetEquipments(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
+        {
+            _statusPanel.Initialize(SetCurrentWeapon.WeaponVO.Attack, SetCurrentArmor.ArmorVO.Defense);
+            UpdateHasEquipmentPanelViews(SetCurrentWeapon, SetCurrentArmor);
+        }
+
+        private void UpdateHasEquipmentPanelViews(IWeaponEntity SetCurrentWeapon, IArmorEntity SetCurrentArmor)
         {
             _weaponPanel.Initialize(SetCurrentWeapon.WeaponVO.Name);
             _armorPanel.Initialize(SetCurrentArmor.ArmorVO.Name);
         }
 
-        public void SelectWeaponPanel()
+        public void SetEquipmentChangeStatus(SetEquipmentChangeStatusVM equipmentChangeStatus)
+            => _statusPanel.SetEquipmentChangeStatus(equipmentChangeStatus);
+
+        public void FocusWeaponPanel()
         {
             _weaponPanel.SetSelectedPanel();
             _armorPanel.SetUnSelectedPanel();
         }
 
-        public void SelectArmorPanel()
+        public void FocusArmorPanel()
         {
             _weaponPanel.SetUnSelectedPanel();
             _armorPanel.SetSelectedPanel();

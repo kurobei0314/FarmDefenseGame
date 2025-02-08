@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &32766432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+  m_PrefabInstance: {fileID: 8419346843327591257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b5f609a11534906955aaf86d4602d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119064194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8503,6 +8514,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 424019067233878247, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 589053220388615426, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_Name
       value: EquipmentMenu
@@ -8558,6 +8573,46 @@ PrefabInstance:
     - target: {fileID: 1964855913820216100, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _upStatusColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _upStatusColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _upStatusColor.g
+      value: 0.08972335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _upStatusColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _downStatusColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _downStatusColor.b
+      value: 0.0379858
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _downStatusColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _downStatusColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _noChangeStatusColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486449834923732557, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2693726853951342387, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8751,6 +8806,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 6532055725641688350, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 6868258156090707563, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8775,6 +8834,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6972702938261102973, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: _statusPanel
+      value: 
+      objectReference: {fileID: 32766432}
     - target: {fileID: 7919000543891855276, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_SizeDelta.y
       value: -200

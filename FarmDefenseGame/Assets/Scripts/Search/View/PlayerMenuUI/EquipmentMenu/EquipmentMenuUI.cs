@@ -52,12 +52,12 @@ namespace WolfVillage.Search.PlayerMenuUI
                 case EquipmentMenuVM.FocusWeaponMenuUIState.SetArmorPanel:
                     if (axis.y > 0) 
                     {
-                        _currentEquipmentPanel.SelectWeaponPanel();
+                        _currentEquipmentPanel.FocusWeaponPanel();
                         _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.SetWeaponPanel);
                     }
                     if (axis.y < 0)
                     { 
-                        _currentEquipmentPanel.SelectArmorPanel();
+                        _currentEquipmentPanel.FocusArmorPanel();
                         _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.SetArmorPanel);
                     }
                     break;
@@ -92,11 +92,11 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _ownedEquipmentList.gameObject.SetActive(true);
             var panelVMs = ownedWeaponEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.WeaponVO.Name, entity.WeaponVO.Attack, 0, entity.Id == setWeaponEntity.Id)).ToArray();
-            _ownedEquipmentList.Initialize(panelVMs, (vm) => {},
+            _ownedEquipmentList.Initialize(panelVMs, (vm) => _currentEquipmentPanel.SetEquipmentChangeStatus(vm.StatusPanelVM),
             (vm) =>
             {
                 _equipmentUseCase.SetCurrentWeapon(vm.Id);
-                _currentEquipmentPanel.UpdateView(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                 UpdateViewCancel();
             });
             _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.OwnedWeaponList);
@@ -106,11 +106,11 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _ownedEquipmentList.gameObject.SetActive(true);
             var panelVMs = ownedArmorEntities.Select(entity => new OwnedEquipmentPanelVM(entity.Id, entity.ArmorVO.Name, 0, entity.ArmorVO.Defense, entity.Id == setArmorEntity.Id)).ToArray();
-            _ownedEquipmentList.Initialize(panelVMs, (vm) => {},
+            _ownedEquipmentList.Initialize(panelVMs, (vm) => _currentEquipmentPanel.SetEquipmentChangeStatus(vm.StatusPanelVM),
             (vm) => 
             {
                 _equipmentUseCase.SetCurrentArmor(vm.Id);
-                _currentEquipmentPanel.UpdateView(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
+                _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                 UpdateViewCancel();
             });
             _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.OwnedArmorList);
@@ -122,10 +122,12 @@ namespace WolfVillage.Search.PlayerMenuUI
             {
                 case EquipmentMenuVM.FocusWeaponMenuUIState.OwnedWeaponList:
                     _ownedEquipmentList.gameObject.SetActive(false);
+                    _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                     _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.SetWeaponPanel);
                     break;
                 case EquipmentMenuVM.FocusWeaponMenuUIState.OwnedArmorList:
                     _ownedEquipmentList.gameObject.SetActive(false);
+                    _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
                     _weaponMenuVM.SetState(EquipmentMenuVM.FocusWeaponMenuUIState.SetArmorPanel);
                     break;
             }
