@@ -6,46 +6,43 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class EquipmentMenuUI : MonoBehaviour
+    public class EquipmentMenuUI : MonoBehaviour, IPlayerMenuUIInputter
     {
         [SerializeField] private OwnedEquipmentList _ownedEquipmentList;
         [SerializeField] private SetCurrentEquipmentPanel _currentEquipmentPanel;
         private EquipmentMenuVM _weaponMenuVM;
         private ISetEquipmentUseCase _equipmentUseCase;
 
-        public void Initialize( PlayerInput playerInput,
-                                ISetEquipmentUseCase equipmentUseCase)
+        public void Initialize(ISetEquipmentUseCase equipmentUseCase)
         {
             _currentEquipmentPanel.Initialize(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _ownedEquipmentList.gameObject.SetActive(false);
             _weaponMenuVM = new EquipmentMenuVM(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _equipmentUseCase = equipmentUseCase;
-
-            Observable.EveryUpdate()
-                        .Where(_ => playerInput.actions[SearchGameInputActionName.StickInput].WasPressedThisFrame())
-                        .Subscribe(_ => {
-                            UpdateViewStickInput(playerInput);
-                        }).AddTo(this);
         }
-
-        // TODO: 絶対にUI全体を管理するクラスを作成し、そこで通知を受け取るようにする
-        #region InputSystemEventHandler
-        public void InputDecideEvent(InputAction.CallbackContext context)
+        void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
+        {
+            if (!context.started) return;
+            var value = context.ReadValue<Vector2>();
+            UpdateViewStickInput(value);
+        }
+        void IPlayerMenuUIInputter.InputDecideEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
             UpdateViewDecide(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor, _equipmentUseCase.HasWeaponEntity, _equipmentUseCase.HasArmorEntity);
         }
 
-        public void InputCancelEvent(InputAction.CallbackContext context)
+        void IPlayerMenuUIInputter.InputCancelEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
             UpdateViewCancel();
         }
-        #endregion
 
-        private void UpdateViewStickInput(PlayerInput playerInput)
+        void IPlayerMenuUIInputter.SetActive(bool active)
+            => this.gameObject.SetActive(active);
+
+        private void UpdateViewStickInput(Vector2 axis)
         {
-            var axis = playerInput.actions[SearchGameInputActionName.StickInput].ReadValue<Vector2>();
             switch (_weaponMenuVM.State)
             {
                 case EquipmentMenuVM.FocusWeaponMenuUIState.SetWeaponPanel:

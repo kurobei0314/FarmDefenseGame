@@ -5,11 +5,42 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public class PlayerMenuContentUI : MonoBehaviour
     {
-        [SerializeField] private EquipmentMenuUI _weaponMenuUI;
-        public void Initialize( PlayerInput playerInput,
+        [SerializeField] private EquipmentMenuUI _equipmentMenuUI;
+        private IPlayerMenuUIInputter _currentPlayerMenuUI;
+        public void Initialize( PlayerMenuState currentPlayerMenuState, 
                                 ISetEquipmentUseCase equipmentUseCase)
         {
-            _weaponMenuUI.Initialize(playerInput, equipmentUseCase);
+            _currentPlayerMenuUI = _equipmentMenuUI;
+            _equipmentMenuUI.Initialize(equipmentUseCase);
+            SetPlayerMenuUIInputter(currentPlayerMenuState);
+        }
+
+        private void SetPlayerMenuUIInputter(PlayerMenuState currentPlayerMenuState)
+            => _currentPlayerMenuUI = GetPlayerMenuUIInputter(currentPlayerMenuState);
+
+        private IPlayerMenuUIInputter GetPlayerMenuUIInputter(PlayerMenuState currentPlayerMenuState)
+        => currentPlayerMenuState switch
+        {
+                PlayerMenuState.Status => null,
+                PlayerMenuState.Equipment => _equipmentMenuUI,
+                PlayerMenuState.Skill => null,
+                PlayerMenuState.Inventory => null,
+                PlayerMenuState.Setting => null,
+                _ => null
+        };
+
+        public void InputStickEvent(InputAction.CallbackContext context)
+            => _currentPlayerMenuUI.InputStickEvent(context);
+
+        public void InputDecideEvent(InputAction.CallbackContext context)
+            => _currentPlayerMenuUI.InputDecideEvent(context);
+
+        public void InputCancelEvent(InputAction.CallbackContext context)
+            => _currentPlayerMenuUI.InputCancelEvent(context);
+
+        public void Dispose()
+        {
+            _equipmentMenuUI.Dispose();
         }
     }
 }

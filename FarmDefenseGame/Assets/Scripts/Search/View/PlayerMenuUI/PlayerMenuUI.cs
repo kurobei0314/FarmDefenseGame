@@ -2,7 +2,6 @@ using UnityEngine;
 using WolfVillage.MasterDataStore;
 using WolfVillage.Entity;
 using System.Linq;
-using WolfVillage.Entity.Interface;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
@@ -18,10 +17,10 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private SkillVODataStore skillVODataStore;
         [SerializeField] private ArmorVODataStore armorVODataStore;
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
-        [SerializeField] private PlayerInput _playerInput;
         private SearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
+        private PlayerMenuUIVM _playerMenuVM;
 
         // TODO: masterやユーザーデータの情報は、ここで取得するわけでなく別のところに持たせるようにする
         void Start()
@@ -46,10 +45,11 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public void Initialize(ISetEquipmentUseCase equipmentUseCase)
         {
-            _contentUI.Initialize(_playerInput, equipmentUseCase);
+            _playerMenuVM = new PlayerMenuUIVM();
+            _contentUI.Initialize(_playerMenuVM.State, equipmentUseCase);
         }
 
-        // TODO; デバックのためなので後で消す
+        // TODO: デバックのためなので後で消す
         #region InputSystemEventHandler
         public void InputDebugBattleStartEvent(InputAction.CallbackContext context)
         {
@@ -57,12 +57,33 @@ namespace WolfVillage.Search.PlayerMenuUI
             SceneManager.sceneLoaded += BattleSceneLoaded;
             SceneManager.LoadScene("Main");
         }
+
+        // TODO: デバックのためなので後で消す
         private void BattleSceneLoaded(Scene next, LoadSceneMode mode)
         {
             var controller = GameObject.Find("GameController").GetComponent<MainGameController>();
             controller.Initialize(player);
             SceneManager.sceneLoaded -= BattleSceneLoaded;
         }
+
+        // TODO: 絶対にUI全体を管理するクラスを作成し、そこで通知を受け取るようにする
+        public void InputStickEvent(InputAction.CallbackContext context)
+        {
+            _contentUI.InputStickEvent(context);
+        }
+        public void InputDecideEvent(InputAction.CallbackContext context)
+        {
+            _contentUI.InputDecideEvent(context);
+        }
+        public void InputCancelEvent(InputAction.CallbackContext context)
+        {
+            _contentUI.InputCancelEvent(context);
+        }
         #endregion
+
+        public void Dispose()
+        {
+            _contentUI.Dispose();
+        }
     }
 }

@@ -424,12 +424,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""StickInput"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""1cdfbaaf-35a6-4ff8-8ac4-027de6622add"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Decide"",
