@@ -2,15 +2,16 @@ using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
+    public enum FocusWeaponMenuUIState
+    {
+        SetWeaponPanel,
+        SetArmorPanel,
+        OwnedWeaponList,
+        OwnedArmorList,
+    }
+
     public class EquipmentMenuVM 
     {
-        public enum FocusWeaponMenuUIState
-        {
-            SetWeaponPanel,
-            SetArmorPanel,
-            OwnedWeaponList,
-            OwnedArmorList,
-        }
         private FocusWeaponMenuUIState _state;
         public FocusWeaponMenuUIState State => _state;
 
