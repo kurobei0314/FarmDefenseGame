@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public class SkillMenuUI : MonoBehaviour, IPlayerMenuUIInputter
     {

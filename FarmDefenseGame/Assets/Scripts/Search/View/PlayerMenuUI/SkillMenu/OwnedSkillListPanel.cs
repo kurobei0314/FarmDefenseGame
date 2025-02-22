@@ -1,7 +1,7 @@
 using UnityEngine;
 using WolfVillage.Common;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public class OwnedSkillListPanel : ScrollPanel<OwnedSkillListPanelVM>
     {
