@@ -1,9 +1,12 @@
 using UnityEngine.InputSystem;
 
-public interface IPlayerMenuUIInputter
+namespace WolfVillage.Search.PlayerMenuUI
 {
-    void SetActive(bool active);
-    void InputStickEvent(InputAction.CallbackContext context);
-    void InputDecideEvent(InputAction.CallbackContext context);
-    void InputCancelEvent(InputAction.CallbackContext context);
+    public interface IPlayerMenuUIInputter
+    {
+        void SetActive(bool active);
+        void InputStickEvent(InputAction.CallbackContext context);
+        void InputDecideEvent(InputAction.CallbackContext context);
+        void InputCancelEvent(InputAction.CallbackContext context);
+    }
 }

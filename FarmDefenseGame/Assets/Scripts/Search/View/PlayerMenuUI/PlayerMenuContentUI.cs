@@ -6,6 +6,7 @@ namespace WolfVillage.Search.PlayerMenuUI
     public class PlayerMenuContentUI : MonoBehaviour
     {
         [SerializeField] private EquipmentMenuUI _equipmentMenuUI;
+        [SerializeField] private SkillMenuUI _skillMenuUI;
         private IPlayerMenuUIInputter _currentPlayerMenuUI;
         public void Initialize( PlayerMenuState currentPlayerMenuState, 
                                 ISetEquipmentUseCase equipmentUseCase)
@@ -23,7 +24,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
                 PlayerMenuState.Status => null,
                 PlayerMenuState.Equipment => _equipmentMenuUI,
-                PlayerMenuState.Skill => null,
+                PlayerMenuState.Skill => _skillMenuUI,
                 PlayerMenuState.Inventory => null,
                 PlayerMenuState.Setting => null,
                 _ => null
