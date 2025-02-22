@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
 using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
+using WolfVillage.Search.PlayerMenuUI.SkillMenu;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -40,14 +41,16 @@ namespace WolfVillage.Search.PlayerMenuUI
 
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor(player, _weaponEntities, _armorEntities);
+            var skillActor = new SetSkillActor(player, skillEntities);
 
-            Initialize(equipmentActor);
+            Initialize(equipmentActor, skillActor);
         }
 
-        public void Initialize(ISetEquipmentUseCase equipmentUseCase)
+        public void Initialize( ISetEquipmentUseCase equipmentUseCase,
+                                ISetSkillUseCase skillUseCase)
         {
             _playerMenuVM = new PlayerMenuUIVM();
-            _contentUI.Initialize(_playerMenuVM.State, equipmentUseCase);
+            _contentUI.Initialize(_playerMenuVM.State, equipmentUseCase, skillUseCase);
         }
 
         // TODO: デバックのためなので後で消す

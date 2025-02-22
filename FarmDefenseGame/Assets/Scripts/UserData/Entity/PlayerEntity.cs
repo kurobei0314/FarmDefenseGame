@@ -42,6 +42,6 @@ namespace WolfVillage.Entity
 
         // TODO: スキルをセットできるようにする(今は適当)
         protected ISkillEntity[] setCurrentSkills;
-        public ISkillEntity[] SetCurrentSkills => setCurrentSkills;
+        public ISkillEntity[] CurrentSkills => setCurrentSkills;
     }
 }

@@ -5,6 +5,6 @@ namespace WolfVillage.Entity.Interface
         int CurrentMaxHP { get; }
         IWeaponEntity CurrentWeapon { get; }
         IArmorEntity CurrentArmor { get; }
-        ISkillEntity[] SetCurrentSkills { get; }
+        ISkillEntity[] CurrentSkills { get; }
     }
 }

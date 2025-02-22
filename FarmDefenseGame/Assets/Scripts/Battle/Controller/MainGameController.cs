@@ -25,7 +25,7 @@ namespace WolfVillage.Battle {
             mainGameRepository.Initialize(player);
             var cameraEntity = new CameraEntity();
             var playerEntity = mainGameRepository.Player;
-            inGameView.Initialize(playerEntity.CurrentMaxHP, playerEntity.SetCurrentSkills);
+            inGameView.Initialize(playerEntity.CurrentMaxHP, playerEntity.CurrentSkills);
             playerView.Initialize(mainGameRepository.FieldVO.PlayerInitPos, mainGameRepository.FieldVO.PlayerInitRot);
 
             playerStatusView.Initialize(playerEntity);

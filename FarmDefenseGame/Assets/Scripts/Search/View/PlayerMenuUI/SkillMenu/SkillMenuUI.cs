@@ -9,10 +9,12 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         [SerializeField] private SetCurrentSkillGroup _setCurrentSkillGroup;
         [SerializeField] private OwnedSkillList _ownedSkillList;
         [SerializeField] private SkillDescription _skillDescription;
+        private ISetSkillUseCase _skillUseCase;
+        private SkillMenuVM _skillMenuVM;
 
-        public void Initialize()
+        public void Initialize(ISetSkillUseCase skillUseCase)
         {
-            
+            _skillMenuVM = new SkillMenuVM();
         }
 
         void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
@@ -32,5 +34,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         void IPlayerMenuUIInputter.SetActive(bool active)
             => this.gameObject.SetActive(active);
+
+        public void Dispose()
+        {
+            _ownedSkillList.Dispose();
+        }
     }
 }

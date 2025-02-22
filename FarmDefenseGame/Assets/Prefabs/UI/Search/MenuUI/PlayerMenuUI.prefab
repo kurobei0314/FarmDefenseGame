@@ -852,6 +852,14 @@ PrefabInstance:
       propertyPath: _statusPanel
       value: 
       objectReference: {fileID: 2250936693960437718}
+    - target: {fileID: 5819661174291085891, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5819661174291085891, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8223353929680711392, guid: e90d2e558d7a24630b241ccdce697d01, type: 3}
       propertyPath: m_SizeDelta.y
       value: 350

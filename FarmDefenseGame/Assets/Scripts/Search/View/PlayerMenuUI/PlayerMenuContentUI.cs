@@ -11,10 +11,12 @@ namespace WolfVillage.Search.PlayerMenuUI
         [SerializeField] private SkillMenuUI _skillMenuUI;
         private IPlayerMenuUIInputter _currentPlayerMenuUI;
         public void Initialize( PlayerMenuState currentPlayerMenuState, 
-                                ISetEquipmentUseCase equipmentUseCase)
+                                ISetEquipmentUseCase equipmentUseCase,
+                                ISetSkillUseCase skillUseCase)
         {
             _currentPlayerMenuUI = _equipmentMenuUI;
             _equipmentMenuUI.Initialize(equipmentUseCase);
+            _skillMenuUI.Initialize(skillUseCase);
             SetPlayerMenuUIInputter(currentPlayerMenuState);
         }
 
@@ -44,6 +46,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void Dispose()
         {
             _equipmentMenuUI.Dispose();
+            _skillMenuUI.Dispose();
         }
     }
 }
