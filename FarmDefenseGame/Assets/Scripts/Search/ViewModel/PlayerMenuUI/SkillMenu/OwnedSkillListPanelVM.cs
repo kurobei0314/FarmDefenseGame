@@ -1,9 +1,12 @@
 using WolfVillage.Common;
 
-public class OwnedSkillListPanelVM : ScrollPanelVM
+namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
-    public OwnedSkillListPanelVM(int id) : base(id)
+    public class OwnedSkillListPanelVM : ScrollPanelVM
     {
-        
+        public OwnedSkillListPanelVM(int id) : base(id)
+        {
+            
+        }
     }
 }
