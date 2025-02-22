@@ -1,7 +1,7 @@
 using System.Linq;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class SetEquipmentActor : ISetEquipmentUseCase
     {

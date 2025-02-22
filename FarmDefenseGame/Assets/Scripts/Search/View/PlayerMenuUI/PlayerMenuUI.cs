@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
+using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {

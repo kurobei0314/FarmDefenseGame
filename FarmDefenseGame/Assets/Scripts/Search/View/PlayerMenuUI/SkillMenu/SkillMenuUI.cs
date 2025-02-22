@@ -5,9 +5,9 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public class SkillMenuUI : MonoBehaviour, IPlayerMenuUIInputter
     {
-        [SerializeField] private OwnedSkillList _ownedSkillList;
-        [SerializeField] private SetCurrentSkillGroup _setCurrentSkillGroup;
         [SerializeField] private SkillRoleTypeToggle _skillRoleTypeToggle;
+        [SerializeField] private SetCurrentSkillGroup _setCurrentSkillGroup;
+        [SerializeField] private OwnedSkillList _ownedSkillList;
         [SerializeField] private SkillDescription _skillDescription;
 
         public void Initialize()

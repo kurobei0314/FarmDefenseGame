@@ -1,7 +1,6 @@
 using WolfVillage.Common;
-using WolfVillage.Entity.Interface;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class OwnedEquipmentPanelVM : ScrollPanelVM
     {

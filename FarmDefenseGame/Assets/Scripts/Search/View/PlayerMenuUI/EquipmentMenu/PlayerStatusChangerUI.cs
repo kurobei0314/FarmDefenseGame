@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace  WolfVillage.Search.PlayerMenuUI
+namespace  WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class PlayerStatusChangerUI : MonoBehaviour
     {

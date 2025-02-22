@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class EquipmentPanel : MonoBehaviour
     {

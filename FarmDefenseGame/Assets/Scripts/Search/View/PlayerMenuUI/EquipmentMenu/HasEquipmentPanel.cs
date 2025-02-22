@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class HasEquipmentPanel : MonoBehaviour
     {

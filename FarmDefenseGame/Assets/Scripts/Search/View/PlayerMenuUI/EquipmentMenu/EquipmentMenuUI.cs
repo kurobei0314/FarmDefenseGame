@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using WolfVillage.Entity.Interface;
 
-namespace WolfVillage.Search.PlayerMenuUI
+namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class EquipmentMenuUI : MonoBehaviour, IPlayerMenuUIInputter
     {

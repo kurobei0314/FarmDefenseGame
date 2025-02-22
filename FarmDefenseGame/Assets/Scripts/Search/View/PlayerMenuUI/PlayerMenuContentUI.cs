@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
