@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public enum FocusSkillMenuState

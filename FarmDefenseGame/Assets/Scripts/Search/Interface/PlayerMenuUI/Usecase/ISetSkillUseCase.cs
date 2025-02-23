@@ -1,4 +1,5 @@
 using WolfVillage.Entity.Interface;
+using WolfVillage.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
@@ -6,5 +7,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
     {
         ISkillEntity[] CurrentSkillEntities { get; }
         ISkillEntity[] HasSkillEntities { get; }
+        RoleType SetWeaponRoleType { get; } 
     }
 }

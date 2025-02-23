@@ -5,7 +5,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public class SkillMenuUI : MonoBehaviour, IPlayerMenuUIInputter
     {
-        [SerializeField] private SkillRoleTypeToggle _skillRoleTypeToggle;
+        [SerializeField] private SkillRoleTypeToggleGroup _skillRoleTypeToggleGroup;
         [SerializeField] private SetCurrentSkillGroup _setCurrentSkillGroup;
         [SerializeField] private OwnedSkillList _ownedSkillList;
         [SerializeField] private SkillDescription _skillDescription;
@@ -15,6 +15,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         public void Initialize(ISetSkillUseCase skillUseCase)
         {
             _skillMenuVM = new SkillMenuVM();
+            _skillRoleTypeToggleGroup.Initialize(skillUseCase.SetWeaponRoleType);
         }
 
         void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)

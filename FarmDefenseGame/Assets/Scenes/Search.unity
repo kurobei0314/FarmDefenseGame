@@ -8832,6 +8832,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 6267945521564110672, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6532055725641688350, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 350
@@ -8864,6 +8868,14 @@ PrefabInstance:
       propertyPath: _statusPanel
       value: 
       objectReference: {fileID: 32766432}
+    - target: {fileID: 7318513952035240624, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318513952035240624, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7919000543891855276, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_SizeDelta.y
       value: -200

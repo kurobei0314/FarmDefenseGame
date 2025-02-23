@@ -14,768 +14,1074 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingServerUrl: https://docs.google.com/spreadsheets/d/1HTirwNstPrs_dKaqJ8OD1FpKL52unS0Ldr0wE9scXhw/edit#gid=995645166#gid=995645166
   items:
-  - name: "\u4EEE\u306E\u6253\u6483"
+  - name: "\u4EEE\u306E\u65AC\u64831"
     id: 1
     role_type_id: 1
     attack_type_id: 4
     interval_time: 1
-  - name: 
+    icon_image_name: 
+    description: "\u3042"
+  - name: "\u4EEE\u306E\u6253\u64831"
     id: 2
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A811"
     id: 3
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64832"
     id: 4
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64832"
     id: 5
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A812"
     id: 6
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64833"
     id: 7
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64833"
     id: 8
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A813"
     id: 9
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64834"
     id: 10
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64834"
     id: 11
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A814"
     id: 12
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64835"
     id: 13
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64835"
     id: 14
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A815"
     id: 15
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64836"
     id: 16
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042"
+  - name: "\u4EEE\u306E\u6253\u64836"
     id: 17
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A816"
     id: 18
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64837"
     id: 19
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64837"
     id: 20
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A817"
     id: 21
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64838"
     id: 22
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64838"
     id: 23
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A818"
     id: 24
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u64839"
     id: 25
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u64839"
     id: 26
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A819"
     id: 27
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648310"
     id: 28
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648310"
     id: 29
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8110"
     id: 30
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648311"
     id: 31
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042"
+  - name: "\u4EEE\u306E\u6253\u648311"
     id: 32
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8111"
     id: 33
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648312"
     id: 34
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648312"
     id: 35
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8112"
     id: 36
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648313"
     id: 37
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648313"
     id: 38
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8113"
     id: 39
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648314"
     id: 40
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648314"
     id: 41
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8114"
     id: 42
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648315"
     id: 43
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648315"
     id: 44
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044\u3044\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8115"
     id: 45
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046\u3046\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648316"
     id: 46
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042"
+  - name: "\u4EEE\u306E\u6253\u648316"
     id: 47
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8116"
     id: 48
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648317"
     id: 49
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042"
+  - name: "\u4EEE\u306E\u6253\u648317"
     id: 50
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 2
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3044\u3044"
+  - name: "\u4EEE\u306E\u523A\u7A8117"
     id: 51
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
-  - name: 
+    role_type_id: 3
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3046\u3046"
+  - name: "\u4EEE\u306E\u65AC\u648318"
     id: 52
-    role_type_id: 0
-    attack_type_id: 0
-    interval_time: 0
+    role_type_id: 1
+    attack_type_id: 4
+    interval_time: 1
+    icon_image_name: 
+    description: "\u3042\u3042\u3042"
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
   - name: 
     id: 0
     role_type_id: 0
     attack_type_id: 0
     interval_time: 0
+    icon_image_name: 
+    description: 
