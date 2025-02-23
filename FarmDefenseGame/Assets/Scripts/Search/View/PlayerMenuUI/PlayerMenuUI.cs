@@ -41,7 +41,8 @@ namespace WolfVillage.Search.PlayerMenuUI
                 var roleType = (RoleType)type;
                 if (skillEntities[0].SkillVO.RoleType == roleType)
                 {
-                    setAllTypeSkillEntities.Add(roleType, skillEntities);
+                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM]);
+                    setAllTypeSkillEntities[roleType][0] = skillEntities[0];
                 }
                 else
                 {
