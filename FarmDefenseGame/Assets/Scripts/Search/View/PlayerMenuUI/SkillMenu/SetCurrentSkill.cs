@@ -1,4 +1,5 @@
 using UnityEngine;
+using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
@@ -6,7 +7,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
     {
         [SerializeField] private Animator _animator;
 
-        public void Initialize()
+        public void Initialize(ISkillEntity skillEntity)
         {
 
         }

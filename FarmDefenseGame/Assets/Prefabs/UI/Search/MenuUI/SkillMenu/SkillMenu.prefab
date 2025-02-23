@@ -166,7 +166,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 100, y: -100}
-  m_SizeDelta: {x: 500, y: 540}
+  m_SizeDelta: {x: 500, y: 550}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &183327885126167947
 PrefabInstance:
@@ -386,7 +386,10 @@ PrefabInstance:
       value: SetSkillGroup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2319597993283578367, guid: 4d2db7ea8608a4ad6831fe8eb3ac7013, type: 3}
+    - {fileID: 8780032465094036150, guid: 4d2db7ea8608a4ad6831fe8eb3ac7013, type: 3}
+    - {fileID: 8267557548285981683, guid: 4d2db7ea8608a4ad6831fe8eb3ac7013, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d2db7ea8608a4ad6831fe8eb3ac7013, type: 3}

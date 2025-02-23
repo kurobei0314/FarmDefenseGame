@@ -8,6 +8,6 @@ namespace WolfVillage.Entity.Interface
         int CurrentMaxHP { get; }
         IWeaponEntity CurrentWeapon { get; }
         IArmorEntity CurrentArmor { get; }
-        Dictionary<RoleType, ISkillEntity[]> SetAllRoleTypeSkills { get; }
+        Dictionary<RoleType, ISkillEntity[]> CurrentAllRoleTypeSkills { get; }
     }
 }

@@ -5,7 +5,8 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public interface ISetSkillUseCase
     {
-        ISkillEntity[] HasSkillEntities { get; }
-        RoleType SetWeaponRoleType { get; } 
+        RoleType SetWeaponRoleType { get; }
+        ISkillEntity[] GetCurrentSkillEntitiesByRoleType(RoleType type);
+        ISkillEntity[] GetHasSkillEntitiesByRoleType(RoleType type);
     }
 }

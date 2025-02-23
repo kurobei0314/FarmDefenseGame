@@ -34,7 +34,7 @@ namespace WolfVillage.Search.PlayerMenuUI
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
-            var skillEntities = setSkillVO.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
+            var skillEntities = skillVODataStore.Items.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
             Dictionary<RoleType, ISkillEntity[]> setAllTypeSkillEntities = new Dictionary<RoleType, ISkillEntity[]>();
             foreach ( var type in Enum.GetValues(typeof(RoleType)))
             {

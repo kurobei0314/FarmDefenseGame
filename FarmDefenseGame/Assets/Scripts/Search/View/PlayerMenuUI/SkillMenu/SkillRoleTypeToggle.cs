@@ -14,9 +14,8 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _type = roleType;
         }
         
-        public void SetOn(RoleType type)
+        public void SetOn()
         {
-            if (_type != type) return;
             _animator.SetBool("Select", true);
         }
 
@@ -24,5 +23,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         {
             _animator.SetBool("Select", false);
         }
+
+        public RoleType RoleType => _type;
     }
 }

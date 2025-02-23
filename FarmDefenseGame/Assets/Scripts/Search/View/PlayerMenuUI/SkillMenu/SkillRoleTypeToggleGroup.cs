@@ -19,15 +19,24 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
                 if (setWeaponType == roleType)
                 {
-                    _roleTypeToggles[index].SetOn(roleType);
+                    _roleTypeToggles[index].SetOn();
                 }
                 index++;
             }
         }
 
-        public void SwitchTab()
+        public void SwitchTab(RoleType type, Action setOnAction)
         {
-
+            for (var i = 0; i < _roleTypeToggles.Length; i++)
+            {
+                if (_roleTypeToggles[i].RoleType == type)
+                {
+                    _roleTypeToggles[i].SetOn();
+                    setOnAction();
+                    return;
+                }
+                _roleTypeToggles[i].SetOff();
+            }
         }
     }
 }

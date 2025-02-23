@@ -45,6 +45,6 @@ namespace WolfVillage.Entity
 
         // TODO: スキルをセットできるようにする(今は適当)
         protected Dictionary<RoleType, ISkillEntity[]> setCurrentSkills;
-        public Dictionary<RoleType, ISkillEntity[]> SetAllRoleTypeSkills => setCurrentSkills;
+        public Dictionary<RoleType, ISkillEntity[]> CurrentAllRoleTypeSkills => setCurrentSkills;
     }
 }

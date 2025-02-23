@@ -1,5 +1,7 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using WolfVillage.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
@@ -15,7 +17,17 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         public void Initialize(ISetSkillUseCase skillUseCase)
         {
             _skillMenuVM = new SkillMenuVM();
-            _skillRoleTypeToggleGroup.Initialize(skillUseCase.SetWeaponRoleType);
+            _skillUseCase = skillUseCase;
+            UpdateView(skillUseCase.SetWeaponRoleType);
+        }
+
+        private void UpdateView(RoleType type)
+        {
+            _skillRoleTypeToggleGroup.Initialize(type);
+            _setCurrentSkillGroup.Initialize(type, _skillUseCase.GetCurrentSkillEntitiesByRoleType(type));
+            var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
+                                   .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
+            _ownedSkillList.Initialize(vms, null, null);
         }
 
         void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
