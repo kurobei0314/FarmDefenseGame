@@ -6,6 +6,7 @@ namespace WolfVillage.Entity.Interface
     {
         ReactiveProperty<int> CurrentHP { get; }
         int CurrentHPValue { get; }
+        ISkillEntity[] CurrentWeaponTypeSkills { get; }
         void ReduceHP(int value);
         bool IsAttack();
     }

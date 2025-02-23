@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using WolfVillage.Entity.Interface;
+using WolfVillage.Interface;
 using WolfVillage.ValueObject.Interface;
 
 namespace WolfVillage.Entity
@@ -6,7 +8,7 @@ namespace WolfVillage.Entity
     public class SearchPlayerEntity : PlayerEntity, ISearchPlayerEntity
     {
         public SearchPlayerEntity ( IPlayerStatusVO playerStatusVO,
-                                    ISkillEntity[] skillEntities,
+                                    Dictionary<RoleType, ISkillEntity[]> skillEntities,
                                     IWeaponEntity weaponEntity,
                                     IArmorEntity armorEntity) : base( playerStatusVO, skillEntities, weaponEntity, armorEntity)
         {

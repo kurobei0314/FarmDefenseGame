@@ -62,7 +62,7 @@ namespace WolfVillage.Battle
             fieldVO = fieldDataStore.Items.FirstOrDefault();
             var fieldEnemies = fieldEnemyDataStore.Items.Where(fieldEnemy => fieldVO.Id == fieldEnemy.FieldId).ToArray();
 
-            battlePlayer = new Entity.BattlePlayerEntity(playerEntity.PlayerStatusVO, playerEntity.CurrentSkills, playerEntity.CurrentWeapon, playerEntity.CurrentArmor);
+            battlePlayer = new Entity.BattlePlayerEntity(playerEntity.PlayerStatusVO, playerEntity.SetAllRoleTypeSkills, playerEntity.CurrentWeapon, playerEntity.CurrentArmor);
             Debug.Log($"<color=red>プレイヤーの装備品 {battlePlayer.CurrentWeapon.WeaponVO.Name} {battlePlayer.CurrentArmor.ArmorVO.Name}</color>");
             enemies = new InitializeEnemyDTO[fieldEnemies.Length];
             for (int i = 0; i < fieldEnemies.Length ; i++)

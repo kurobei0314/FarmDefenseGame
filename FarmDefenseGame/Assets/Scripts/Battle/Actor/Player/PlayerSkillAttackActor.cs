@@ -19,7 +19,7 @@ namespace WolfVillage.Battle
 
         public void AttackPlayer(int index)
         {
-            var skillEntity = playerEntity.CurrentSkills[index];
+            var skillEntity = playerEntity.CurrentWeaponTypeSkills[index];
             if (skillEntity == null) return; 
             if (!skillEntity.AbleUseSkill()) return;
             
@@ -31,7 +31,7 @@ namespace WolfVillage.Battle
 
         public void FinishIntervalTimeSkill(int index)
         {
-            var skillEntity = playerEntity.CurrentSkills[index];
+            var skillEntity = playerEntity.CurrentWeaponTypeSkills[index];
             if (skillEntity == null) return;
 
             skillEntity.UpdateStatus(SkillEntity.Status.CanUse);

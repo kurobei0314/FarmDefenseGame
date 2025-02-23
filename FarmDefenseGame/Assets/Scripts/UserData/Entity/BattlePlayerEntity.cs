@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using R3;
 using WolfVillage.Battle;
 using WolfVillage.Entity.Interface;
+using WolfVillage.Interface;
 using WolfVillage.ValueObject.Interface;
 
 namespace WolfVillage.Entity
@@ -8,12 +10,10 @@ namespace WolfVillage.Entity
     public class BattlePlayerEntity : PlayerEntity, IBattlePlayerEntity
     {
         public BattlePlayerEntity ( IPlayerStatusVO playerStatusVO,
-                                    ISkillEntity[] skillEntities,
+                                    Dictionary<RoleType, ISkillEntity[]> skillEntities,
                                     IWeaponEntity weaponEntity,
                                     IArmorEntity armorEntity) : base( playerStatusVO, skillEntities, weaponEntity, armorEntity)
         {
-            setCurrentSkills = new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM];
-
             current_hp = new ReactiveProperty<int>();
             current_hp.Value = current_max_hp;
             current_status = Status.Idle;
@@ -25,6 +25,8 @@ namespace WolfVillage.Entity
 
         private Status current_status;
         public Status CurrentStatus => current_status;
+
+        public ISkillEntity[] CurrentWeaponTypeSkills => setCurrentSkills[CurrentWeapon.WeaponVO.RoleType];
 
         public void ReduceHP(int value)
         {

@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
 using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 using WolfVillage.Search.PlayerMenuUI.SkillMenu;
+using System.Collections.Generic;
+using WolfVillage.Interface;
+using WolfVillage.Entity.Interface;
+using System;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -31,13 +35,26 @@ namespace WolfVillage.Search.PlayerMenuUI
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
             var skillEntities = setSkillVO.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
+            Dictionary<RoleType, ISkillEntity[]> setAllTypeSkillEntities = new Dictionary<RoleType, ISkillEntity[]>();
+            foreach ( var type in Enum.GetValues(typeof(RoleType)))
+            {
+                var roleType = (RoleType)type;
+                if (skillEntities[0].SkillVO.RoleType == roleType)
+                {
+                    setAllTypeSkillEntities.Add(roleType, skillEntities);
+                }
+                else
+                {
+                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM]);
+                }
+            }
 
             var setWeaponVO = weaponVODataStore.Items.Where(vo => vo.Name != string.Empty).ToArray();
             _weaponEntities = setWeaponVO.Select((vo, index) => new WeaponEntity(index, vo)).ToArray();
 
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Name != string.Empty).ToArray();
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
-            player = new SearchPlayerEntity(playerStatusVO, skillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
+            player = new SearchPlayerEntity(playerStatusVO, setAllTypeSkillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor(player, _weaponEntities, _armorEntities);

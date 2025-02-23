@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using WolfVillage.Interface;
+
 namespace WolfVillage.Entity.Interface
 {
     public interface IPlayerEntity
@@ -5,6 +8,6 @@ namespace WolfVillage.Entity.Interface
         int CurrentMaxHP { get; }
         IWeaponEntity CurrentWeapon { get; }
         IArmorEntity CurrentArmor { get; }
-        ISkillEntity[] CurrentSkills { get; }
+        Dictionary<RoleType, ISkillEntity[]> SetAllRoleTypeSkills { get; }
     }
 }

@@ -2,20 +2,23 @@ using WolfVillage.Entity.Interface;
 using WolfVillage.ValueObject;
 using WolfVillage.ValueObject.Interface;
 using WolfVillage.Battle;
+using System.Collections.Generic;
+using WolfVillage.Interface;
+using System;
 
 namespace WolfVillage.Entity
 {
     public class PlayerEntity
     {
         public PlayerEntity(IPlayerStatusVO playerStatusVO,
-                            ISkillEntity[] skillEntities,
+                            Dictionary<RoleType, ISkillEntity[]> skillEntities,
                             IWeaponEntity weaponEntity,
                             IArmorEntity armorEntity)
         {
-            setCurrentSkills = new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM];
-            for (var i = 0 ; i < setCurrentSkills.Length; i++)
+            setCurrentSkills = new Dictionary<RoleType, ISkillEntity[]>();
+            foreach (var type in Enum.GetValues(typeof(RoleType)))
             {
-                setCurrentSkills[i] = (skillEntities.Length > i) ? skillEntities[i] : null;
+                setCurrentSkills.Add((RoleType)type, skillEntities[(RoleType)type]);
             }
             // TODO: いつか消す
             setCurrentWeapon = weaponEntity;
@@ -41,7 +44,7 @@ namespace WolfVillage.Entity
         public IArmorEntity CurrentArmor => setCurrentArmor;
 
         // TODO: スキルをセットできるようにする(今は適当)
-        protected ISkillEntity[] setCurrentSkills;
-        public ISkillEntity[] CurrentSkills => setCurrentSkills;
+        protected Dictionary<RoleType, ISkillEntity[]> setCurrentSkills;
+        public Dictionary<RoleType, ISkillEntity[]> SetAllRoleTypeSkills => setCurrentSkills;
     }
 }
