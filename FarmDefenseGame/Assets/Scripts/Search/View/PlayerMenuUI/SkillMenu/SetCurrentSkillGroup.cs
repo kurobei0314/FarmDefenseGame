@@ -18,5 +18,14 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             }
             // TODO: アイコンの表示をする
         }
+
+        public void Dispose()
+        {
+            _currentRoleTypeIcon.Dispose();
+            for (var i = 0; i < _currentSkills.Length; i++)
+            {
+                _currentSkills[i].Dispose();
+            }
+        }
     }
 }

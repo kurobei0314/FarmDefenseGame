@@ -18,5 +18,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         {
 
         }
+
+        public void Dispose()
+        {
+            
+        }
     }
 }
