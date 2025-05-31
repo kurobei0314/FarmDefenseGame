@@ -33,7 +33,8 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
         {
             if (!context.started) return;
-            
+            var value = context.ReadValue<Vector2>();
+            UpdateViewStickInput(value);
         }
         void IPlayerMenuUIInputter.InputDecideEvent(InputAction.CallbackContext context)
         {
@@ -47,6 +48,24 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         void IPlayerMenuUIInputter.SetActive(bool active)
             => this.gameObject.SetActive(active);
+
+        private void UpdateViewStickInput(Vector2 axis)
+        {
+            switch (_skillMenuVM.State)
+            {
+                case FocusSkillMenuState.SetSkillIcon:
+
+                    break;
+                case FocusSkillMenuState.OwnedSkillList:
+                    _ownedSkillList.UpdateFocusIndex(axis);
+                    break;
+            }
+        }
+
+        private void UpdateFocusSkillIndexView(Vector2 axis)
+        {
+            
+        }
 
         public void Dispose()
         {

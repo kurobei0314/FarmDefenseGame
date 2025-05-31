@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using WolfVillage.Interface;
 using WolfVillage.Entity.Interface;
 using System;
+using WolfVillage.Common;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -41,12 +42,12 @@ namespace WolfVillage.Search.PlayerMenuUI
                 var roleType = (RoleType)type;
                 if (skillEntities[0].SkillVO.RoleType == roleType)
                 {
-                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM]);
+                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM]);
                     setAllTypeSkillEntities[roleType][0] = skillEntities[0];
                 }
                 else
                 {
-                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[BattleGameInfo.PLAYER_SET_SKILL_NUM]);
+                    setAllTypeSkillEntities.Add(roleType, new ISkillEntity[GameInfo.PLAYER_SET_SKILL_NUM]);
                 }
             }
 

@@ -2,6 +2,7 @@ using R3;
 using UnityEngine;
 using WolfVillage.Battle.Interface;
 using WolfVillage.Entity.Interface;
+using WolfVillage.Common;
 
 namespace WolfVillage.Battle
 {
@@ -13,7 +14,7 @@ namespace WolfVillage.Battle
             _playerAttackUseCase = new PlayerSkillAttackActor(playerView, playerEntity, gameView);
 
             // MEMO: もしかしたらやってる内容的に、Presenterのクラスを作った方がいいかもしれない
-            for (var i = 0; i < BattleGameInfo.PLAYER_SET_SKILL_NUM; i++)
+            for (var i = 0; i < GameInfo.PLAYER_SET_SKILL_NUM; i++)
             {
                 gameView.PlayerSkillIconViews[i].AbleUseSkillObservable.Subscribe(index =>
                 {
