@@ -80,8 +80,12 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             {
                 case FocusSkillMenuState.SetSkillIcon:
                     OpenOwnedSkillList();
+                    _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
                     break;
                 case FocusSkillMenuState.OwnedSkillList:
+                    // TODO: 選んだ武器を設定できるようにする
+                    CloseOwnedSkillList();
+                    _skillMenuVM.SetState(FocusSkillMenuState.SetSkillIcon);
                     break;
             }
         }
