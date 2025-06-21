@@ -66,6 +66,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         private void UpdateFocusSkillIndexView(Vector2 axis)
         {
             var addIndex = axis.y > 0 ? -1 : 1;
+            if (axis.y == 0) addIndex = axis.x > 0 ? 1 : -1;
             var nextIndex = _skillMenuVM.FocusSkillIndex + addIndex;
 
             if (nextIndex < 0 || GameInfo.PLAYER_SET_SKILL_NUM <= nextIndex) return;
