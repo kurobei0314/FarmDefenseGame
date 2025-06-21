@@ -30,7 +30,7 @@ namespace WolfVillage.Search
     }
 }
 
-namespace WolfVillage.Common
+namespace WolfVillage
 {
     public class GameInfo 
     {

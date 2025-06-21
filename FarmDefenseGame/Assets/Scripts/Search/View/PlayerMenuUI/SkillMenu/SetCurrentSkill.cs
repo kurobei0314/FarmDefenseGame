@@ -15,13 +15,11 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         }
 
         public void SetFocus(bool isFocus)
-        {
-
-        }
+            => _animator.SetBool("Select", isFocus);
 
         public void Dispose()
         {
-            
+            _iconImage = null;
         }
     }
 }

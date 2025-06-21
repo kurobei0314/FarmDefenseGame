@@ -2,7 +2,6 @@ using R3;
 using UnityEngine;
 using WolfVillage.Battle.Interface;
 using WolfVillage.Entity.Interface;
-using WolfVillage.Common;
 
 namespace WolfVillage.Battle
 {

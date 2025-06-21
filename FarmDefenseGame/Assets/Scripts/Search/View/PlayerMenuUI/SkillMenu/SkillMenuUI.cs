@@ -25,6 +25,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         {
             _skillRoleTypeToggleGroup.Initialize(type);
             _setCurrentSkillGroup.Initialize(type, _skillUseCase.GetCurrentSkillEntitiesByRoleType(type));
+            _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, true);
             var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
             _ownedSkillList.Initialize(vms, null, null);
@@ -54,7 +55,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             switch (_skillMenuVM.State)
             {
                 case FocusSkillMenuState.SetSkillIcon:
-
+                    UpdateFocusSkillIndexView(axis);
                     break;
                 case FocusSkillMenuState.OwnedSkillList:
                     _ownedSkillList.UpdateFocusIndex(axis);
@@ -64,7 +65,13 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         private void UpdateFocusSkillIndexView(Vector2 axis)
         {
-            
+            var addIndex = axis.y > 0 ? -1 : 1;
+            var nextIndex = _skillMenuVM.FocusSkillIndex + addIndex;
+
+            if (nextIndex < 0 || GameInfo.PLAYER_SET_SKILL_NUM <= nextIndex) return;
+            _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, false);
+            _setCurrentSkillGroup.UpdateFocusView(nextIndex, true);
+            _skillMenuVM.SetSkillIconIndex(nextIndex);
         }
 
         public void Dispose()

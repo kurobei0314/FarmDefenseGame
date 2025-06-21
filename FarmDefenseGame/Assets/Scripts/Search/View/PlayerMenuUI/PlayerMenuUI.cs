@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using WolfVillage.Interface;
 using WolfVillage.Entity.Interface;
 using System;
-using WolfVillage.Common;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {

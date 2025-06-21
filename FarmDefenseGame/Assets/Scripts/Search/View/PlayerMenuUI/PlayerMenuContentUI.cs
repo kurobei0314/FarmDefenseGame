@@ -14,7 +14,6 @@ namespace WolfVillage.Search.PlayerMenuUI
                                 ISetEquipmentUseCase equipmentUseCase,
                                 ISetSkillUseCase skillUseCase)
         {
-            _currentPlayerMenuUI = _equipmentMenuUI;
             _equipmentMenuUI.Initialize(equipmentUseCase);
             _skillMenuUI.Initialize(skillUseCase);
             SetPlayerMenuUIInputter(currentPlayerMenuState);

@@ -17,7 +17,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         public PlayerMenuUIVM()
         {
             // TODO: 後でStatusを最初にする
-            m_state = PlayerMenuState.Equipment;
+            m_state = PlayerMenuState.Skill;
         }
 
         public void SetPlayerMenuState(PlayerMenuState state)
