@@ -16,9 +16,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         public void Initialize(ISetSkillUseCase skillUseCase)
         {
-            _skillMenuVM = new SkillMenuVM();
+            _skillMenuVM = new SkillMenuVM(skillUseCase.SetWeaponRoleType);
             _skillUseCase = skillUseCase;
             UpdateView(skillUseCase.SetWeaponRoleType);
+            CloseOwnedSkillList();
         }
 
         private void UpdateView(RoleType type)
@@ -26,9 +27,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _skillRoleTypeToggleGroup.Initialize(type);
             _setCurrentSkillGroup.Initialize(type, _skillUseCase.GetCurrentSkillEntitiesByRoleType(type));
             _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, true);
-            var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
-                                   .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
-            _ownedSkillList.Initialize(vms, null, null);
         }
 
         void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
@@ -40,6 +38,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         void IPlayerMenuUIInputter.InputDecideEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
+            UpdateViewDecideInput();
         }
 
         void IPlayerMenuUIInputter.InputCancelEvent(InputAction.CallbackContext context)
@@ -75,9 +74,38 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _skillMenuVM.SetSkillIconIndex(nextIndex);
         }
 
+        private void UpdateViewDecideInput()
+        {
+            switch (_skillMenuVM.State)
+            {
+                case FocusSkillMenuState.SetSkillIcon:
+                    OpenOwnedSkillList();
+                    break;
+                case FocusSkillMenuState.OwnedSkillList:
+                    break;
+            }
+        }
+
+        private void OpenOwnedSkillList()
+        {
+            _ownedSkillList.gameObject.SetActive(true);
+            UpdateOwnedSkillListView(_skillMenuVM.CurrentFocusRoleType);
+        }
+
+        private void CloseOwnedSkillList()
+            => _ownedSkillList.gameObject.SetActive(false);
+
+        private void UpdateOwnedSkillListView(RoleType type)
+        {
+            var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
+                                   .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
+            _ownedSkillList.Initialize(vms, null, null);
+        }
+
         public void Dispose()
         {
             _ownedSkillList.Dispose();
+            _setCurrentSkillGroup.Dispose();
         }
     }
 }

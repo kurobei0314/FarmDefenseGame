@@ -1,3 +1,5 @@
+using WolfVillage.Interface;
+
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public enum FocusSkillMenuState
@@ -12,13 +14,16 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         private FocusSkillMenuState _focusState;
         public int FocusSkillIndex => _focusSkillIndex;
         private int _focusSkillIndex;
+        public RoleType CurrentFocusRoleType => _currentFocusRoleType;
+        private RoleType _currentFocusRoleType;
 
         private int _maxIndex = GameInfo.PLAYER_SET_SKILL_NUM;
 
-        public SkillMenuVM()
+        public SkillMenuVM(RoleType setWeaponRoleType)
         {
             SetState(FocusSkillMenuState.SetSkillIcon);
             SetSkillIconIndex(0);
+            SetCurrentFocusRoleType(setWeaponRoleType);
         }
 
         public void SetState(FocusSkillMenuState state)
@@ -26,5 +31,8 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         public void SetSkillIconIndex(int index)
             => _focusSkillIndex = index;
+
+        public void SetCurrentFocusRoleType(RoleType type)
+            => _currentFocusRoleType = type;
     }
 }
