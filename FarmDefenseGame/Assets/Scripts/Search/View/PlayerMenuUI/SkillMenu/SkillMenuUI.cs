@@ -113,7 +113,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _ownedSkillList.Initialize( vms, 
                                         (skill) => _skillDescription.SetText(skill.SkillEntity.SkillVO.Description),
                                         (skill) => 
-                                        _skillUseCase.SetCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex));
+                                        { 
+                                            _skillUseCase.SetCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex);
+                                            UpdateView(_skillMenuVM.CurrentFocusRoleType);
+                                        });
         }
 
         public void Dispose()
