@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7101757790259276372}
   m_HandleRect: {fileID: 3509497742431407164}
-  m_Direction: 2
+  m_Direction: 3
   m_Value: 0.5
   m_Size: 1
   m_NumberOfSteps: 0
