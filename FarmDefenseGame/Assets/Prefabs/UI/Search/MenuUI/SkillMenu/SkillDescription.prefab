@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611211111407082819}
   - component: {fileID: 8206479882026344416}
-  - component: {fileID: 4869334454678937111}
+  - component: {fileID: 3873538902569345165}
   m_Layer: 0
   m_Name: DescriptionText
   m_TagString: Untagged
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135485343400625970}
   m_CullTransparentMesh: 1
---- !u!114 &4869334454678937111
+--- !u!114 &3873538902569345165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,10 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u30C7\u30D5\u30A9\u30EB\u30C8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b55746b60b3e6774c9bf6c552605172d, type: 2}
-  m_sharedMaterial: {fileID: -4877226519693054198, guid: b55746b60b3e6774c9bf6c552605172d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 701e6fb2fef94cc499a4ac0baf11005c, type: 2}
+  m_sharedMaterial: {fileID: -1686075178704036061, guid: 701e6fb2fef94cc499a4ac0baf11005c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30224e2181a4a4e74ba277285b56d161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _description: {fileID: 4869334454678937111}
+  _description: {fileID: 3873538902569345165}
 --- !u!1 &6335998102749136933
 GameObject:
   m_ObjectHideFlags: 0
