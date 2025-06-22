@@ -23,7 +23,12 @@ namespace WolfVillage.Entity
 
         public void SetCurrentSkill(ISkillEntity skillEntity, int index)
         {
-
+            var currentSkills = setCurrentSkills[skillEntity.SkillVO.RoleType];
+            UnityEngine.Debug.Log("--- スキル切り替え ---");
+            UnityEngine.Debug.Log("before " + currentSkills[index]?.SkillVO?.Name ?? "null");
+            currentSkills[index] = skillEntity;
+            UnityEngine.Debug.Log("after " + currentSkills[index]?.SkillVO?.Name ?? "null");
+            UnityEngine.Debug.Log("------");
         }
     }
 }

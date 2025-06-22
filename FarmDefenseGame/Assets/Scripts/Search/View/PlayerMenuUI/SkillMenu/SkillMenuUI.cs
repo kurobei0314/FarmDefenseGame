@@ -84,7 +84,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
                     _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
                     break;
                 case FocusSkillMenuState.OwnedSkillList:
-                    // TODO: 選んだ武器を設定できるようにする
+                    _ownedSkillList.SelectFocusIndex();
                     CloseOwnedSkillList();
                     _skillMenuVM.SetState(FocusSkillMenuState.SetSkillIcon);
                     break;
@@ -109,8 +109,9 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
             _ownedSkillList.Initialize( vms, 
-                                        (item) => _skillDescription.SetText(item.SkillEntity.SkillVO.Description),
-                                        null);
+                                        (skill) => _skillDescription.SetText(skill.SkillEntity.SkillVO.Description),
+                                        (skill) => 
+                                        _skillUseCase.SetCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex));
         }
 
         public void Dispose()

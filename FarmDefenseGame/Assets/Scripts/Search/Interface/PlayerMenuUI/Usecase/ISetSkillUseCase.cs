@@ -8,5 +8,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         RoleType SetWeaponRoleType { get; }
         ISkillEntity[] GetCurrentSkillEntitiesByRoleType(RoleType type);
         ISkillEntity[] GetHasSkillEntitiesByRoleType(RoleType type);
+        void SetCurrentSkill(ISkillEntity skill, int index);
     }
 }
