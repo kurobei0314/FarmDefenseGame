@@ -814,6 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 2624660773838509926}
   _animator: {fileID: 8290032053655887769}
+  _setIcon: {fileID: 4883446193961470249}
 --- !u!95 &8290032053655887769
 Animator:
   serializedVersion: 7

@@ -107,7 +107,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         private void UpdateOwnedSkillListView(RoleType type)
         {
             var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
-                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill))
+                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill, IsSetSkill(type, skill.Id)))
                                     .Where(skill => skill.SkillEntity.SkillVO.RoleType == _skillMenuVM.CurrentFocusRoleType)
                                     .ToArray();
             _ownedSkillList.Initialize( vms, 
@@ -117,6 +117,17 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
                                             _skillUseCase.SetCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex);
                                             UpdateView(_skillMenuVM.CurrentFocusRoleType);
                                         });
+        }
+
+        private bool IsSetSkill(RoleType type, int skillId)
+        {
+            var setSkills = _skillUseCase.GetCurrentSkillEntitiesByRoleType(type);
+            for (var i = 0; i < setSkills.Length; i++)
+            {
+                if (setSkills[i] == null) continue;
+                if (setSkills[i].Id == skillId) return true;
+            }
+            return false;
         }
 
         public void Dispose()
