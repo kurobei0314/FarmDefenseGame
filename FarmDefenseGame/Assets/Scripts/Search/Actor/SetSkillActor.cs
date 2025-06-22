@@ -6,10 +6,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
     public class SetSkillActor : ISetSkillUseCase
     {
-        private ISearchPlayerEntity _playerEntity;
+        private ISetSkillEntity _playerEntity;
         private ISkillEntity[] _skillEntities;
 
-        public SetSkillActor(   ISearchPlayerEntity playerEntity,
+        public SetSkillActor(   ISetSkillEntity playerEntity,
                                 ISkillEntity[] skillEntities)
         {
             _playerEntity = playerEntity;
@@ -21,5 +21,8 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         public ISkillEntity[] GetHasSkillEntitiesByRoleType(RoleType type)
             => _skillEntities.Where(entity => entity.SkillVO.RoleType == type).ToArray();
         public RoleType SetWeaponRoleType => _playerEntity.CurrentWeapon.WeaponVO.RoleType;
+
+        public void SetCurrentSkill(ISkillEntity skill, int index)
+            => _playerEntity.SetCurrentSkill(skill, index);
     }
 }

@@ -5,7 +5,7 @@ using WolfVillage.ValueObject.Interface;
 
 namespace WolfVillage.Entity
 {
-    public class SearchPlayerEntity : PlayerEntity, ISearchPlayerEntity
+    public class SearchPlayerEntity : PlayerEntity, ISetEquipmentEntity, ISetSkillEntity
     {
         public SearchPlayerEntity ( IPlayerStatusVO playerStatusVO,
                                     Dictionary<RoleType, ISkillEntity[]> skillEntities,
@@ -20,5 +20,10 @@ namespace WolfVillage.Entity
 
         public void SetCurrentArmor(IArmorEntity armorEntity)
             => setCurrentArmor = armorEntity;
+
+        public void SetCurrentSkill(ISkillEntity skillEntity, int index)
+        {
+
+        }
     }
 }

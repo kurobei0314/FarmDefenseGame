@@ -1,8 +1,13 @@
 namespace WolfVillage.Entity.Interface
 {
-    public interface ISearchPlayerEntity : IPlayerEntity
+    public interface ISetEquipmentEntity : IPlayerEntity
     {
         void SetCurrentWeapon(IWeaponEntity weaponEntity);
         void SetCurrentArmor(IArmorEntity armorEntity);
+    }
+
+    public interface ISetSkillEntity : IPlayerEntity
+    {
+        void SetCurrentSkill(ISkillEntity skillEntity, int index);
     }
 }

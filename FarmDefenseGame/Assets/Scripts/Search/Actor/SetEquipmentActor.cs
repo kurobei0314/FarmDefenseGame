@@ -5,7 +5,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
     public class SetEquipmentActor : ISetEquipmentUseCase
     {
-        private ISearchPlayerEntity _playerEntity;
+        private ISetEquipmentEntity _playerEntity;
         private IWeaponEntity[] _hasWeaponEntity;
         private IArmorEntity[] _hasArmorEntity;
 
@@ -14,7 +14,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
         public IWeaponEntity[] HasWeaponEntity => _hasWeaponEntity;
         public IArmorEntity[] HasArmorEntity => _hasArmorEntity;
 
-        public SetEquipmentActor(ISearchPlayerEntity playerEntity,
+        public SetEquipmentActor(ISetEquipmentEntity playerEntity,
                                 IWeaponEntity[] hasWeaponEntity,
                                 IArmorEntity[] hasArmorEntity)
         {

@@ -20,6 +20,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _skillUseCase = skillUseCase;
             UpdateView(skillUseCase.SetWeaponRoleType);
             CloseOwnedSkillList();
+            _skillDescription.ClosePanel();
         }
 
         private void UpdateView(RoleType type)
@@ -80,6 +81,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             {
                 case FocusSkillMenuState.SetSkillIcon:
                     OpenOwnedSkillList();
+                    _skillDescription.OpenPanel();
                     _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
                     break;
                 case FocusSkillMenuState.OwnedSkillList:
@@ -92,18 +94,20 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         private void OpenOwnedSkillList()
         {
-            _ownedSkillList.gameObject.SetActive(true);
+            _ownedSkillList.Open();
             UpdateOwnedSkillListView(_skillMenuVM.CurrentFocusRoleType);
         }
 
         private void CloseOwnedSkillList()
-            => _ownedSkillList.gameObject.SetActive(false);
+            => _ownedSkillList.Close();
 
         private void UpdateOwnedSkillListView(RoleType type)
         {
             var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
-            _ownedSkillList.Initialize(vms, null, null);
+            _ownedSkillList.Initialize( vms, 
+                                        (item) => _skillDescription.SetText(item.SkillEntity.SkillVO.Description),
+                                        null);
         }
 
         public void Dispose()

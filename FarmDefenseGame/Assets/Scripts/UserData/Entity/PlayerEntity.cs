@@ -35,11 +35,9 @@ namespace WolfVillage.Entity
         protected int current_max_hp;
         public int CurrentMaxHP => current_max_hp;
 
-        // TODO: 武器をセットできるようにする(今は適当)
         protected IWeaponEntity setCurrentWeapon;
         public IWeaponEntity CurrentWeapon => setCurrentWeapon;
 
-        // TODO: 防具をセットできるようにする(今は適当)
         protected IArmorEntity setCurrentArmor;
         public IArmorEntity CurrentArmor => setCurrentArmor;
 
