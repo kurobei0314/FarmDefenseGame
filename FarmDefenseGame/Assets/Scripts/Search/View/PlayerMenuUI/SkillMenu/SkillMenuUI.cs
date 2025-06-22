@@ -20,7 +20,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _skillUseCase = skillUseCase;
             UpdateView(skillUseCase.SetWeaponRoleType);
             CloseOwnedSkillList();
-            _skillDescription.ClosePanel();
+            _skillDescription.Close();
         }
 
         private void UpdateView(RoleType type)
@@ -81,7 +81,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             {
                 case FocusSkillMenuState.SetSkillIcon:
                     OpenOwnedSkillList();
-                    _skillDescription.OpenPanel();
                     _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
                     break;
                 case FocusSkillMenuState.OwnedSkillList:
@@ -95,11 +94,15 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         private void OpenOwnedSkillList()
         {
             _ownedSkillList.Open();
+            _skillDescription.Open();
             UpdateOwnedSkillListView(_skillMenuVM.CurrentFocusRoleType);
         }
 
         private void CloseOwnedSkillList()
-            => _ownedSkillList.Close();
+        {
+            _skillDescription.Close();
+            _ownedSkillList.Close();
+        }
 
         private void UpdateOwnedSkillListView(RoleType type)
         {

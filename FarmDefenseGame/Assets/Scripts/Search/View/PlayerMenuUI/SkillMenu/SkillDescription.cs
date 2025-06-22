@@ -10,10 +10,10 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         public void SetText(string text)
             => _description.text = text;
 
-        public void OpenPanel()
+        public void Open()
             => this.gameObject.SetActive(true);
 
-        public void ClosePanel()
+        public void Close()
             => this.gameObject.SetActive(false);
     }
 }
