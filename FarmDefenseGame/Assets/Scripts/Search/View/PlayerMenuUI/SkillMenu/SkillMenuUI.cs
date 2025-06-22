@@ -107,7 +107,9 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         private void UpdateOwnedSkillListView(RoleType type)
         {
             var vms = _skillUseCase.GetHasSkillEntitiesByRoleType(type)
-                                   .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill)).ToArray();
+                                    .Select(skill => new OwnedSkillListPanelVM(skill.Id, skill))
+                                    .Where(skill => skill.SkillEntity.SkillVO.RoleType == _skillMenuVM.CurrentFocusRoleType)
+                                    .ToArray();
             _ownedSkillList.Initialize( vms, 
                                         (skill) => _skillDescription.SetText(skill.SkillEntity.SkillVO.Description),
                                         (skill) => 
