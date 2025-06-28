@@ -47,6 +47,11 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             if (!context.performed) return;
         }
 
+        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context)
+        {
+
+        }
+
         void IPlayerMenuUIInputter.SetActive(bool active)
             => this.gameObject.SetActive(active);
 

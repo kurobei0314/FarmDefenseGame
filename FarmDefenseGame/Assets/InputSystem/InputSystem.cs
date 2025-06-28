@@ -466,6 +466,24 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchCategory"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2b67dee-9de7-451c-9e08-ebf6c978fe32"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchSubCategory"",
+                    ""type"": ""Button"",
+                    ""id"": ""94c74055-cf6a-4032-95f8-bd217b0604b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -578,6 +596,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""DebugBattleStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a54a333-950d-4067-947d-00016ed32696"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchSubCategory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""759b855e-4d48-4f12-b981-a65ee88ec497"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCategory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -603,6 +643,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
         m_Search_Cancel = m_Search.FindAction("Cancel", throwIfNotFound: true);
         m_Search_DebugBattleStart = m_Search.FindAction("DebugBattleStart", throwIfNotFound: true);
+        m_Search_SwitchCategory = m_Search.FindAction("SwitchCategory", throwIfNotFound: true);
+        m_Search_SwitchSubCategory = m_Search.FindAction("SwitchSubCategory", throwIfNotFound: true);
     }
 
     ~@InputSystem()
@@ -793,6 +835,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Search_Back;
     private readonly InputAction m_Search_Cancel;
     private readonly InputAction m_Search_DebugBattleStart;
+    private readonly InputAction m_Search_SwitchCategory;
+    private readonly InputAction m_Search_SwitchSubCategory;
     public struct SearchActions
     {
         private @InputSystem m_Wrapper;
@@ -802,6 +846,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Back => m_Wrapper.m_Search_Back;
         public InputAction @Cancel => m_Wrapper.m_Search_Cancel;
         public InputAction @DebugBattleStart => m_Wrapper.m_Search_DebugBattleStart;
+        public InputAction @SwitchCategory => m_Wrapper.m_Search_SwitchCategory;
+        public InputAction @SwitchSubCategory => m_Wrapper.m_Search_SwitchSubCategory;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -826,6 +872,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @DebugBattleStart.started += instance.OnDebugBattleStart;
             @DebugBattleStart.performed += instance.OnDebugBattleStart;
             @DebugBattleStart.canceled += instance.OnDebugBattleStart;
+            @SwitchCategory.started += instance.OnSwitchCategory;
+            @SwitchCategory.performed += instance.OnSwitchCategory;
+            @SwitchCategory.canceled += instance.OnSwitchCategory;
+            @SwitchSubCategory.started += instance.OnSwitchSubCategory;
+            @SwitchSubCategory.performed += instance.OnSwitchSubCategory;
+            @SwitchSubCategory.canceled += instance.OnSwitchSubCategory;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -845,6 +897,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @DebugBattleStart.started -= instance.OnDebugBattleStart;
             @DebugBattleStart.performed -= instance.OnDebugBattleStart;
             @DebugBattleStart.canceled -= instance.OnDebugBattleStart;
+            @SwitchCategory.started -= instance.OnSwitchCategory;
+            @SwitchCategory.performed -= instance.OnSwitchCategory;
+            @SwitchCategory.canceled -= instance.OnSwitchCategory;
+            @SwitchSubCategory.started -= instance.OnSwitchSubCategory;
+            @SwitchSubCategory.performed -= instance.OnSwitchSubCategory;
+            @SwitchSubCategory.canceled -= instance.OnSwitchSubCategory;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -882,5 +940,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnDebugBattleStart(InputAction.CallbackContext context);
+        void OnSwitchCategory(InputAction.CallbackContext context);
+        void OnSwitchSubCategory(InputAction.CallbackContext context);
     }
 }

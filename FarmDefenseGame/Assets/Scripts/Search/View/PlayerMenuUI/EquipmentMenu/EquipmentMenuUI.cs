@@ -38,6 +38,11 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             UpdateViewCancel();
         }
 
+        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context)
+        {
+
+        }
+
         void IPlayerMenuUIInputter.SetActive(bool active)
             => this.gameObject.SetActive(active);
 

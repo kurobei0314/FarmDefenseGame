@@ -101,6 +101,14 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _contentUI.InputCancelEvent(context);
         }
+        public void InputSwitchCategoryEvent(InputAction.CallbackContext context)
+        {
+            // TODO: ここでメニューを切り替えるようにする
+        }
+        public void InputSwitchSubCategoryEvent(InputAction.CallbackContext context)
+        {
+            _contentUI.InputSwitchSubCategoryEvent(context);
+        }
         #endregion
 
         public void Dispose()
