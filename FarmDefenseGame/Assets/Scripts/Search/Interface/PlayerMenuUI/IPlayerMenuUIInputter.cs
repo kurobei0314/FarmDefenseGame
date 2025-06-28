@@ -8,6 +8,6 @@ namespace WolfVillage.Search.PlayerMenuUI
         void InputStickEvent(InputAction.CallbackContext context);
         void InputDecideEvent(InputAction.CallbackContext context);
         void InputCancelEvent(InputAction.CallbackContext context);
-        void InputSwitchSubCategoryEvent(InputAction.CallbackContext context);
+        void InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index);
     }
 }

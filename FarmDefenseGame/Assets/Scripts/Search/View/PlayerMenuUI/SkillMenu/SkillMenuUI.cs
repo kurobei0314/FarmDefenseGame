@@ -47,7 +47,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             if (!context.performed) return;
         }
 
-        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context)
+        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
         {
             if (!context.performed) return;
             

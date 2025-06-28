@@ -90,17 +90,11 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         // TODO: 絶対にUI全体を管理するクラスを作成し、そこで通知を受け取るようにする
         public void InputStickEvent(InputAction.CallbackContext context)
-        {
-            _contentUI.InputStickEvent(context);
-        }
+            => _contentUI.InputStickEvent(context);
         public void InputDecideEvent(InputAction.CallbackContext context)
-        {
-            _contentUI.InputDecideEvent(context);
-        }
+            => _contentUI.InputDecideEvent(context);
         public void InputCancelEvent(InputAction.CallbackContext context)
-        {
-            _contentUI.InputCancelEvent(context);
-        }
+            => _contentUI.InputCancelEvent(context);
         public void InputSwitchPreCategoryEvent(InputAction.CallbackContext context)
         {
             // TODO: ここでメニューを切り替えるようにする
@@ -112,14 +106,9 @@ namespace WolfVillage.Search.PlayerMenuUI
             Debug.Log("wa-i");
         }
         public void InputSwitchPreSubCategoryEvent(InputAction.CallbackContext context)
-        {
-            Debug.Log("wa-i");
-            _contentUI.InputSwitchSubCategoryEvent(context);
-        }
+            => _contentUI.InputSwitchSubCategoryEvent(context, -1);
         public void InputSwitchNextSubCategoryEvent(InputAction.CallbackContext context)
-        {
-            Debug.Log("wa-i");
-        }
+            => _contentUI.InputSwitchSubCategoryEvent(context, 1);
         #endregion
 
         public void Dispose()
