@@ -446,7 +446,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchCategory",
+                    "name": "SwitchPreCategory",
                     "type": "Button",
                     "id": "f2b67dee-9de7-451c-9e08-ebf6c978fe32",
                     "expectedControlType": "",
@@ -455,9 +455,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchSubCategory",
+                    "name": "SwitchNextCategory",
+                    "type": "Button",
+                    "id": "8d4e546c-53f6-4f65-a4eb-b4e710eb8d46",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchPreSubCategory",
                     "type": "Button",
                     "id": "94c74055-cf6a-4032-95f8-bd217b0604b7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchNextSubCategory",
+                    "type": "Button",
+                    "id": "4a8f93aa-e266-4650-8da3-f5a58e874804",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -578,11 +596,11 @@
                 {
                     "name": "",
                     "id": "6a54a333-950d-4067-947d-00016ed32696",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/3",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchSubCategory",
+                    "action": "SwitchPreSubCategory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -593,7 +611,29 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchCategory",
+                    "action": "SwitchPreCategory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5218c0a5-7090-4e0d-8d25-92bf86896278",
+                    "path": "<Keyboard>/4",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchNextSubCategory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b7e9d4b-bdcb-452a-88b0-a737dde97c50",
+                    "path": "<Keyboard>/2",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchNextCategory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

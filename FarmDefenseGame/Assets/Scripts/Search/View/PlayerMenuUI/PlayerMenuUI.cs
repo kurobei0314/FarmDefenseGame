@@ -101,13 +101,24 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _contentUI.InputCancelEvent(context);
         }
-        public void InputSwitchCategoryEvent(InputAction.CallbackContext context)
+        public void InputSwitchPreCategoryEvent(InputAction.CallbackContext context)
         {
             // TODO: ここでメニューを切り替えるようにする
+            Debug.Log("wa-i");
         }
-        public void InputSwitchSubCategoryEvent(InputAction.CallbackContext context)
+        public void InputSwitchNextCategoryEvent(InputAction.CallbackContext context)
         {
+            // TODO: ここでメニューを切り替えるようにする
+            Debug.Log("wa-i");
+        }
+        public void InputSwitchPreSubCategoryEvent(InputAction.CallbackContext context)
+        {
+            Debug.Log("wa-i");
             _contentUI.InputSwitchSubCategoryEvent(context);
+        }
+        public void InputSwitchNextSubCategoryEvent(InputAction.CallbackContext context)
+        {
+            Debug.Log("wa-i");
         }
         #endregion
 

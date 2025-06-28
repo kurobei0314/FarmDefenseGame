@@ -468,7 +468,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SwitchCategory"",
+                    ""name"": ""SwitchPreCategory"",
                     ""type"": ""Button"",
                     ""id"": ""f2b67dee-9de7-451c-9e08-ebf6c978fe32"",
                     ""expectedControlType"": """",
@@ -477,9 +477,27 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SwitchSubCategory"",
+                    ""name"": ""SwitchNextCategory"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d4e546c-53f6-4f65-a4eb-b4e710eb8d46"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchPreSubCategory"",
                     ""type"": ""Button"",
                     ""id"": ""94c74055-cf6a-4032-95f8-bd217b0604b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchNextSubCategory"",
+                    ""type"": ""Button"",
+                    ""id"": ""4a8f93aa-e266-4650-8da3-f5a58e874804"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -600,11 +618,11 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6a54a333-950d-4067-947d-00016ed32696"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchSubCategory"",
+                    ""action"": ""SwitchPreSubCategory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -615,7 +633,29 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchCategory"",
+                    ""action"": ""SwitchPreCategory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5218c0a5-7090-4e0d-8d25-92bf86896278"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchNextSubCategory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b7e9d4b-bdcb-452a-88b0-a737dde97c50"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchNextCategory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -643,8 +683,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
         m_Search_Cancel = m_Search.FindAction("Cancel", throwIfNotFound: true);
         m_Search_DebugBattleStart = m_Search.FindAction("DebugBattleStart", throwIfNotFound: true);
-        m_Search_SwitchCategory = m_Search.FindAction("SwitchCategory", throwIfNotFound: true);
-        m_Search_SwitchSubCategory = m_Search.FindAction("SwitchSubCategory", throwIfNotFound: true);
+        m_Search_SwitchPreCategory = m_Search.FindAction("SwitchPreCategory", throwIfNotFound: true);
+        m_Search_SwitchNextCategory = m_Search.FindAction("SwitchNextCategory", throwIfNotFound: true);
+        m_Search_SwitchPreSubCategory = m_Search.FindAction("SwitchPreSubCategory", throwIfNotFound: true);
+        m_Search_SwitchNextSubCategory = m_Search.FindAction("SwitchNextSubCategory", throwIfNotFound: true);
     }
 
     ~@InputSystem()
@@ -835,8 +877,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Search_Back;
     private readonly InputAction m_Search_Cancel;
     private readonly InputAction m_Search_DebugBattleStart;
-    private readonly InputAction m_Search_SwitchCategory;
-    private readonly InputAction m_Search_SwitchSubCategory;
+    private readonly InputAction m_Search_SwitchPreCategory;
+    private readonly InputAction m_Search_SwitchNextCategory;
+    private readonly InputAction m_Search_SwitchPreSubCategory;
+    private readonly InputAction m_Search_SwitchNextSubCategory;
     public struct SearchActions
     {
         private @InputSystem m_Wrapper;
@@ -846,8 +890,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Back => m_Wrapper.m_Search_Back;
         public InputAction @Cancel => m_Wrapper.m_Search_Cancel;
         public InputAction @DebugBattleStart => m_Wrapper.m_Search_DebugBattleStart;
-        public InputAction @SwitchCategory => m_Wrapper.m_Search_SwitchCategory;
-        public InputAction @SwitchSubCategory => m_Wrapper.m_Search_SwitchSubCategory;
+        public InputAction @SwitchPreCategory => m_Wrapper.m_Search_SwitchPreCategory;
+        public InputAction @SwitchNextCategory => m_Wrapper.m_Search_SwitchNextCategory;
+        public InputAction @SwitchPreSubCategory => m_Wrapper.m_Search_SwitchPreSubCategory;
+        public InputAction @SwitchNextSubCategory => m_Wrapper.m_Search_SwitchNextSubCategory;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -872,12 +918,18 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @DebugBattleStart.started += instance.OnDebugBattleStart;
             @DebugBattleStart.performed += instance.OnDebugBattleStart;
             @DebugBattleStart.canceled += instance.OnDebugBattleStart;
-            @SwitchCategory.started += instance.OnSwitchCategory;
-            @SwitchCategory.performed += instance.OnSwitchCategory;
-            @SwitchCategory.canceled += instance.OnSwitchCategory;
-            @SwitchSubCategory.started += instance.OnSwitchSubCategory;
-            @SwitchSubCategory.performed += instance.OnSwitchSubCategory;
-            @SwitchSubCategory.canceled += instance.OnSwitchSubCategory;
+            @SwitchPreCategory.started += instance.OnSwitchPreCategory;
+            @SwitchPreCategory.performed += instance.OnSwitchPreCategory;
+            @SwitchPreCategory.canceled += instance.OnSwitchPreCategory;
+            @SwitchNextCategory.started += instance.OnSwitchNextCategory;
+            @SwitchNextCategory.performed += instance.OnSwitchNextCategory;
+            @SwitchNextCategory.canceled += instance.OnSwitchNextCategory;
+            @SwitchPreSubCategory.started += instance.OnSwitchPreSubCategory;
+            @SwitchPreSubCategory.performed += instance.OnSwitchPreSubCategory;
+            @SwitchPreSubCategory.canceled += instance.OnSwitchPreSubCategory;
+            @SwitchNextSubCategory.started += instance.OnSwitchNextSubCategory;
+            @SwitchNextSubCategory.performed += instance.OnSwitchNextSubCategory;
+            @SwitchNextSubCategory.canceled += instance.OnSwitchNextSubCategory;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -897,12 +949,18 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @DebugBattleStart.started -= instance.OnDebugBattleStart;
             @DebugBattleStart.performed -= instance.OnDebugBattleStart;
             @DebugBattleStart.canceled -= instance.OnDebugBattleStart;
-            @SwitchCategory.started -= instance.OnSwitchCategory;
-            @SwitchCategory.performed -= instance.OnSwitchCategory;
-            @SwitchCategory.canceled -= instance.OnSwitchCategory;
-            @SwitchSubCategory.started -= instance.OnSwitchSubCategory;
-            @SwitchSubCategory.performed -= instance.OnSwitchSubCategory;
-            @SwitchSubCategory.canceled -= instance.OnSwitchSubCategory;
+            @SwitchPreCategory.started -= instance.OnSwitchPreCategory;
+            @SwitchPreCategory.performed -= instance.OnSwitchPreCategory;
+            @SwitchPreCategory.canceled -= instance.OnSwitchPreCategory;
+            @SwitchNextCategory.started -= instance.OnSwitchNextCategory;
+            @SwitchNextCategory.performed -= instance.OnSwitchNextCategory;
+            @SwitchNextCategory.canceled -= instance.OnSwitchNextCategory;
+            @SwitchPreSubCategory.started -= instance.OnSwitchPreSubCategory;
+            @SwitchPreSubCategory.performed -= instance.OnSwitchPreSubCategory;
+            @SwitchPreSubCategory.canceled -= instance.OnSwitchPreSubCategory;
+            @SwitchNextSubCategory.started -= instance.OnSwitchNextSubCategory;
+            @SwitchNextSubCategory.performed -= instance.OnSwitchNextSubCategory;
+            @SwitchNextSubCategory.canceled -= instance.OnSwitchNextSubCategory;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -940,7 +998,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnDebugBattleStart(InputAction.CallbackContext context);
-        void OnSwitchCategory(InputAction.CallbackContext context);
-        void OnSwitchSubCategory(InputAction.CallbackContext context);
+        void OnSwitchPreCategory(InputAction.CallbackContext context);
+        void OnSwitchNextCategory(InputAction.CallbackContext context);
+        void OnSwitchPreSubCategory(InputAction.CallbackContext context);
+        void OnSwitchNextSubCategory(InputAction.CallbackContext context);
     }
 }
