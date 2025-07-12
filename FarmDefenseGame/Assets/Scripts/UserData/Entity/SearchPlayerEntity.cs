@@ -21,9 +21,9 @@ namespace WolfVillage.Entity
         public void SetCurrentArmor(IArmorEntity armorEntity)
             => setCurrentArmor = armorEntity;
 
-        public void SetCurrentSkill(ISkillEntity skillEntity, int index)
+        public void SetCurrentSkill(ISkillEntity skillEntity, RoleType type, int index)
         {
-            var currentSkills = setCurrentSkills[skillEntity.SkillVO.RoleType];
+            var currentSkills = setCurrentSkills[type];
             UnityEngine.Debug.Log("--- スキル切り替え ---");
             UnityEngine.Debug.Log("before " + currentSkills[index]?.SkillVO?.Name ?? "null");
             currentSkills[index] = skillEntity;

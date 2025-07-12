@@ -129,7 +129,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
                                         (skill) => _skillDescription.SetText(skill.SkillEntity.SkillVO.Description),
                                         (skill) => 
                                         { 
-                                            _skillUseCase.SetCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex);
+                                            _skillUseCase.UpdateCurrentSkill(skill.SkillEntity, _skillMenuVM.FocusSkillIndex);
                                             UpdateView(_skillMenuVM.CurrentFocusRoleType);
                                         });
         }

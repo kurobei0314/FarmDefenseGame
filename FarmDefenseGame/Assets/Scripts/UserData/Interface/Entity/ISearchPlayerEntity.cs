@@ -1,3 +1,4 @@
+using WolfVillage.Interface;
 namespace WolfVillage.Entity.Interface
 {
     public interface ISetEquipmentEntity : IPlayerEntity
@@ -8,6 +9,6 @@ namespace WolfVillage.Entity.Interface
 
     public interface ISetSkillEntity : IPlayerEntity
     {
-        void SetCurrentSkill(ISkillEntity skillEntity, int index);
+        void SetCurrentSkill(ISkillEntity skillEntity, RoleType type, int index);
     }
 }
