@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 using WolfVillage.Search.PlayerMenuUI.SkillMenu;
+using Extension;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -16,7 +17,14 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _equipmentMenuUI.Initialize(equipmentUseCase);
             _skillMenuUI.Initialize(skillUseCase);
+            UpdateView(currentPlayerMenuState);
+        }
+
+        public void UpdateView(PlayerMenuState currentPlayerMenuState)
+        {
             SetPlayerMenuUIInputter(currentPlayerMenuState);
+            _equipmentMenuUI.gameObject.SetActive(currentPlayerMenuState == PlayerMenuState.Equipment);
+            _skillMenuUI.gameObject.SetActive(currentPlayerMenuState == PlayerMenuState.Skill);
         }
 
         private void SetPlayerMenuUIInputter(PlayerMenuState currentPlayerMenuState)

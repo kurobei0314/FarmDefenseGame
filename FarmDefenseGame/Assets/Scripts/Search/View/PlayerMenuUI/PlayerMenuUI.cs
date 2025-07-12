@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using WolfVillage.Interface;
 using WolfVillage.Entity.Interface;
 using System;
+using Extension;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
@@ -96,20 +97,27 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void InputCancelEvent(InputAction.CallbackContext context)
             => _contentUI.InputCancelEvent(context);
         public void InputSwitchPreCategoryEvent(InputAction.CallbackContext context)
-        {
-            // TODO: ここでメニューを切り替えるようにする
-            Debug.Log("wa-i");
-        }
+        => UpdatePlayerMenuContentView(context, -1);
         public void InputSwitchNextCategoryEvent(InputAction.CallbackContext context)
-        {
-            // TODO: ここでメニューを切り替えるようにする
-            Debug.Log("wa-i");
-        }
+        => UpdatePlayerMenuContentView(context, 1);
         public void InputSwitchPreSubCategoryEvent(InputAction.CallbackContext context)
             => _contentUI.InputSwitchSubCategoryEvent(context, -1);
         public void InputSwitchNextSubCategoryEvent(InputAction.CallbackContext context)
             => _contentUI.InputSwitchSubCategoryEvent(context, 1);
         #endregion
+
+        private void UpdatePlayerMenuContentView(InputAction.CallbackContext context, int index)
+        {
+            if (!context.started) return;
+            var nextIndex = (int)_playerMenuVM.State + index;
+            if (nextIndex < EnumHelper.GetMinIndexEnum<PlayerMenuState>())
+                nextIndex = EnumHelper.GetMaxIndexEnum<PlayerMenuState>();
+            else if (EnumHelper.GetMaxIndexEnum<PlayerMenuState>() < nextIndex)
+                nextIndex = EnumHelper.GetMinIndexEnum<PlayerMenuState>();
+            
+            _playerMenuVM.SetPlayerMenuState((PlayerMenuState)nextIndex);
+            _contentUI.UpdateView(_playerMenuVM.State);
+        }
 
         public void Dispose()
         {
