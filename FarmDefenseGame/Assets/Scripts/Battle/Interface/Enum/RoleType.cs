@@ -1,3 +1,4 @@
+using System;
 namespace WolfVillage.Interface
 {
     public enum RoleType : int

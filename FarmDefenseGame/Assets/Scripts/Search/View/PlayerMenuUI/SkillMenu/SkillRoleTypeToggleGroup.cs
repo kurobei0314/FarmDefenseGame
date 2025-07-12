@@ -33,7 +33,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
                 {
                     _roleTypeToggles[i].SetOn();
                     setOnAction();
-                    return;
+                    continue;
                 }
                 _roleTypeToggles[i].SetOff();
             }

@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using WolfVillage.Interface;
+using Extension;
 
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
@@ -50,7 +51,15 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
         {
             if (!context.performed) return;
-            
+            var nextIndex = (int)_skillMenuVM.CurrentFocusRoleType + index;
+            if      (nextIndex < EnumHelper.GetMinIndexEnum<RoleType>()) nextIndex = EnumHelper.GetMaxIndexEnum<RoleType>();
+            else if (EnumHelper.GetMaxIndexEnum<RoleType>() < nextIndex) nextIndex = EnumHelper.GetMinIndexEnum<RoleType>();
+
+            _skillRoleTypeToggleGroup.SwitchTab((RoleType)nextIndex, () =>
+            {
+                _skillMenuVM.SetCurrentFocusRoleType((RoleType)nextIndex);
+                UpdateView((RoleType)nextIndex);
+            });
         }
 
         void IPlayerMenuUIInputter.SetActive(bool active)
