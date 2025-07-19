@@ -1,12 +1,11 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using WolfVillage.Interface;
 using Extension;
 
 namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 {
-    public class SkillMenuUI : MonoBehaviour, IPlayerMenuUIInputter
+    public class SkillMenuUI : PlayerMenuElementUI
     {
         [SerializeField] private SkillRoleTypeToggleGroup _skillRoleTypeToggleGroup;
         [SerializeField] private SetCurrentSkillGroup _setCurrentSkillGroup;
@@ -31,26 +30,21 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, true);
         }
 
-        void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
+        protected override void InputStickEvent(Vector2 axis)
         {
-            if (!context.started) return;
-            var value = context.ReadValue<Vector2>();
-            UpdateViewStickInput(value);
+            UpdateViewStickInput(axis);
         }
-        void IPlayerMenuUIInputter.InputDecideEvent(InputAction.CallbackContext context)
+        protected override void InputDecideEvent()
         {
-            if (!context.performed) return;
             UpdateViewDecideInput();
         }
 
-        void IPlayerMenuUIInputter.InputCancelEvent(InputAction.CallbackContext context)
+        protected override void InputCancelEvent()
         {
-            if (!context.performed) return;
         }
 
-        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
+        protected override void InputSwitchSubCategoryEvent(int index)
         {
-            if (!context.performed) return;
             var nextIndex = (int)_skillMenuVM.CurrentFocusRoleType + index;
             if      (nextIndex < EnumHelper.GetMinIndexEnum<RoleType>()) nextIndex = EnumHelper.GetMaxIndexEnum<RoleType>();
             else if (EnumHelper.GetMaxIndexEnum<RoleType>() < nextIndex) nextIndex = EnumHelper.GetMinIndexEnum<RoleType>();
@@ -61,9 +55,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
                 UpdateView((RoleType)nextIndex);
             });
         }
-
-        void IPlayerMenuUIInputter.SetActive(bool active)
-            => this.gameObject.SetActive(active);
 
         private void UpdateViewStickInput(Vector2 axis)
         {
@@ -145,7 +136,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             return false;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             _ownedSkillList.Dispose();
             _setCurrentSkillGroup.Dispose();

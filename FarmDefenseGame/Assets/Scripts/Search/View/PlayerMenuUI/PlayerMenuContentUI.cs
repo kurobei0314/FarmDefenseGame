@@ -2,61 +2,62 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 using WolfVillage.Search.PlayerMenuUI.SkillMenu;
-using Extension;
+using System.Collections.Generic;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
     public class PlayerMenuContentUI : MonoBehaviour
     {
-        [SerializeField] private EquipmentMenuUI _equipmentMenuUI;
-        [SerializeField] private SkillMenuUI _skillMenuUI;
-        private IPlayerMenuUIInputter _currentPlayerMenuUI;
+        // キーはPlayerMenuStateのenumをintにキャストしたもの //
+        [SerializeField] private List<PlayerMenuElementUI> _playerMenuElements;
+        private PlayerMenuElementUI _currentPlayerMenuUI;
         public void Initialize( PlayerMenuState currentPlayerMenuState, 
                                 ISetEquipmentUseCase equipmentUseCase,
                                 ISetSkillUseCase skillUseCase)
         {
-            _equipmentMenuUI.Initialize(equipmentUseCase);
-            _skillMenuUI.Initialize(skillUseCase);
+            InitializeElementUIs(equipmentUseCase, skillUseCase);
             UpdateView(currentPlayerMenuState);
+        }
+
+        private void InitializeElementUIs(ISetEquipmentUseCase equipmentUseCase,
+                                            ISetSkillUseCase skillUseCase)
+        {
+            var equipmentUI = _playerMenuElements[(int)PlayerMenuState.Equipment] as EquipmentMenuUI;
+            equipmentUI.Initialize(equipmentUseCase);
+            var skillUI = _playerMenuElements[(int)PlayerMenuState.Skill] as SkillMenuUI;
+            skillUI.Initialize(skillUseCase);
         }
 
         public void UpdateView(PlayerMenuState currentPlayerMenuState)
         {
+            // 今開いているUIを非表示にする
+            _currentPlayerMenuUI?.SetActive(false);
             SetPlayerMenuUIInputter(currentPlayerMenuState);
-            _equipmentMenuUI.gameObject.SetActive(currentPlayerMenuState == PlayerMenuState.Equipment);
-            _skillMenuUI.gameObject.SetActive(currentPlayerMenuState == PlayerMenuState.Skill);
+            // 開く予定のUIを表示する
+            _currentPlayerMenuUI?.SetActive(true);
         }
 
         private void SetPlayerMenuUIInputter(PlayerMenuState currentPlayerMenuState)
-            => _currentPlayerMenuUI = GetPlayerMenuUIInputter(currentPlayerMenuState);
-
-        private IPlayerMenuUIInputter GetPlayerMenuUIInputter(PlayerMenuState currentPlayerMenuState)
-        => currentPlayerMenuState switch
-        {
-                PlayerMenuState.Status => null,
-                PlayerMenuState.Equipment => _equipmentMenuUI,
-                PlayerMenuState.Skill => _skillMenuUI,
-                PlayerMenuState.Inventory => null,
-                PlayerMenuState.Setting => null,
-                _ => null
-        };
+            => _currentPlayerMenuUI = _playerMenuElements[(int)currentPlayerMenuState];
 
         public void InputStickEvent(InputAction.CallbackContext context)
-            => _currentPlayerMenuUI.InputStickEvent(context);
+            => _currentPlayerMenuUI.InputStick(context);
 
         public void InputDecideEvent(InputAction.CallbackContext context)
-            => _currentPlayerMenuUI.InputDecideEvent(context);
+            => _currentPlayerMenuUI.InputDecide(context);
 
         public void InputCancelEvent(InputAction.CallbackContext context)
-            => _currentPlayerMenuUI.InputCancelEvent(context);
+            => _currentPlayerMenuUI.InputCancel(context);
 
         public void InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
-            => _currentPlayerMenuUI.InputSwitchSubCategoryEvent(context, index);
+            => _currentPlayerMenuUI.InputSwitchSubCategory(context, index);
 
         public void Dispose()
         {
-            _equipmentMenuUI.Dispose();
-            _skillMenuUI.Dispose();
+            for (var i = 0; i < _playerMenuElements.Count; i++)
+            {
+                _playerMenuElements[i].Dispose();
+            }
         }
     }
 }

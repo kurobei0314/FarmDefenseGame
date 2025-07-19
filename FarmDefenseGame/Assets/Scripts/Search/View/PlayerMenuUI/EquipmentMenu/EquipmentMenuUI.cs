@@ -1,12 +1,11 @@
 using System.Linq;
 using R3;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using WolfVillage.Entity.Interface;
 
 namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
 {
-    public class EquipmentMenuUI : MonoBehaviour, IPlayerMenuUIInputter
+    public class EquipmentMenuUI : PlayerMenuElementUI
     {
         [SerializeField] private OwnedEquipmentList _ownedEquipmentList;
         [SerializeField] private SetCurrentEquipmentPanel _currentEquipmentPanel;
@@ -20,31 +19,24 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             _weaponMenuVM = new EquipmentMenuVM(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _equipmentUseCase = equipmentUseCase;
         }
-        void IPlayerMenuUIInputter.InputStickEvent(InputAction.CallbackContext context)
+        protected override void InputStickEvent(Vector2 axis)
         {
-            if (!context.started) return;
-            var value = context.ReadValue<Vector2>();
-            UpdateViewStickInput(value);
+            UpdateViewStickInput(axis);
         }
-        void IPlayerMenuUIInputter.InputDecideEvent(InputAction.CallbackContext context)
+        protected override void InputDecideEvent()
         {
-            if (!context.performed) return;
             UpdateViewDecide(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor, _equipmentUseCase.HasWeaponEntity, _equipmentUseCase.HasArmorEntity);
         }
 
-        void IPlayerMenuUIInputter.InputCancelEvent(InputAction.CallbackContext context)
+        protected override void InputCancelEvent()
         {
-            if (!context.performed) return;
             UpdateViewCancel();
         }
 
-        void IPlayerMenuUIInputter.InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
+        protected override void InputSwitchSubCategoryEvent(int index)
         {
             return;
         }
-
-        void IPlayerMenuUIInputter.SetActive(bool active)
-            => this.gameObject.SetActive(active);
 
         private void UpdateViewStickInput(Vector2 axis)
         {
@@ -135,7 +127,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             }
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             _ownedEquipmentList.Dispose();
             _currentEquipmentPanel.Dispose();

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace WolfVillage.Search.PlayerMenuUI
 {
     public enum PlayerMenuState
