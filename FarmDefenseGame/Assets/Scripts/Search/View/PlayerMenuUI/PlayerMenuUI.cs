@@ -17,6 +17,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public class PlayerMenuUI : MonoBehaviour
     {
+        [SerializeField] private PlayerMenuHeaderUI _headerUI;
         [SerializeField] private PlayerMenuContentUI _contentUI;
 
         // TODO: 仮
@@ -70,6 +71,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         {
             _playerMenuVM = new PlayerMenuUIVM();
             _contentUI.Initialize(_playerMenuVM.State, equipmentUseCase, skillUseCase);
+            _headerUI.UpdateView(_playerMenuVM.State);
         }
 
         // TODO: デバックのためなので後で消す
@@ -117,10 +119,12 @@ namespace WolfVillage.Search.PlayerMenuUI
             
             _playerMenuVM.SetPlayerMenuState((PlayerMenuState)nextIndex);
             _contentUI.UpdateView(_playerMenuVM.State);
+            _headerUI.UpdateView(_playerMenuVM.State);
         }
 
         public void Dispose()
         {
+            _headerUI.Dispose();
             _contentUI.Dispose();
         }
     }
