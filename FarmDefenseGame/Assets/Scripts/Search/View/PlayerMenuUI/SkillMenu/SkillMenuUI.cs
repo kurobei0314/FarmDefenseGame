@@ -32,11 +32,30 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
 
         protected override void InputStickEvent(Vector2 axis)
         {
-            UpdateViewStickInput(axis);
+            switch (_skillMenuVM.State)
+            {
+                case FocusSkillMenuState.SetSkillIcon:
+                    UpdateFocusSkillIndexView(axis);
+                    break;
+                case FocusSkillMenuState.OwnedSkillList:
+                    _ownedSkillList.UpdateFocusIndex(axis);
+                    break;
+            }
         }
         protected override void InputDecideEvent()
         {
-            UpdateViewDecideInput();
+            switch (_skillMenuVM.State)
+            {
+                case FocusSkillMenuState.SetSkillIcon:
+                    OpenOwnedSkillList();
+                    _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
+                    break;
+                case FocusSkillMenuState.OwnedSkillList:
+                    _ownedSkillList.SelectFocusIndex();
+                    CloseOwnedSkillList();
+                    _skillMenuVM.SetState(FocusSkillMenuState.SetSkillIcon);
+                    break;
+            }
         }
 
         protected override void InputCancelEvent()
@@ -56,19 +75,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             });
         }
 
-        private void UpdateViewStickInput(Vector2 axis)
-        {
-            switch (_skillMenuVM.State)
-            {
-                case FocusSkillMenuState.SetSkillIcon:
-                    UpdateFocusSkillIndexView(axis);
-                    break;
-                case FocusSkillMenuState.OwnedSkillList:
-                    _ownedSkillList.UpdateFocusIndex(axis);
-                    break;
-            }
-        }
-
         private void UpdateFocusSkillIndexView(Vector2 axis)
         {
             var addIndex = axis.y > 0 ? -1 : 1;
@@ -79,22 +85,6 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, false);
             _setCurrentSkillGroup.UpdateFocusView(nextIndex, true);
             _skillMenuVM.SetSkillIconIndex(nextIndex);
-        }
-
-        private void UpdateViewDecideInput()
-        {
-            switch (_skillMenuVM.State)
-            {
-                case FocusSkillMenuState.SetSkillIcon:
-                    OpenOwnedSkillList();
-                    _skillMenuVM.SetState(FocusSkillMenuState.OwnedSkillList);
-                    break;
-                case FocusSkillMenuState.OwnedSkillList:
-                    _ownedSkillList.SelectFocusIndex();
-                    CloseOwnedSkillList();
-                    _skillMenuVM.SetState(FocusSkillMenuState.SetSkillIcon);
-                    break;
-            }
         }
 
         private void OpenOwnedSkillList()
