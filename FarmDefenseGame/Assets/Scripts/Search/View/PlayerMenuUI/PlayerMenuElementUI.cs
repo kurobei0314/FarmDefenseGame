@@ -5,6 +5,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public abstract class PlayerMenuElementUI : MonoBehaviour
     {
+        protected abstract void ShowUI();
         protected abstract void InputStickEvent(Vector2 axis);
         protected abstract void InputDecideEvent();
         protected abstract void InputCancelEvent();
@@ -12,7 +13,10 @@ namespace WolfVillage.Search.PlayerMenuUI
         public abstract void Dispose();
 
         public void SetActive(bool active)
-            => this.gameObject.SetActive(active);
+        {
+            this.gameObject.SetActive(active);
+            if (active) ShowUI();
+        }
 
         public void InputStick(InputAction.CallbackContext context)
         {

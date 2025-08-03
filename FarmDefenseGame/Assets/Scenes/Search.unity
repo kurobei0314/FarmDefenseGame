@@ -6259,6 +6259,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e1d05964-b597-44c0-80ef-df5763c857c0
     m_ActionName: 'Search/DebugBattleStart[/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122802958}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+        m_MethodName: InputSwitchPreCategoryEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f2b67dee-9de7-451c-9e08-ebf6c978fe32
+    m_ActionName: Search/SwitchCategory
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122802958}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+        m_MethodName: InputSwitchPreSubCategoryEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 94c74055-cf6a-4032-95f8-bd217b0604b7
+    m_ActionName: Search/SwitchSubCategory
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122802958}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+        m_MethodName: InputSwitchNextCategoryEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8d4e546c-53f6-4f65-a4eb-b4e710eb8d46
+    m_ActionName: Search/SwitchNextCategory
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122802958}
+        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+        m_MethodName: InputSwitchNextSubCategoryEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4a8f93aa-e266-4650-8da3-f5a58e874804
+    m_ActionName: Search/SwitchNextSubCategory
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Search
@@ -8572,6 +8636,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1506350169999263900, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1678745307171981275, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_Spacing
       value: 0
@@ -8599,6 +8667,10 @@ PrefabInstance:
     - target: {fileID: 1964855913820216100, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052873874939075249, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2250936693960437718, guid: 83c6fa044270248b99b1488c5c8b39e6, type: 3}
       propertyPath: _upStatusColor.a

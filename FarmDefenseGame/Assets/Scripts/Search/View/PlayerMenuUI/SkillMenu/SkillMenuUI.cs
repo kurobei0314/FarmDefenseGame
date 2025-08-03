@@ -18,7 +18,12 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
         {
             _skillMenuVM = new SkillMenuVM(skillUseCase.SetWeaponRoleType);
             _skillUseCase = skillUseCase;
-            UpdateView(skillUseCase.SetWeaponRoleType);
+        }
+
+        protected override void ShowUI()
+        {
+            _skillMenuVM.SetState(FocusSkillMenuState.SetSkillIcon);
+            UpdateView(_skillUseCase.SetWeaponRoleType);
             CloseOwnedSkillList();
             _skillDescription.Close();
         }
@@ -28,6 +33,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             _skillRoleTypeToggleGroup.Initialize(type);
             _setCurrentSkillGroup.Initialize(type, _skillUseCase.GetCurrentSkillEntitiesByRoleType(type));
             _setCurrentSkillGroup.UpdateFocusView(_skillMenuVM.FocusSkillIndex, true);
+            _ownedSkillList.gameObject.SetActive(_skillMenuVM.State == FocusSkillMenuState.OwnedSkillList);
         }
 
         protected override void InputStickEvent(Vector2 axis)

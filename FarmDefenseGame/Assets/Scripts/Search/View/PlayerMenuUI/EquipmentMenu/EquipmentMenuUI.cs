@@ -15,10 +15,17 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
         public void Initialize(ISetEquipmentUseCase equipmentUseCase)
         {
             _currentEquipmentPanel.Initialize(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
-            _ownedEquipmentList.gameObject.SetActive(false);
             _weaponMenuVM = new EquipmentMenuVM(equipmentUseCase.PlayerCurrentWeapon, equipmentUseCase.PlayerCurrentArmor);
             _equipmentUseCase = equipmentUseCase;
         }
+
+        protected override void ShowUI()
+        {
+            _ownedEquipmentList.gameObject.SetActive(false);
+            _currentEquipmentPanel.FocusWeaponPanel();
+            _weaponMenuVM.SetState(FocusEquipmentMenuState.SetWeaponPanel);
+        }
+
         protected override void InputStickEvent(Vector2 axis)
         {
             switch (_weaponMenuVM.State)
