@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 265015050}
   - component: {fileID: 265015049}
   m_Layer: 0
-  m_Name: UICanvas
+  m_Name: UIOverlayCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +679,7 @@ Canvas:
   m_GameObject: {fileID: 265015048}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1701311660}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -895,7 +895,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1701311661}
   - {fileID: 265015052}
   - {fileID: 768667471}
   m_Father: {fileID: 0}
@@ -6391,7 +6390,7 @@ MonoBehaviour:
     m_ActionName: Search/SwitchNextSubCategory
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Search
+  m_DefaultActionMap: PlayerMenuUI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1523651717
@@ -7394,7 +7393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 291865280}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709230005
 GameObject:
@@ -9162,6 +9161,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1701311661}
   - {fileID: 1259924876}
   - {fileID: 291865280}
   - {fileID: 1383592014}

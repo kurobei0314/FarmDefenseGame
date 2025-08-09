@@ -419,7 +419,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Search"",
+            ""name"": ""PlayerMenuUI"",
             ""id"": ""a03a10d4-390f-48e8-b968-8ba554aa911f"",
             ""actions"": [
                 {
@@ -676,23 +676,23 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Battle_CameraMove = m_Battle.FindAction("CameraMove", throwIfNotFound: true);
         m_Battle_InitCameraPos = m_Battle.FindAction("InitCameraPos", throwIfNotFound: true);
         m_Battle_SwitchCameraMode = m_Battle.FindAction("SwitchCameraMode", throwIfNotFound: true);
-        // Search
-        m_Search = asset.FindActionMap("Search", throwIfNotFound: true);
-        m_Search_StickInput = m_Search.FindAction("StickInput", throwIfNotFound: true);
-        m_Search_Decide = m_Search.FindAction("Decide", throwIfNotFound: true);
-        m_Search_Back = m_Search.FindAction("Back", throwIfNotFound: true);
-        m_Search_Cancel = m_Search.FindAction("Cancel", throwIfNotFound: true);
-        m_Search_DebugBattleStart = m_Search.FindAction("DebugBattleStart", throwIfNotFound: true);
-        m_Search_SwitchPreCategory = m_Search.FindAction("SwitchPreCategory", throwIfNotFound: true);
-        m_Search_SwitchNextCategory = m_Search.FindAction("SwitchNextCategory", throwIfNotFound: true);
-        m_Search_SwitchPreSubCategory = m_Search.FindAction("SwitchPreSubCategory", throwIfNotFound: true);
-        m_Search_SwitchNextSubCategory = m_Search.FindAction("SwitchNextSubCategory", throwIfNotFound: true);
+        // PlayerMenuUI
+        m_PlayerMenuUI = asset.FindActionMap("PlayerMenuUI", throwIfNotFound: true);
+        m_PlayerMenuUI_StickInput = m_PlayerMenuUI.FindAction("StickInput", throwIfNotFound: true);
+        m_PlayerMenuUI_Decide = m_PlayerMenuUI.FindAction("Decide", throwIfNotFound: true);
+        m_PlayerMenuUI_Back = m_PlayerMenuUI.FindAction("Back", throwIfNotFound: true);
+        m_PlayerMenuUI_Cancel = m_PlayerMenuUI.FindAction("Cancel", throwIfNotFound: true);
+        m_PlayerMenuUI_DebugBattleStart = m_PlayerMenuUI.FindAction("DebugBattleStart", throwIfNotFound: true);
+        m_PlayerMenuUI_SwitchPreCategory = m_PlayerMenuUI.FindAction("SwitchPreCategory", throwIfNotFound: true);
+        m_PlayerMenuUI_SwitchNextCategory = m_PlayerMenuUI.FindAction("SwitchNextCategory", throwIfNotFound: true);
+        m_PlayerMenuUI_SwitchPreSubCategory = m_PlayerMenuUI.FindAction("SwitchPreSubCategory", throwIfNotFound: true);
+        m_PlayerMenuUI_SwitchNextSubCategory = m_PlayerMenuUI.FindAction("SwitchNextSubCategory", throwIfNotFound: true);
     }
 
     ~@InputSystem()
     {
         UnityEngine.Debug.Assert(!m_Battle.enabled, "This will cause a leak and performance issues, InputSystem.Battle.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Search.enabled, "This will cause a leak and performance issues, InputSystem.Search.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PlayerMenuUI.enabled, "This will cause a leak and performance issues, InputSystem.PlayerMenuUI.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -869,40 +869,40 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     }
     public BattleActions @Battle => new BattleActions(this);
 
-    // Search
-    private readonly InputActionMap m_Search;
-    private List<ISearchActions> m_SearchActionsCallbackInterfaces = new List<ISearchActions>();
-    private readonly InputAction m_Search_StickInput;
-    private readonly InputAction m_Search_Decide;
-    private readonly InputAction m_Search_Back;
-    private readonly InputAction m_Search_Cancel;
-    private readonly InputAction m_Search_DebugBattleStart;
-    private readonly InputAction m_Search_SwitchPreCategory;
-    private readonly InputAction m_Search_SwitchNextCategory;
-    private readonly InputAction m_Search_SwitchPreSubCategory;
-    private readonly InputAction m_Search_SwitchNextSubCategory;
-    public struct SearchActions
+    // PlayerMenuUI
+    private readonly InputActionMap m_PlayerMenuUI;
+    private List<IPlayerMenuUIActions> m_PlayerMenuUIActionsCallbackInterfaces = new List<IPlayerMenuUIActions>();
+    private readonly InputAction m_PlayerMenuUI_StickInput;
+    private readonly InputAction m_PlayerMenuUI_Decide;
+    private readonly InputAction m_PlayerMenuUI_Back;
+    private readonly InputAction m_PlayerMenuUI_Cancel;
+    private readonly InputAction m_PlayerMenuUI_DebugBattleStart;
+    private readonly InputAction m_PlayerMenuUI_SwitchPreCategory;
+    private readonly InputAction m_PlayerMenuUI_SwitchNextCategory;
+    private readonly InputAction m_PlayerMenuUI_SwitchPreSubCategory;
+    private readonly InputAction m_PlayerMenuUI_SwitchNextSubCategory;
+    public struct PlayerMenuUIActions
     {
         private @InputSystem m_Wrapper;
-        public SearchActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
-        public InputAction @StickInput => m_Wrapper.m_Search_StickInput;
-        public InputAction @Decide => m_Wrapper.m_Search_Decide;
-        public InputAction @Back => m_Wrapper.m_Search_Back;
-        public InputAction @Cancel => m_Wrapper.m_Search_Cancel;
-        public InputAction @DebugBattleStart => m_Wrapper.m_Search_DebugBattleStart;
-        public InputAction @SwitchPreCategory => m_Wrapper.m_Search_SwitchPreCategory;
-        public InputAction @SwitchNextCategory => m_Wrapper.m_Search_SwitchNextCategory;
-        public InputAction @SwitchPreSubCategory => m_Wrapper.m_Search_SwitchPreSubCategory;
-        public InputAction @SwitchNextSubCategory => m_Wrapper.m_Search_SwitchNextSubCategory;
-        public InputActionMap Get() { return m_Wrapper.m_Search; }
+        public PlayerMenuUIActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StickInput => m_Wrapper.m_PlayerMenuUI_StickInput;
+        public InputAction @Decide => m_Wrapper.m_PlayerMenuUI_Decide;
+        public InputAction @Back => m_Wrapper.m_PlayerMenuUI_Back;
+        public InputAction @Cancel => m_Wrapper.m_PlayerMenuUI_Cancel;
+        public InputAction @DebugBattleStart => m_Wrapper.m_PlayerMenuUI_DebugBattleStart;
+        public InputAction @SwitchPreCategory => m_Wrapper.m_PlayerMenuUI_SwitchPreCategory;
+        public InputAction @SwitchNextCategory => m_Wrapper.m_PlayerMenuUI_SwitchNextCategory;
+        public InputAction @SwitchPreSubCategory => m_Wrapper.m_PlayerMenuUI_SwitchPreSubCategory;
+        public InputAction @SwitchNextSubCategory => m_Wrapper.m_PlayerMenuUI_SwitchNextSubCategory;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerMenuUI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(SearchActions set) { return set.Get(); }
-        public void AddCallbacks(ISearchActions instance)
+        public static implicit operator InputActionMap(PlayerMenuUIActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerMenuUIActions instance)
         {
-            if (instance == null || m_Wrapper.m_SearchActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_SearchActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerMenuUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerMenuUIActionsCallbackInterfaces.Add(instance);
             @StickInput.started += instance.OnStickInput;
             @StickInput.performed += instance.OnStickInput;
             @StickInput.canceled += instance.OnStickInput;
@@ -932,7 +932,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SwitchNextSubCategory.canceled += instance.OnSwitchNextSubCategory;
         }
 
-        private void UnregisterCallbacks(ISearchActions instance)
+        private void UnregisterCallbacks(IPlayerMenuUIActions instance)
         {
             @StickInput.started -= instance.OnStickInput;
             @StickInput.performed -= instance.OnStickInput;
@@ -963,21 +963,21 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SwitchNextSubCategory.canceled -= instance.OnSwitchNextSubCategory;
         }
 
-        public void RemoveCallbacks(ISearchActions instance)
+        public void RemoveCallbacks(IPlayerMenuUIActions instance)
         {
-            if (m_Wrapper.m_SearchActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerMenuUIActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(ISearchActions instance)
+        public void SetCallbacks(IPlayerMenuUIActions instance)
         {
-            foreach (var item in m_Wrapper.m_SearchActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerMenuUIActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_SearchActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerMenuUIActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public SearchActions @Search => new SearchActions(this);
+    public PlayerMenuUIActions @PlayerMenuUI => new PlayerMenuUIActions(this);
     public interface IBattleActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -991,7 +991,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnInitCameraPos(InputAction.CallbackContext context);
         void OnSwitchCameraMode(InputAction.CallbackContext context);
     }
-    public interface ISearchActions
+    public interface IPlayerMenuUIActions
     {
         void OnStickInput(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
