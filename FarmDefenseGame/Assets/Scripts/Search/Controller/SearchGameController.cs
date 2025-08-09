@@ -32,7 +32,7 @@ namespace WolfVillage.Search
 
         void Start()
         {
-            // _playerInput.SwitchCurrentActionMap(ActionMapName.SearchMap);
+            _playerInput.SwitchCurrentActionMap(ActionMapName.SearchMap);
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();

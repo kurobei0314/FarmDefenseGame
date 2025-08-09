@@ -424,12 +424,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""62ac0ad1-aa6b-4fcc-822d-d5e31aca6ebb"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [

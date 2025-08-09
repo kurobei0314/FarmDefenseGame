@@ -6217,9 +6217,9 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 440028972900457150, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
+  m_MoveAction: {fileID: 0}
   m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 4705665475913197585, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
+  m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: 0}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
@@ -6244,7 +6244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
+  m_UIInputModule: {fileID: 1484478249}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
