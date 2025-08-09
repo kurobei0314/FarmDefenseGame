@@ -16,6 +16,8 @@ namespace WolfVillage.Search
     public class SearchGameController : MonoBehaviour
     {
         [SerializeField] private PlayerMenu _playerMenuUI;
+        [SerializeField] private SearchCameraView _searchCameraView;
+        [SerializeField] private PlayerInput _playerInput;
         // TODO: 仮
         [SerializeField] private WeaponVODataStore weaponVODataStore;
         [SerializeField] private SkillVODataStore skillVODataStore;
@@ -26,8 +28,11 @@ namespace WolfVillage.Search
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
 
+        private MoveController _moveController;
+
         void Start()
         {
+            // _playerInput.SwitchCurrentActionMap(ActionMapName.SearchMap);
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
@@ -54,10 +59,14 @@ namespace WolfVillage.Search
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
 
             player = new SearchPlayerEntity(playerStatusVO, setAllTypeSkillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
+            _moveController = new MoveController(_searchCameraView);
         }
 
         #region InputSystemEventHandler
         // TODO: デバックのためなので後で消す
+        public void InputMoveEvent(InputAction.CallbackContext context)
+            => _moveController.Input(context);
+        
         public void InputDebugBattleStartEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;

@@ -419,6 +419,89 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Search"",
+            ""id"": ""bf9e5725-dadd-44cf-a9d0-3edd9ca1ddae"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Button"",
+                    ""id"": ""62ac0ad1-aa6b-4fcc-822d-d5e31aca6ebb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""45e1bb1f-4eeb-40c4-9a8c-bc2b29c7aef4"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""6ac91981-3d90-40a3-90d3-86e0ffbaf996"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""38898d68-5056-4452-8dba-8574d6eede41"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f3977a9e-6a8e-4f92-acd0-e0d855788033"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c9a41be5-7da5-4cc1-add9-5f1d653ef9c7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""0c2656d3-5937-4540-9021-229c9cebd691"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
             ""name"": ""PlayerMenuUI"",
             ""id"": ""a03a10d4-390f-48e8-b968-8ba554aa911f"",
             ""actions"": [
@@ -676,6 +759,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Battle_CameraMove = m_Battle.FindAction("CameraMove", throwIfNotFound: true);
         m_Battle_InitCameraPos = m_Battle.FindAction("InitCameraPos", throwIfNotFound: true);
         m_Battle_SwitchCameraMode = m_Battle.FindAction("SwitchCameraMode", throwIfNotFound: true);
+        // Search
+        m_Search = asset.FindActionMap("Search", throwIfNotFound: true);
+        m_Search_Move = m_Search.FindAction("Move", throwIfNotFound: true);
         // PlayerMenuUI
         m_PlayerMenuUI = asset.FindActionMap("PlayerMenuUI", throwIfNotFound: true);
         m_PlayerMenuUI_StickInput = m_PlayerMenuUI.FindAction("StickInput", throwIfNotFound: true);
@@ -692,6 +778,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     ~@InputSystem()
     {
         UnityEngine.Debug.Assert(!m_Battle.enabled, "This will cause a leak and performance issues, InputSystem.Battle.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Search.enabled, "This will cause a leak and performance issues, InputSystem.Search.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_PlayerMenuUI.enabled, "This will cause a leak and performance issues, InputSystem.PlayerMenuUI.Disable() has not been called.");
     }
 
@@ -869,6 +956,52 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     }
     public BattleActions @Battle => new BattleActions(this);
 
+    // Search
+    private readonly InputActionMap m_Search;
+    private List<ISearchActions> m_SearchActionsCallbackInterfaces = new List<ISearchActions>();
+    private readonly InputAction m_Search_Move;
+    public struct SearchActions
+    {
+        private @InputSystem m_Wrapper;
+        public SearchActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Search_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Search; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SearchActions set) { return set.Get(); }
+        public void AddCallbacks(ISearchActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SearchActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SearchActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(ISearchActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(ISearchActions instance)
+        {
+            if (m_Wrapper.m_SearchActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISearchActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SearchActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SearchActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SearchActions @Search => new SearchActions(this);
+
     // PlayerMenuUI
     private readonly InputActionMap m_PlayerMenuUI;
     private List<IPlayerMenuUIActions> m_PlayerMenuUIActionsCallbackInterfaces = new List<IPlayerMenuUIActions>();
@@ -990,6 +1123,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnCameraMove(InputAction.CallbackContext context);
         void OnInitCameraPos(InputAction.CallbackContext context);
         void OnSwitchCameraMode(InputAction.CallbackContext context);
+    }
+    public interface ISearchActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface IPlayerMenuUIActions
     {

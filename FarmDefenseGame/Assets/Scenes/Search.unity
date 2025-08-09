@@ -896,6 +896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMenuUI: {fileID: 2122802958}
+  _searchCameraView: {fileID: 1701311662}
+  _playerInput: {fileID: 1484478250}
   weaponVODataStore: {fileID: 11400000, guid: 642840e33fdc442078ca6c4be6f5247d, type: 2}
   skillVODataStore: {fileID: 11400000, guid: f4972169f6e664f8b9ed6c79de176ec2, type: 2}
   armorVODataStore: {fileID: 11400000, guid: a93335e0b83ee483dac104da32b8373a, type: 2}
@@ -909,7 +911,7 @@ Transform:
   m_GameObject: {fileID: 286857725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6639156, y: 3.6493032, z: 1.6816871}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6213,17 +6215,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: 440028972900457150, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 4705665475913197585, guid: 54867ee3f741e41d18392a36f5f35309, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -6437,9 +6439,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4a8f93aa-e266-4650-8da3-f5a58e874804
     m_ActionName: Search/SwitchNextSubCategory
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 286857726}
+        m_TargetAssemblyTypeName: WolfVillage.Search.SearchGameController, Script
+        m_MethodName: InputMoveEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 62ac0ad1-aa6b-4fcc-822d-d5e31aca6ebb
+    m_ActionName: 'Search/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerMenuUI
+  m_DefaultActionMap: Search
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1523651717
@@ -7361,6 +7379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701311661}
+  - component: {fileID: 1701311662}
   - component: {fileID: 1701311660}
   - component: {fileID: 1701311659}
   m_Layer: 0
@@ -7444,6 +7463,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701311662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701311658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618acfc117797409bac822999ba7c1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 1701311660}
 --- !u!1 &1709230005
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,4 +37,11 @@ namespace WolfVillage
         // プレイヤーがセットできるスキルの数
         public const int PLAYER_SET_SKILL_NUM = 3;
     }
+
+    public class ActionMapName
+    {
+        public const string BattleMap = "Battle";
+        public const string SearchMap = "Search";
+        public const string PlayerMenuUI = "PlayerMenuUI";
+    }
 }
