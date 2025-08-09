@@ -866,6 +866,55 @@ MonoBehaviour:
   remakeLargeRuby: 1
   debugLogError: 1
   checkOverFlow: 0
+--- !u!1 &286857725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286857727}
+  - component: {fileID: 286857726}
+  m_Layer: 0
+  m_Name: MainController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &286857726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286857725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0308737d514a8ea9766ad44be285d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMenuUI: {fileID: 2122802958}
+  weaponVODataStore: {fileID: 11400000, guid: 642840e33fdc442078ca6c4be6f5247d, type: 2}
+  skillVODataStore: {fileID: 11400000, guid: f4972169f6e664f8b9ed6c79de176ec2, type: 2}
+  armorVODataStore: {fileID: 11400000, guid: a93335e0b83ee483dac104da32b8373a, type: 2}
+  playerDataStore: {fileID: 11400000, guid: c03b058d4799544678df76d74d0821e0, type: 2}
+--- !u!4 &286857727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286857725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6639156, y: 3.6493032, z: 1.6816871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291865279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,8 +6359,8 @@ MonoBehaviour:
     m_ActionName: 'Search/Cancel[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2122802958}
-        m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI, Script
+      - m_Target: {fileID: 286857726}
+        m_TargetAssemblyTypeName: WolfVillage.Search.SearchGameController, Script
         m_MethodName: InputDebugBattleStartEvent
         m_Mode: 0
         m_Arguments:
@@ -9168,3 +9217,4 @@ SceneRoots:
   - {fileID: 456724001}
   - {fileID: 669243365}
   - {fileID: 1484478248}
+  - {fileID: 286857727}
