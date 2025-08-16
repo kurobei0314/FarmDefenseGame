@@ -14,11 +14,11 @@ public class InspectorEditor : Editor
     {
         base.OnInspectorGUI();
         var tmp = target as TestController;
-        var playerInput = tmp.PlayerInput;
-        var inputActionList = tmp.List;
-        if (playerInput == null || inputActionList == null) return;
+        var actionAsset = tmp.ActionAsset;
+        var inputActionList = tmp.InputCallbackList;
+        if (actionAsset == null || inputActionList == null) return;
 
-        var currentActionNames = playerInput.actions.Select(action => action.name).OrderBy(name => name).ToArray();
+        var currentActionNames = actionAsset.Select(action => action.name).OrderBy(name => name).ToArray();
         var beforeActionNames = inputActionList.Select(inputAction => inputAction.ActionName).OrderBy(name => name).ToArray();
         if (!Enumerable.SequenceEqual(currentActionNames, beforeActionNames))
         {
@@ -30,10 +30,10 @@ public class InspectorEditor : Editor
     public void UpdateActionList()
     {
         var testController = target as TestController;
-        var playerInput = testController.PlayerInput;
-        var inputActionList = testController.List;
+        var actionAsset = testController.ActionAsset;
+        var inputActionList = testController.InputCallbackList;
 
-        var inputSystemList = playerInput?.actions.ToLookup(value => value.actionMap.name);
+        var inputSystemList = actionAsset?.ToLookup(value => value.actionMap.name);
         var inputActions = inputActionList.ToLookup(action => action.ActionMapName);
 
         // 新たにInputSystemから追加されたものを取得し、追加する
@@ -51,7 +51,7 @@ public class InspectorEditor : Editor
                         break;
                     }
                 }
-                if (notFind) testController.List.Add(new InputCallback(actionMapName, inputSystemAction.name));
+                if (notFind) testController.InputCallbackList.Add(new InputCallback(actionMapName, inputSystemAction.name));
             }
         }
 
@@ -71,11 +71,11 @@ public class InspectorEditor : Editor
                         break;
                     }
                 }
-                if (notFind) testController.List.Remove(inputSystemAction);
+                if (notFind) testController.InputCallbackList.Remove(inputSystemAction);
             }
         }
 
-        if (testController.List.Count != playerInput.actions.Count())
+        if (testController.InputCallbackList.Count != actionAsset.Count())
         {
             Debug.LogError("system Inputに設定されているaction数とcallbackの数が合いません");
         }
@@ -99,15 +99,47 @@ public class InputCallback
 [RequireComponent(typeof(PlayerInput))]
 public class TestController : MonoBehaviour
 {
-    [SerializeField] public PlayerInput PlayerInput;
-    [SerializeField] public List<InputCallback> List;
+    [SerializeField] public InputActionAsset ActionAsset;
+    [SerializeField] public List<InputCallback> InputCallbackList;
+
+    private string currentActionMapName;
 
     private void Awake()
     {
-        
+        SetCallbackForInputActionAsset();
+        ActionAsset.Enable();
+        ActionAsset.FindActionMap("PlayerMenuUI").Disable();
+        ActionAsset.FindActionMap("Search").Enable();
     }
 
-    public void SwitchActionMaps()
+    private void SetCallbackForInputActionAsset()
+    {
+        foreach (var inputCallback in InputCallbackList)
+        {
+            var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
+            var tmp = ActionAsset?.FindActionMap(inputCallback?.ActionMapName);
+            var tmp2 = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
+            if (action == null) continue;
+            action.performed += (context) => inputCallback?.Callback?.Invoke(context);
+        }
+    }
+
+    public void SwitchActionMaps(string actionMapName)
+    {
+
+    }
+
+    private void InActiveActionMap()
+    {
+        ActionAsset.FindActionMap("PlayerMenuUI").Disable();
+        foreach(var action in ActionAsset)
+
+        {
+
+        }
+    }
+
+    private void ActiveActionMap()
     {
 
     }
