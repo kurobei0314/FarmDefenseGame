@@ -1,5 +1,5 @@
 {
-    "name": "InputSystem",
+    "name": "FarmDefenseInputSystem",
     "maps": [
         {
             "name": "Battle",
