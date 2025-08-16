@@ -10,7 +10,6 @@ using System.Collections.Generic;
 [CustomEditor(typeof(TestController))]
 public class InspectorEditor : Editor
 {
-    
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -26,7 +25,6 @@ public class InspectorEditor : Editor
             // Action が変化したので更新
             UpdateActionList();
         }
-    
     }
 
     public void UpdateActionList()
@@ -89,7 +87,7 @@ public class InputCallback
 {
     [SerializeField] public string ActionMapName;
     [SerializeField] public string ActionName;
-    [SerializeField] public UnityEvent Callback;
+    [SerializeField] public UnityEvent<InputAction.CallbackContext> Callback;
 
     public InputCallback(string actionMapName, string actionName)
     {
@@ -107,6 +105,11 @@ public class TestController : MonoBehaviour
     private void Awake()
     {
         
+    }
+
+    public void SwitchActionMaps()
+    {
+
     }
 
     private void OnMove(InputValue value)
