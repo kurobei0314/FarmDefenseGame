@@ -103,13 +103,22 @@ namespace WolfVillage.Common
         [SerializeField] public InputActionAsset ActionAsset;
         [SerializeField] public List<InputCallback> InputCallbackList;
 
-        private string currentActionMapName;
+        private string currentActionMapName = String.Empty;
 
-        private void Awake()
+        public void Initialize(string actionMapName)
         {
-            SetCallbackForInputActionAsset(ActionMapName.SearchMap);
-            currentActionMapName = ActionMapName.SearchMap;
+            SetCallbackForInputActionAsset(actionMapName);
             ActionAsset.Enable();
+        }
+
+        public void SwitchActionMaps(string actionMapName)
+        {
+            if (currentActionMapName != String.Empty)
+            {
+                UnSetCallbackForInputActionAsset(currentActionMapName);
+            }
+            SetCallbackForInputActionAsset(actionMapName);
+            currentActionMapName = actionMapName;
         }
 
         private void SetCallbackForInputActionAsset(string actionMapName)
@@ -136,11 +145,7 @@ namespace WolfVillage.Common
             }
         }
 
-        public void SwitchActionMaps(string actionMapName)
-        {
-            UnSetCallbackForInputActionAsset(currentActionMapName);
-            SetCallbackForInputActionAsset(actionMapName);
-            currentActionMapName = actionMapName;
-        }
+        public bool IsPressed(string actionName)
+            => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).IsPressed() ?? false;
     }
 }
