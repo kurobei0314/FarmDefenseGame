@@ -6,151 +6,141 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-
-[CustomEditor(typeof(TestController))]
-public class InspectorEditor : Editor
+namespace WolfVillage.Common
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(TestController))]
+    public class InspectorEditor : Editor
     {
-        base.OnInspectorGUI();
-        var tmp = target as TestController;
-        var actionAsset = tmp.ActionAsset;
-        var inputActionList = tmp.InputCallbackList;
-        if (actionAsset == null || inputActionList == null) return;
-
-        var currentActionNames = actionAsset.Select(action => action.name).OrderBy(name => name).ToArray();
-        var beforeActionNames = inputActionList.Select(inputAction => inputAction.ActionName).OrderBy(name => name).ToArray();
-        if (!Enumerable.SequenceEqual(currentActionNames, beforeActionNames))
+        public override void OnInspectorGUI()
         {
-            // Action が変化したので更新
-            UpdateActionList();
-        }
-    }
+            base.OnInspectorGUI();
+            var tmp = target as TestController;
+            var actionAsset = tmp.ActionAsset;
+            var inputActionList = tmp.InputCallbackList;
+            if (actionAsset == null || inputActionList == null) return;
 
-    public void UpdateActionList()
-    {
-        var testController = target as TestController;
-        var actionAsset = testController.ActionAsset;
-        var inputActionList = testController.InputCallbackList;
-
-        var inputSystemList = actionAsset?.ToLookup(value => value.actionMap.name);
-        var inputActions = inputActionList.ToLookup(action => action.ActionMapName);
-
-        // 新たにInputSystemから追加されたものを取得し、追加する
-        foreach (var list in inputSystemList)
-        {
-            var actionMapName = list.Key;
-            foreach (var inputSystemAction in list)
+            var currentActionNames = actionAsset.Select(action => action.name).OrderBy(name => name).ToArray();
+            var beforeActionNames = inputActionList.Select(inputAction => inputAction.ActionName).OrderBy(name => name).ToArray();
+            if (!Enumerable.SequenceEqual(currentActionNames, beforeActionNames))
             {
-                var notFind = true;
-                foreach(var inputAction in inputActions[actionMapName])
-                {
-                    if (inputSystemAction.name == inputAction.ActionName)
-                    {
-                        notFind = false;
-                        break;
-                    }
-                }
-                if (notFind) testController.InputCallbackList.Add(new InputCallback(actionMapName, inputSystemAction.name));
+                // Action が変化したので更新
+                UpdateActionList();
             }
         }
 
-        // 逆にSerializeFieldにしかないものを見つけて削除する
-        foreach(var list in inputActions)
+        public void UpdateActionList()
         {
-            var actionMapName = list.Key;
+            var testController = target as TestController;
+            var actionAsset = testController.ActionAsset;
+            var inputActionList = testController.InputCallbackList;
 
-            foreach(var inputSystemAction in list)
+            var inputSystemList = actionAsset?.ToLookup(value => value.actionMap.name);
+            var inputActions = inputActionList.ToLookup(action => action.ActionMapName);
+
+            // 新たにInputSystemから追加されたものを取得し、追加する
+            foreach (var list in inputSystemList)
             {
-                var notFind = true;
-                foreach(var action in inputSystemList[actionMapName])
+                var actionMapName = list.Key;
+                foreach (var inputSystemAction in list)
                 {
-                    if (inputSystemAction.ActionName == action.name)
+                    var notFind = true;
+                    foreach(var inputAction in inputActions[actionMapName])
                     {
-                        notFind = false;
-                        break;
+                        if (inputSystemAction.name == inputAction.ActionName)
+                        {
+                            notFind = false;
+                            break;
+                        }
                     }
+                    if (notFind) testController.InputCallbackList.Add(new InputCallback(actionMapName, inputSystemAction.name));
                 }
-                if (notFind) testController.InputCallbackList.Remove(inputSystemAction);
+            }
+
+            // 逆にSerializeFieldにしかないものを見つけて削除する
+            foreach(var list in inputActions)
+            {
+                var actionMapName = list.Key;
+
+                foreach(var inputSystemAction in list)
+                {
+                    var notFind = true;
+                    foreach(var action in inputSystemList[actionMapName])
+                    {
+                        if (inputSystemAction.ActionName == action.name)
+                        {
+                            notFind = false;
+                            break;
+                        }
+                    }
+                    if (notFind) testController.InputCallbackList.Remove(inputSystemAction);
+                }
+            }
+
+            if (testController.InputCallbackList.Count != actionAsset.Count())
+            {
+                Debug.LogError("system Inputに設定されているaction数とcallbackの数が合いません");
+            }
+        }
+    }
+
+    [Serializable]
+    public class InputCallback
+    {
+        [SerializeField] public string ActionMapName;
+        [SerializeField] public string ActionName;
+        [SerializeField] public UnityEvent<InputAction.CallbackContext> Callback;
+
+        public InputCallback(string actionMapName, string actionName)
+        {
+            ActionMapName = actionMapName;
+            ActionName = actionName;
+        }
+    }
+
+    [RequireComponent(typeof(PlayerInput))]
+    public class TestController : MonoBehaviour
+    {
+        [SerializeField] public InputActionAsset ActionAsset;
+        [SerializeField] public List<InputCallback> InputCallbackList;
+
+        private string currentActionMapName;
+
+        private void Awake()
+        {
+            SetCallbackForInputActionAsset(ActionMapName.SearchMap);
+            currentActionMapName = ActionMapName.SearchMap;
+            ActionAsset.Enable();
+        }
+
+        private void SetCallbackForInputActionAsset(string actionMapName)
+        {
+            foreach (var inputCallback in InputCallbackList)
+            {
+                if (actionMapName != inputCallback?.ActionMapName) continue;
+                var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
+                if (action == null) continue;
+                action.performed += (context) => inputCallback?.Callback?.Invoke(context);
+                action.Enable();
             }
         }
 
-        if (testController.InputCallbackList.Count != actionAsset.Count())
+        private void UnSetCallbackForInputActionAsset(string actionMapName)
         {
-            Debug.LogError("system Inputに設定されているaction数とcallbackの数が合いません");
+            foreach(var inputCallback in InputCallbackList)
+            {
+                if (actionMapName != inputCallback?.ActionMapName) continue;
+                var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
+                if (action == null) continue;
+                action.performed -= (context) => inputCallback?.Callback?.Invoke(context);
+                action.Disable();
+            }
         }
-    }
-}
 
-[Serializable]
-public class InputCallback
-{
-    [SerializeField] public string ActionMapName;
-    [SerializeField] public string ActionName;
-    [SerializeField] public UnityEvent<InputAction.CallbackContext> Callback;
-
-    public InputCallback(string actionMapName, string actionName)
-    {
-        ActionMapName = actionMapName;
-        ActionName = actionName;
-    }
-}
-
-[RequireComponent(typeof(PlayerInput))]
-public class TestController : MonoBehaviour
-{
-    [SerializeField] public InputActionAsset ActionAsset;
-    [SerializeField] public List<InputCallback> InputCallbackList;
-
-    private string currentActionMapName;
-
-    private void Awake()
-    {
-        SetCallbackForInputActionAsset();
-        ActionAsset.Enable();
-        ActionAsset.FindActionMap("PlayerMenuUI").Disable();
-        ActionAsset.FindActionMap("Search").Enable();
-    }
-
-    private void SetCallbackForInputActionAsset()
-    {
-        foreach (var inputCallback in InputCallbackList)
+        public void SwitchActionMaps(string actionMapName)
         {
-            var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
-            var tmp = ActionAsset?.FindActionMap(inputCallback?.ActionMapName);
-            var tmp2 = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
-            if (action == null) continue;
-            action.performed += (context) => inputCallback?.Callback?.Invoke(context);
+            UnSetCallbackForInputActionAsset(currentActionMapName);
+            SetCallbackForInputActionAsset(actionMapName);
+            currentActionMapName = actionMapName;
         }
-    }
-
-    public void SwitchActionMaps(string actionMapName)
-    {
-
-    }
-
-    private void InActiveActionMap()
-    {
-        ActionAsset.FindActionMap("PlayerMenuUI").Disable();
-        foreach(var action in ActionAsset)
-
-        {
-
-        }
-    }
-
-    private void ActiveActionMap()
-    {
-
-    }
-
-    private void OnMove(InputValue value)
-    {
-        Debug.LogError("OnMove!!!");
-    }
-
-    private void OnStickInput(InputValue value)
-    {
-        Debug.LogError("StickInput!!!!");
     }
 }
