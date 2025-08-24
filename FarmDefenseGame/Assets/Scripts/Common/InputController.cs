@@ -14,9 +14,9 @@ namespace WolfVillage.Common
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var tmp = target as InputController;
-            var actionAsset = tmp.ActionAsset;
-            var inputActionList = tmp.InputCallbackList;
+            var inputController = target as InputController;
+            var actionAsset = inputController.ActionAsset;
+            var inputActionList = inputController.InputCallbackList;
             if (actionAsset == null || inputActionList == null) return;
 
             var currentActionNames = actionAsset.Select(action => action.name).OrderBy(name => name).ToArray();
@@ -30,9 +30,9 @@ namespace WolfVillage.Common
 
         public void UpdateActionList()
         {
-            var testController = target as InputController;
-            var actionAsset = testController.ActionAsset;
-            var inputActionList = testController.InputCallbackList;
+            var inputController = target as InputController;
+            var actionAsset = inputController.ActionAsset;
+            var inputActionList = inputController.InputCallbackList;
 
             var inputSystemList = actionAsset?.ToLookup(value => value.actionMap.name);
             var inputActions = inputActionList.ToLookup(action => action.ActionMapName);
@@ -52,7 +52,7 @@ namespace WolfVillage.Common
                             break;
                         }
                     }
-                    if (notFind) testController.InputCallbackList.Add(new InputCallback(actionMapName, inputSystemAction.name));
+                    if (notFind) inputController.InputCallbackList.Add(new InputCallback(actionMapName, inputSystemAction.name));
                 }
             }
 
@@ -72,11 +72,11 @@ namespace WolfVillage.Common
                             break;
                         }
                     }
-                    if (notFind) testController.InputCallbackList.Remove(inputSystemAction);
+                    if (notFind) inputController.InputCallbackList.Remove(inputSystemAction);
                 }
             }
 
-            if (testController.InputCallbackList.Count != actionAsset.Count())
+            if (inputController.InputCallbackList.Count != actionAsset.Count())
             {
                 Debug.LogError("system Inputに設定されているaction数とcallbackの数が合いません");
             }
