@@ -8,13 +8,13 @@ using System.Collections.Generic;
 
 namespace WolfVillage.Common
 {
-    [CustomEditor(typeof(TestController))]
+    [CustomEditor(typeof(InputController))]
     public class InspectorEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var tmp = target as TestController;
+            var tmp = target as InputController;
             var actionAsset = tmp.ActionAsset;
             var inputActionList = tmp.InputCallbackList;
             if (actionAsset == null || inputActionList == null) return;
@@ -30,7 +30,7 @@ namespace WolfVillage.Common
 
         public void UpdateActionList()
         {
-            var testController = target as TestController;
+            var testController = target as InputController;
             var actionAsset = testController.ActionAsset;
             var inputActionList = testController.InputCallbackList;
 
@@ -98,7 +98,7 @@ namespace WolfVillage.Common
     }
 
     [RequireComponent(typeof(PlayerInput))]
-    public class TestController : MonoBehaviour
+    public class InputController : MonoBehaviour
     {
         [SerializeField] public InputActionAsset ActionAsset;
         [SerializeField] public List<InputCallback> InputCallbackList;
