@@ -101,7 +101,7 @@ namespace WolfVillage.Common
     {
         void Initialize(string actionMapName);
         void SwitchActionMaps(string actionMapName);
-        bool IsPressed(string actionName);
+        bool IsPressed(string actionMapName, string actionName);
         Vector2 GetReadValueByVector2(string actionName);
     }
 
@@ -153,8 +153,11 @@ namespace WolfVillage.Common
             }
         }
 
-        public bool IsPressed(string actionName)
-            => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).IsPressed() ?? false;
+        public bool IsPressed(string actionMapName, string actionName)
+        {
+            if (actionMapName != currentActionMapName) return false;
+            return ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).IsPressed() ?? false;
+        }
 
         public Vector2 GetReadValueByVector2(string actionName)
             => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).ReadValue<Vector2>() ?? Vector2.zero;
