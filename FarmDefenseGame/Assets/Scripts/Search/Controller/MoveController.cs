@@ -14,7 +14,7 @@ namespace WolfVillage.Search
             _moveUseCase = new MoveActor(camera);
         }
 
-        public void Initialize(ISearchCameraView camera, InputController inputController)
+        public void Initialize(ISearchCameraView camera, IInputController inputController)
         {
             _moveUseCase = new MoveActor(camera);
             Observable.EveryUpdate().Where(_ => inputController.IsPressed(SearchGameInputActionName.PlayerMove)).Subscribe(_ => {

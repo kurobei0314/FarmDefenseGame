@@ -97,8 +97,16 @@ namespace WolfVillage.Common
         }
     }
 
+    public interface IInputController
+    {
+        void Initialize(string actionMapName);
+        void SwitchActionMaps(string actionMapName);
+        bool IsPressed(string actionName);
+        Vector2 GetReadValueByVector2(string actionName);
+    }
+
     [RequireComponent(typeof(PlayerInput))]
-    public class InputController : MonoBehaviour
+    public class InputController : MonoBehaviour, IInputController
     {
         [SerializeField] public InputActionAsset ActionAsset;
         [SerializeField] public List<InputCallback> InputCallbackList;

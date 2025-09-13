@@ -6544,6 +6544,11 @@ MonoBehaviour:
     Callback:
       m_PersistentCalls:
         m_Calls: []
+  - ActionMapName: Search
+    ActionName: OpenPlayerMenu
+    Callback:
+      m_PersistentCalls:
+        m_Calls: []
   - ActionMapName: PlayerMenuUI
     ActionName: StickInput
     Callback:
