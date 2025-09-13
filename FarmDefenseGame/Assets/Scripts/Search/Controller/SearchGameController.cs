@@ -16,7 +16,7 @@ namespace WolfVillage.Search
 {
     public class SearchGameController : MonoBehaviour
     {
-        [SerializeField] private PlayerMenu _playerMenuUI;
+        [SerializeField] private PlayerMenuUI.PlayerMenuUI _playerMenuUI;
         [SerializeField] private SearchCameraView _searchCameraView;
 
         // あとでシーンごとに設定しないようにするように変えたい
@@ -28,17 +28,18 @@ namespace WolfVillage.Search
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
 
         [SerializeField] private MoveController _moveController;
+        private OpenPlayerMenuController _openPlayerMenuController;
         
         private SearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
-
 
         void Start()
         {
             _inputController.Initialize(ActionMapName.SearchMap);
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
+            // ------ 仮用のデータをここで作ってる ------ //
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
             var skillEntities = skillVODataStore.Items.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
             Dictionary<RoleType, ISkillEntity[]> setAllTypeSkillEntities = new Dictionary<RoleType, ISkillEntity[]>();
@@ -61,13 +62,25 @@ namespace WolfVillage.Search
 
             var setArmorVO = armorVODataStore.Items.Where(vo => vo.Name != string.Empty).ToArray();
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
+            // ------------ //
 
             player = new SearchPlayerEntity(playerStatusVO, setAllTypeSkillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
             _moveController.Initialize(_searchCameraView, _inputController);
+            _openPlayerMenuController = new OpenPlayerMenuController(_inputController, _playerMenuUI);
         }
 
         #region InputSystemEventHandler
+        public void OpenPlayerMenu(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // ------ 仮用のデータをここで作ってる ------ //
+            var setSkillVO = skillVODataStore.Items.ToArray();
+            var skillEntities = skillVODataStore.Items.Select((skillVO, index) => new SkillEntity(index, skillVO)).ToArray();
+            // ------------ //
+            _openPlayerMenuController.Input(player, _weaponEntities, _armorEntities, skillEntities);
+        }
+
         public void InputDebugBattleStartEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;

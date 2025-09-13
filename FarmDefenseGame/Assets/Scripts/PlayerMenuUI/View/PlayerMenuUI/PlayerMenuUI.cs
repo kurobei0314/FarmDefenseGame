@@ -4,20 +4,32 @@ using WolfVillage.Search.PlayerMenuUI.EquipmentMenu;
 using WolfVillage.Search.PlayerMenuUI.SkillMenu;
 using Extension;
 using WolfVillage.Entity.Interface;
+using System;
 
 namespace WolfVillage.Search.PlayerMenuUI
 {
-    public class PlayerMenu : MonoBehaviour
+    public interface IPlayerMenuUI
+    {
+        public void Open( IPlayerEntity player,
+                          IWeaponEntity[] weaponEntities,
+                          IArmorEntity[] armorEntities,
+                          ISkillEntity[] skillEntities,
+                          Action closeAction);
+    }
+
+    public class PlayerMenuUI : MonoBehaviour, IPlayerMenuUI
     {
         [SerializeField] private PlayerMenuHeaderUI _headerUI;
         [SerializeField] private PlayerMenuContentUI _contentUI;
 
         private PlayerMenuUIVM _playerMenuVM;
+        private Action _closeAction;
 
-        public void Initialize( IPlayerEntity player,
-                                IWeaponEntity[] weaponEntities,
-                                IArmorEntity[] armorEntities,
-                                ISkillEntity[] skillEntities)
+        public void Open( IPlayerEntity player,
+                          IWeaponEntity[] weaponEntities,
+                          IArmorEntity[] armorEntities,
+                          ISkillEntity[] skillEntities,
+                          Action closeAction)
         {
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor((ISetEquipmentEntity)player, weaponEntities, armorEntities);
@@ -26,6 +38,9 @@ namespace WolfVillage.Search.PlayerMenuUI
             _playerMenuVM = new PlayerMenuUIVM();
             _contentUI.Initialize(_playerMenuVM.State, equipmentActor, skillActor);
             _headerUI.UpdateView(_playerMenuVM.State);
+
+            _closeAction = closeAction;
+            this.gameObject.SetActive(true);
         }
 
         #region InputSystemEventHandler

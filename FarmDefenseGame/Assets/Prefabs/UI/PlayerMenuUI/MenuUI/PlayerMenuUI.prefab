@@ -256,10 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _headerUI: {fileID: 168044623619350042}
   _contentUI: {fileID: 8803676749390422249}
-  weaponVODataStore: {fileID: 11400000, guid: 642840e33fdc442078ca6c4be6f5247d, type: 2}
-  skillVODataStore: {fileID: 11400000, guid: f4972169f6e664f8b9ed6c79de176ec2, type: 2}
-  armorVODataStore: {fileID: 11400000, guid: a93335e0b83ee483dac104da32b8373a, type: 2}
-  playerDataStore: {fileID: 11400000, guid: c03b058d4799544678df76d74d0821e0, type: 2}
 --- !u!1 &3730677956226484810
 GameObject:
   m_ObjectHideFlags: 0

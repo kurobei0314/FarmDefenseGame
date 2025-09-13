@@ -430,6 +430,15 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                     ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenPlayerMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""87eb1b71-42e6-4d44-a052-13af51cdb8d8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -498,6 +507,28 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c278b6a5-58b6-434c-b78b-18ca60df964e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPlayerMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""844eb714-efb5-456c-aaa4-e995d0e560aa"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPlayerMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -762,6 +793,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         // Search
         m_Search = asset.FindActionMap("Search", throwIfNotFound: true);
         m_Search_Move = m_Search.FindAction("Move", throwIfNotFound: true);
+        m_Search_OpenPlayerMenu = m_Search.FindAction("OpenPlayerMenu", throwIfNotFound: true);
         // PlayerMenuUI
         m_PlayerMenuUI = asset.FindActionMap("PlayerMenuUI", throwIfNotFound: true);
         m_PlayerMenuUI_StickInput = m_PlayerMenuUI.FindAction("StickInput", throwIfNotFound: true);
@@ -960,11 +992,13 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
     private readonly InputActionMap m_Search;
     private List<ISearchActions> m_SearchActionsCallbackInterfaces = new List<ISearchActions>();
     private readonly InputAction m_Search_Move;
+    private readonly InputAction m_Search_OpenPlayerMenu;
     public struct SearchActions
     {
         private @FarmDefenseInputSystem m_Wrapper;
         public SearchActions(@FarmDefenseInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Search_Move;
+        public InputAction @OpenPlayerMenu => m_Wrapper.m_Search_OpenPlayerMenu;
         public InputActionMap Get() { return m_Wrapper.m_Search; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -977,6 +1011,9 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @OpenPlayerMenu.started += instance.OnOpenPlayerMenu;
+            @OpenPlayerMenu.performed += instance.OnOpenPlayerMenu;
+            @OpenPlayerMenu.canceled += instance.OnOpenPlayerMenu;
         }
 
         private void UnregisterCallbacks(ISearchActions instance)
@@ -984,6 +1021,9 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @OpenPlayerMenu.started -= instance.OnOpenPlayerMenu;
+            @OpenPlayerMenu.performed -= instance.OnOpenPlayerMenu;
+            @OpenPlayerMenu.canceled -= instance.OnOpenPlayerMenu;
         }
 
         public void RemoveCallbacks(ISearchActions instance)
@@ -1127,6 +1167,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
     public interface ISearchActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnOpenPlayerMenu(InputAction.CallbackContext context);
     }
     public interface IPlayerMenuUIActions
     {
