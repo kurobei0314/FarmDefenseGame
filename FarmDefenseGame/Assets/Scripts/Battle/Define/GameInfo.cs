@@ -22,11 +22,16 @@ namespace WolfVillage.Battle
 
 namespace WolfVillage.Search
 {
-    public class SearchGameInputActionName
+    public class PlayerMenuUIInputActionName
     {
         public const string StickInput = "StickInput";
         public const string Decide = "Decide";
         public const string Cancel = "Cancel";
+    }
+
+    public class SearchGameInputActionName
+    {
+        public const string PlayerMove = "Move";
     }
 }
 

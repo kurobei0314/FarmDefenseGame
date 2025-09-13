@@ -424,7 +424,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""62ac0ad1-aa6b-4fcc-822d-d5e31aca6ebb"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""StickDeadzone"",

@@ -107,7 +107,7 @@ namespace WolfVillage.Common
 
         public void Initialize(string actionMapName)
         {
-            SetCallbackForInputActionAsset(actionMapName);
+            SwitchActionMaps(actionMapName);
             ActionAsset.Enable();
         }
 
@@ -147,5 +147,8 @@ namespace WolfVillage.Common
 
         public bool IsPressed(string actionName)
             => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).IsPressed() ?? false;
+
+        public Vector2 GetReadValueByVector2(string actionName)
+            => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).ReadValue<Vector2>() ?? Vector2.zero;
     }
 }

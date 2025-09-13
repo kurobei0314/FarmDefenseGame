@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
 using UnityEngine.InputSystem;
 using WolfVillage.Search.PlayerMenuUI;
+using WolfVillage.Common;
 
 namespace WolfVillage.Search
 {
@@ -17,22 +18,25 @@ namespace WolfVillage.Search
     {
         [SerializeField] private PlayerMenu _playerMenuUI;
         [SerializeField] private SearchCameraView _searchCameraView;
-        [SerializeField] private PlayerInput _playerInput;
+
+        // あとでシーンごとに設定しないようにするように変えたい
+        [SerializeField] private InputController _inputController;
         // TODO: 仮
         [SerializeField] private WeaponVODataStore weaponVODataStore;
         [SerializeField] private SkillVODataStore skillVODataStore;
         [SerializeField] private ArmorVODataStore armorVODataStore;
         [SerializeField] private PlayerStatusVODataStore playerDataStore;
 
+        [SerializeField] private MoveController _moveController;
+        
         private SearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
 
-        private MoveController _moveController;
 
         void Start()
         {
-            _playerInput.SwitchCurrentActionMap(ActionMapName.SearchMap);
+            _inputController.Initialize(ActionMapName.SearchMap);
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             var setSkillVO = skillVODataStore.Items.Where(skillVO => skillVO.Id == 1).ToArray();
@@ -59,14 +63,11 @@ namespace WolfVillage.Search
             _armorEntities = setArmorVO.Select((vo, index) => new ArmorEntity(index, vo)).ToArray();
 
             player = new SearchPlayerEntity(playerStatusVO, setAllTypeSkillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
-            _moveController = new MoveController(_searchCameraView);
+
+            _moveController.Initialize(_searchCameraView, _inputController);
         }
 
         #region InputSystemEventHandler
-        // TODO: デバックのためなので後で消す
-        public void InputMoveEvent(InputAction.CallbackContext context)
-            => _moveController.Input(context);
-        
         public void InputDebugBattleStartEvent(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
