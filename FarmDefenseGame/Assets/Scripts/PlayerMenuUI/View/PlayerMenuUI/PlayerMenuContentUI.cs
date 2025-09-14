@@ -46,8 +46,8 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void InputDecideEvent(InputAction.CallbackContext context)
             => _currentPlayerMenuUI.InputDecide(context);
 
-        public void InputCancelEvent(InputAction.CallbackContext context)
-            => _currentPlayerMenuUI.InputCancel(context);
+        public void InputBackEvent(InputAction.CallbackContext context)
+            => _currentPlayerMenuUI.InputBack(context);
 
         public void InputSwitchSubCategoryEvent(InputAction.CallbackContext context, int index)
             => _currentPlayerMenuUI.InputSwitchSubCategory(context, index);

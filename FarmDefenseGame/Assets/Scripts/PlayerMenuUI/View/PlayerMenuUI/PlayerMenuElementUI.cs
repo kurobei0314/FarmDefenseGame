@@ -8,7 +8,7 @@ namespace WolfVillage.Search.PlayerMenuUI
         protected abstract void ShowUI();
         protected abstract void InputStickEvent(Vector2 axis);
         protected abstract void InputDecideEvent();
-        protected abstract void InputCancelEvent();
+        protected abstract void InputBackEvent();
         protected abstract void InputSwitchSubCategoryEvent(int index);
         public abstract void Dispose();
 
@@ -31,10 +31,10 @@ namespace WolfVillage.Search.PlayerMenuUI
             InputDecideEvent();
         }
 
-        public void InputCancel(InputAction.CallbackContext context)
+        public void InputBack(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            InputCancelEvent();
+            InputBackEvent();
         }
 
         public void InputSwitchSubCategory(InputAction.CallbackContext context, int index)

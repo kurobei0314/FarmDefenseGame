@@ -64,7 +64,7 @@ namespace WolfVillage.Search.PlayerMenuUI.SkillMenu
             }
         }
 
-        protected override void InputCancelEvent()
+        protected override void InputBackEvent()
         {
         }
 

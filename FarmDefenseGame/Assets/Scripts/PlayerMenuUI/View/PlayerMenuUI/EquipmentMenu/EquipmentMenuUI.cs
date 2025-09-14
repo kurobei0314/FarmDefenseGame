@@ -70,7 +70,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             }
         }
 
-        protected override void InputCancelEvent()
+        protected override void InputBackEvent()
         {
             switch (_weaponMenuVM.State)
             {
@@ -101,7 +101,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             {
                 _equipmentUseCase.SetCurrentWeapon(vm.Id);
                 _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
-                InputCancelEvent();
+                InputBackEvent();
             });
             _weaponMenuVM.SetState(FocusEquipmentMenuState.OwnedWeaponList);
         }
@@ -115,7 +115,7 @@ namespace WolfVillage.Search.PlayerMenuUI.EquipmentMenu
             {
                 _equipmentUseCase.SetCurrentArmor(vm.Id);
                 _currentEquipmentPanel.SetEquipments(_equipmentUseCase.PlayerCurrentWeapon, _equipmentUseCase.PlayerCurrentArmor);
-                InputCancelEvent();
+                InputBackEvent();
             });
             _weaponMenuVM.SetState(FocusEquipmentMenuState.OwnedArmorList);
         }
