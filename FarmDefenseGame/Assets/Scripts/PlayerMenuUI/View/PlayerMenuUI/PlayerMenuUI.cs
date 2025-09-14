@@ -10,11 +10,11 @@ namespace WolfVillage.Search.PlayerMenuUI
 {
     public interface IPlayerMenuUI
     {
-        public void Open( IPlayerEntity player,
-                          IWeaponEntity[] weaponEntities,
-                          IArmorEntity[] armorEntities,
-                          ISkillEntity[] skillEntities,
-                          Action closeAction);
+        void Open(  IPlayerEntity player,
+                    IWeaponEntity[] weaponEntities,
+                    IArmorEntity[] armorEntities,
+                    ISkillEntity[] skillEntities,
+                    Action closeAction);
     }
 
     public class PlayerMenuUI : MonoBehaviour, IPlayerMenuUI
@@ -25,11 +25,11 @@ namespace WolfVillage.Search.PlayerMenuUI
         private PlayerMenuUIVM _playerMenuVM;
         private Action _closeAction;
 
-        public void Open( IPlayerEntity player,
-                          IWeaponEntity[] weaponEntities,
-                          IArmorEntity[] armorEntities,
-                          ISkillEntity[] skillEntities,
-                          Action closeAction)
+        public void Open(   IPlayerEntity player,
+                            IWeaponEntity[] weaponEntities,
+                            IArmorEntity[] armorEntities,
+                            ISkillEntity[] skillEntities,
+                            Action closeAction)
         {
             this.gameObject.SetActive(true);
 
@@ -42,6 +42,12 @@ namespace WolfVillage.Search.PlayerMenuUI
             _headerUI.UpdateView(_playerMenuVM.State);
 
             _closeAction = closeAction;
+        }
+
+        public void Close()
+        {
+            _closeAction.Invoke();
+            this.gameObject.SetActive(false);
         }
 
         #region InputSystemEventHandler
@@ -60,6 +66,8 @@ namespace WolfVillage.Search.PlayerMenuUI
             => _contentUI.InputSwitchSubCategoryEvent(context, -1);
         public void InputSwitchNextSubCategoryEvent(InputAction.CallbackContext context)
             => _contentUI.InputSwitchSubCategoryEvent(context, 1);
+        public void InputClosePlayerMenuUI(InputAction.CallbackContext context)
+            => Close(); 
         #endregion
 
         private void UpdatePlayerMenuContentView(InputAction.CallbackContext context, int index)

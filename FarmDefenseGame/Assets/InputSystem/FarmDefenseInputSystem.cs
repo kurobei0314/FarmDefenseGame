@@ -616,6 +616,15 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bcd7587-5f3b-4f7e-a152-b51988e9ad2d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -699,7 +708,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""d891de53-3fe8-4b31-9af7-e271a28dcdea"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/{Back}"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -772,6 +781,17 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                     ""action"": ""SwitchNextCategory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c31a54d7-9961-4eb7-96c5-bb35acadd006"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -805,6 +825,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         m_PlayerMenuUI_SwitchNextCategory = m_PlayerMenuUI.FindAction("SwitchNextCategory", throwIfNotFound: true);
         m_PlayerMenuUI_SwitchPreSubCategory = m_PlayerMenuUI.FindAction("SwitchPreSubCategory", throwIfNotFound: true);
         m_PlayerMenuUI_SwitchNextSubCategory = m_PlayerMenuUI.FindAction("SwitchNextSubCategory", throwIfNotFound: true);
+        m_PlayerMenuUI_CloseMenu = m_PlayerMenuUI.FindAction("CloseMenu", throwIfNotFound: true);
     }
 
     ~@FarmDefenseInputSystem()
@@ -1054,6 +1075,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
     private readonly InputAction m_PlayerMenuUI_SwitchNextCategory;
     private readonly InputAction m_PlayerMenuUI_SwitchPreSubCategory;
     private readonly InputAction m_PlayerMenuUI_SwitchNextSubCategory;
+    private readonly InputAction m_PlayerMenuUI_CloseMenu;
     public struct PlayerMenuUIActions
     {
         private @FarmDefenseInputSystem m_Wrapper;
@@ -1067,6 +1089,7 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         public InputAction @SwitchNextCategory => m_Wrapper.m_PlayerMenuUI_SwitchNextCategory;
         public InputAction @SwitchPreSubCategory => m_Wrapper.m_PlayerMenuUI_SwitchPreSubCategory;
         public InputAction @SwitchNextSubCategory => m_Wrapper.m_PlayerMenuUI_SwitchNextSubCategory;
+        public InputAction @CloseMenu => m_Wrapper.m_PlayerMenuUI_CloseMenu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMenuUI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1103,6 +1126,9 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @SwitchNextSubCategory.started += instance.OnSwitchNextSubCategory;
             @SwitchNextSubCategory.performed += instance.OnSwitchNextSubCategory;
             @SwitchNextSubCategory.canceled += instance.OnSwitchNextSubCategory;
+            @CloseMenu.started += instance.OnCloseMenu;
+            @CloseMenu.performed += instance.OnCloseMenu;
+            @CloseMenu.canceled += instance.OnCloseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerMenuUIActions instance)
@@ -1134,6 +1160,9 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @SwitchNextSubCategory.started -= instance.OnSwitchNextSubCategory;
             @SwitchNextSubCategory.performed -= instance.OnSwitchNextSubCategory;
             @SwitchNextSubCategory.canceled -= instance.OnSwitchNextSubCategory;
+            @CloseMenu.started -= instance.OnCloseMenu;
+            @CloseMenu.performed -= instance.OnCloseMenu;
+            @CloseMenu.canceled -= instance.OnCloseMenu;
         }
 
         public void RemoveCallbacks(IPlayerMenuUIActions instance)
@@ -1180,5 +1209,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         void OnSwitchNextCategory(InputAction.CallbackContext context);
         void OnSwitchPreSubCategory(InputAction.CallbackContext context);
         void OnSwitchNextSubCategory(InputAction.CallbackContext context);
+        void OnCloseMenu(InputAction.CallbackContext context);
     }
 }
