@@ -31,6 +31,8 @@ namespace WolfVillage.Search.PlayerMenuUI
                           ISkillEntity[] skillEntities,
                           Action closeAction)
         {
+            this.gameObject.SetActive(true);
+            
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor((ISetEquipmentEntity)player, weaponEntities, armorEntities);
             var skillActor = new SetSkillActor((ISetSkillEntity)player, skillEntities);
@@ -40,7 +42,6 @@ namespace WolfVillage.Search.PlayerMenuUI
             _headerUI.UpdateView(_playerMenuVM.State);
 
             _closeAction = closeAction;
-            this.gameObject.SetActive(true);
         }
 
         #region InputSystemEventHandler
