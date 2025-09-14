@@ -6680,7 +6680,7 @@ MonoBehaviour:
         - m_Target: {fileID: 2122802958}
           m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
             Script
-          m_MethodName: InputSwitchPreCategoryEvent
+          m_MethodName: InputSwitchPreSubCategoryEvent
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6698,7 +6698,7 @@ MonoBehaviour:
         - m_Target: {fileID: 2122802958}
           m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
             Script
-          m_MethodName: InputSwitchNextCategoryEvent
+          m_MethodName: InputSwitchNextSubCategoryEvent
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

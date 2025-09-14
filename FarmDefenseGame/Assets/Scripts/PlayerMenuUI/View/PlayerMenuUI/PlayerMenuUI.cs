@@ -64,7 +64,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         private void UpdatePlayerMenuContentView(InputAction.CallbackContext context, int index)
         {
-            if (!context.started) return;
+            if (!context.performed) return;
             var nextIndex = (int)_playerMenuVM.State + index;
             if (nextIndex < EnumHelper.GetMinIndexEnum<PlayerMenuState>())
                 nextIndex = EnumHelper.GetMaxIndexEnum<PlayerMenuState>();
