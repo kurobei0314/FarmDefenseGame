@@ -32,7 +32,7 @@ namespace WolfVillage.Search.PlayerMenuUI
                           Action closeAction)
         {
             this.gameObject.SetActive(true);
-            
+
             // TODO: ここの処理も別の場所に書く
             var equipmentActor = new SetEquipmentActor((ISetEquipmentEntity)player, weaponEntities, armorEntities);
             var skillActor = new SetSkillActor((ISetSkillEntity)player, skillEntities);
@@ -53,9 +53,9 @@ namespace WolfVillage.Search.PlayerMenuUI
         public void InputCancelEvent(InputAction.CallbackContext context)
             => _contentUI.InputCancelEvent(context);
         public void InputSwitchPreCategoryEvent(InputAction.CallbackContext context)
-        => UpdatePlayerMenuContentView(context, -1);
+            => UpdatePlayerMenuContentView(context, -1);
         public void InputSwitchNextCategoryEvent(InputAction.CallbackContext context)
-        => UpdatePlayerMenuContentView(context, 1);
+            => UpdatePlayerMenuContentView(context, 1);
         public void InputSwitchPreSubCategoryEvent(InputAction.CallbackContext context)
             => _contentUI.InputSwitchSubCategoryEvent(context, -1);
         public void InputSwitchNextSubCategoryEvent(InputAction.CallbackContext context)

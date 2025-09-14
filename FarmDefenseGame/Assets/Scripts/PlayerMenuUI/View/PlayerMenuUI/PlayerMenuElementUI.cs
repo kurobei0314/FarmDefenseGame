@@ -20,7 +20,7 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public void InputStick(InputAction.CallbackContext context)
         {
-            if (!context.started) return;
+            if (!context.performed) return;
             var value = context.ReadValue<Vector2>();
             InputStickEvent(value);
         }
