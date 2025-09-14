@@ -6582,7 +6582,20 @@ MonoBehaviour:
     ActionName: Decide
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputDecideEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: Back
     Callback:
@@ -6592,32 +6605,109 @@ MonoBehaviour:
     ActionName: Cancel
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputCancelEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: DebugBattleStart
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: SwitchPreCategory
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputSwitchPreCategoryEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: SwitchNextCategory
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputSwitchNextCategoryEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: SwitchPreSubCategory
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputSwitchPreCategoryEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ActionMapName: PlayerMenuUI
     ActionName: SwitchNextSubCategory
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2122802958}
+          m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
+            Script
+          m_MethodName: InputSwitchNextCategoryEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1523651717
 GameObject:
   m_ObjectHideFlags: 0
