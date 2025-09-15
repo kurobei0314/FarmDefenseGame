@@ -6600,16 +6600,11 @@ MonoBehaviour:
     ActionName: Back
     Callback:
       m_PersistentCalls:
-        m_Calls: []
-  - ActionMapName: PlayerMenuUI
-    ActionName: Cancel
-    Callback:
-      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2122802958}
           m_TargetAssemblyTypeName: WolfVillage.Search.PlayerMenuUI.PlayerMenuUI,
             Script
-          m_MethodName: InputCancelEvent
+          m_MethodName: InputBackEvent
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6619,6 +6614,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - ActionMapName: PlayerMenuUI
+    ActionName: Cancel
+    Callback:
+      m_PersistentCalls:
+        m_Calls: []
   - ActionMapName: PlayerMenuUI
     ActionName: DebugBattleStart
     Callback:

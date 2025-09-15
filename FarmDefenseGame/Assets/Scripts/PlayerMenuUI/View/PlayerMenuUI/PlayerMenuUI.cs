@@ -46,7 +46,8 @@ namespace WolfVillage.Search.PlayerMenuUI
 
         public void Close()
         {
-            _closeAction.Invoke();
+            _closeAction?.Invoke();
+            _closeAction = null;
             this.gameObject.SetActive(false);
         }
 

@@ -5,6 +5,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace WolfVillage.Common
 {
@@ -95,6 +96,11 @@ namespace WolfVillage.Common
             ActionMapName = actionMapName;
             ActionName = actionName;
         }
+
+        public void InitializeActionEvent()
+            => Action = (context) => Callback?.Invoke(context);
+        
+        public Action<CallbackContext> Action;
     }
 
     public interface IInputController
@@ -110,11 +116,14 @@ namespace WolfVillage.Common
     {
         [SerializeField] public InputActionAsset ActionAsset;
         [SerializeField] public List<InputCallback> InputCallbackList;
-
         private string currentActionMapName = String.Empty;
 
         public void Initialize(string actionMapName)
         {
+            for (var i = 0; i < InputCallbackList.Count; i++)
+            {
+                InputCallbackList[i].InitializeActionEvent();
+            }
             SwitchActionMaps(actionMapName);
             ActionAsset.Enable();
         }
@@ -131,26 +140,29 @@ namespace WolfVillage.Common
 
         private void SetCallbackForInputActionAsset(string actionMapName)
         {
+            if (currentActionMapName == actionMapName) return;
             foreach (var inputCallback in InputCallbackList)
             {
                 if (actionMapName != inputCallback?.ActionMapName) continue;
                 var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
                 if (action == null) continue;
-                action.performed += (context) => inputCallback?.Callback?.Invoke(context);
+                action.performed += inputCallback?.Action;
                 action.Enable();
             }
         }
 
         private void UnSetCallbackForInputActionAsset(string actionMapName)
         {
+            if (currentActionMapName != actionMapName) return;
             foreach(var inputCallback in InputCallbackList)
             {
                 if (actionMapName != inputCallback?.ActionMapName) continue;
                 var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
                 if (action == null) continue;
-                action.performed -= (context) => inputCallback?.Callback?.Invoke(context);
+                action.performed -= inputCallback?.Action;
                 action.Disable();
             }
+            currentActionMapName = String.Empty;
         }
 
         public bool IsPressed(string actionMapName, string actionName)
