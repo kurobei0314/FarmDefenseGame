@@ -564,15 +564,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Cancel"",
-                    ""type"": ""Button"",
-                    ""id"": ""30286d99-04b1-4adb-a654-6dd281e14a0e"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""DebugBattleStart"",
                     ""type"": ""Button"",
                     ""id"": ""e1d05964-b597-44c0-80ef-df5763c857c0"",
@@ -718,17 +709,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e277efb3-fec5-4413-ba13-f2feb33b67bb"",
-                    ""path"": ""*/{Cancel}"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Cancel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""beb9051a-9152-4aac-acbc-3b0048e85808"",
                     ""path"": ""<Keyboard>/b"",
                     ""interactions"": ""Press"",
@@ -819,7 +799,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         m_PlayerMenuUI_StickInput = m_PlayerMenuUI.FindAction("StickInput", throwIfNotFound: true);
         m_PlayerMenuUI_Decide = m_PlayerMenuUI.FindAction("Decide", throwIfNotFound: true);
         m_PlayerMenuUI_Back = m_PlayerMenuUI.FindAction("Back", throwIfNotFound: true);
-        m_PlayerMenuUI_Cancel = m_PlayerMenuUI.FindAction("Cancel", throwIfNotFound: true);
         m_PlayerMenuUI_DebugBattleStart = m_PlayerMenuUI.FindAction("DebugBattleStart", throwIfNotFound: true);
         m_PlayerMenuUI_SwitchPreCategory = m_PlayerMenuUI.FindAction("SwitchPreCategory", throwIfNotFound: true);
         m_PlayerMenuUI_SwitchNextCategory = m_PlayerMenuUI.FindAction("SwitchNextCategory", throwIfNotFound: true);
@@ -1069,7 +1048,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
     private readonly InputAction m_PlayerMenuUI_StickInput;
     private readonly InputAction m_PlayerMenuUI_Decide;
     private readonly InputAction m_PlayerMenuUI_Back;
-    private readonly InputAction m_PlayerMenuUI_Cancel;
     private readonly InputAction m_PlayerMenuUI_DebugBattleStart;
     private readonly InputAction m_PlayerMenuUI_SwitchPreCategory;
     private readonly InputAction m_PlayerMenuUI_SwitchNextCategory;
@@ -1083,7 +1061,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         public InputAction @StickInput => m_Wrapper.m_PlayerMenuUI_StickInput;
         public InputAction @Decide => m_Wrapper.m_PlayerMenuUI_Decide;
         public InputAction @Back => m_Wrapper.m_PlayerMenuUI_Back;
-        public InputAction @Cancel => m_Wrapper.m_PlayerMenuUI_Cancel;
         public InputAction @DebugBattleStart => m_Wrapper.m_PlayerMenuUI_DebugBattleStart;
         public InputAction @SwitchPreCategory => m_Wrapper.m_PlayerMenuUI_SwitchPreCategory;
         public InputAction @SwitchNextCategory => m_Wrapper.m_PlayerMenuUI_SwitchNextCategory;
@@ -1108,9 +1085,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
-            @Cancel.started += instance.OnCancel;
-            @Cancel.performed += instance.OnCancel;
-            @Cancel.canceled += instance.OnCancel;
             @DebugBattleStart.started += instance.OnDebugBattleStart;
             @DebugBattleStart.performed += instance.OnDebugBattleStart;
             @DebugBattleStart.canceled += instance.OnDebugBattleStart;
@@ -1142,9 +1116,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
-            @Cancel.started -= instance.OnCancel;
-            @Cancel.performed -= instance.OnCancel;
-            @Cancel.canceled -= instance.OnCancel;
             @DebugBattleStart.started -= instance.OnDebugBattleStart;
             @DebugBattleStart.performed -= instance.OnDebugBattleStart;
             @DebugBattleStart.canceled -= instance.OnDebugBattleStart;
@@ -1203,7 +1174,6 @@ public partial class @FarmDefenseInputSystem: IInputActionCollection2, IDisposab
         void OnStickInput(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
-        void OnCancel(InputAction.CallbackContext context);
         void OnDebugBattleStart(InputAction.CallbackContext context);
         void OnSwitchPreCategory(InputAction.CallbackContext context);
         void OnSwitchNextCategory(InputAction.CallbackContext context);

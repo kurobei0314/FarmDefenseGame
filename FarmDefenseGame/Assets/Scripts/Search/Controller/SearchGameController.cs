@@ -11,6 +11,7 @@ using WolfVillage.Battle;
 using UnityEngine.InputSystem;
 using WolfVillage.Search.PlayerMenuUI;
 using WolfVillage.Common;
+using R3;
 
 namespace WolfVillage.Search
 {
@@ -36,7 +37,6 @@ namespace WolfVillage.Search
 
         void Start()
         {
-            _inputController.Initialize(ActionMapName.SearchMap);
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
             
             // ------ 仮用のデータをここで作ってる ------ //
@@ -68,6 +68,9 @@ namespace WolfVillage.Search
 
             _moveController.Initialize(_searchCameraView, _inputController);
             _openPlayerMenuController = new OpenPlayerMenuController(_inputController, _playerMenuUI);
+
+            // おそらくInputSystemの初期化時にenableがtrueになってしまうため、1フレーム待ってから初期化を行う
+            Observable.NextFrame().Subscribe(_ => _inputController.Initialize(ActionMapName.SearchMap)).AddTo(this);
         }
 
         #region InputSystemEventHandler

@@ -90,6 +90,7 @@ namespace WolfVillage.Common
         [SerializeField] public string ActionMapName;
         [SerializeField] public string ActionName;
         [SerializeField] public UnityEvent<InputAction.CallbackContext> Callback;
+        public Action<CallbackContext> Action;
 
         public InputCallback(string actionMapName, string actionName)
         {
@@ -99,8 +100,6 @@ namespace WolfVillage.Common
 
         public void InitializeActionEvent()
             => Action = (context) => Callback?.Invoke(context);
-        
-        public Action<CallbackContext> Action;
     }
 
     public interface IInputController
@@ -111,21 +110,19 @@ namespace WolfVillage.Common
         Vector2 GetReadValueByVector2(string actionName);
     }
 
-    [RequireComponent(typeof(PlayerInput))]
     public class InputController : MonoBehaviour, IInputController
     {
         [SerializeField] public InputActionAsset ActionAsset;
         [SerializeField] public List<InputCallback> InputCallbackList;
         private string currentActionMapName = String.Empty;
-
         public void Initialize(string actionMapName)
         {
             for (var i = 0; i < InputCallbackList.Count; i++)
             {
                 InputCallbackList[i].InitializeActionEvent();
             }
+            DisableAllInputAction();
             SwitchActionMaps(actionMapName);
-            ActionAsset.Enable();
         }
 
         public void SwitchActionMaps(string actionMapName)
@@ -173,5 +170,20 @@ namespace WolfVillage.Common
 
         public Vector2 GetReadValueByVector2(string actionName)
             => ActionAsset?.FindActionMap(currentActionMapName)?.FindAction(actionName).ReadValue<Vector2>() ?? Vector2.zero;
+
+        public void Dispose()
+        {
+            DisableAllInputAction();
+        }
+
+        private void DisableAllInputAction()
+        {
+            foreach (var inputCallback in InputCallbackList)
+            {
+                var action = ActionAsset?.FindActionMap(inputCallback?.ActionMapName)?.FindAction(inputCallback?.ActionName);
+                if (action == null) continue;
+                action.Disable();
+            }
+        }
     }
 }

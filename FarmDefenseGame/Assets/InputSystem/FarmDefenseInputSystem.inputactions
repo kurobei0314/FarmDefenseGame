@@ -542,15 +542,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Cancel",
-                    "type": "Button",
-                    "id": "30286d99-04b1-4adb-a654-6dd281e14a0e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "DebugBattleStart",
                     "type": "Button",
                     "id": "e1d05964-b597-44c0-80ef-df5763c857c0",
@@ -691,17 +682,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e277efb3-fec5-4413-ba13-f2feb33b67bb",
-                    "path": "*/{Cancel}",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
