@@ -9,7 +9,6 @@ using WolfVillage.Entity;
 using UnityEngine.SceneManagement;
 using WolfVillage.Battle;
 using UnityEngine.InputSystem;
-using WolfVillage.Search.PlayerMenuUI;
 using WolfVillage.Common;
 using R3;
 
@@ -34,7 +33,6 @@ namespace WolfVillage.Search
         private SearchPlayerEntity player;
         private WeaponEntity[] _weaponEntities;
         private ArmorEntity[] _armorEntities;
-
         void Start()
         {
             var playerStatusVO = playerDataStore.Items.FirstOrDefault();
