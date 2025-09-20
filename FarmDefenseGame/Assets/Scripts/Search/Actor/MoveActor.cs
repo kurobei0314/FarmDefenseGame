@@ -18,19 +18,26 @@ namespace WolfVillage.Search
         {
             var leftDownViewportPos = new Vector3();
             var rightUpViewportPos = new Vector3();
-            _mapView.GetBgLeftDownWorldPosition(ref leftDownViewportPos);
-            _mapView.GetBgRightUpWorldPosition(ref rightUpViewportPos);
-            _cameraView.GetViewportPosition(ref leftDownViewportPos);
-            _cameraView.GetViewportPosition(ref rightUpViewportPos);
+            GetViewportPosition(ref leftDownViewportPos, ref rightUpViewportPos);
 
             var delta = new Vector3();
-            
             if (axis.x != 0) 
                 CalculateCameraPositionX(axis.x, leftDownViewportPos, rightUpViewportPos, ref delta);
             if (axis.y != 0) 
                 CalculateCameraPositionY(axis.y, leftDownViewportPos, rightUpViewportPos, ref delta);
 
             _cameraView.AddPosition(delta);
+        }
+
+        private void GetViewportPosition(ref Vector3 leftDownViewportPos, ref Vector3 rightUpViewportPos)
+        {
+            // 背景のWorld座標を求める
+            _mapView.GetBgLeftDownWorldPosition(ref leftDownViewportPos);
+            _mapView.GetBgRightUpWorldPosition(ref rightUpViewportPos);
+
+            // 背景のViewPort座標を求める
+            _cameraView.GetViewportPosition(ref leftDownViewportPos);
+            _cameraView.GetViewportPosition(ref rightUpViewportPos);
         }
 
         private void CalculateCameraPositionX(  float deltaX,
