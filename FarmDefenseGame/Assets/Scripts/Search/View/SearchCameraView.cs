@@ -10,5 +10,10 @@ namespace WolfVillage.Search
         {
             _camera.transform.position += delta;
         }
+
+        public void GetViewportPosition(ref Vector3 position)
+        {
+            position = _camera.WorldToViewportPoint(position);
+        }
     }
 }

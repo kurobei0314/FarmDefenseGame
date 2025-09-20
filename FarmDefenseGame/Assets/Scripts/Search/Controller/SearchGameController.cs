@@ -18,6 +18,7 @@ namespace WolfVillage.Search
     {
         [SerializeField] private PlayerMenuUI.PlayerMenuUI _playerMenuUI;
         [SerializeField] private SearchCameraView _searchCameraView;
+        [SerializeField] private SearchMapView _searchMapView;
 
         // あとでシーンごとに設定しないようにするように変えたい
         [SerializeField] private InputController _inputController;
@@ -64,7 +65,7 @@ namespace WolfVillage.Search
 
             player = new SearchPlayerEntity(playerStatusVO, setAllTypeSkillEntities, _weaponEntities.FirstOrDefault(), _armorEntities.FirstOrDefault());
 
-            _moveController.Initialize(_searchCameraView, _inputController);
+            _moveController.Initialize(_searchCameraView, _searchMapView, _inputController);
             _openPlayerMenuController = new OpenPlayerMenuController(_inputController, _playerMenuUI);
 
             // おそらくInputSystemの初期化時にenableがtrueになってしまうため、1フレーム待ってから初期化を行う

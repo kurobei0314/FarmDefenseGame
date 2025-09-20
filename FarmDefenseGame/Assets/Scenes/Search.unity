@@ -898,6 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMenuUI: {fileID: 2122802958}
   _searchCameraView: {fileID: 1701311662}
+  _searchMapView: {fileID: 768667472}
   _inputController: {fileID: 1484478251}
   weaponVODataStore: {fileID: 11400000, guid: 642840e33fdc442078ca6c4be6f5247d, type: 2}
   skillVODataStore: {fileID: 11400000, guid: f4972169f6e664f8b9ed6c79de176ec2, type: 2}
@@ -3449,6 +3450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 768667471}
+  - component: {fileID: 768667472}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -3472,6 +3474,19 @@ Transform:
   - {fileID: 1856736856}
   m_Father: {fileID: 291865280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &768667472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768667470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c790e8d22cfe47409caa7b13801fc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bg: {fileID: 1992633356}
 --- !u!1 &769271697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5057,7 @@ Transform:
   m_GameObject: {fileID: 1259924874}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -0.000000044703484, y: 3, z: 0.000000067055225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
